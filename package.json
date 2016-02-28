@@ -2,12 +2,12 @@
   "name": "atom-lupa",
   "main": "./lib/atom-lupa",
   "version": "0.0.0",
-  "description": "A short description of your package",
-  "keywords": [],
+  "description": "show structure of JavaScript file",
+  "keywords": ["structure", "static analysis", "ast", "outline"],
   "activationCommands": {
     "atom-workspace": "atom-lupa:toggle"
   },
-  "repository": "https://github.com/atom/atom-lupa",
+  "repository": "https://github.com/hex13/atom-lupa",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
