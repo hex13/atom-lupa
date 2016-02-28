@@ -1,0 +1,22 @@
+{
+  "name": "atom-lupa",
+  "main": "./lib/atom-lupa",
+  "version": "0.0.0",
+  "description": "A short description of your package",
+  "keywords": [],
+  "activationCommands": {
+    "atom-workspace": "atom-lupa:toggle"
+  },
+  "repository": "https://github.com/atom/atom-lupa",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+    "ast-stream": "0.0.10",
+    "lupa": "*",
+    "through2": "^2.0.1",
+    "vinyl": "^1.1.1",
+    "vinyl-fs": "^2.3.2"
+  }
+}
