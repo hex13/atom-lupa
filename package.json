@@ -1,6 +1,6 @@
 {
   "name": "atom-lupa",
-  "main": "./lib/init.coffee",
+  "main": "./lib/atom-lupa",
   "version": "0.2.0",
   "description": "show structure of JavaScript file",
   "keywords": [
@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "ast-stream": "0.0.10",
-    "lupa": "*",
+    "lupa": "0.0.70",
     "through2": "^2.0.1",
     "vinyl": "^1.1.1",
     "vinyl-fs": "^2.3.2"
