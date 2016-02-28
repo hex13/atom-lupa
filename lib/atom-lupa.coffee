@@ -1,13 +1,14 @@
 AtomLupaView = require './atom-lupa-view'
 {CompositeDisposable} = require 'atom'
-plugin = require './init.coffee'
-
+console.log("lupa module")
 module.exports = AtomLupa =
   atomLupaView: null
   modalPanel: null
   subscriptions: null
 
   activate: (state) ->
+    console.log("lupa activate")
+    plugin = require './init.coffee'
     @atomLupaView = new AtomLupaView(state.atomLupaViewState)
     @modalPanel = atom.workspace.addModalPanel(item: @atomLupaView.getElement(), visible: false)
 
