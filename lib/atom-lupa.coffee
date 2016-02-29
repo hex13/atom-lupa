@@ -9,8 +9,9 @@ module.exports = AtomLupa =
   activate: (state) ->
     console.log("lupa activate")
     plugin = require './init.coffee'
-    @atomLupaView = new AtomLupaView(state.atomLupaViewState)
-    @modalPanel = atom.workspace.addModalPanel(item: @atomLupaView.getElement(), visible: false)
+    
+    # @atomLupaView = new AtomLupaView(state.atomLupaViewState)
+    # @modalPanel = atom.workspace.addModalPanel(item: @atomLupaView.getElement(), visible: false)
 
     # Events subscribed to in atom's system can be easily cleaned up with a CompositeDisposable
     @subscriptions = new CompositeDisposable
