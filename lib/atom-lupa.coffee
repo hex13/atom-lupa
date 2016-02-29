@@ -9,7 +9,7 @@ module.exports = AtomLupa =
   activate: (state) ->
     console.log("lupa activate")
     plugin = require './init.coffee'
-    
+
     # @atomLupaView = new AtomLupaView(state.atomLupaViewState)
     # @modalPanel = atom.workspace.addModalPanel(item: @atomLupaView.getElement(), visible: false)
 
@@ -30,7 +30,7 @@ module.exports = AtomLupa =
   toggle: ->
     console.log 'AtomLupa was toggled!'
 
-    if @modalPanel.isVisible()
-      @modalPanel.hide()
-    else
-      @modalPanel.show()
+    # if @modalPanel.isVisible()
+    #   @modalPanel.hide()
+    # else
+    #   @modalPanel.show()
