@@ -16,8 +16,7 @@ lupa = (require 'lupa').lupa
 console.log("lupa", lupa)
 fs = require 'fs'
 path_ = require 'path'
-json = fs.readFileSync '/Users/lukasz/output.json', 'utf8'
-db = JSON.parse json
+
 
 el = document.createElement('div');
 el.style.overflow = 'scroll'
@@ -69,15 +68,7 @@ update1 = ->
         .join('')
 
 
-
-    found = db.files.filter (f) -> f.path.indexOf(filename) != -1
     plugin.analyze(editor.buffer.file.path, update)
-
-
-    # if (found.length)
-    #     el.innerHTML = found[0].metadata.map (entry) ->
-    #         print[entry.name](entry)
-
 
     path = editor.buffer.file.path
 
