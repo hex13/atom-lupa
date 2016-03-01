@@ -13,7 +13,7 @@
 
 plugin = require './plugin'
 lupa = (require 'lupa').lupa
-console.log("lupa", lupa)
+
 fs = require 'fs'
 path_ = require 'path'
 
