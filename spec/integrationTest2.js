@@ -3,10 +3,11 @@ var plugin = require('../lib/plugin');
 
 
 test('mock.html', function (t) {
-    var pluginCount = 1 ;
+    var pluginCount = 2;
     var count = 0;
     plugin.analyze('mock.html', function (state) {
         count++;
+
         t.assert(count <= pluginCount);
         if (count == pluginCount) {
             t.end();

@@ -65,10 +65,15 @@ update1 = ->
             console.log("error: !found.length")
             return
 
-        el.innerHTML = found[0].metadata.map (entry) ->
-            render = print[entry.name] || print.default
-            render(entry)
-        .join('')
+        html = '...'
+        if path_.extname(found[0].path) == '.html'
+            html = plugin.getHtmlPreview(found[0])
+        else
+            html = found[0].metadata.map (entry) ->
+                render = print[entry.name] || print.default
+                render(entry)
+            .join('')
+        el.innerHTML = html
 
     el.innerHTML = ''
     plugin.analyze(editor.buffer.file.path, update)
