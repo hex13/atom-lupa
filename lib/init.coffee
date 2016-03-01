@@ -61,6 +61,9 @@ update1 = ->
 
     update = (state)->
         found = state.files.filter( (f) -> f.path == filename)
+        if (!found.length)
+            console.log("error: !found.length")
+            return
 
         el.innerHTML = found[0].metadata.map (entry) ->
             render = print[entry.name] || print.default
