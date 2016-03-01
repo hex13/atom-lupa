@@ -1,7 +1,7 @@
 {
   "name": "atom-lupa",
   "main": "./lib/atom-lupa",
-  "version": "0.3.12",
+  "version": "0.3.13",
   "description": "show structure of JavaScript file",
   "keywords": [
     "structure",
