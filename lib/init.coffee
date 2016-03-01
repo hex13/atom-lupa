@@ -70,7 +70,7 @@ update1 = ->
             render(entry)
         .join('')
 
-
+    el.innerHTML = ''
     plugin.analyze(editor.buffer.file.path, update)
 
     path = editor.buffer.file.path
