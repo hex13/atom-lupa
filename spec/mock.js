@@ -1,0 +1,5 @@
+function abc () {
+}
+
+function def () {
+}

@@ -24,5 +24,8 @@
     "through2": "^2.0.1",
     "vinyl": "^1.1.1",
     "vinyl-fs": "^2.3.2"
+  },
+  "devDependencies": {
+    "tape": "^4.4.0"
   }
 }
