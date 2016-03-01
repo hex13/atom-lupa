@@ -1,21 +1,18 @@
 var test = require('tape').test;
 var plugin = require('../lib/plugin');
 
-var count = 0;
 
-//TODO get this value from plugin itself
-var pluginCount = 3;
-
-
-test('mock.js', function (t) {
-    plugin.analyze('mock.js', function (state) {
+test('mock.html', function (t) {
+    var pluginCount = 1 ;
+    var count = 0;
+    plugin.analyze('mock.html', function (state) {
         count++;
-        t.assert(count<4);
+        t.assert(count <= pluginCount);
         if (count == pluginCount) {
             t.end();
         }
         t.equal(state.files.length, 1);
-        t.equal(state.files[0].path, 'mock.js')
+        t.equal(state.files[0].path, 'mock.html')
         t.assert(state.files[0].metadata.length)
     });
 });
