@@ -4,6 +4,7 @@
   "version": "0.3.19",
   "description": "show structure of JavaScript file",
   "keywords": [
+    "angular", "angularjs",
     "structure",
     "static analysis",
     "ast",
