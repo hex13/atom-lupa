@@ -23,7 +23,7 @@
     "ast-stream": "0.0.15",
     "flow-parser": "^0.21.0",
     "html-flavors": "0.0.10",
-    "lupa": "0.0.78",
+    "lupa": "0.0.79",
     "through2": "^2.0.1",
     "vinyl": "^1.1.1",
     "vinyl-fs": "^2.3.2"
