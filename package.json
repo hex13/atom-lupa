@@ -1,10 +1,11 @@
 {
   "name": "atom-lupa",
   "main": "./lib/atom-lupa",
-  "version": "0.3.19",
+  "version": "0.3.20",
   "description": "show structure of JavaScript file",
   "keywords": [
-    "angular", "angularjs",
+    "angular",
+    "angularjs",
     "structure",
     "static analysis",
     "ast",
