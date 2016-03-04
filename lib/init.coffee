@@ -30,6 +30,9 @@ atom.workspace.addLeftPanel(item: el)
 
 </div>"
 
+getFileFor = (name) ->
+    'not defined -' + name
+
 atom.workspace.addLeftPanel(item: el)
 
 
@@ -52,7 +55,11 @@ update1 = ->
                 '<br>'
         default: (entry) ->
             if entry.data.length
-                '<h3 style="color:grey">' + entry.name + '</h3>' + entry.data.join('<br>') + '<br>'
+                '<h3 style="color:grey">#{entry.name}</h3>' +
+                    entry.data.map(
+                        (n) -> '<div class="lupa-entry">#{n} - #{getFileFor(n)}</div>'
+                    ).join('<br>') +
+                    '<br>'
             else
                 '' #"<br><em style='color:grey'>no #{entry.name}</em>"
 
