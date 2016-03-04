@@ -34,7 +34,7 @@ getFileFor = (name) ->
     files = plugin.lupa.getState().files
     found = files.filter(
         (f) -> f.metadata.filter(
-            (entry) -> entry.name == 'module' && entry.data.indexOf(name) != -1
+            (entry) -> entry.name == 'modules' && entry.data.indexOf(name) != -1
         ).length
     )
     console.log('getFileFor ' + name, files)
