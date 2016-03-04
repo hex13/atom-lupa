@@ -31,7 +31,15 @@ atom.workspace.addLeftPanel(item: el)
 </div>"
 
 getFileFor = (name) ->
-    'not defined -' + name
+    files = plugin.lupa.getState().files
+    found = files.filter(
+        (f) -> f.metadata.filter(
+            (entry) -> entry.name == 'module' && entry.data.indexOf(name) != -1
+        )
+    )
+    console.log('getFileFor files', files)
+    console.log('getFileFor found', found)
+    '(' + ')'
 
 atom.workspace.addLeftPanel(item: el)
 
@@ -55,7 +63,7 @@ update1 = ->
                 '<br>'
         default: (entry) ->
             if entry.data.length
-                '<h3 style="color:grey">#{entry.name}</h3>' +
+                "<h3 style="color:grey">#{entry.name}</h3>" +
                     entry.data.map(
                         (n) -> "<div class='lupa-entry'>#{n} - #{getFileFor(n)}</div>"
                     ).join('<br>') +
