@@ -35,7 +35,7 @@ getFileFor = (name) ->
     found = files.filter(
         (f) -> f.metadata.filter(
             (entry) -> entry.name == 'module' && entry.data.indexOf(name) != -1
-        )
+        ).length
     )
     console.log('getFileFor ' + name, files)
     console.log('getFileFor found', found)
