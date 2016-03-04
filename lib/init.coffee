@@ -63,7 +63,7 @@ update1 = ->
                 '<br>'
         default: (entry) ->
             if entry.data.length
-                "<h3 style="color:grey">#{entry.name}</h3>" +
+                "<h3 style='color:grey'>#{entry.name}</h3>" +
                     entry.data.map(
                         (n) -> "<div class='lupa-entry'>#{n} - #{getFileFor(n)}</div>"
                     ).join('<br>') +
