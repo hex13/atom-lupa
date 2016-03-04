@@ -54,7 +54,7 @@ update1 = ->
             if entry.data.length
                 '<h3 style="color:grey">' + entry.name + '</h3>' + entry.data.join('<br>') + '<br>'
             else
-                "<br><em style='color:grey'>no #{entry.name}</em>"
+                '' #"<br><em style='color:grey'>no #{entry.name}</em>"
 
     }
     filename = editor.buffer.file.path
