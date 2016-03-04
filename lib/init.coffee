@@ -39,7 +39,9 @@ getFileFor = (name) ->
     )
     console.log('getFileFor ' + name, files)
     console.log('getFileFor found', found)
-    '(' + ')'
+    if found.length
+        "(" + found[0].path + ")"
+    ''
 
 atom.workspace.addLeftPanel(item: el)
 
