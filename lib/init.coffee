@@ -37,7 +37,7 @@ getFileFor = (name) ->
             (entry) -> entry.name == 'module' && entry.data.indexOf(name) != -1
         )
     )
-    console.log('getFileFor files', files)
+    console.log('getFileFor ' + name, files)
     console.log('getFileFor found', found)
     '(' + ')'
 
