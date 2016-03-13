@@ -12,7 +12,7 @@
 
 
 plugin = require './plugin'
-lupa = (require 'lupa').lupa
+#lupa = (require 'lupa').lupa
 
 fs = require 'fs'
 path_ = require 'path'
@@ -31,17 +31,18 @@ atom.workspace.addLeftPanel(item: el)
 </div>"
 
 getFileFor = (name) ->
-    files = plugin.lupa.getState().files
-    found = files.filter(
-        (f) -> f.metadata.filter(
-            (entry) -> entry.name == 'modules' && entry.data.indexOf(name) != -1
-        ).length
-    )
-    console.log('getFileFor ' + name, files)
-    console.log('getFileFor found', found)
-    if found.length
-        return "(" + found[0].path + ")"
     return ''
+    # files = plugin.lupa.getState().files
+    # found = files.filter(
+    #     (f) -> f.metadata.filter(
+    #         (entry) -> entry.name == 'modules' && entry.data.indexOf(name) != -1
+    #     ).length
+    # )
+    # console.log('getFileFor ' + name, files)
+    # console.log('getFileFor found', found)
+    # if found.length
+    #     return "(" + found[0].path + ")"
+    # return ''
 
 atom.workspace.addLeftPanel(item: el)
 
