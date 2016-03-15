@@ -12,6 +12,7 @@
 
 
 plugin = require './plugin'
+getHtmlPreview = require('.preview').getHtmlPreview
 #lupa = (require 'lupa').lupa
 
 fs = require 'fs'
@@ -85,7 +86,7 @@ update1 = ->
 
         html = '...'
         if path_.extname(found[0].path) == '.html'
-            html = plugin.getHtmlPreview(found[0])
+            html = getHtmlPreview(found[0])
         else
             html = found[0].metadata.map (entry) ->
                 render = print[entry.name] || print.default
