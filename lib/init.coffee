@@ -20,10 +20,10 @@ plugin = child_process.fork(__dirname + '/plugin')
 bar = (data)-> console.log("AAAAA", data)
 
 plugin.on('message', bar)
-plugin.send({type: 'whatever'})
+# plugin.send({type: 'whatever'})
 
-foo = () -> plugin.send({type: 'whatever'})
-setInterval(foo, 1000)
+# foo = () -> plugin.send({type: 'whatever'})
+# setInterval(foo, 1000)
 
 fs = require 'fs'
 path_ = require 'path'
@@ -107,7 +107,7 @@ update1 = ->
 
     el.innerHTML = ''
 
-    plugin.on('message', update)
+    #plugin.on('message', update)
     plugin.send({type: 'analyze', path: editor.buffer.file.path})
 
 
