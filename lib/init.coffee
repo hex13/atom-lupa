@@ -18,10 +18,10 @@ child_process = require('child_process')
 
 onUpdate = () -> 0
 plugin = child_process.fork(__dirname + '/plugin')
-bar = (data)-> {
+bar = (data)->
     console.log "result: " ,  data
     onUpdate(data)
-}
+
 
 plugin.on('message', bar)
 # plugin.send({type: 'whatever'})
