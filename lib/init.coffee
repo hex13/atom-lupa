@@ -17,6 +17,8 @@ getHtmlPreview = require('./preview').getHtmlPreview
 child_process = require('child_process')
 
 plugin = child_process.fork(__dirname + '/plugin')
+bar = -> console.log("AAAAA")
+plugin.on('message', bar)
 plugin.send({type: 'whatever'})
 
 foo = () -> plugin.send({type: 'whatever'})
