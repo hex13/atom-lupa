@@ -16,8 +16,12 @@ getHtmlPreview = require('./preview').getHtmlPreview
 
 child_process = require('child_process')
 
+onUpdate = () -> 0
 plugin = child_process.fork(__dirname + '/plugin')
-bar = (data)-> console.log("AAAAA", data)
+bar = (data)-> {
+    console.log("result: ", data)
+    onUpdate(data)
+}
 
 plugin.on('message', bar)
 # plugin.send({type: 'whatever'})
@@ -107,6 +111,8 @@ update1 = ->
 
     el.innerHTML = ''
 
+    # assign to global variable
+    onUpdate = update
     #plugin.on('message', update)
     plugin.send({type: 'analyze', path: editor.buffer.file.path})
 
