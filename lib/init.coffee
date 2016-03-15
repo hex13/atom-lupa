@@ -19,7 +19,7 @@ child_process = require('child_process')
 onUpdate = () -> 0
 plugin = child_process.fork(__dirname + '/plugin')
 bar = (data)-> {
-    console.log("result: ", data)
+    console.log "result: " ,  data
     onUpdate(data)
 }
 
