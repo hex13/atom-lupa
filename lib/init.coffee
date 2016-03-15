@@ -19,7 +19,8 @@ child_process = require('child_process')
 plugin = child_process.fork(__dirname + '/plugin')
 plugin.send({type: 'whatever'})
 
-setInterval( -> plugin.send({type: 'whatever'}), 1000)
+foo = () -> plugin.send({type: 'whatever'})
+setInterval(foo, 1000)
 
 fs = require 'fs'
 path_ = require 'path'
