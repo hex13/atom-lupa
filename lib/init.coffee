@@ -18,6 +18,7 @@ child_process = require('child_process')
 
 plugin = child_process.fork(__dirname + '/plugin')
 bar = -> console.log("AAAAA")
+plugin.stderr.on('data', (d) -> console.log('error', d))
 plugin.on('message', bar)
 plugin.send({type: 'whatever'})
 
