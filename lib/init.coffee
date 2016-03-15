@@ -11,9 +11,12 @@
 #     console.log "Saved! #{editor.getPath()}"
 
 
-plugin = require './plugin'
+#plugin = require './plugin'
 getHtmlPreview = require('./preview').getHtmlPreview
-#lupa = (require 'lupa').lupa
+
+child_process = require('child_process')
+
+plugin = child_process.fork(__dirname + '/plugin');
 
 fs = require 'fs'
 path_ = require 'path'
@@ -79,6 +82,7 @@ update1 = ->
     filename = editor.buffer.file.path
 
     update = (state)->
+        console.log("got message")
         found = state.files.filter( (f) -> f.path == filename)
         if (!found.length)
             console.log("error: !found.length")
@@ -95,9 +99,10 @@ update1 = ->
         el.innerHTML = html
 
     el.innerHTML = ''
-    plugin.analyze(editor.buffer.file.path, update)
 
-    path = editor.buffer.file.path
+    plugin.on('message', update)
+    plugin.send({type: 'analize', path: editor.buffer.file.path})
+
 
 atom.workspace.onDidChangeActivePaneItem ->
     update1()
