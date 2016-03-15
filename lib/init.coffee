@@ -12,7 +12,7 @@
 
 
 plugin = require './plugin'
-getHtmlPreview = require('.preview').getHtmlPreview
+getHtmlPreview = require('./preview').getHtmlPreview
 #lupa = (require 'lupa').lupa
 
 fs = require 'fs'
