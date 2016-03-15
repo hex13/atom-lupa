@@ -16,7 +16,10 @@ getHtmlPreview = require('./preview').getHtmlPreview
 
 child_process = require('child_process')
 
-plugin = child_process.fork(__dirname + '/plugin');
+plugin = child_process.fork(__dirname + '/plugin')
+plugin.send({type: 'whatever'})
+
+setInterval( -> plugin.send({type: 'whatever'}), 1000)
 
 fs = require 'fs'
 path_ = require 'path'
@@ -101,7 +104,7 @@ update1 = ->
     el.innerHTML = ''
 
     plugin.on('message', update)
-    plugin.send({type: 'analize', path: editor.buffer.file.path})
+    plugin.send({type: 'analyze', path: editor.buffer.file.path})
 
 
 atom.workspace.onDidChangeActivePaneItem ->
