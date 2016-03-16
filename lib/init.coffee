@@ -90,7 +90,7 @@ update1 = ->
             if entry.data.length
                 "<h3 style='color:grey'>#{entry.name}</h3>" +
                     entry.data.map(
-                        (n) -> "<div data-path='#{getFileForModule(n)}' class='lupa-entry'>#{n}</div>"
+                        (n) -> "<div data-path='#{getFileForModule(n).path}' class='lupa-entry'>#{n}</div>"
                     ).join('<br>') +
                     '<br>'
             else
