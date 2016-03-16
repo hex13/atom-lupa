@@ -45,6 +45,12 @@ atom.workspace.addLeftPanel(item: el)
 
 </div>"
 
+el.addEventListener('click',
+    e ->
+        path = e.target.getAttribute('data-path')
+        console.log("path, open file:", path)
+)
+
 getFileFor = (name) ->
     return ''
     # files = plugin.lupa.getState().files
@@ -83,7 +89,7 @@ update1 = ->
             if entry.data.length
                 "<h3 style='color:grey'>#{entry.name}</h3>" +
                     entry.data.map(
-                        (n) -> "<div class='lupa-entry'>#{n} - #{getFileFor(n)}</div>"
+                        (n) -> "<div data-path='foo' class='lupa-entry'>#{n} - #{getFileFor(n)}</div>"
                     ).join('<br>') +
                     '<br>'
             else

@@ -2,7 +2,7 @@
 Shows structure of JavaScript file. Imports/Exports/functions etc. ⚠️ version pre-alpha
 ![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/atom-lupa.png)
 
-CHANGELOG
+# CHANGELOG
 
 # 2016-03-16
 
