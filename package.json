@@ -5,6 +5,9 @@
   "description": "show structure of JavaScript file",
   "keywords": [
     "angular",
+    "modules",
+    "dependencies",
+    "minimap",
     "angularjs",
     "structure",
     "static analysis",

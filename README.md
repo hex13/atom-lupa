@@ -5,5 +5,8 @@ Shows structure of JavaScript file. Imports/Exports/functions etc. ⚠️ versio
 # CHANGELOG
 
 # 2016-03-16
+* experimental "go to definition" feature for angular modules
+
+# 2016-03-16
 
 * analyze files in separate process - to avoid freezing Atom.
