@@ -50,6 +50,9 @@ el.addEventListener('click',
     (e) ->
         path = e.target.getAttribute('data-path')
         console.log("path, open file:", path)
+        if path
+            atom.workspace.open(path)
+
 )
 
 getFileFor = (name) ->
