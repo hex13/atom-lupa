@@ -46,7 +46,7 @@ atom.workspace.addLeftPanel(item: el)
 </div>"
 
 el.addEventListener('click',
-    e ->
+    (e) ->
         path = e.target.getAttribute('data-path')
         console.log("path, open file:", path)
 )
