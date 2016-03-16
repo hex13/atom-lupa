@@ -15,6 +15,7 @@
 getHtmlPreview = require('./preview').getHtmlPreview
 
 child_process = require('child_process')
+getFileForModule = require('./getFileFor').getFileForModule
 
 onUpdate = () -> 0
 plugin = child_process.fork(__dirname + '/plugin')
@@ -89,7 +90,7 @@ update1 = ->
             if entry.data.length
                 "<h3 style='color:grey'>#{entry.name}</h3>" +
                     entry.data.map(
-                        (n) -> "<div data-path='foo' class='lupa-entry'>#{n} - #{getFileFor(n)}</div>"
+                        (n) -> "<div data-path='#{getFileForModule(n)}' class='lupa-entry'>#{n}</div>"
                     ).join('<br>') +
                     '<br>'
             else
