@@ -100,7 +100,10 @@ update1 = ->
                 '' #"<br><em style='color:grey'>no #{entry.name}</em>"
 
     }
-    filename = editor.buffer.file.path
+    if editor.buffer.file
+        filename = editor.buffer.file.path
+    else
+        filename = ''
 
     update = (state)->
         lastState = state

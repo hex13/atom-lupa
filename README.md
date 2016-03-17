@@ -4,6 +4,9 @@ Shows structure of JavaScript file. Imports/Exports/functions etc. ⚠️ versio
 
 # CHANGELOG
 
+# 2016-03-17
+* fix bug when switching to empty(non saved) file
+
 # 2016-03-16
 * experimental "go to definition" feature for angular modules
 
