@@ -115,6 +115,9 @@ update1 = ->
         filename = ''
 
     update = (state)->
+        if !state.files
+            console.log("got message from child", state)    
+            return
         lastState = state
         console.log("got message")
         found = state.files.filter( (f) -> f.path == filename)
