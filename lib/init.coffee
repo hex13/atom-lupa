@@ -128,7 +128,7 @@ update1 = ->
     # assign to global variable
     onUpdate = update
     #plugin.on('message', update)
-    plugin.send({type: 'analyze', path: editor.buffer.file.path})
+    plugin.send({type: 'analyze', path: filename})
 
 
 atom.workspace.onDidChangeActivePaneItem ->
