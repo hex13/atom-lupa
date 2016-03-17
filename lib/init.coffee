@@ -71,6 +71,13 @@ getFileFor = (name) ->
     # return ''
 
 atom.workspace.addLeftPanel(item: el)
+
+document.getElementById('lupa-load-index-file').addEventListener('click', function () {
+    plugin.send({
+        type: 'loadIndexFile',
+        path: document.getElementById('lupa-index-file').value
+    });
+});
 lastState = {}
 
 update1 = ->
