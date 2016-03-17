@@ -73,6 +73,7 @@ getFileFor = (name) ->
 atom.workspace.addLeftPanel(item: el)
 
 document.getElementById('lupa-load-index-file').addEventListener('click', () ->
+    alert(document.getElementById('lupa-index-file').value)
     plugin.send({
         type: 'loadIndexFile',
         path: document.getElementById('lupa-index-file').value
