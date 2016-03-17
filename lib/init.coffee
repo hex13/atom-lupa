@@ -77,7 +77,7 @@ document.getElementById('lupa-load-index-file').addEventListener('click', () ->
         type: 'loadIndexFile',
         path: document.getElementById('lupa-index-file').value
     })
-})
+)
 lastState = {}
 
 update1 = ->
