@@ -44,7 +44,8 @@ el.innerHTML = "<div id='moje'
 atom.workspace.addLeftPanel(item: el)
 
 
-</div>"
+</div><input id='lupa-index-file' type='text'><br>
+<button id='lupa-load-index-file'>Load index file (not implemented)</button>"
 
 el.addEventListener('click',
     (e) ->
