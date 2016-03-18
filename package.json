@@ -1,7 +1,7 @@
 {
   "name": "atom-lupa",
   "main": "./lib/atom-lupa",
-  "version": "0.3.83",
+  "version": "0.3.84",
   "description": "show structure of JavaScript file",
   "keywords": [
     "angular",
