@@ -18,7 +18,19 @@ child_process = require('child_process')
 getFileForModule = require('./getFileFor').getFileForModule
 
 onUpdate = () -> 0
-plugin = child_process.fork(__dirname + '/plugin')
+
+plugin = child_process.fork(__dirname + '/plugin', {
+    silent: true
+});
+
+plugin.stdout.pipe(process.stdout);
+plugin.stdout.on('data',  (a,b) ->
+    s = ''
+    for i in [0...a.length]
+        s += String.fromCharCode(a[i])
+
+    console.log(s)
+)
 bar = (data)->
     console.log "result: " ,  data
     onUpdate(data)
@@ -116,7 +128,7 @@ update1 = ->
 
     update = (state)->
         if !state.files
-            console.log("got message from child", state)    
+            console.log("got message from child", state)
             return
         lastState = state
         console.log("got message")
