@@ -15,32 +15,9 @@
 getHtmlPreview = require('./preview').getHtmlPreview
 
 child_process = require('child_process')
+File = require('vinyl')
+plugin = require('lupa').analysis;
 getFileForModule = require('./getFileFor').getFileForModule
-
-onUpdate = () -> 0
-
-plugin = child_process.fork(__dirname + '/plugin', {
-    silent: true
-});
-
-plugin.stdout.pipe(process.stdout);
-plugin.stdout.on('data',  (a,b) ->
-    s = ''
-    for i in [0...a.length]
-        s += String.fromCharCode(a[i])
-
-    console.log(s)
-)
-bar = (data)->
-    console.log "result: " ,  data
-    onUpdate(data)
-
-
-plugin.on('message', bar)
-# plugin.send({type: 'whatever'})
-
-# foo = () -> plugin.send({type: 'whatever'})
-# setInterval(foo, 1000)
 
 fs = require 'fs'
 path_ = require 'path'
@@ -48,25 +25,59 @@ path_ = require 'path'
 
 el = document.createElement('div');
 el.style.overflow = 'scroll'
-el.style.height = '100%'
+doc = document
 
 
-el.innerHTML = "<div id='moje'
+el.innerHTML = "
+<div id='lupa-info'></div>
+<div id='moje'
     style='padding: 10px; width:240px;overflow:scroll;'>sss <br> <br>
 atom.workspace.addLeftPanel(item: el)
 
 
-</div><input id='lupa-index-file' type='text'><br>
-<button id='lupa-load-index-file'>Load index file (not implemented)</button>"
+</div>
+<style>
+.lupa-file {
+    color: #cca;
+    cursor: pointer;
+}
+</style>
+<div style='margin-bottom:10px'>
+    <div style='display:none'>
+        <label>glob file pattern to analyze (e.g. /Users/john/my-project/src/**/*.js  )
+        <div><input id='lupa-project-root' type='text'></div></label>
+        <br>
+    </div>
+    <button id='lupa-index-project'>Index project</button>
+    (It requires lupaProject.json file.)
+</div>
+<div style='display:none'>
+<input id='lupa-index-file' type='text'><br>
+<button id='lupa-load-index-file'>Load index file (not implemented)</button></div>"
 
 el.addEventListener('click',
     (e) ->
+        target = e.target
+        if target.className.indexOf('lupa-label') != -1
+            label = target.getAttribute('data-label')
+            plugin
+                .filterFiles (f) ->
+                    (f.metadata || []).filter (item)->
+                        item.name == 'label' && item.data == label
+                    .length
+                .toArray().subscribe (files) ->
+                    paths = files.map (f) ->
+                        "<div data-path='#{f.path}'> #{path_.basename(f.path)} </div>"
+                    .join('')
+                    doc.getElementById('lupa-info').innerHTML = "Files with this label '#{label}: #{paths}"
+
         path = e.target.getAttribute('data-path')
         console.log("path, open file:", path)
         if path
             atom.workspace.open(path)
 
 )
+
 
 getFileFor = (name) ->
     return ''
@@ -82,15 +93,17 @@ getFileFor = (name) ->
     #     return "(" + found[0].path + ")"
     # return ''
 
-atom.workspace.addLeftPanel(item: el)
+currentFile = ''
 
-document.getElementById('lupa-load-index-file').addEventListener('click', () ->
-    alert(document.getElementById('lupa-index-file').value)
-    plugin.send({
-        type: 'loadIndexFile',
-        path: document.getElementById('lupa-index-file').value
-    })
+atom.workspace.addLeftPanel(item: el)
+#'/Users/lukasz/sandbox/Mancy/src/**/*'
+document.getElementById('lupa-index-project').addEventListener('click', () ->
+    path = document.getElementById('lupa-project-root').value;
+    # plugin.indexProject({filePattern: path})
+    alert "Click ok to start indexing (it can take few minutes)."
+    plugin.indexProject(path_.dirname(currentFile))
 )
+
 lastState = {}
 
 update1 = ->
@@ -103,6 +116,26 @@ update1 = ->
     el = document.getElementById('moje')
 
     print = {
+        'imported by': (entry) ->
+            "<h3 style='color:grey'>#{entry.name}</h3>" +
+            entry.data.map (importer) ->
+                "<div class='lupa-file' data-path='#{importer.path}'> #{path_.basename(importer.path)}</div>"
+            .join("<br>")
+        imports: (entry) ->
+            "<h3 style='color:grey'>#{entry.name}</h3>" +
+            entry.data.map (item) ->
+                "<div> #{item.name} from
+                <span class='lupa-file' data-path='#{item.source}'>#{item.originalSource}</span>
+                </div>"
+            .join("<br>")
+        label: (entry) ->
+            "<span
+                data-label='#{entry.data}'
+                class='lupa-label'
+                style='display: inline-block;text-shadow: 1px 1px 2px black; color: #eee; background: #b73; padding: 4px; margin: 4px;border-radius: 4px;'>
+             #{entry.data} </span>"
+
+
         classes: (entry) ->
             "<h3 style='color:grey'>#{entry.name}</h3>" +
                 entry.data.map(
@@ -126,33 +159,51 @@ update1 = ->
     else
         filename = ''
 
-    update = (state)->
-        if !state.files
-            console.log("got message from child", state)
-            return
-        lastState = state
-        console.log("got message")
-        found = state.files.filter( (f) -> f.path == filename)
-        if (!found.length)
-            console.log("error: !found.length")
-            return
+    currentFile = filename;
 
-        html = '...'
-        if path_.extname(found[0].path) == '.html'
-            html = getHtmlPreview(found[0])
-        else
-            html = found[0].metadata.map (entry) ->
-                render = print[entry.name] || print.default
-                render(entry)
-            .join('')
-        el.innerHTML = html
+    update = (f)->
+        moduleName = path_.basename(filename, path_.extname(filename))
+        plugin.findImporters(filename).toArray().subscribe( (importers) =>
+            state = {files: [f]}
+            if !state.files
+                console.log("got message from child", state)
+                return
+            lastState = state
+            console.log("got message")
+            found = state.files.filter( (f) -> f.path == filename)
+            if (!found.length)
+                console.log("error: !found.length")
+                return
+
+            html = '...'
+            if path_.extname(found[0].path) == '.html'
+                html = getHtmlPreview(found[0])
+            else
+                fixture =
+                    name:'imported by'
+                    data: importers #.map((f) => path_.basename(f.path))
+
+                console.log 'found[0].metadata', found[0].metadata
+
+                html = (found[0].metadata || []).concat(fixture).map (entry) ->
+                    render = print[entry.name] || print.default
+                    render(entry)
+                .join('')
+            el.innerHTML = html
+
+        )
+
 
     el.innerHTML = ''
 
     # assign to global variable
     onUpdate = update
     #plugin.on('message', update)
-    plugin.send({type: 'analyze', path: filename})
+    plugin.process(new File({
+        path: filename,
+        contents: fs.readFileSync(filename)
+    })).subscribe(update)
+
 
 
 atom.workspace.onDidChangeActivePaneItem ->
