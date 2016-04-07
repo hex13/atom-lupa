@@ -16,8 +16,8 @@ getHtmlPreview = require('./preview').getHtmlPreview
 
 child_process = require('child_process')
 File = require('vinyl')
-plugin = require('../../sandbox/lupa').analysis;
-Metadata = require('../../sandbox/lupa/src/metadata')
+plugin = require('lupa').analysis;
+Metadata = require('lupa').Metadata;
 getMetadata = Metadata.getMetadata
 getFileForModule = require('./getFileFor').getFileForModule
 getFileForSymbol = require('./getFileFor').getFileForSymbol
