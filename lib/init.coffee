@@ -169,6 +169,11 @@ update1 = ->
                     #(n) -> "<div data-path=''>#{n}</div>"
                 ).join('<br>') +
                 '<br>'
+        declaration: (entry) ->
+            "<h3 style='color:grey'>#{entry.name}</h3>" +
+                    "<div data-line='#{entry.loc.start.line}' class='lupa-entry'>#{entry.data}</div>" +
+                '<br>'
+
         functions: (entry) ->
             "<h3 style='color:grey'>#{entry.name}</h3>" +
                 entry.data.map(
