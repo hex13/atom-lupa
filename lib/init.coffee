@@ -16,8 +16,12 @@ getHtmlPreview = require('./preview').getHtmlPreview
 
 child_process = require('child_process')
 File = require('vinyl')
-plugin = require('lupa').analysis;
+plugin = require('../../sandbox/lupa').analysis;
+Metadata = require('../../sandbox/lupa/src/metadata')
+getMetadata = Metadata.getMetadata
 getFileForModule = require('./getFileFor').getFileForModule
+getFileForSymbol = require('./getFileFor').getFileForSymbol
+getFileForRequire = require('./getFileFor').getFileForRequire
 
 fs = require 'fs'
 path_ = require 'path'
@@ -62,8 +66,8 @@ el.addEventListener('click',
             label = target.getAttribute('data-label')
             plugin
                 .filterFiles (f) ->
-                    (f.metadata || []).filter (item)->
-                        item.name == 'label' && item.data == label
+                    getMetadata(f).filter (item)->
+                        item.type == 'label' && item.data == label
                     .length
                 .toArray().subscribe (files) ->
                     paths = files.map (f) ->
@@ -74,7 +78,10 @@ el.addEventListener('click',
         path = e.target.getAttribute('data-path')
         console.log("path, open file:", path)
         if path
+            if !fs.existsSync(path)
+                path = getFileForRequire(allFiles, path).path
             atom.workspace.open(path)
+
 
 )
 
@@ -105,8 +112,13 @@ document.getElementById('lupa-index-project').addEventListener('click', () ->
 )
 
 lastState = {}
+allFiles = []
 
 update1 = ->
+    identitity = (v) ->
+        v
+    plugin.filterFiles(identitity).toArray().subscribe (files) ->
+        allFiles = files
     editor = atom.workspace.getActivePaneItem()
     if (!editor)
         return
@@ -143,6 +155,13 @@ update1 = ->
                         "<h4>#{cls.name}</h4>" + cls.methods.join('<br>')
                 ).join('<br>') +
                 '<br>'
+        symbol: (entry) ->
+            "<h3 style='color:blue'>#{entry.name}</h3>" +
+                entry.data.map(
+                    (n) -> "<div data-path='#{getFileForSymbol(allFiles, n).path}'>#{n}</div>"
+                    #(n) -> "<div data-path=''>#{n}</div>"
+                ).join('<br>') +
+                '<br>'
         default: (entry) ->
             if entry.data.length
                 "<h3 style='color:grey'>#{entry.name}</h3>" +
@@ -163,7 +182,9 @@ update1 = ->
 
     update = (f)->
         moduleName = path_.basename(filename, path_.extname(filename))
-        plugin.findImporters(filename).toArray().subscribe( (importers) =>
+        #moduleName = filename
+        # TODO uncomment filename
+        plugin.findImporters(moduleName).toArray().subscribe( (importers) =>
             state = {files: [f]}
             if !state.files
                 console.log("got message from child", state)
@@ -183,9 +204,7 @@ update1 = ->
                     name:'imported by'
                     data: importers #.map((f) => path_.basename(f.path))
 
-                console.log 'found[0].metadata', found[0].metadata
-
-                html = (found[0].metadata || []).concat(fixture).map (entry) ->
+                html = getMetadata(found[0]).concat(fixture).map (entry) ->
                     render = print[entry.name] || print.default
                     render(entry)
                 .join('')
