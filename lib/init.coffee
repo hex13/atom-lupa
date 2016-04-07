@@ -16,8 +16,9 @@ getHtmlPreview = require('./preview').getHtmlPreview
 
 child_process = require('child_process')
 File = require('vinyl')
-plugin = require('lupa').analysis;
-Metadata = require('lupa').Metadata;
+lupa = require 'lupa'
+plugin = lupa.analysis;
+Metadata = lupa.Metadata;
 getMetadata = Metadata.getMetadata
 getFileForModule = require('./getFileFor').getFileForModule
 getFileForSymbol = require('./getFileFor').getFileForSymbol
@@ -41,7 +42,7 @@ atom.workspace.addLeftPanel(item: el)
 
 </div>
 <style>
-.lupa-file {
+.lupa-file, [data-line] {
     color: #cca;
     cursor: pointer;
 }
@@ -74,6 +75,11 @@ el.addEventListener('click',
                         "<div data-path='#{f.path}'> #{path_.basename(f.path)} </div>"
                     .join('')
                     doc.getElementById('lupa-info').innerHTML = "Files with this label '#{label}: #{paths}"
+        line = target.getAttribute('data-line')
+        console.log("LINE:", line)
+        if line
+            pos = [~~line - 1, 0]
+            editor.setCursorBufferPosition pos
 
         path = e.target.getAttribute('data-path')
         console.log("path, open file:", path)
@@ -113,6 +119,7 @@ document.getElementById('lupa-index-project').addEventListener('click', () ->
 
 lastState = {}
 allFiles = []
+editor = null
 
 update1 = ->
     identitity = (v) ->
@@ -162,6 +169,13 @@ update1 = ->
                     #(n) -> "<div data-path=''>#{n}</div>"
                 ).join('<br>') +
                 '<br>'
+        functions: (entry) ->
+            "<h3 style='color:grey'>#{entry.name}</h3>" +
+                entry.data.map(
+                    (n) -> "<div data-line='#{n.loc.start.line}' class='lupa-entry'>#{n.name}</div>"
+                ).join('<br>') +
+                '<br>'
+
         default: (entry) ->
             if entry.data.length
                 "<h3 style='color:grey'>#{entry.name}</h3>" +
