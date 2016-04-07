@@ -183,8 +183,8 @@ update1 = ->
     update = (f)->
         moduleName = path_.basename(filename, path_.extname(filename))
         #moduleName = filename
-        # TODO uncomment filename
-        plugin.findImporters(moduleName).toArray().subscribe( (importers) =>
+        importersOfModule = plugin.findImporters(moduleName)
+        plugin.findImporters(filename).merge(importersOfModule).toArray().subscribe( (importers) =>
             state = {files: [f]}
             if !state.files
                 console.log("got message from child", state)
