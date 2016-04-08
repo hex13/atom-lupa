@@ -16,6 +16,12 @@ To allow full project indexing you have to create `lupaProject.json` in root dir
 
 # CHANGELOG
 
+# 2016-04-08
+
+* support for @providesModule
+* jump to function
+* few other improvements
+
 # 2016-04-03
 
 * configurable indexing (config must be in lupaProject.json file)
