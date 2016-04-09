@@ -126,6 +126,7 @@ el.addEventListener('click',
         console.log("LINE:", line)
         if line
             pos = [~~line - 1, 0]
+            lastPos = pos
             editor.setCursorBufferPosition pos
             editor.scrollToBufferPosition pos, {center: true}
 
