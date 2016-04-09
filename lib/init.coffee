@@ -70,12 +70,15 @@ decorations = []
 
 el.addEventListener('mouseout',
     (e) ->
+        if lastPos
+            editor.scrollToBufferPosition lastPos, {center: true}
         #return
         decorations.forEach (d) ->
             d.destroy()
 )
 
 
+lastPos = null
 
 el.addEventListener('mouseover',
     (e) ->
@@ -97,6 +100,8 @@ el.addEventListener('mouseover',
             item.className = 'my-line-class'
             decoration = editor.decorateMarker(marker, {item, type: 'highlight', class: 'my-line-class'})
             console.log "deco", decoration, marker
+            lastPos = editor.getCursorBufferPosition()
+            editor.scrollToBufferPosition pos, {center: true}
             decorations.push(decoration)
 )
 
@@ -122,6 +127,7 @@ el.addEventListener('click',
         if line
             pos = [~~line - 1, 0]
             editor.setCursorBufferPosition pos
+            editor.scrollToBufferPosition pos, {center: true}
 
         path = e.target.getAttribute('data-path')
         console.log("path, open file:", path)
