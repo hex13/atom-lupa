@@ -208,7 +208,12 @@ update1 = ->
             "<h3 style='color:grey'>#{entry.name}</h3>" +
                 entry.data.map(
                     (cls) ->
-                        "<h4>#{cls.name}</h4>" + cls.methods.join('<br>')
+                        "<h4
+                        data-column='#{cls.loc.start.column}'
+                        data-column-end='#{cls.loc.end.column}'
+                        data-line-end='#{cls.loc.end.line}'
+                        data-line='#{cls.loc.start.line}'
+                        >#{cls.name}</h4>" + cls.methods.join('<br>')
                 ).join('<br>') +
                 '<br>'
         symbol: (entry) ->
