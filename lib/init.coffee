@@ -41,6 +41,7 @@ module.exports = (aDashboard) ->
 
 el.innerHTML = "
 <div id='lupa-info'></div>
+<button id='lupa-refresh'>Refresh</button>
 <div id='moje'
     style='padding: 10px; width:240px;overflow:scroll;'>sss <br> <br>
 atom.workspace.addLeftPanel(item: el)
@@ -106,10 +107,10 @@ el.addEventListener('mouseover',
 )
 
 
-
 el.addEventListener('click',
     (e) ->
         target = e.target
+
         if target.className.indexOf('lupa-label') != -1
             label = target.getAttribute('data-label')
             plugin
@@ -169,6 +170,16 @@ document.getElementById('lupa-index-project').addEventListener('click', () ->
 lastState = {}
 allFiles = []
 editor = null
+
+doc.getElementById('lupa-refresh').addEventListener('click', ->
+    f = new File({
+        path: currentFile,
+        contents: fs.readFileSync(currentFile)
+    })
+    plugin.invalidate(f)
+    plugin.process(f).subscribe(update1)
+)
+
 
 update1 = ->
     identitity = (v) ->
