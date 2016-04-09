@@ -14,6 +14,7 @@
 #plugin = require './plugin'
 getHtmlPreview = require('./preview').getHtmlPreview
 
+{Range} = require 'atom'
 child_process = require('child_process')
 File = require('vinyl')
 lupa = require 'lupa'
@@ -31,6 +32,11 @@ path_ = require 'path'
 el = document.createElement('div');
 el.style.overflow = 'scroll'
 doc = document
+
+dashboard = null
+
+module.exports = (aDashboard) ->
+    dashboard = aDashboard
 
 
 el.innerHTML = "
@@ -59,6 +65,42 @@ atom.workspace.addLeftPanel(item: el)
 <div style='display:none'>
 <input id='lupa-index-file' type='text'><br>
 <button id='lupa-load-index-file'>Load index file (not implemented)</button></div>"
+
+decorations = []
+
+el.addEventListener('mouseout',
+    (e) ->
+        #return
+        decorations.forEach (d) ->
+            d.destroy()
+)
+
+
+
+el.addEventListener('mouseover',
+    (e) ->
+        target = e.target
+        line = target.getAttribute('data-line')
+        col = ~~target.getAttribute('data-column')
+        colEnd = ~~target.getAttribute('data-column-end')
+        console.log "COOOL", col, colEnd
+        lineEnd = target.getAttribute('data-line-end') || line
+        if line
+            console.log("LLL", line, lineEnd)
+            #line = line -= 2 # WTF?
+            #line = line + 1
+            pos = [~~line - 1, col]
+            range =  new Range(pos, [~~lineEnd - 1, colEnd]) #editor.getSelectedBufferRange() #
+            marker = editor.markBufferRange(range)
+            item = document.createElement('span')
+            item.style.position = 'relative'
+            item.className = 'my-line-class'
+            decoration = editor.decorateMarker(marker, {item, type: 'highlight', class: 'my-line-class'})
+            console.log "deco", decoration, marker
+            decorations.push(decoration)
+)
+
+
 
 el.addEventListener('click',
     (e) ->
@@ -177,7 +219,11 @@ update1 = ->
         functions: (entry) ->
             "<h3 style='color:grey'>#{entry.name}</h3>" +
                 entry.data.map(
-                    (n) -> "<div data-line='#{n.loc.start.line}' class='lupa-entry'>#{n.name}</div>"
+                    (n) -> "<div
+                    data-column='#{n.loc.start.column}'
+                    data-column-end='#{n.loc.end.column}'
+                    data-line-end='#{n.loc.end.line}'
+                    data-line='#{n.loc.start.line}' class='lupa-entry'>#{n.name}</div>"
                 ).join('<br>') +
                 '<br>'
 
@@ -200,6 +246,11 @@ update1 = ->
     currentFile = filename;
 
     update = (f)->
+        if dashboard
+            plugin.filterFiles((v) -> v).toArray().subscribe( (files)->
+                dashboard.setFiles(files)
+            )
+
         moduleName = path_.basename(filename, path_.extname(filename))
         #moduleName = filename
         importersOfModule = plugin.findImporters(moduleName)
