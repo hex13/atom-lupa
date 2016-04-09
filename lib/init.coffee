@@ -174,7 +174,7 @@ editor = null
 doc.getElementById('lupa-refresh').addEventListener('click', ->
     f = new File({
         path: currentFile,
-        contents: fs.readFileSync(currentFile)
+        contents: new Buffer(editor.getBuffer().getText())
     })
     plugin.invalidate(f)
     plugin.process(f).subscribe(update1)
