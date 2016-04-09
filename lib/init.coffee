@@ -213,7 +213,11 @@ update1 = ->
                 '<br>'
         declaration: (entry) ->
             "<h3 style='color:grey'>#{entry.name}</h3>" +
-                    "<div data-line='#{entry.loc.start.line}' class='lupa-entry'>#{entry.data}</div>" +
+                    "<div
+                        data-column='#{entry.loc.start.column}'
+                        data-column-end='#{entry.loc.end.column}'
+                        data-line-end='#{entry.loc.end.line}'
+                        data-line='#{entry.loc.start.line}' class='lupa-entry'>#{entry.data}</div>" +
                 '<br>'
 
         functions: (entry) ->
