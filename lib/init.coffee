@@ -171,14 +171,15 @@ lastState = {}
 allFiles = []
 editor = null
 
-doc.getElementById('lupa-refresh').addEventListener('click', ->
+refresh = ->
     f = new File({
         path: currentFile,
         contents: new Buffer(editor.getBuffer().getText())
     })
     plugin.invalidate(f)
     plugin.process(f).subscribe(update1)
-)
+
+doc.getElementById('lupa-refresh').addEventListener('click', refresh)
 
 
 update1 = ->
@@ -326,3 +327,5 @@ atom.workspace.onDidChangeActivePaneItem ->
     update1()
 
 update1()
+
+setInterval(refresh, 3000)
