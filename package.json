@@ -2,7 +2,7 @@
   "name": "atom-lupa",
   "main": "./lib/atom-lupa",
   "version": "0.4.20",
-  "description": "show structure of JavaScript file",
+  "description": "Navigation sidebar capable to perform full indexing of JavaScript project",
   "keywords": [
     "angular",
     "modules",
@@ -17,7 +17,9 @@
     "structure",
     "static analysis",
     "ast",
-    "outline"
+    "outline",
+    "overview",
+    "go to definition"
   ],
   "activationCommands": {
     "atom-workspace": "atom-lupa:toggle"
