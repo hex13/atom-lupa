@@ -16,6 +16,11 @@ To allow full project indexing you have to create `lupaProject.json` in root dir
 
 # CHANGELOG
 
+# 2016-04-10
+* fix bug when there is no node_modules in directory tree
+* fix bug when there is no lupaProject.json in directory tree
+* line count in color (green, yellow, orange, red)
+
 # 2016-04-09
 
 * list of files in separate pane item (dashboard)

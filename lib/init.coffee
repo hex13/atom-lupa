@@ -262,7 +262,22 @@ update1 = ->
                     data-line='#{n.loc.start.line}' class='lupa-entry'>#{n.name}</div>"
                 ).join('<br>') +
                 '<br>'
-
+        lines: (entry) ->
+            loc = entry.data[0]
+            if loc < 150
+                color = 'green'
+            else if loc < 300
+                color = '#bb5'
+            else if loc < 1000
+                color = '#fa8'
+            else
+                color = 'red'
+            if entry.data.length
+                "<h3 style='color:grey'>#{entry.name}</h3>" +
+                    entry.data.map(
+                        (n) -> "<div style='color:#{color}' class='lupa-entry'>#{n}</div>"
+                    ).join('<br>') +
+                    '<br>'
         default: (entry) ->
             if entry.data.length
                 "<h3 style='color:grey'>#{entry.name}</h3>" +
