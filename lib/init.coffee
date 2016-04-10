@@ -382,4 +382,4 @@ atom.workspace.onDidChangeActivePaneItem ->
 
 update1()
 
-setInterval(refresh, 3000)
+setInterval(refresh, 1000)
