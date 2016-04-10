@@ -1,5 +1,6 @@
 # atom-lupa package
 Shows structure of JavaScript file. Imports/Exports/functions etc. ⚠️ version pre-alpha
+![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-1.png)
 ![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/atom-lupa.png)
 
 To allow full project indexing you have to create `lupaProject.json` in root directory of your project. Example file:
