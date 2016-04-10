@@ -159,12 +159,20 @@ getFileFor = (name) ->
 currentFile = ''
 
 atom.workspace.addLeftPanel(item: el)
+
+document.getElementById('lupa-run').addEventListener 'click', () ->
+    result = require(currentFile)
+    alert(result)
+
 #'/Users/lukasz/sandbox/Mancy/src/**/*'
 document.getElementById('lupa-index-project').addEventListener('click', () ->
     path = document.getElementById('lupa-project-root').value;
     # plugin.indexProject({filePattern: path})
     alert "Click ok to start indexing (it can take few minutes)."
-    plugin.indexProject(path_.dirname(currentFile))
+    try
+        plugin.indexProject(path_.dirname(currentFile))
+    catch e
+        alert "Error: " + e.message
 )
 
 lastState = {}
