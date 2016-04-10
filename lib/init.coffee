@@ -180,6 +180,8 @@ allFiles = []
 editor = null
 
 refresh = ->
+    if !editor
+        return
     f = new File({
         path: currentFile,
         contents: new Buffer(editor.getBuffer().getText())
@@ -195,7 +197,8 @@ update1 = ->
         v
     plugin.filterFiles(identitity).toArray().subscribe (files) ->
         allFiles = files
-    editor = atom.workspace.getActivePaneItem()
+    editor = atom.workspace.getActiveTextEditor()
+
     if (!editor)
         return
     if (!editor.buffer)

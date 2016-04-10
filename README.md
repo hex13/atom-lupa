@@ -20,7 +20,7 @@ To allow full project indexing you have to create `lupaProject.json` in root dir
 * fix bug when there is no node_modules in directory tree
 * fix bug when there is no lupaProject.json in directory tree
 * line count in color (green, yellow, orange, red)
-
+* fix bug when user clicks on pane item which is not a text editor (e.g. settings)
 # 2016-04-09
 
 * list of files in separate pane item (dashboard)
