@@ -12,6 +12,7 @@
 
 
 #plugin = require './plugin'
+debug = false
 getHtmlPreview = require('./preview').getHtmlPreview
 
 {Range} = require 'atom'
@@ -24,7 +25,7 @@ getMetadata = Metadata.getMetadata
 getFileForModule = require('./getFileFor').getFileForModule
 getFileForSymbol = require('./getFileFor').getFileForSymbol
 getFileForRequire = require('./getFileFor').getFileForRequire
-
+previewMarker = null
 fs = require 'fs'
 path_ = require 'path'
 
@@ -41,6 +42,7 @@ module.exports = (aDashboard) ->
 
 el.innerHTML = "
 <div id='lupa-info'></div>
+<button style='display:none' id='lupa-run'>Run</button>
 <button id='lupa-refresh'>Refresh</button>
 <div id='moje'
     style='padding: 10px; width:240px;overflow:scroll;'>sss <br> <br>
@@ -298,6 +300,32 @@ update1 = ->
         filename = ''
 
     currentFile = filename;
+
+
+    if debug
+        safeToRun = editor.buffer.getText().match(/\/\/ safe to run/)
+        if safeToRun
+            require.cache[editor.buffer.file.path] = null
+            try
+                result = require(editor.buffer.file.path)
+            catch e
+                result = e
+        else
+            result = '???'
+        block = document.createElement('div')
+        block.innerHTML = result
+        #block.src = 'http://localhost:8000'
+        block.width = '100%'
+        block.height = '900px'
+        #block.style.height = (15 * 5) + 'px';
+
+        range = new Range([0, 0], [0, 0])
+        if previewMarker
+            previewMarker.destroy()
+        previewMarker = editor.markScreenPosition([0, 0]) #editor.markBufferRange(range)
+        decoration = editor.decorateMarker(previewMarker, {item:block, type: 'block', position: 'before'})
+
+
 
     update = (f)->
         if dashboard

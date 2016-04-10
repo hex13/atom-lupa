@@ -1,5 +1,5 @@
 AtomLupaView = require './atom-lupa-view'
-{CompositeDisposable} = require 'atom'
+{CompositeDisposable, Range} = require 'atom'
 console.log("lupa module")
 module.exports = AtomLupa =
   atomLupaView: null
@@ -22,6 +22,12 @@ module.exports = AtomLupa =
 
     # Register command that toggles this view
     @subscriptions.add atom.commands.add 'atom-workspace', 'atom-lupa:toggle': => @toggle()
+
+    editor = atom.workspace.getActiveTextEditor()
+
+
+
+
 
   deactivate: ->
     @modalPanel.destroy()
