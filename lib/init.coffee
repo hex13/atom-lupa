@@ -140,7 +140,6 @@ el.addEventListener('click',
                 path = getFileForRequire(allFiles, path).path
             atom.workspace.open(path)
 
-
 )
 
 

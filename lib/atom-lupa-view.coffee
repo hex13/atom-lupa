@@ -1,3 +1,7 @@
+React = require('react')
+ReactDom = require('react-dom')
+div = React.createFactory('div')
+FileName = require('./components/FileName')
 Metadata = require('lupa').Metadata
 getMetadata = Metadata.getMetadata
 
@@ -25,17 +29,21 @@ class AtomLupaView
     @message.innerHTML = content
 
   setFiles: (files)->
-    filesHtml = files.sort (a, b) ->
+    fileElements = files.sort (a, b) ->
         getLines(b) - getLines(a)
+    # .map (f) ->
+    #     "#{f.path}: #{getLines(f)}"
     .map (f) ->
-        "#{f.path}: #{getLines(f)}"
-    .join('<br>')
+        React.createElement(FileName, {file: f})
+        #div({}, [f.path, ':-)', getLines(f)])
 
     totalLoc = files.reduce (res, f) ->
         res + ~~getLines(f)
     ,0
 
-    @message.innerHTML = "File count: #{files.length}<br> Total Lines: #{totalLoc} <br> #{filesHtml}"
+    ReactDom.render(div({},fileElements), @element)
+    #@message.innerHTML = "File count: #{files.length}<br> Total Lines: #{totalLoc} <br> #{filesHtml}"
+
 
 
   # Returns an object that can be retrieved when package is activated
