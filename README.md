@@ -17,6 +17,8 @@ To allow full project indexing you have to create `lupaProject.json` in root dir
 ```
 
 # CHANGELOG
+# 2016-04-12
+* basic support for css/scss
 
 # 2016-04-10
 * fix bug when there is no node_modules in directory tree

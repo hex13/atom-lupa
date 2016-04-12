@@ -14,6 +14,7 @@
 #plugin = require './plugin'
 debug = false
 getHtmlPreview = require('./preview').getHtmlPreview
+getCssPreview = require('./preview').getCssPreview
 
 {Range} = require 'atom'
 child_process = require('child_process')
@@ -348,8 +349,11 @@ update1 = ->
                 return
 
             html = '...'
-            if path_.extname(found[0].path) == '.html'
+            ext = path_.extname(found[0].path)
+            if ext == '.html'
                 html = getHtmlPreview(found[0])
+            else if ext == '.scss' || ext == '.css'
+                html = getCssPreview(found[0])
             else
                 fixture =
                     name:'imported by'
