@@ -352,8 +352,6 @@ update1 = ->
             ext = path_.extname(found[0].path)
             if ext == '.html'
                 html = getHtmlPreview(found[0])
-            else if ext == '.scss' || ext == '.css'
-                html = getCssPreview(found[0])
             else
                 fixture =
                     name:'imported by'
@@ -363,6 +361,9 @@ update1 = ->
                     render = print[entry.name] || print.default
                     render(entry)
                 .join('')
+            if ext == '.scss' || ext == '.css'
+                html += getCssPreview(found[0])
+
             el.innerHTML = html
 
         )
