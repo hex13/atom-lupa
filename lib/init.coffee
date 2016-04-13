@@ -92,7 +92,7 @@ el.addEventListener('mouseover',
         colEnd = ~~target.getAttribute('data-column-end')
         console.log "COOOL", col, colEnd
         lineEnd = target.getAttribute('data-line-end') || line
-        if line
+        if line && editor
             console.log("LLL", line, lineEnd)
             #line = line -= 2 # WTF?
             #line = line + 1
