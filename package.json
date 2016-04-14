@@ -1,7 +1,7 @@
 {
   "name": "atom-lupa",
   "main": "./lib/atom-lupa",
-  "version": "0.4.33",
+  "version": "0.4.34",
   "description": "Navigation sidebar capable to perform full indexing of JavaScript project",
   "keywords": [
     "angular",
