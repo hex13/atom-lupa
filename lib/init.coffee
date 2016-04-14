@@ -74,7 +74,7 @@ decorations = []
 
 el.addEventListener('mouseout',
     (e) ->
-        if lastPos
+        if lastPos && editor
             editor.scrollToBufferPosition lastPos, {center: true}
         #return
         decorations.forEach (d) ->
@@ -90,7 +90,6 @@ el.addEventListener('mouseover',
         line = target.getAttribute('data-line')
         col = ~~target.getAttribute('data-column')
         colEnd = ~~target.getAttribute('data-column-end')
-        console.log "COOOL", col, colEnd
         lineEnd = target.getAttribute('data-line-end') || line
         if line && editor
             console.log("LLL", line, lineEnd)
@@ -241,6 +240,11 @@ update1 = ->
                         >#{cls.name}</h4>" + cls.methods.join('<br>')
                 ).join('<br>') +
                 '<br>'
+        '@mixin': (entry) ->
+            "<h3 >#{entry.name}</h3>" +
+                    "<div data-line='#{entry.source.start.line}'>#{entry.data}</div>" +
+                '<br>'
+
         symbol: (entry) ->
             "<h3 style='color:blue'>#{entry.name}</h3>" +
                 entry.data.map(
