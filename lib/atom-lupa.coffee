@@ -44,3 +44,5 @@ module.exports = AtomLupa =
     #   @modalPanel.hide()
     # else
     #   @modalPanel.show()
+  provide: ->
+    require './autocomplete'
