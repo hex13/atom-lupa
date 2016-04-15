@@ -56,6 +56,11 @@ atom.workspace.addLeftPanel(item: el)
     color: #cca;
     cursor: pointer;
 }
+
+.lupa-label {
+    cursor: pointer;
+}
+
 </style>
 <div style='margin-bottom:10px'>
     <div style='display:none'>
@@ -71,6 +76,24 @@ atom.workspace.addLeftPanel(item: el)
 <button id='lupa-load-index-file'>Load index file (not implemented)</button></div>"
 
 decorations = []
+labelDecorations = []
+
+addLabelDecoration = (editor, line, col, lineEnd, colEnd, list, cls) ->
+    #line = line -= 2 # WTF?
+    #line = line + 1
+    pos = [~~line - 1, col]
+    range =  new Range(pos, [~~lineEnd - 1, colEnd]) #editor.getSelectedBufferRange() #
+    marker = editor.markBufferRange(range)
+    item = document.createElement('span')
+    item.style.position = 'relative'
+    item.className = 'my-line-class'
+    decoration = editor.decorateMarker(marker, {item, type: 'highlight', class: cls || 'my-line-class'})
+    console.log "deco", decoration, marker
+    lastPos = editor.getCursorBufferPosition()
+    editor.scrollToBufferPosition pos, {center: true}
+    if list
+        list.push(decoration)
+
 
 el.addEventListener('mouseout',
     (e) ->
@@ -92,20 +115,7 @@ el.addEventListener('mouseover',
         colEnd = ~~target.getAttribute('data-column-end')
         lineEnd = target.getAttribute('data-line-end') || line
         if line && editor
-            console.log("LLL", line, lineEnd)
-            #line = line -= 2 # WTF?
-            #line = line + 1
-            pos = [~~line - 1, col]
-            range =  new Range(pos, [~~lineEnd - 1, colEnd]) #editor.getSelectedBufferRange() #
-            marker = editor.markBufferRange(range)
-            item = document.createElement('span')
-            item.style.position = 'relative'
-            item.className = 'my-line-class'
-            decoration = editor.decorateMarker(marker, {item, type: 'highlight', class: 'my-line-class'})
-            console.log "deco", decoration, marker
-            lastPos = editor.getCursorBufferPosition()
-            editor.scrollToBufferPosition pos, {center: true}
-            decorations.push(decoration)
+            addLabelDecoration(editor, line, col, lineEnd, colEnd, decorations)
 )
 
 
@@ -115,6 +125,19 @@ el.addEventListener('click',
 
         if target.className.indexOf('lupa-label') != -1
             label = target.getAttribute('data-label')
+            if editor && editor.buffer
+                labelDecorations.forEach (d) ->
+                    d.destroy()
+
+                autolabels = plugin.getConfig().autolabels || []
+
+                filter = (l) ->
+                    l[0] == label
+                pattern = ((autolabels.filter(filter)[0] || [])[1]) || label
+
+                editor.buffer.lines.forEach (line, idx) ->
+                    if line.match(new RegExp(pattern))
+                        addLabelDecoration(editor, idx + 1, 0, idx + 2, 0, labelDecorations, 'label-decoration')
             plugin
                 .filterFiles (f) ->
                     getMetadata(f).filter (item)->

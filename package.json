@@ -39,13 +39,13 @@
   "dependencies": {
     "ast-stream": "0.0.15",
     "flow-parser": "^0.21.0",
-    "html-flavors": "*",
-    "lupa": "^0.1.21",
+    "html-flavors": "0.0.20",
+    "lupa": "^0.1.22",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
     "through2": "^2.0.1",
     "vinyl": "^1.1.1",
-    "vinyl-fs": "^2.3.2"
+    "vinyl-fs": "^2.4.3"
   },
   "devDependencies": {
     "tape": "^4.4.0"
