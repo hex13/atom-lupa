@@ -305,6 +305,8 @@ update1 = ->
 
     currentFile = filename;
 
+    if !filename
+        return
 
     if debug
         safeToRun = editor.buffer.getText().match(/\/\/ safe to run/)
