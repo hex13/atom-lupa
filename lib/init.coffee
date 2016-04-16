@@ -26,6 +26,7 @@ getMetadata = Metadata.getMetadata
 getFileForModule = require('./getFileFor').getFileForModule
 getFileForSymbol = require('./getFileFor').getFileForSymbol
 getFileForRequire = require('./getFileFor').getFileForRequire
+createTextEditor = require('./editor.js').createTextEditor
 previewMarker = null
 fs = require 'fs'
 path_ = require 'path'
@@ -42,6 +43,7 @@ module.exports = (aDashboard) ->
 
 
 el.innerHTML = "
+<div id='lupa-editor-wrapper'></div>
 <div id='lupa-info'></div>
 <button style='display:none' id='lupa-run'>Run</button>
 <button id='lupa-refresh'>Refresh</button>
@@ -102,10 +104,15 @@ el.addEventListener('mouseout',
         #return
         decorations.forEach (d) ->
             d.destroy()
+
+        wrapper = document.getElementById('lupa-editor-wrapper')
+        wrapper.innerHTML = ''
+
 )
 
 
 lastPos = null
+previewEditor = null
 
 el.addEventListener('mouseover',
     (e) ->
@@ -115,7 +122,12 @@ el.addEventListener('mouseover',
         colEnd = ~~target.getAttribute('data-column-end')
         lineEnd = target.getAttribute('data-line-end') || line
         if line && editor
-            addLabelDecoration(editor, line, col, lineEnd, colEnd, decorations)
+            previewEditor = createTextEditor(currentFile, ~~line)
+            addLabelDecoration(previewEditor, line, col, lineEnd, colEnd, decorations)
+            edEl = previewEditor.element
+            wrapper = document.getElementById('lupa-editor-wrapper')
+            wrapper.innerHTML = ''
+            wrapper.appendChild(edEl)
 )
 
 
@@ -214,7 +226,6 @@ refresh = ->
     plugin.process(f).subscribe(update1)
 
 doc.getElementById('lupa-refresh').addEventListener('click', refresh)
-
 
 update1 = ->
     identitity = (v) ->

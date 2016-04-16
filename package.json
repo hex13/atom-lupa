@@ -40,7 +40,7 @@
     "ast-stream": "0.0.15",
     "flow-parser": "^0.21.0",
     "html-flavors": "0.0.20",
-    "lupa": "0.1.24",
+    "lupa": "0.1.25",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
     "through2": "^2.0.1",
