@@ -117,12 +117,13 @@ previewEditor = null
 el.addEventListener('mouseover',
     (e) ->
         target = e.target
-        line = target.getAttribute('data-line')
-        col = ~~target.getAttribute('data-column')
-        colEnd = ~~target.getAttribute('data-column-end')
+        line = target.getAttribute('data-line') || 0
+        col = ~~target.getAttribute('data-column') || 0
+        colEnd = ~~target.getAttribute('data-column-end') || col
         lineEnd = target.getAttribute('data-line-end') || line
-        if line && editor
-            previewEditor = createTextEditor(currentFile, ~~line)
+        if line || target.getAttribute('data-path') #&& editor
+            fileToPreview = target.getAttribute('data-path') || currentFile
+            previewEditor = createTextEditor(fileToPreview, ~~line)
             addLabelDecoration(previewEditor, line, col, lineEnd, colEnd, decorations)
             edEl = previewEditor.element
             wrapper = document.getElementById('lupa-editor-wrapper')
