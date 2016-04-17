@@ -63,6 +63,10 @@ atom.workspace.addLeftPanel(item: el)
     cursor: pointer;
 }
 
+.lupa-file {
+    line-height: 2;
+}
+
 </style>
 <div style='margin-bottom:10px'>
     <div style='display:none'>
@@ -109,6 +113,7 @@ el.addEventListener('mouseout',
         wrapper.innerHTML = ''
 
 )
+console.log("GRA", atom.grammars)
 
 
 lastPos = null
@@ -371,7 +376,7 @@ update1 = ->
     update = (f)->
         if dashboard
             plugin.filterFiles((v) -> v).toArray().subscribe( (files)->
-                dashboard.setFiles(files)
+                dashboard.setFiles(files, addLabelDecoration) # TODO remove addLabelDecoration from here. This is hack
             )
 
         moduleName = path_.basename(filename, path_.extname(filename))

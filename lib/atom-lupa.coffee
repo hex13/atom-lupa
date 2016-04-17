@@ -12,7 +12,7 @@ module.exports = AtomLupa =
     activePane = atom.workspace.paneContainer.activePane
     @atomLupaView = new AtomLupaView(state.atomLupaViewState)
     activePane.addItem(@atomLupaView)
-    @atomLupaView.setContent '<h1>kotek</h1> na plotek i mruga!'
+    #@atomLupaView.setContent '<h1>kotek</h1> na plotek i mruga!'
     plugin(@atomLupaView)
 
     # @modalPanel = atom.workspace.addModalPanel(item: @atomLupaView.getElement(), visible: false)

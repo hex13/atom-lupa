@@ -4,6 +4,7 @@ div = React.createFactory('div')
 FileName = require('./components/FileName')
 Metadata = require('lupa').Metadata
 getMetadata = Metadata.getMetadata
+{createTextEditor} = require('./editor')
 
 getLines = (f) ->
     item = getMetadata(f).filter((item) -> item.name == 'lines')[0] || {}
@@ -33,25 +34,40 @@ class AtomLupaView
     @element.classList.add('atom-lupa')
     @element.style.overflow = 'scroll'
 
-    # Create message element
-    @message = document.createElement('div')
-    @message.textContent = "The AtomLupa package is Alive! It's ALIVE!"
-    @message.classList.add('message')
-    @element.appendChild(@message)
+    @list = document.createElement('div')
+    @list.style.height = '300px'
+    @list.style.padding = '8px'
+    @list.style.border = '1px solid grey'
+    @list.style.overflow = 'scroll'
+    @element.appendChild(@list)
+
+    @preview = createTextEditor('/Users/lukasz/sandbox/lupa/package.json', 0)
+    grammar = atom.grammars.grammarForScopeName('source.js')
+    @preview.setGrammar(grammar)
+    @preview.element.style.position = 'static'
+    @preview.element.style.height = '300px'
+    @preview.element.style.width = '100%'
+    @element.appendChild(@preview.element)
+
 
   getTitle: ->
       '🔍Lupa'
   setContent: (content)->
     @message.innerHTML = content
 
-  setFiles: (files)->
+  setFiles: (files, addLabelDecoration)->
+    console.log("AAAD", addLabelDecoration)
+    onChange = (line) ->
+        addLabelDecoration(preview, line + 1, 0, line + 2, 0, [], 'label-decoration')
+    preview = @preview
+    console.log("DBG T", preview)
     entities = files.reduce (res, f) ->
         res.concat(getEntitiesByType(f, '@mixin'))
     , []
     .map (entity) ->
 
         line = entity.source && (entity.source.start.line - 1)
-        React.createElement(FileName, {desc: entity.data, file: entity.file, line})
+        React.createElement(FileName, {desc: entity.data, file: entity.file, line, preview: preview, onChange})
         #entity.data + ', ' + entity.path
 
 
@@ -61,14 +77,14 @@ class AtomLupaView
     # .map (f) ->
     #     "#{f.path}: #{getLines(f)}"
     .map (f) ->
-        React.createElement(FileName, {file: f})
+        React.createElement(FileName, {file: f, preview: preview, onChange})
         #div({}, [f.path, ':-)', getLines(f)])
 
     totalLoc = files.reduce (res, f) ->
         res + ~~getLines(f)
     ,0
 
-    ReactDom.render(div({},[fileElements, div({}, '---'), entities]), @element)
+    ReactDom.render(div({},[fileElements, div({}, '---'), entities]), @list)
     #@message.innerHTML = "File count: #{files.length}<br> Total Lines: #{totalLoc} <br> #{filesHtml}"
 
 
