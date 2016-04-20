@@ -17,6 +17,9 @@ To allow full project indexing you have to create `lupaProject.json` in root dir
 ```
 
 # CHANGELOG
+# 2016-04-20
+* Smalltalk-like project explorer
+
 # 2016-04-16
 * support for CoffeeScript
 
