@@ -1,5 +1,12 @@
 AtomLupaView = require './atom-lupa-view'
 {CompositeDisposable, Range} = require 'atom'
+plugin = require './init.coffee'
+
+activePane = atom.workspace.paneContainer.activePane
+@atomLupaView = new AtomLupaView()
+activePane.addItem(@atomLupaView)
+plugin(@atomLupaView)
+
 console.log("lupa module")
 module.exports = AtomLupa =
   atomLupaView: null
@@ -7,13 +14,9 @@ module.exports = AtomLupa =
   subscriptions: null
 
   activate: (state) ->
-    plugin = require './init.coffee'
 
-    activePane = atom.workspace.paneContainer.activePane
-    @atomLupaView = new AtomLupaView(state.atomLupaViewState)
-    activePane.addItem(@atomLupaView)
     #@atomLupaView.setContent '<h1>kotek</h1> na plotek i mruga!'
-    plugin(@atomLupaView)
+
 
     # @modalPanel = atom.workspace.addModalPanel(item: @atomLupaView.getElement(), visible: false)
 

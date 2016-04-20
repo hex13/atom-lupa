@@ -20,6 +20,7 @@ getCssPreview = require('./preview').getCssPreview
 child_process = require('child_process')
 File = require('vinyl')
 lupa = require 'lupa'
+
 plugin = lupa.analysis;
 Metadata = lupa.Metadata;
 getMetadata = Metadata.getMetadata
@@ -47,6 +48,10 @@ el.innerHTML = "
 <div id='lupa-info'></div>
 <button style='display:none' id='lupa-run'>Run</button>
 <button id='lupa-refresh'>Refresh</button>
+<br>
+<button id='lupa-index-project'>Index project</button>
+(It requires lupaProject.json file.)
+
 <div id='moje'
     style='padding: 10px; width:240px;overflow:scroll;'>sss <br> <br>
 atom.workspace.addLeftPanel(item: el)
@@ -74,8 +79,6 @@ atom.workspace.addLeftPanel(item: el)
         <div><input id='lupa-project-root' type='text'></div></label>
         <br>
     </div>
-    <button id='lupa-index-project'>Index project</button>
-    (It requires lupaProject.json file.)
 </div>
 <div style='display:none'>
 <input id='lupa-index-file' type='text'><br>
@@ -432,4 +435,4 @@ atom.workspace.onDidChangeActivePaneItem ->
 
 update1()
 
-setInterval(refresh, 1000)
+setInterval(refresh, 1500)
