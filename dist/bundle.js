@@ -57,9 +57,9 @@
 
 	AtomLupaView = __webpack_require__(2);
 
-	ref = __webpack_require__(375), CompositeDisposable = ref.CompositeDisposable, Range = ref.Range;
+	ref = __webpack_require__(356), CompositeDisposable = ref.CompositeDisposable, Range = ref.Range;
 
-	plugin = __webpack_require__(378);
+	plugin = __webpack_require__(359);
 
 	activePane = atom.workspace.paneContainer.activePane;
 
@@ -100,9 +100,7 @@
 	  toggle: function() {
 	    return console.log('AtomLupa was toggled!');
 	  },
-	  provide: function() {
-	    return __webpack_require__(384);
-	  }
+	  provide: function() {}
 	};
 
 
@@ -124,11 +122,11 @@
 
 	getMetadata = Metadata.getMetadata;
 
-	createTextEditor = __webpack_require__(374).createTextEditor;
+	createTextEditor = __webpack_require__(355).createTextEditor;
 
-	ProjectExplorer = __webpack_require__(376);
+	ProjectExplorer = __webpack_require__(357);
 
-	getEntitiesByType = __webpack_require__(377);
+	getEntitiesByType = __webpack_require__(358);
 
 	getLines = function(f) {
 	  var item;
@@ -20017,7 +20015,7 @@
 	var React = __webpack_require__(3);
 	var div = React.createFactory('div');
 	var span = React.createFactory('span');
-	var LineCount = __webpack_require__(373);
+	var LineCount = __webpack_require__(354);
 
 	var FileName = function (_React$Component) {
 	    _inherits(FileName, _React$Component);
@@ -34837,22 +34835,22 @@
 	const File = __webpack_require__(207);
 	var glob = __webpack_require__(219);
 	var fs = __webpack_require__(190);
-	var utils = __webpack_require__(232);
+	var utils = __webpack_require__(230);
 	var resolveModulePath = utils.resolveModulePath;
 
 
-	var parseCss = __webpack_require__(240).parseCss;
+	var parseCss = __webpack_require__(238).parseCss;
 
 
 	var Path = __webpack_require__(208);
 
-	var parse = __webpack_require__(328)
+	var parse = __webpack_require__(320)
 
 	var counter = 0;
 
 	var pluginData = {};
 
-	const ModulePlugin = __webpack_require__(330);
+	const ModulePlugin = __webpack_require__(322);
 	let modulePlugin = ModulePlugin({
 	    namespaces: ['console']
 	});
@@ -49055,7 +49053,6 @@
 	                metadataToAdd.map(entry => Object.assign(
 	                    {},
 	                    entry,
-	                    {name: entry.type || entry.name},
 	                    {type: entry.type || entry.name}
 	                ))
 	            )
@@ -49132,22 +49129,22 @@
 	var fs = __webpack_require__(190)
 	var minimatch = __webpack_require__(220)
 	var Minimatch = minimatch.Minimatch
-	var inherits = __webpack_require__(224)
+	var inherits = __webpack_require__(179)
 	var EE = __webpack_require__(184).EventEmitter
 	var path = __webpack_require__(208)
-	var assert = __webpack_require__(225)
-	var globSync = __webpack_require__(226)
-	var common = __webpack_require__(227)
+	var assert = __webpack_require__(224)
+	var globSync = __webpack_require__(225)
+	var common = __webpack_require__(226)
 	var alphasort = common.alphasort
 	var alphasorti = common.alphasorti
 	var isAbsolute = common.isAbsolute
 	var setopts = common.setopts
 	var ownProp = common.ownProp
-	var inflight = __webpack_require__(228)
+	var inflight = __webpack_require__(227)
 	var util = __webpack_require__(180)
 	var childrenIgnored = common.childrenIgnored
 
-	var once = __webpack_require__(230)
+	var once = __webpack_require__(229)
 
 	function glob (pattern, options, cb) {
 	  if (typeof options === 'function') cb = options, options = {}
@@ -51021,19 +51018,12 @@
 
 /***/ },
 /* 224 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(180).inherits
-
-
-/***/ },
-/* 225 */
 /***/ function(module, exports) {
 
 	module.exports = require("assert");
 
 /***/ },
-/* 226 */
+/* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = globSync
@@ -51045,8 +51035,8 @@
 	var Glob = __webpack_require__(219).Glob
 	var util = __webpack_require__(180)
 	var path = __webpack_require__(208)
-	var assert = __webpack_require__(225)
-	var common = __webpack_require__(227)
+	var assert = __webpack_require__(224)
+	var common = __webpack_require__(226)
 	var alphasort = common.alphasort
 	var alphasorti = common.alphasorti
 	var isAbsolute = common.isAbsolute
@@ -51496,7 +51486,7 @@
 
 
 /***/ },
-/* 227 */
+/* 226 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports.alphasort = alphasort
@@ -51739,12 +51729,12 @@
 
 
 /***/ },
-/* 228 */
+/* 227 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var wrappy = __webpack_require__(229)
+	var wrappy = __webpack_require__(228)
 	var reqs = Object.create(null)
-	var once = __webpack_require__(230)
+	var once = __webpack_require__(229)
 
 	module.exports = wrappy(inflight)
 
@@ -51789,7 +51779,7 @@
 
 
 /***/ },
-/* 229 */
+/* 228 */
 /***/ function(module, exports) {
 
 	// Returns a wrapper function that returns a wrapped callback
@@ -51828,10 +51818,10 @@
 
 
 /***/ },
-/* 230 */
+/* 229 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var wrappy = __webpack_require__(231)
+	var wrappy = __webpack_require__(228)
 	module.exports = wrappy(once)
 
 	once.proto = once(function () {
@@ -51855,49 +51845,10 @@
 
 
 /***/ },
-/* 231 */
-/***/ function(module, exports) {
-
-	// Returns a wrapper function that returns a wrapped callback
-	// The wrapper function should do some stuff, and return a
-	// presumably different callback function.
-	// This makes sure that own properties are retained, so that
-	// decorations and such are not lost along the way.
-	module.exports = wrappy
-	function wrappy (fn, cb) {
-	  if (fn && cb) return wrappy(fn)(cb)
-
-	  if (typeof fn !== 'function')
-	    throw new TypeError('need wrapper function')
-
-	  Object.keys(fn).forEach(function (k) {
-	    wrapper[k] = fn[k]
-	  })
-
-	  return wrapper
-
-	  function wrapper() {
-	    var args = new Array(arguments.length)
-	    for (var i = 0; i < args.length; i++) {
-	      args[i] = arguments[i]
-	    }
-	    var ret = fn.apply(this, args)
-	    var cb = args[args.length-1]
-	    if (typeof ret === 'function' && ret !== cb) {
-	      Object.keys(cb).forEach(function (k) {
-	        ret[k] = cb[k]
-	      })
-	    }
-	    return ret
-	  }
-	}
-
-
-/***/ },
-/* 232 */
+/* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var resolve = __webpack_require__(233);
+	var resolve = __webpack_require__(231);
 	var Path = __webpack_require__(208);
 
 	exports.resolveModulePath = function resolveModulePath(parentFile, path) {
@@ -52072,28 +52023,28 @@
 
 
 /***/ },
-/* 233 */
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var core = __webpack_require__(234);
-	exports = module.exports = __webpack_require__(236);
+	var core = __webpack_require__(232);
+	exports = module.exports = __webpack_require__(234);
 	exports.core = core;
 	exports.isCore = function (x) { return core[x] };
-	exports.sync = __webpack_require__(239);
+	exports.sync = __webpack_require__(237);
 
 
 /***/ },
-/* 234 */
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(235).reduce(function (acc, x) {
+	module.exports = __webpack_require__(233).reduce(function (acc, x) {
 	    acc[x] = true;
 	    return acc;
 	}, {});
 
 
 /***/ },
-/* 235 */
+/* 233 */
 /***/ function(module, exports) {
 
 	module.exports = [
@@ -52136,14 +52087,14 @@
 	];
 
 /***/ },
-/* 236 */
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var core = __webpack_require__(234);
+	var core = __webpack_require__(232);
 	var fs = __webpack_require__(190);
 	var path = __webpack_require__(208);
-	var caller = __webpack_require__(237);
-	var nodeModulesPaths = __webpack_require__(238);
+	var caller = __webpack_require__(235);
+	var nodeModulesPaths = __webpack_require__(236);
 	var splitRe = process.platform === 'win32' ? /[\/\\]/ : /\//;
 
 	module.exports = function resolve (x, opts, cb) {
@@ -52334,7 +52285,7 @@
 
 
 /***/ },
-/* 237 */
+/* 235 */
 /***/ function(module, exports) {
 
 	module.exports = function () {
@@ -52348,7 +52299,7 @@
 
 
 /***/ },
-/* 238 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var path = __webpack_require__(208);
@@ -52392,14 +52343,14 @@
 
 
 /***/ },
-/* 239 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var core = __webpack_require__(234);
+	var core = __webpack_require__(232);
 	var fs = __webpack_require__(190);
 	var path = __webpack_require__(208);
-	var caller = __webpack_require__(237);
-	var nodeModulesPaths = __webpack_require__(238);
+	var caller = __webpack_require__(235);
+	var nodeModulesPaths = __webpack_require__(236);
 
 	module.exports = function (x, opts) {
 	    if (!opts) opts = {};
@@ -52479,21 +52430,21 @@
 
 
 /***/ },
-/* 240 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = {
-	    parseHtml: __webpack_require__(241),
-	    parseCss: __webpack_require__(284),
-	    stringifyReactComponent: __webpack_require__(327),
+	    parseHtml: __webpack_require__(239),
+	    parseCss: __webpack_require__(276),
+	    stringifyReactComponent: __webpack_require__(319),
 	};
 
 
 /***/ },
-/* 241 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parser = __webpack_require__(242);
+	var parser = __webpack_require__(240);
 
 	module.exports = function parseHtml(html) {
 	    var postHtmlAst = parser(html);
@@ -52527,11 +52478,11 @@
 
 
 /***/ },
-/* 242 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*jshint -W082 */
-	var htmlparser = __webpack_require__(243);
+	var htmlparser = __webpack_require__(241);
 
 	/**
 	 * Parse html to PostHTMLTree
@@ -52614,11 +52565,11 @@
 
 
 /***/ },
-/* 243 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Parser = __webpack_require__(244),
-	    DomHandler = __webpack_require__(251);
+	var Parser = __webpack_require__(242),
+	    DomHandler = __webpack_require__(249);
 
 	function defineProp(name, value){
 		delete module.exports[name];
@@ -52628,26 +52579,26 @@
 
 	module.exports = {
 		Parser: Parser,
-		Tokenizer: __webpack_require__(245),
-		ElementType: __webpack_require__(252),
+		Tokenizer: __webpack_require__(243),
+		ElementType: __webpack_require__(250),
 		DomHandler: DomHandler,
 		get FeedHandler(){
-			return defineProp("FeedHandler", __webpack_require__(255));
+			return defineProp("FeedHandler", __webpack_require__(253));
 		},
 		get Stream(){
-			return defineProp("Stream", __webpack_require__(256));
+			return defineProp("Stream", __webpack_require__(254));
 		},
 		get WritableStream(){
-			return defineProp("WritableStream", __webpack_require__(257));
+			return defineProp("WritableStream", __webpack_require__(255));
 		},
 		get ProxyHandler(){
-			return defineProp("ProxyHandler", __webpack_require__(270));
+			return defineProp("ProxyHandler", __webpack_require__(262));
 		},
 		get DomUtils(){
-			return defineProp("DomUtils", __webpack_require__(271));
+			return defineProp("DomUtils", __webpack_require__(263));
 		},
 		get CollectingHandler(){
-			return defineProp("CollectingHandler", __webpack_require__(283));
+			return defineProp("CollectingHandler", __webpack_require__(275));
 		},
 		// For legacy support
 		DefaultHandler: DomHandler,
@@ -52688,10 +52639,10 @@
 
 
 /***/ },
-/* 244 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Tokenizer = __webpack_require__(245);
+	var Tokenizer = __webpack_require__(243);
 
 	/*
 		Options:
@@ -53046,15 +52997,15 @@
 
 
 /***/ },
-/* 245 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = Tokenizer;
 
-	var decodeCodePoint = __webpack_require__(246),
-	    entityMap = __webpack_require__(248),
-	    legacyMap = __webpack_require__(249),
-	    xmlMap    = __webpack_require__(250),
+	var decodeCodePoint = __webpack_require__(244),
+	    entityMap = __webpack_require__(246),
+	    legacyMap = __webpack_require__(247),
+	    xmlMap    = __webpack_require__(248),
 
 	    i = 0,
 
@@ -53958,10 +53909,10 @@
 
 
 /***/ },
-/* 246 */
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var decodeMap = __webpack_require__(247);
+	var decodeMap = __webpack_require__(245);
 
 	module.exports = decodeCodePoint;
 
@@ -53990,7 +53941,7 @@
 
 
 /***/ },
-/* 247 */
+/* 245 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -54025,7 +53976,7 @@
 	};
 
 /***/ },
-/* 248 */
+/* 246 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -56157,7 +56108,7 @@
 	};
 
 /***/ },
-/* 249 */
+/* 247 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -56270,7 +56221,7 @@
 	};
 
 /***/ },
-/* 250 */
+/* 248 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -56282,14 +56233,14 @@
 	};
 
 /***/ },
-/* 251 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ElementType = __webpack_require__(252);
+	var ElementType = __webpack_require__(250);
 
 	var re_whitespace = /\s+/g;
-	var NodePrototype = __webpack_require__(253);
-	var ElementPrototype = __webpack_require__(254);
+	var NodePrototype = __webpack_require__(251);
+	var ElementPrototype = __webpack_require__(252);
 
 	function DomHandler(callback, options, elementCB){
 		if(typeof callback === "object"){
@@ -56470,7 +56421,7 @@
 
 
 /***/ },
-/* 252 */
+/* 250 */
 /***/ function(module, exports) {
 
 	//Types of elements found in the DOM
@@ -56491,7 +56442,7 @@
 
 
 /***/ },
-/* 253 */
+/* 251 */
 /***/ function(module, exports) {
 
 	// This object will be used as the prototype for Nodes when creating a
@@ -56541,11 +56492,11 @@
 
 
 /***/ },
-/* 254 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// DOM-Level-1-compliant structure
-	var NodePrototype = __webpack_require__(253);
+	var NodePrototype = __webpack_require__(251);
 	var ElementPrototype = module.exports = Object.create(NodePrototype);
 
 	var domLvl1 = {
@@ -56567,10 +56518,10 @@
 
 
 /***/ },
-/* 255 */
+/* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var index = __webpack_require__(243),
+	var index = __webpack_require__(241),
 	    DomHandler = index.DomHandler,
 		DomUtils = index.DomUtils;
 
@@ -56668,12 +56619,12 @@
 
 
 /***/ },
-/* 256 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = Stream;
 
-	var Parser = __webpack_require__(257);
+	var Parser = __webpack_require__(255);
 
 	function Stream(options){
 		Parser.call(this, new Cbs(this), options);
@@ -56687,7 +56638,7 @@
 		this.scope = scope;
 	}
 
-	var EVENTS = __webpack_require__(243).EVENTS;
+	var EVENTS = __webpack_require__(241).EVENTS;
 
 	Object.keys(EVENTS).forEach(function(name){
 		if(EVENTS[name] === 0){
@@ -56708,13 +56659,13 @@
 	});
 
 /***/ },
-/* 257 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = Stream;
 
-	var Parser = __webpack_require__(244),
-	    WritableStream = __webpack_require__(185).Writable || __webpack_require__(258).Writable;
+	var Parser = __webpack_require__(242),
+	    WritableStream = __webpack_require__(185).Writable || __webpack_require__(256).Writable;
 
 	function Stream(cbs, options){
 		var parser = this._parser = new Parser(cbs, options);
@@ -56734,7 +56685,7 @@
 	};
 
 /***/ },
-/* 258 */
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Stream = (function (){
@@ -56742,13 +56693,13 @@
 	    return __webpack_require__(185); // hack to fix a circular dependency issue when used with browserify
 	  } catch(_){}
 	}());
-	exports = module.exports = __webpack_require__(259);
+	exports = module.exports = __webpack_require__(257);
 	exports.Stream = Stream || exports;
 	exports.Readable = exports;
-	exports.Writable = __webpack_require__(265);
-	exports.Duplex = __webpack_require__(264);
-	exports.Transform = __webpack_require__(268);
-	exports.PassThrough = __webpack_require__(269);
+	exports.Writable = __webpack_require__(259);
+	exports.Duplex = __webpack_require__(258);
+	exports.Transform = __webpack_require__(260);
+	exports.PassThrough = __webpack_require__(261);
 
 	// inline-process-browser and unreachable-branch-transform make sure this is
 	// removed in browserify builds
@@ -56758,7 +56709,7 @@
 
 
 /***/ },
-/* 259 */
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -56766,11 +56717,11 @@
 	module.exports = Readable;
 
 	/*<replacement>*/
-	var processNextTick = __webpack_require__(260);
+	var processNextTick = __webpack_require__(177);
 	/*</replacement>*/
 
 	/*<replacement>*/
-	var isArray = __webpack_require__(261);
+	var isArray = __webpack_require__(182);
 	/*</replacement>*/
 
 	/*<replacement>*/
@@ -56801,8 +56752,8 @@
 	var Buffer = __webpack_require__(183).Buffer;
 
 	/*<replacement>*/
-	var util = __webpack_require__(262);
-	util.inherits = __webpack_require__(263);
+	var util = __webpack_require__(178);
+	util.inherits = __webpack_require__(179);
 	/*</replacement>*/
 
 	/*<replacement>*/
@@ -56821,7 +56772,7 @@
 
 	var Duplex;
 	function ReadableState(options, stream) {
-	  Duplex = Duplex || __webpack_require__(264);
+	  Duplex = Duplex || __webpack_require__(258);
 
 	  options = options || {};
 
@@ -56880,7 +56831,7 @@
 	  this.decoder = null;
 	  this.encoding = null;
 	  if (options.encoding) {
-	    if (!StringDecoder) StringDecoder = __webpack_require__(267).StringDecoder;
+	    if (!StringDecoder) StringDecoder = __webpack_require__(186).StringDecoder;
 	    this.decoder = new StringDecoder(options.encoding);
 	    this.encoding = options.encoding;
 	  }
@@ -56888,7 +56839,7 @@
 
 	var Duplex;
 	function Readable(options) {
-	  Duplex = Duplex || __webpack_require__(264);
+	  Duplex = Duplex || __webpack_require__(258);
 
 	  if (!(this instanceof Readable)) return new Readable(options);
 
@@ -56991,7 +56942,7 @@
 
 	// backwards compatibility.
 	Readable.prototype.setEncoding = function (enc) {
-	  if (!StringDecoder) StringDecoder = __webpack_require__(267).StringDecoder;
+	  if (!StringDecoder) StringDecoder = __webpack_require__(186).StringDecoder;
 	  this._readableState.decoder = new StringDecoder(enc);
 	  this._readableState.encoding = enc;
 	  return this;
@@ -57643,164 +57594,7 @@
 	}
 
 /***/ },
-/* 260 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	if (!process.version ||
-	    process.version.indexOf('v0.') === 0 ||
-	    process.version.indexOf('v1.') === 0 && process.version.indexOf('v1.8.') !== 0) {
-	  module.exports = nextTick;
-	} else {
-	  module.exports = process.nextTick;
-	}
-
-	function nextTick(fn) {
-	  var args = new Array(arguments.length - 1);
-	  var i = 0;
-	  while (i < args.length) {
-	    args[i++] = arguments[i];
-	  }
-	  process.nextTick(function afterTick() {
-	    fn.apply(null, args);
-	  });
-	}
-
-
-/***/ },
-/* 261 */
-/***/ function(module, exports) {
-
-	var toString = {}.toString;
-
-	module.exports = Array.isArray || function (arr) {
-	  return toString.call(arr) == '[object Array]';
-	};
-
-
-/***/ },
-/* 262 */
-/***/ function(module, exports) {
-
-	// Copyright Joyent, Inc. and other Node contributors.
-	//
-	// Permission is hereby granted, free of charge, to any person obtaining a
-	// copy of this software and associated documentation files (the
-	// "Software"), to deal in the Software without restriction, including
-	// without limitation the rights to use, copy, modify, merge, publish,
-	// distribute, sublicense, and/or sell copies of the Software, and to permit
-	// persons to whom the Software is furnished to do so, subject to the
-	// following conditions:
-	//
-	// The above copyright notice and this permission notice shall be included
-	// in all copies or substantial portions of the Software.
-	//
-	// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-	// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-	// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-	// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-	// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-	// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-	// USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-	// NOTE: These type checking functions intentionally don't use `instanceof`
-	// because it is fragile and can be easily faked with `Object.create()`.
-
-	function isArray(arg) {
-	  if (Array.isArray) {
-	    return Array.isArray(arg);
-	  }
-	  return objectToString(arg) === '[object Array]';
-	}
-	exports.isArray = isArray;
-
-	function isBoolean(arg) {
-	  return typeof arg === 'boolean';
-	}
-	exports.isBoolean = isBoolean;
-
-	function isNull(arg) {
-	  return arg === null;
-	}
-	exports.isNull = isNull;
-
-	function isNullOrUndefined(arg) {
-	  return arg == null;
-	}
-	exports.isNullOrUndefined = isNullOrUndefined;
-
-	function isNumber(arg) {
-	  return typeof arg === 'number';
-	}
-	exports.isNumber = isNumber;
-
-	function isString(arg) {
-	  return typeof arg === 'string';
-	}
-	exports.isString = isString;
-
-	function isSymbol(arg) {
-	  return typeof arg === 'symbol';
-	}
-	exports.isSymbol = isSymbol;
-
-	function isUndefined(arg) {
-	  return arg === void 0;
-	}
-	exports.isUndefined = isUndefined;
-
-	function isRegExp(re) {
-	  return objectToString(re) === '[object RegExp]';
-	}
-	exports.isRegExp = isRegExp;
-
-	function isObject(arg) {
-	  return typeof arg === 'object' && arg !== null;
-	}
-	exports.isObject = isObject;
-
-	function isDate(d) {
-	  return objectToString(d) === '[object Date]';
-	}
-	exports.isDate = isDate;
-
-	function isError(e) {
-	  return (objectToString(e) === '[object Error]' || e instanceof Error);
-	}
-	exports.isError = isError;
-
-	function isFunction(arg) {
-	  return typeof arg === 'function';
-	}
-	exports.isFunction = isFunction;
-
-	function isPrimitive(arg) {
-	  return arg === null ||
-	         typeof arg === 'boolean' ||
-	         typeof arg === 'number' ||
-	         typeof arg === 'string' ||
-	         typeof arg === 'symbol' ||  // ES6 symbol
-	         typeof arg === 'undefined';
-	}
-	exports.isPrimitive = isPrimitive;
-
-	exports.isBuffer = Buffer.isBuffer;
-
-	function objectToString(o) {
-	  return Object.prototype.toString.call(o);
-	}
-
-
-/***/ },
-/* 263 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(180).inherits
-
-
-/***/ },
-/* 264 */
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// a duplex stream is just a stream that is both readable and writable.
@@ -57823,16 +57617,16 @@
 	module.exports = Duplex;
 
 	/*<replacement>*/
-	var processNextTick = __webpack_require__(260);
+	var processNextTick = __webpack_require__(177);
 	/*</replacement>*/
 
 	/*<replacement>*/
-	var util = __webpack_require__(262);
-	util.inherits = __webpack_require__(263);
+	var util = __webpack_require__(178);
+	util.inherits = __webpack_require__(179);
 	/*</replacement>*/
 
-	var Readable = __webpack_require__(259);
-	var Writable = __webpack_require__(265);
+	var Readable = __webpack_require__(257);
+	var Writable = __webpack_require__(259);
 
 	util.inherits(Duplex, Readable);
 
@@ -57880,7 +57674,7 @@
 	}
 
 /***/ },
-/* 265 */
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// A bit simpler than readable streams.
@@ -57892,7 +57686,7 @@
 	module.exports = Writable;
 
 	/*<replacement>*/
-	var processNextTick = __webpack_require__(260);
+	var processNextTick = __webpack_require__(177);
 	/*</replacement>*/
 
 	/*<replacement>*/
@@ -57906,13 +57700,13 @@
 	Writable.WritableState = WritableState;
 
 	/*<replacement>*/
-	var util = __webpack_require__(262);
-	util.inherits = __webpack_require__(263);
+	var util = __webpack_require__(178);
+	util.inherits = __webpack_require__(179);
 	/*</replacement>*/
 
 	/*<replacement>*/
 	var internalUtil = {
-	  deprecate: __webpack_require__(266)
+	  deprecate: __webpack_require__(188)
 	};
 	/*</replacement>*/
 
@@ -57942,7 +57736,7 @@
 
 	var Duplex;
 	function WritableState(options, stream) {
-	  Duplex = Duplex || __webpack_require__(264);
+	  Duplex = Duplex || __webpack_require__(258);
 
 	  options = options || {};
 
@@ -58059,7 +57853,7 @@
 
 	var Duplex;
 	function Writable(options) {
-	  Duplex = Duplex || __webpack_require__(264);
+	  Duplex = Duplex || __webpack_require__(258);
 
 	  // Writable ctor is applied to Duplexes, though they're not
 	  // instanceof Writable, they're instanceof Readable.
@@ -58401,246 +58195,7 @@
 	}
 
 /***/ },
-/* 266 */
-/***/ function(module, exports, __webpack_require__) {
-
-	
-	/**
-	 * For Node.js, simply re-export the core `util.deprecate` function.
-	 */
-
-	module.exports = __webpack_require__(180).deprecate;
-
-
-/***/ },
-/* 267 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// Copyright Joyent, Inc. and other Node contributors.
-	//
-	// Permission is hereby granted, free of charge, to any person obtaining a
-	// copy of this software and associated documentation files (the
-	// "Software"), to deal in the Software without restriction, including
-	// without limitation the rights to use, copy, modify, merge, publish,
-	// distribute, sublicense, and/or sell copies of the Software, and to permit
-	// persons to whom the Software is furnished to do so, subject to the
-	// following conditions:
-	//
-	// The above copyright notice and this permission notice shall be included
-	// in all copies or substantial portions of the Software.
-	//
-	// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-	// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-	// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-	// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-	// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-	// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-	// USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-	var Buffer = __webpack_require__(183).Buffer;
-
-	var isBufferEncoding = Buffer.isEncoding
-	  || function(encoding) {
-	       switch (encoding && encoding.toLowerCase()) {
-	         case 'hex': case 'utf8': case 'utf-8': case 'ascii': case 'binary': case 'base64': case 'ucs2': case 'ucs-2': case 'utf16le': case 'utf-16le': case 'raw': return true;
-	         default: return false;
-	       }
-	     }
-
-
-	function assertEncoding(encoding) {
-	  if (encoding && !isBufferEncoding(encoding)) {
-	    throw new Error('Unknown encoding: ' + encoding);
-	  }
-	}
-
-	// StringDecoder provides an interface for efficiently splitting a series of
-	// buffers into a series of JS strings without breaking apart multi-byte
-	// characters. CESU-8 is handled as part of the UTF-8 encoding.
-	//
-	// @TODO Handling all encodings inside a single object makes it very difficult
-	// to reason about this code, so it should be split up in the future.
-	// @TODO There should be a utf8-strict encoding that rejects invalid UTF-8 code
-	// points as used by CESU-8.
-	var StringDecoder = exports.StringDecoder = function(encoding) {
-	  this.encoding = (encoding || 'utf8').toLowerCase().replace(/[-_]/, '');
-	  assertEncoding(encoding);
-	  switch (this.encoding) {
-	    case 'utf8':
-	      // CESU-8 represents each of Surrogate Pair by 3-bytes
-	      this.surrogateSize = 3;
-	      break;
-	    case 'ucs2':
-	    case 'utf16le':
-	      // UTF-16 represents each of Surrogate Pair by 2-bytes
-	      this.surrogateSize = 2;
-	      this.detectIncompleteChar = utf16DetectIncompleteChar;
-	      break;
-	    case 'base64':
-	      // Base-64 stores 3 bytes in 4 chars, and pads the remainder.
-	      this.surrogateSize = 3;
-	      this.detectIncompleteChar = base64DetectIncompleteChar;
-	      break;
-	    default:
-	      this.write = passThroughWrite;
-	      return;
-	  }
-
-	  // Enough space to store all bytes of a single character. UTF-8 needs 4
-	  // bytes, but CESU-8 may require up to 6 (3 bytes per surrogate).
-	  this.charBuffer = new Buffer(6);
-	  // Number of bytes received for the current incomplete multi-byte character.
-	  this.charReceived = 0;
-	  // Number of bytes expected for the current incomplete multi-byte character.
-	  this.charLength = 0;
-	};
-
-
-	// write decodes the given buffer and returns it as JS string that is
-	// guaranteed to not contain any partial multi-byte characters. Any partial
-	// character found at the end of the buffer is buffered up, and will be
-	// returned when calling write again with the remaining bytes.
-	//
-	// Note: Converting a Buffer containing an orphan surrogate to a String
-	// currently works, but converting a String to a Buffer (via `new Buffer`, or
-	// Buffer#write) will replace incomplete surrogates with the unicode
-	// replacement character. See https://codereview.chromium.org/121173009/ .
-	StringDecoder.prototype.write = function(buffer) {
-	  var charStr = '';
-	  // if our last write ended with an incomplete multibyte character
-	  while (this.charLength) {
-	    // determine how many remaining bytes this buffer has to offer for this char
-	    var available = (buffer.length >= this.charLength - this.charReceived) ?
-	        this.charLength - this.charReceived :
-	        buffer.length;
-
-	    // add the new bytes to the char buffer
-	    buffer.copy(this.charBuffer, this.charReceived, 0, available);
-	    this.charReceived += available;
-
-	    if (this.charReceived < this.charLength) {
-	      // still not enough chars in this buffer? wait for more ...
-	      return '';
-	    }
-
-	    // remove bytes belonging to the current character from the buffer
-	    buffer = buffer.slice(available, buffer.length);
-
-	    // get the character that was split
-	    charStr = this.charBuffer.slice(0, this.charLength).toString(this.encoding);
-
-	    // CESU-8: lead surrogate (D800-DBFF) is also the incomplete character
-	    var charCode = charStr.charCodeAt(charStr.length - 1);
-	    if (charCode >= 0xD800 && charCode <= 0xDBFF) {
-	      this.charLength += this.surrogateSize;
-	      charStr = '';
-	      continue;
-	    }
-	    this.charReceived = this.charLength = 0;
-
-	    // if there are no more bytes in this buffer, just emit our char
-	    if (buffer.length === 0) {
-	      return charStr;
-	    }
-	    break;
-	  }
-
-	  // determine and set charLength / charReceived
-	  this.detectIncompleteChar(buffer);
-
-	  var end = buffer.length;
-	  if (this.charLength) {
-	    // buffer the incomplete character bytes we got
-	    buffer.copy(this.charBuffer, 0, buffer.length - this.charReceived, end);
-	    end -= this.charReceived;
-	  }
-
-	  charStr += buffer.toString(this.encoding, 0, end);
-
-	  var end = charStr.length - 1;
-	  var charCode = charStr.charCodeAt(end);
-	  // CESU-8: lead surrogate (D800-DBFF) is also the incomplete character
-	  if (charCode >= 0xD800 && charCode <= 0xDBFF) {
-	    var size = this.surrogateSize;
-	    this.charLength += size;
-	    this.charReceived += size;
-	    this.charBuffer.copy(this.charBuffer, size, 0, size);
-	    buffer.copy(this.charBuffer, 0, 0, size);
-	    return charStr.substring(0, end);
-	  }
-
-	  // or just emit the charStr
-	  return charStr;
-	};
-
-	// detectIncompleteChar determines if there is an incomplete UTF-8 character at
-	// the end of the given buffer. If so, it sets this.charLength to the byte
-	// length that character, and sets this.charReceived to the number of bytes
-	// that are available for this character.
-	StringDecoder.prototype.detectIncompleteChar = function(buffer) {
-	  // determine how many bytes we have to check at the end of this buffer
-	  var i = (buffer.length >= 3) ? 3 : buffer.length;
-
-	  // Figure out if one of the last i bytes of our buffer announces an
-	  // incomplete char.
-	  for (; i > 0; i--) {
-	    var c = buffer[buffer.length - i];
-
-	    // See http://en.wikipedia.org/wiki/UTF-8#Description
-
-	    // 110XXXXX
-	    if (i == 1 && c >> 5 == 0x06) {
-	      this.charLength = 2;
-	      break;
-	    }
-
-	    // 1110XXXX
-	    if (i <= 2 && c >> 4 == 0x0E) {
-	      this.charLength = 3;
-	      break;
-	    }
-
-	    // 11110XXX
-	    if (i <= 3 && c >> 3 == 0x1E) {
-	      this.charLength = 4;
-	      break;
-	    }
-	  }
-	  this.charReceived = i;
-	};
-
-	StringDecoder.prototype.end = function(buffer) {
-	  var res = '';
-	  if (buffer && buffer.length)
-	    res = this.write(buffer);
-
-	  if (this.charReceived) {
-	    var cr = this.charReceived;
-	    var buf = this.charBuffer;
-	    var enc = this.encoding;
-	    res += buf.slice(0, cr).toString(enc);
-	  }
-
-	  return res;
-	};
-
-	function passThroughWrite(buffer) {
-	  return buffer.toString(this.encoding);
-	}
-
-	function utf16DetectIncompleteChar(buffer) {
-	  this.charReceived = buffer.length % 2;
-	  this.charLength = this.charReceived ? 2 : 0;
-	}
-
-	function base64DetectIncompleteChar(buffer) {
-	  this.charReceived = buffer.length % 3;
-	  this.charLength = this.charReceived ? 3 : 0;
-	}
-
-
-/***/ },
-/* 268 */
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// a transform stream is a readable/writable stream where you do
@@ -58689,11 +58244,11 @@
 
 	module.exports = Transform;
 
-	var Duplex = __webpack_require__(264);
+	var Duplex = __webpack_require__(258);
 
 	/*<replacement>*/
-	var util = __webpack_require__(262);
-	util.inherits = __webpack_require__(263);
+	var util = __webpack_require__(178);
+	util.inherits = __webpack_require__(179);
 	/*</replacement>*/
 
 	util.inherits(Transform, Duplex);
@@ -58825,7 +58380,7 @@
 	}
 
 /***/ },
-/* 269 */
+/* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// a passthrough stream.
@@ -58836,11 +58391,11 @@
 
 	module.exports = PassThrough;
 
-	var Transform = __webpack_require__(268);
+	var Transform = __webpack_require__(260);
 
 	/*<replacement>*/
-	var util = __webpack_require__(262);
-	util.inherits = __webpack_require__(263);
+	var util = __webpack_require__(178);
+	util.inherits = __webpack_require__(179);
 	/*</replacement>*/
 
 	util.inherits(PassThrough, Transform);
@@ -58856,7 +58411,7 @@
 	};
 
 /***/ },
-/* 270 */
+/* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = ProxyHandler;
@@ -58865,7 +58420,7 @@
 		this._cbs = cbs || {};
 	}
 
-	var EVENTS = __webpack_require__(243).EVENTS;
+	var EVENTS = __webpack_require__(241).EVENTS;
 	Object.keys(EVENTS).forEach(function(name){
 		if(EVENTS[name] === 0){
 			name = "on" + name;
@@ -58888,18 +58443,18 @@
 	});
 
 /***/ },
-/* 271 */
+/* 263 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var DomUtils = module.exports;
 
 	[
+		__webpack_require__(264),
+		__webpack_require__(270),
+		__webpack_require__(271),
 		__webpack_require__(272),
-		__webpack_require__(278),
-		__webpack_require__(279),
-		__webpack_require__(280),
-		__webpack_require__(281),
-		__webpack_require__(282)
+		__webpack_require__(273),
+		__webpack_require__(274)
 	].forEach(function(ext){
 		Object.keys(ext).forEach(function(key){
 			DomUtils[key] = ext[key].bind(DomUtils);
@@ -58908,11 +58463,11 @@
 
 
 /***/ },
-/* 272 */
+/* 264 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ElementType = __webpack_require__(252),
-	    getOuterHTML = __webpack_require__(273),
+	var ElementType = __webpack_require__(250),
+	    getOuterHTML = __webpack_require__(265),
 	    isTag = ElementType.isTag;
 
 	module.exports = {
@@ -58936,14 +58491,14 @@
 
 
 /***/ },
-/* 273 */
+/* 265 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
 	  Module dependencies
 	*/
-	var ElementType = __webpack_require__(274);
-	var entities = __webpack_require__(275);
+	var ElementType = __webpack_require__(266);
+	var entities = __webpack_require__(267);
 
 	/*
 	  Boolean Attributes
@@ -59120,7 +58675,7 @@
 
 
 /***/ },
-/* 274 */
+/* 266 */
 /***/ function(module, exports) {
 
 	//Types of elements found in the DOM
@@ -59139,11 +58694,11 @@
 	};
 
 /***/ },
-/* 275 */
+/* 267 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var encode = __webpack_require__(276),
-	    decode = __webpack_require__(277);
+	var encode = __webpack_require__(268),
+	    decode = __webpack_require__(269);
 
 	exports.decode = function(data, level){
 		return (!level || level <= 0 ? decode.XML : decode.HTML)(data);
@@ -59178,15 +58733,15 @@
 
 
 /***/ },
-/* 276 */
+/* 268 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var inverseXML = getInverseObj(__webpack_require__(250)),
+	var inverseXML = getInverseObj(__webpack_require__(248)),
 	    xmlReplacer = getInverseReplacer(inverseXML);
 
 	exports.XML = getInverse(inverseXML, xmlReplacer);
 
-	var inverseHTML = getInverseObj(__webpack_require__(248)),
+	var inverseHTML = getInverseObj(__webpack_require__(246)),
 	    htmlReplacer = getInverseReplacer(inverseHTML);
 
 	exports.HTML = getInverse(inverseHTML, htmlReplacer);
@@ -59257,13 +58812,13 @@
 
 
 /***/ },
-/* 277 */
+/* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var entityMap = __webpack_require__(248),
-	    legacyMap = __webpack_require__(249),
-	    xmlMap    = __webpack_require__(250),
-	    decodeCodePoint = __webpack_require__(246);
+	var entityMap = __webpack_require__(246),
+	    legacyMap = __webpack_require__(247),
+	    xmlMap    = __webpack_require__(248),
+	    decodeCodePoint = __webpack_require__(244);
 
 	var decodeXMLStrict  = getStrictDecoder(xmlMap),
 	    decodeHTMLStrict = getStrictDecoder(entityMap);
@@ -59334,7 +58889,7 @@
 	};
 
 /***/ },
-/* 278 */
+/* 270 */
 /***/ function(module, exports) {
 
 	var getChildren = exports.getChildren = function(elem){
@@ -59364,7 +58919,7 @@
 
 
 /***/ },
-/* 279 */
+/* 271 */
 /***/ function(module, exports) {
 
 	exports.removeElement = function(elem){
@@ -59447,10 +59002,10 @@
 
 
 /***/ },
-/* 280 */
+/* 272 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isTag = __webpack_require__(252).isTag;
+	var isTag = __webpack_require__(250).isTag;
 
 	module.exports = {
 		filter: filter,
@@ -59547,10 +59102,10 @@
 
 
 /***/ },
-/* 281 */
+/* 273 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ElementType = __webpack_require__(252);
+	var ElementType = __webpack_require__(250);
 	var isTag = exports.isTag = ElementType.isTag;
 
 	exports.testElement = function(options, element){
@@ -59640,7 +59195,7 @@
 
 
 /***/ },
-/* 282 */
+/* 274 */
 /***/ function(module, exports) {
 
 	// removeSubsets
@@ -59787,7 +59342,7 @@
 
 
 /***/ },
-/* 283 */
+/* 275 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = CollectingHandler;
@@ -59797,7 +59352,7 @@
 		this.events = [];
 	}
 
-	var EVENTS = __webpack_require__(243).EVENTS;
+	var EVENTS = __webpack_require__(241).EVENTS;
 	Object.keys(EVENTS).forEach(function(name){
 		if(EVENTS[name] === 0){
 			name = "on" + name;
@@ -59848,12 +59403,12 @@
 
 
 /***/ },
-/* 284 */
+/* 276 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	var postcss = __webpack_require__(285);
+	var postcss = __webpack_require__(277);
 
 	function convertFromPostCss(root, onVisit) {
 	    var visit = (node, parent) => {
@@ -59907,18 +59462,18 @@
 
 
 /***/ },
-/* 285 */
+/* 277 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
 
-	var _scssStringify = __webpack_require__(286);
+	var _scssStringify = __webpack_require__(278);
 
 	var _scssStringify2 = _interopRequireDefault(_scssStringify);
 
-	var _scssParse = __webpack_require__(289);
+	var _scssParse = __webpack_require__(281);
 
 	var _scssParse2 = _interopRequireDefault(_scssParse);
 
@@ -59928,7 +59483,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 286 */
+/* 278 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -59936,7 +59491,7 @@
 	exports.__esModule = true;
 	exports.default = scssStringify;
 
-	var _scssStringifier = __webpack_require__(287);
+	var _scssStringifier = __webpack_require__(279);
 
 	var _scssStringifier2 = _interopRequireDefault(_scssStringifier);
 
@@ -59949,14 +59504,14 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 287 */
+/* 279 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
 
-	var _stringifier = __webpack_require__(288);
+	var _stringifier = __webpack_require__(280);
 
 	var _stringifier2 = _interopRequireDefault(_stringifier);
 
@@ -59995,7 +59550,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 288 */
+/* 280 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -60334,7 +59889,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 289 */
+/* 281 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -60342,11 +59897,11 @@
 	exports.__esModule = true;
 	exports.default = scssParse;
 
-	var _input = __webpack_require__(290);
+	var _input = __webpack_require__(282);
 
 	var _input2 = _interopRequireDefault(_input);
 
-	var _scssParser = __webpack_require__(308);
+	var _scssParser = __webpack_require__(300);
 
 	var _scssParser2 = _interopRequireDefault(_scssParser);
 
@@ -60364,7 +59919,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 290 */
+/* 282 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -60373,11 +59928,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _cssSyntaxError = __webpack_require__(291);
+	var _cssSyntaxError = __webpack_require__(283);
 
 	var _cssSyntaxError2 = _interopRequireDefault(_cssSyntaxError);
 
-	var _previousMap = __webpack_require__(295);
+	var _previousMap = __webpack_require__(287);
 
 	var _previousMap2 = _interopRequireDefault(_previousMap);
 
@@ -60473,7 +60028,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 291 */
+/* 283 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -60482,11 +60037,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _supportsColor = __webpack_require__(292);
+	var _supportsColor = __webpack_require__(284);
 
 	var _supportsColor2 = _interopRequireDefault(_supportsColor);
 
-	var _warnOnce = __webpack_require__(294);
+	var _warnOnce = __webpack_require__(286);
 
 	var _warnOnce2 = _interopRequireDefault(_warnOnce);
 
@@ -60573,11 +60128,11 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 292 */
+/* 284 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var hasFlag = __webpack_require__(293);
+	var hasFlag = __webpack_require__(285);
 
 	var support = function (level) {
 		if (level === 0) {
@@ -60651,7 +60206,7 @@
 
 
 /***/ },
-/* 293 */
+/* 285 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -60667,7 +60222,7 @@
 
 
 /***/ },
-/* 294 */
+/* 286 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -60687,7 +60242,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 295 */
+/* 287 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -60696,9 +60251,9 @@
 
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
-	var _jsBase = __webpack_require__(296);
+	var _jsBase = __webpack_require__(288);
 
-	var _sourceMap = __webpack_require__(297);
+	var _sourceMap = __webpack_require__(289);
 
 	var _sourceMap2 = _interopRequireDefault(_sourceMap);
 
@@ -60806,7 +60361,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 296 */
+/* 288 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -61006,7 +60561,7 @@
 
 
 /***/ },
-/* 297 */
+/* 289 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -61014,13 +60569,13 @@
 	 * Licensed under the New BSD license. See LICENSE.txt or:
 	 * http://opensource.org/licenses/BSD-3-Clause
 	 */
-	exports.SourceMapGenerator = __webpack_require__(298).SourceMapGenerator;
-	exports.SourceMapConsumer = __webpack_require__(304).SourceMapConsumer;
-	exports.SourceNode = __webpack_require__(307).SourceNode;
+	exports.SourceMapGenerator = __webpack_require__(290).SourceMapGenerator;
+	exports.SourceMapConsumer = __webpack_require__(296).SourceMapConsumer;
+	exports.SourceNode = __webpack_require__(299).SourceNode;
 
 
 /***/ },
-/* 298 */
+/* 290 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* -*- Mode: js; js-indent-level: 2; -*- */
@@ -61030,10 +60585,10 @@
 	 * http://opensource.org/licenses/BSD-3-Clause
 	 */
 	{
-	  var base64VLQ = __webpack_require__(299);
-	  var util = __webpack_require__(301);
-	  var ArraySet = __webpack_require__(302).ArraySet;
-	  var MappingList = __webpack_require__(303).MappingList;
+	  var base64VLQ = __webpack_require__(291);
+	  var util = __webpack_require__(293);
+	  var ArraySet = __webpack_require__(294).ArraySet;
+	  var MappingList = __webpack_require__(295).MappingList;
 
 	  /**
 	   * An instance of the SourceMapGenerator represents a source map which is
@@ -61422,7 +60977,7 @@
 
 
 /***/ },
-/* 299 */
+/* 291 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* -*- Mode: js; js-indent-level: 2; -*- */
@@ -61462,7 +61017,7 @@
 	 * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 	 */
 	{
-	  var base64 = __webpack_require__(300);
+	  var base64 = __webpack_require__(292);
 
 	  // A single base 64 digit can contain 6 bits of data. For the base 64 variable
 	  // length quantities we use in the source map spec, the first bit is the sign,
@@ -61569,7 +61124,7 @@
 
 
 /***/ },
-/* 300 */
+/* 292 */
 /***/ function(module, exports) {
 
 	/* -*- Mode: js; js-indent-level: 2; -*- */
@@ -61643,7 +61198,7 @@
 
 
 /***/ },
-/* 301 */
+/* 293 */
 /***/ function(module, exports) {
 
 	/* -*- Mode: js; js-indent-level: 2; -*- */
@@ -62018,7 +61573,7 @@
 
 
 /***/ },
-/* 302 */
+/* 294 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* -*- Mode: js; js-indent-level: 2; -*- */
@@ -62028,7 +61583,7 @@
 	 * http://opensource.org/licenses/BSD-3-Clause
 	 */
 	{
-	  var util = __webpack_require__(301);
+	  var util = __webpack_require__(293);
 
 	  /**
 	   * A data structure which is a combination of an array and a set. Adding a new
@@ -62128,7 +61683,7 @@
 
 
 /***/ },
-/* 303 */
+/* 295 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* -*- Mode: js; js-indent-level: 2; -*- */
@@ -62138,7 +61693,7 @@
 	 * http://opensource.org/licenses/BSD-3-Clause
 	 */
 	{
-	  var util = __webpack_require__(301);
+	  var util = __webpack_require__(293);
 
 	  /**
 	   * Determine whether mappingB is after mappingA with respect to generated
@@ -62214,7 +61769,7 @@
 
 
 /***/ },
-/* 304 */
+/* 296 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* -*- Mode: js; js-indent-level: 2; -*- */
@@ -62224,11 +61779,11 @@
 	 * http://opensource.org/licenses/BSD-3-Clause
 	 */
 	{
-	  var util = __webpack_require__(301);
-	  var binarySearch = __webpack_require__(305);
-	  var ArraySet = __webpack_require__(302).ArraySet;
-	  var base64VLQ = __webpack_require__(299);
-	  var quickSort = __webpack_require__(306).quickSort;
+	  var util = __webpack_require__(293);
+	  var binarySearch = __webpack_require__(297);
+	  var ArraySet = __webpack_require__(294).ArraySet;
+	  var base64VLQ = __webpack_require__(291);
+	  var quickSort = __webpack_require__(298).quickSort;
 
 	  function SourceMapConsumer(aSourceMap) {
 	    var sourceMap = aSourceMap;
@@ -63302,7 +62857,7 @@
 
 
 /***/ },
-/* 305 */
+/* 297 */
 /***/ function(module, exports) {
 
 	/* -*- Mode: js; js-indent-level: 2; -*- */
@@ -63420,7 +62975,7 @@
 
 
 /***/ },
-/* 306 */
+/* 298 */
 /***/ function(module, exports) {
 
 	/* -*- Mode: js; js-indent-level: 2; -*- */
@@ -63541,7 +63096,7 @@
 
 
 /***/ },
-/* 307 */
+/* 299 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* -*- Mode: js; js-indent-level: 2; -*- */
@@ -63551,8 +63106,8 @@
 	 * http://opensource.org/licenses/BSD-3-Clause
 	 */
 	{
-	  var SourceMapGenerator = __webpack_require__(298).SourceMapGenerator;
-	  var util = __webpack_require__(301);
+	  var SourceMapGenerator = __webpack_require__(290).SourceMapGenerator;
+	  var util = __webpack_require__(293);
 
 	  // Matches a Windows-style `\r\n` newline or a `\n` newline used by all other
 	  // operating systems these days (capturing the result).
@@ -63955,22 +63510,22 @@
 
 
 /***/ },
-/* 308 */
+/* 300 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
 
-	var _comment = __webpack_require__(309);
+	var _comment = __webpack_require__(301);
 
 	var _comment2 = _interopRequireDefault(_comment);
 
-	var _parser = __webpack_require__(312);
+	var _parser = __webpack_require__(304);
 
 	var _parser2 = _interopRequireDefault(_parser);
 
-	var _scssTokenize = __webpack_require__(326);
+	var _scssTokenize = __webpack_require__(318);
 
 	var _scssTokenize2 = _interopRequireDefault(_scssTokenize);
 
@@ -64025,7 +63580,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 309 */
+/* 301 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -64034,11 +63589,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _warnOnce = __webpack_require__(294);
+	var _warnOnce = __webpack_require__(286);
 
 	var _warnOnce2 = _interopRequireDefault(_warnOnce);
 
-	var _node = __webpack_require__(310);
+	var _node = __webpack_require__(302);
 
 	var _node2 = _interopRequireDefault(_node);
 
@@ -64103,7 +63658,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 310 */
+/* 302 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -64116,19 +63671,19 @@
 
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
-	var _cssSyntaxError = __webpack_require__(291);
+	var _cssSyntaxError = __webpack_require__(283);
 
 	var _cssSyntaxError2 = _interopRequireDefault(_cssSyntaxError);
 
-	var _stringifier = __webpack_require__(288);
+	var _stringifier = __webpack_require__(280);
 
 	var _stringifier2 = _interopRequireDefault(_stringifier);
 
-	var _stringify = __webpack_require__(311);
+	var _stringify = __webpack_require__(303);
 
 	var _stringify2 = _interopRequireDefault(_stringify);
 
-	var _warnOnce = __webpack_require__(294);
+	var _warnOnce = __webpack_require__(286);
 
 	var _warnOnce2 = _interopRequireDefault(_warnOnce);
 
@@ -64439,7 +63994,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 311 */
+/* 303 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -64447,7 +64002,7 @@
 	exports.__esModule = true;
 	exports.default = stringify;
 
-	var _stringifier = __webpack_require__(288);
+	var _stringifier = __webpack_require__(280);
 
 	var _stringifier2 = _interopRequireDefault(_stringifier);
 
@@ -64460,34 +64015,34 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 312 */
+/* 304 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
 
-	var _declaration = __webpack_require__(313);
+	var _declaration = __webpack_require__(305);
 
 	var _declaration2 = _interopRequireDefault(_declaration);
 
-	var _tokenize = __webpack_require__(314);
+	var _tokenize = __webpack_require__(306);
 
 	var _tokenize2 = _interopRequireDefault(_tokenize);
 
-	var _comment = __webpack_require__(309);
+	var _comment = __webpack_require__(301);
 
 	var _comment2 = _interopRequireDefault(_comment);
 
-	var _atRule = __webpack_require__(315);
+	var _atRule = __webpack_require__(307);
 
 	var _atRule2 = _interopRequireDefault(_atRule);
 
-	var _root = __webpack_require__(320);
+	var _root = __webpack_require__(312);
 
 	var _root2 = _interopRequireDefault(_root);
 
-	var _rule = __webpack_require__(318);
+	var _rule = __webpack_require__(310);
 
 	var _rule2 = _interopRequireDefault(_rule);
 
@@ -64967,7 +64522,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 313 */
+/* 305 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -64976,11 +64531,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _warnOnce = __webpack_require__(294);
+	var _warnOnce = __webpack_require__(286);
 
 	var _warnOnce2 = _interopRequireDefault(_warnOnce);
 
-	var _node = __webpack_require__(310);
+	var _node = __webpack_require__(302);
 
 	var _node2 = _interopRequireDefault(_node);
 
@@ -65045,7 +64600,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 314 */
+/* 306 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -65288,7 +64843,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 315 */
+/* 307 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -65297,11 +64852,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _container = __webpack_require__(316);
+	var _container = __webpack_require__(308);
 
 	var _container2 = _interopRequireDefault(_container);
 
-	var _warnOnce = __webpack_require__(294);
+	var _warnOnce = __webpack_require__(286);
 
 	var _warnOnce2 = _interopRequireDefault(_warnOnce);
 
@@ -65390,7 +64945,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 316 */
+/* 308 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -65399,19 +64954,19 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _declaration = __webpack_require__(313);
+	var _declaration = __webpack_require__(305);
 
 	var _declaration2 = _interopRequireDefault(_declaration);
 
-	var _warnOnce = __webpack_require__(294);
+	var _warnOnce = __webpack_require__(286);
 
 	var _warnOnce2 = _interopRequireDefault(_warnOnce);
 
-	var _comment = __webpack_require__(309);
+	var _comment = __webpack_require__(301);
 
 	var _comment2 = _interopRequireDefault(_comment);
 
-	var _node = __webpack_require__(310);
+	var _node = __webpack_require__(302);
 
 	var _node2 = _interopRequireDefault(_node);
 
@@ -65794,7 +65349,7 @@
 	        var _this2 = this;
 
 	        if (typeof nodes === 'string') {
-	            var parse = __webpack_require__(317);
+	            var parse = __webpack_require__(309);
 	            nodes = parse(nodes).nodes;
 	        } else if (!Array.isArray(nodes)) {
 	            if (nodes.type === 'root') {
@@ -65807,10 +65362,10 @@
 	                }
 	                nodes = [new _declaration2.default(nodes)];
 	            } else if (nodes.selector) {
-	                var Rule = __webpack_require__(318);
+	                var Rule = __webpack_require__(310);
 	                nodes = [new Rule(nodes)];
 	            } else if (nodes.name) {
-	                var AtRule = __webpack_require__(315);
+	                var AtRule = __webpack_require__(307);
 	                nodes = [new AtRule(nodes)];
 	            } else if (nodes.text) {
 	                nodes = [new _comment2.default(nodes)];
@@ -65844,13 +65399,13 @@
 
 	        var fix = undefined;
 	        if (node.type === 'root') {
-	            var Root = __webpack_require__(320);
+	            var Root = __webpack_require__(312);
 	            fix = new Root();
 	        } else if (node.type === 'atrule') {
-	            var AtRule = __webpack_require__(315);
+	            var AtRule = __webpack_require__(307);
 	            fix = new AtRule();
 	        } else if (node.type === 'rule') {
-	            var Rule = __webpack_require__(318);
+	            var Rule = __webpack_require__(310);
 	            fix = new Rule();
 	        } else if (node.type === 'decl') {
 	            fix = new _declaration2.default();
@@ -65966,7 +65521,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 317 */
+/* 309 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -65974,11 +65529,11 @@
 	exports.__esModule = true;
 	exports.default = parse;
 
-	var _parser = __webpack_require__(312);
+	var _parser = __webpack_require__(304);
 
 	var _parser2 = _interopRequireDefault(_parser);
 
-	var _input = __webpack_require__(290);
+	var _input = __webpack_require__(282);
 
 	var _input2 = _interopRequireDefault(_input);
 
@@ -66001,7 +65556,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 318 */
+/* 310 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -66010,15 +65565,15 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _container = __webpack_require__(316);
+	var _container = __webpack_require__(308);
 
 	var _container2 = _interopRequireDefault(_container);
 
-	var _warnOnce = __webpack_require__(294);
+	var _warnOnce = __webpack_require__(286);
 
 	var _warnOnce2 = _interopRequireDefault(_warnOnce);
 
-	var _list = __webpack_require__(319);
+	var _list = __webpack_require__(311);
 
 	var _list2 = _interopRequireDefault(_list);
 
@@ -66077,7 +65632,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 319 */
+/* 311 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -66140,18 +65695,18 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 320 */
+/* 312 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
 
-	var _container = __webpack_require__(316);
+	var _container = __webpack_require__(308);
 
 	var _container2 = _interopRequireDefault(_container);
 
-	var _warnOnce = __webpack_require__(294);
+	var _warnOnce = __webpack_require__(286);
 
 	var _warnOnce2 = _interopRequireDefault(_warnOnce);
 
@@ -66223,8 +65778,8 @@
 	    Root.prototype.toResult = function toResult() {
 	        var opts = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
-	        var LazyResult = __webpack_require__(321);
-	        var Processor = __webpack_require__(325);
+	        var LazyResult = __webpack_require__(313);
+	        var Processor = __webpack_require__(317);
 
 	        var lazy = new LazyResult(new Processor(), this, opts);
 	        return lazy.stringify();
@@ -66253,7 +65808,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 321 */
+/* 313 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -66264,23 +65819,23 @@
 
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
-	var _mapGenerator = __webpack_require__(322);
+	var _mapGenerator = __webpack_require__(314);
 
 	var _mapGenerator2 = _interopRequireDefault(_mapGenerator);
 
-	var _stringify2 = __webpack_require__(311);
+	var _stringify2 = __webpack_require__(303);
 
 	var _stringify3 = _interopRequireDefault(_stringify2);
 
-	var _warnOnce = __webpack_require__(294);
+	var _warnOnce = __webpack_require__(286);
 
 	var _warnOnce2 = _interopRequireDefault(_warnOnce);
 
-	var _result = __webpack_require__(323);
+	var _result = __webpack_require__(315);
 
 	var _result2 = _interopRequireDefault(_result);
 
-	var _parse = __webpack_require__(317);
+	var _parse = __webpack_require__(309);
 
 	var _parse2 = _interopRequireDefault(_parse);
 
@@ -66532,16 +66087,16 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 322 */
+/* 314 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
 
-	var _jsBase = __webpack_require__(296);
+	var _jsBase = __webpack_require__(288);
 
-	var _sourceMap = __webpack_require__(297);
+	var _sourceMap = __webpack_require__(289);
 
 	var _sourceMap2 = _interopRequireDefault(_sourceMap);
 
@@ -66826,7 +66381,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 323 */
+/* 315 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -66835,7 +66390,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _warning = __webpack_require__(324);
+	var _warning = __webpack_require__(316);
 
 	var _warning2 = _interopRequireDefault(_warning);
 
@@ -66891,7 +66446,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 324 */
+/* 316 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -66942,7 +66497,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 325 */
+/* 317 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -66951,7 +66506,7 @@
 
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
-	var _lazyResult = __webpack_require__(321);
+	var _lazyResult = __webpack_require__(313);
 
 	var _lazyResult2 = _interopRequireDefault(_lazyResult);
 
@@ -67017,7 +66572,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 326 */
+/* 318 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -67304,7 +66859,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 327 */
+/* 319 */
 /***/ function(module, exports) {
 
 	module.exports = function stringifyReactComponent(tree) {
@@ -67350,16 +66905,16 @@
 
 
 /***/ },
-/* 328 */
+/* 320 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Path = __webpack_require__(208);
 
-	var parseHtml = __webpack_require__(240).parseHtml;
+	var parseHtml = __webpack_require__(238).parseHtml;
 
 	var parsers = {
 	    '.js': function (code) {
-	        var parser = __webpack_require__(329);
+	        var parser = __webpack_require__(321);
 	        return parser.parse(code, {});
 	    },
 	    '.html': function (code) {
@@ -67391,7 +66946,7 @@
 
 
 /***/ },
-/* 329 */
+/* 321 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Generated by js_of_ocaml 2.6
@@ -72943,14 +72498,14 @@
 
 
 /***/ },
-/* 330 */
+/* 322 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var c = 0;
-	var recast = __webpack_require__(331);
+	var recast = __webpack_require__(323);
 
 
-	var utils = __webpack_require__(232);
+	var utils = __webpack_require__(230);
 	var helpers = __webpack_require__(206);
 	var addMetadata = __webpack_require__(217).addMetadata;
 	var Path = __webpack_require__(208);
@@ -73147,8 +72702,7 @@
 	                functions.push({
 	                    type: 'function',
 	                    loc: path.node.loc,
-	                    _name: getName(path.node),
-	                    data: getName(path.node),
+	                    name: getName(path.node)
 	                });
 	                this.traverse(path);
 	            },
@@ -73263,12 +72817,12 @@
 
 
 /***/ },
-/* 331 */
+/* 323 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var types = __webpack_require__(332);
-	var parse = __webpack_require__(350).parse;
-	var Printer = __webpack_require__(372).Printer;
+	var types = __webpack_require__(324);
+	var parse = __webpack_require__(342).parse;
+	var Printer = __webpack_require__(353).Printer;
 
 	function print(node, options) {
 	    return new Printer(options).print(node);
@@ -73368,36 +72922,36 @@
 
 
 /***/ },
-/* 332 */
+/* 324 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// This module was originally created so that Recast could add its own
 	// custom types to the AST type system (in particular, the File type), but
 	// those types are now incorporated into ast-types, so this module doesn't
 	// have much to do anymore. Still, it might prove useful in the future.
-	module.exports = __webpack_require__(333);
+	module.exports = __webpack_require__(325);
 
 
 /***/ },
-/* 333 */
+/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var types = __webpack_require__(334);
+	var types = __webpack_require__(326);
 
 	// This core module of AST types captures ES5 as it is parsed today by
 	// git://github.com/ariya/esprima.git#master.
-	__webpack_require__(335);
+	__webpack_require__(327);
 
 	// Feel free to add to or remove from this list of extension modules to
 	// configure the precise type hierarchy that you need.
-	__webpack_require__(337);
-	__webpack_require__(338);
-	__webpack_require__(339);
-	__webpack_require__(340);
-	__webpack_require__(341);
-	__webpack_require__(342);
-	__webpack_require__(343);
-	__webpack_require__(344);
+	__webpack_require__(329);
+	__webpack_require__(330);
+	__webpack_require__(331);
+	__webpack_require__(332);
+	__webpack_require__(333);
+	__webpack_require__(334);
+	__webpack_require__(335);
+	__webpack_require__(336);
 
 	types.finalize();
 
@@ -73411,15 +72965,15 @@
 	exports.eachField = types.eachField;
 	exports.someField = types.someField;
 	exports.getSupertypeNames = types.getSupertypeNames;
-	exports.astNodesAreEquivalent = __webpack_require__(345);
+	exports.astNodesAreEquivalent = __webpack_require__(337);
 	exports.finalize = types.finalize;
-	exports.NodePath = __webpack_require__(346);
-	exports.PathVisitor = __webpack_require__(349);
+	exports.NodePath = __webpack_require__(338);
+	exports.PathVisitor = __webpack_require__(341);
 	exports.visit = exports.PathVisitor.visit;
 
 
 /***/ },
-/* 334 */
+/* 326 */
 /***/ function(module, exports) {
 
 	var Ap = Array.prototype;
@@ -74253,14 +73807,14 @@
 
 
 /***/ },
-/* 335 */
+/* 327 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var types = __webpack_require__(334);
+	var types = __webpack_require__(326);
 	var Type = types.Type;
 	var def = Type.def;
 	var or = Type.or;
-	var shared = __webpack_require__(336);
+	var shared = __webpack_require__(328);
 	var defaults = shared.defaults;
 	var geq = shared.geq;
 
@@ -74626,10 +74180,10 @@
 
 
 /***/ },
-/* 336 */
+/* 328 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var types = __webpack_require__(334);
+	var types = __webpack_require__(326);
 	var Type = types.Type;
 	var builtin = types.builtInTypes;
 	var isNumber = builtin.number;
@@ -74673,14 +74227,14 @@
 
 
 /***/ },
-/* 337 */
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(335);
-	var types = __webpack_require__(334);
+	__webpack_require__(327);
+	var types = __webpack_require__(326);
 	var def = types.Type.def;
 	var or = types.Type.or;
-	var defaults = __webpack_require__(336).defaults;
+	var defaults = __webpack_require__(328).defaults;
 
 	def("Function")
 	    .field("generator", Boolean, defaults["false"])
@@ -74896,16 +74450,16 @@
 
 
 /***/ },
-/* 338 */
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(337);
+	__webpack_require__(329);
 
-	var types = __webpack_require__(334);
+	var types = __webpack_require__(326);
 	var def = types.Type.def;
 	var or = types.Type.or;
 	var builtin = types.builtInTypes;
-	var defaults = __webpack_require__(336).defaults;
+	var defaults = __webpack_require__(328).defaults;
 
 	def("Function")
 	    .field("async", Boolean, defaults["false"]);
@@ -74938,14 +74492,14 @@
 
 
 /***/ },
-/* 339 */
+/* 331 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(335);
-	var types = __webpack_require__(334);
+	__webpack_require__(327);
+	var types = __webpack_require__(326);
 	var def = types.Type.def;
 	var or = types.Type.or;
-	var shared = __webpack_require__(336);
+	var shared = __webpack_require__(328);
 	var geq = shared.geq;
 	var defaults = shared.defaults;
 
@@ -74993,11 +74547,11 @@
 
 
 /***/ },
-/* 340 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(335);
-	var types = __webpack_require__(334);
+	__webpack_require__(327);
+	var types = __webpack_require__(326);
 	var def = types.Type.def;
 	var or = types.Type.or;
 
@@ -75083,15 +74637,15 @@
 
 
 /***/ },
-/* 341 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(338);
+	__webpack_require__(330);
 
-	var types = __webpack_require__(334);
+	var types = __webpack_require__(326);
 	var def = types.Type.def;
 	var or = types.Type.or;
-	var defaults = __webpack_require__(336).defaults;
+	var defaults = __webpack_require__(328).defaults;
 
 	def("JSXAttribute")
 	    .bases("Node")
@@ -75189,15 +74743,15 @@
 
 
 /***/ },
-/* 342 */
+/* 334 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(338);
+	__webpack_require__(330);
 
-	var types = __webpack_require__(334);
+	var types = __webpack_require__(326);
 	var def = types.Type.def;
 	var or = types.Type.or;
-	var defaults = __webpack_require__(336).defaults;
+	var defaults = __webpack_require__(328).defaults;
 
 	// Type Annotations
 	def("Type").bases("Node");
@@ -75464,13 +75018,13 @@
 
 
 /***/ },
-/* 343 */
+/* 335 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(338);
+	__webpack_require__(330);
 
-	var types = __webpack_require__(334);
-	var defaults = __webpack_require__(336).defaults;
+	var types = __webpack_require__(326);
+	var defaults = __webpack_require__(328).defaults;
 	var def = types.Type.def;
 	var or = types.Type.or;
 
@@ -75566,13 +75120,13 @@
 
 
 /***/ },
-/* 344 */
+/* 336 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(338);
+	__webpack_require__(330);
 
-	var types = __webpack_require__(334);
-	var defaults = __webpack_require__(336).defaults;
+	var types = __webpack_require__(326);
+	var defaults = __webpack_require__(328).defaults;
 	var def = types.Type.def;
 	var or = types.Type.or;
 
@@ -75677,10 +75231,10 @@
 
 
 /***/ },
-/* 345 */
+/* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var types = __webpack_require__(333);
+	var types = __webpack_require__(325);
 	var getFieldNames = types.getFieldNames;
 	var getFieldValue = types.getFieldValue;
 	var isArray = types.builtInTypes.array;
@@ -75867,16 +75421,16 @@
 
 
 /***/ },
-/* 346 */
+/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var types = __webpack_require__(334);
+	var types = __webpack_require__(326);
 	var n = types.namedTypes;
 	var b = types.builders;
 	var isNumber = types.builtInTypes.number;
 	var isArray = types.builtInTypes.array;
-	var Path = __webpack_require__(347);
-	var Scope = __webpack_require__(348);
+	var Path = __webpack_require__(339);
+	var Scope = __webpack_require__(340);
 
 	function NodePath(value, parentPath, name) {
 	    if (!(this instanceof NodePath)) {
@@ -76347,12 +75901,12 @@
 
 
 /***/ },
-/* 347 */
+/* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Op = Object.prototype;
 	var hasOwn = Op.hasOwnProperty;
-	var types = __webpack_require__(334);
+	var types = __webpack_require__(326);
 	var isArray = types.builtInTypes.array;
 	var isNumber = types.builtInTypes.number;
 	var Ap = Array.prototype;
@@ -76719,10 +76273,10 @@
 
 
 /***/ },
-/* 348 */
+/* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var types = __webpack_require__(334);
+	var types = __webpack_require__(326);
 	var Type = types.Type;
 	var namedTypes = types.namedTypes;
 	var Node = namedTypes.Node;
@@ -76735,7 +76289,7 @@
 	    if (!(this instanceof Scope)) {
 	        throw new Error("Scope constructor cannot be invoked without 'new'");
 	    }
-	    if (!(path instanceof __webpack_require__(346))) {
+	    if (!(path instanceof __webpack_require__(338))) {
 	        throw new Error("");
 	    }
 	    ScopeType.assert(path.value);
@@ -77055,11 +76609,11 @@
 
 
 /***/ },
-/* 349 */
+/* 341 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var types = __webpack_require__(334);
-	var NodePath = __webpack_require__(346);
+	var types = __webpack_require__(326);
+	var NodePath = __webpack_require__(338);
 	var Printable = types.namedTypes.Printable;
 	var isArray = types.builtInTypes.array;
 	var isObject = types.builtInTypes.object;
@@ -77480,21 +77034,21 @@
 
 
 /***/ },
-/* 350 */
+/* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var assert = __webpack_require__(225);
-	var types = __webpack_require__(332);
+	var assert = __webpack_require__(224);
+	var types = __webpack_require__(324);
 	var n = types.namedTypes;
 	var b = types.builders;
 	var isObject = types.builtInTypes.object;
 	var isArray = types.builtInTypes.array;
 	var isFunction = types.builtInTypes.function;
-	var Patcher = __webpack_require__(351).Patcher;
-	var normalizeOptions = __webpack_require__(364).normalize;
-	var fromString = __webpack_require__(352).fromString;
-	var attachComments = __webpack_require__(371).attach;
-	var util = __webpack_require__(368);
+	var Patcher = __webpack_require__(343).Patcher;
+	var normalizeOptions = __webpack_require__(345).normalize;
+	var fromString = __webpack_require__(344).fromString;
+	var attachComments = __webpack_require__(352).attach;
+	var util = __webpack_require__(349);
 
 	exports.parse = function parse(source, options) {
 	    options = normalizeOptions(options);
@@ -77638,19 +77192,19 @@
 
 
 /***/ },
-/* 351 */
+/* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var assert = __webpack_require__(225);
-	var linesModule = __webpack_require__(352);
-	var types = __webpack_require__(332);
+	var assert = __webpack_require__(224);
+	var linesModule = __webpack_require__(344);
+	var types = __webpack_require__(324);
 	var getFieldValue = types.getFieldValue;
 	var Printable = types.namedTypes.Printable;
 	var Expression = types.namedTypes.Expression;
 	var SourceLocation = types.namedTypes.SourceLocation;
-	var util = __webpack_require__(368);
+	var util = __webpack_require__(349);
 	var comparePos = util.comparePos;
-	var FastPath = __webpack_require__(370);
+	var FastPath = __webpack_require__(351);
 	var isObject = types.builtInTypes.object;
 	var isArray = types.builtInTypes.array;
 	var isString = types.builtInTypes.string;
@@ -78159,17 +77713,17 @@
 
 
 /***/ },
-/* 352 */
+/* 344 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var assert = __webpack_require__(225);
-	var sourceMap = __webpack_require__(353);
-	var normalizeOptions = __webpack_require__(364).normalize;
-	var secretKey = __webpack_require__(367).makeUniqueKey();
-	var types = __webpack_require__(332);
+	var assert = __webpack_require__(224);
+	var sourceMap = __webpack_require__(289);
+	var normalizeOptions = __webpack_require__(345).normalize;
+	var secretKey = __webpack_require__(348).makeUniqueKey();
+	var types = __webpack_require__(324);
 	var isString = types.builtInTypes.string;
-	var comparePos = __webpack_require__(368).comparePos;
-	var Mapping = __webpack_require__(369);
+	var comparePos = __webpack_require__(349).comparePos;
+	var Mapping = __webpack_require__(350);
 
 	// Goals:
 	// 1. Minimize new string creation.
@@ -79043,2963 +78597,14 @@
 
 
 /***/ },
-/* 353 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*
-	 * Copyright 2009-2011 Mozilla Foundation and contributors
-	 * Licensed under the New BSD license. See LICENSE.txt or:
-	 * http://opensource.org/licenses/BSD-3-Clause
-	 */
-	exports.SourceMapGenerator = __webpack_require__(354).SourceMapGenerator;
-	exports.SourceMapConsumer = __webpack_require__(360).SourceMapConsumer;
-	exports.SourceNode = __webpack_require__(363).SourceNode;
-
-
-/***/ },
-/* 354 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* -*- Mode: js; js-indent-level: 2; -*- */
-	/*
-	 * Copyright 2011 Mozilla Foundation and contributors
-	 * Licensed under the New BSD license. See LICENSE or:
-	 * http://opensource.org/licenses/BSD-3-Clause
-	 */
-	{
-	  var base64VLQ = __webpack_require__(355);
-	  var util = __webpack_require__(357);
-	  var ArraySet = __webpack_require__(358).ArraySet;
-	  var MappingList = __webpack_require__(359).MappingList;
-
-	  /**
-	   * An instance of the SourceMapGenerator represents a source map which is
-	   * being built incrementally. You may pass an object with the following
-	   * properties:
-	   *
-	   *   - file: The filename of the generated source.
-	   *   - sourceRoot: A root for all relative URLs in this source map.
-	   */
-	  function SourceMapGenerator(aArgs) {
-	    if (!aArgs) {
-	      aArgs = {};
-	    }
-	    this._file = util.getArg(aArgs, 'file', null);
-	    this._sourceRoot = util.getArg(aArgs, 'sourceRoot', null);
-	    this._skipValidation = util.getArg(aArgs, 'skipValidation', false);
-	    this._sources = new ArraySet();
-	    this._names = new ArraySet();
-	    this._mappings = new MappingList();
-	    this._sourcesContents = null;
-	  }
-
-	  SourceMapGenerator.prototype._version = 3;
-
-	  /**
-	   * Creates a new SourceMapGenerator based on a SourceMapConsumer
-	   *
-	   * @param aSourceMapConsumer The SourceMap.
-	   */
-	  SourceMapGenerator.fromSourceMap =
-	    function SourceMapGenerator_fromSourceMap(aSourceMapConsumer) {
-	      var sourceRoot = aSourceMapConsumer.sourceRoot;
-	      var generator = new SourceMapGenerator({
-	        file: aSourceMapConsumer.file,
-	        sourceRoot: sourceRoot
-	      });
-	      aSourceMapConsumer.eachMapping(function (mapping) {
-	        var newMapping = {
-	          generated: {
-	            line: mapping.generatedLine,
-	            column: mapping.generatedColumn
-	          }
-	        };
-
-	        if (mapping.source != null) {
-	          newMapping.source = mapping.source;
-	          if (sourceRoot != null) {
-	            newMapping.source = util.relative(sourceRoot, newMapping.source);
-	          }
-
-	          newMapping.original = {
-	            line: mapping.originalLine,
-	            column: mapping.originalColumn
-	          };
-
-	          if (mapping.name != null) {
-	            newMapping.name = mapping.name;
-	          }
-	        }
-
-	        generator.addMapping(newMapping);
-	      });
-	      aSourceMapConsumer.sources.forEach(function (sourceFile) {
-	        var content = aSourceMapConsumer.sourceContentFor(sourceFile);
-	        if (content != null) {
-	          generator.setSourceContent(sourceFile, content);
-	        }
-	      });
-	      return generator;
-	    };
-
-	  /**
-	   * Add a single mapping from original source line and column to the generated
-	   * source's line and column for this source map being created. The mapping
-	   * object should have the following properties:
-	   *
-	   *   - generated: An object with the generated line and column positions.
-	   *   - original: An object with the original line and column positions.
-	   *   - source: The original source file (relative to the sourceRoot).
-	   *   - name: An optional original token name for this mapping.
-	   */
-	  SourceMapGenerator.prototype.addMapping =
-	    function SourceMapGenerator_addMapping(aArgs) {
-	      var generated = util.getArg(aArgs, 'generated');
-	      var original = util.getArg(aArgs, 'original', null);
-	      var source = util.getArg(aArgs, 'source', null);
-	      var name = util.getArg(aArgs, 'name', null);
-
-	      if (!this._skipValidation) {
-	        this._validateMapping(generated, original, source, name);
-	      }
-
-	      if (source != null && !this._sources.has(source)) {
-	        this._sources.add(source);
-	      }
-
-	      if (name != null && !this._names.has(name)) {
-	        this._names.add(name);
-	      }
-
-	      this._mappings.add({
-	        generatedLine: generated.line,
-	        generatedColumn: generated.column,
-	        originalLine: original != null && original.line,
-	        originalColumn: original != null && original.column,
-	        source: source,
-	        name: name
-	      });
-	    };
-
-	  /**
-	   * Set the source content for a source file.
-	   */
-	  SourceMapGenerator.prototype.setSourceContent =
-	    function SourceMapGenerator_setSourceContent(aSourceFile, aSourceContent) {
-	      var source = aSourceFile;
-	      if (this._sourceRoot != null) {
-	        source = util.relative(this._sourceRoot, source);
-	      }
-
-	      if (aSourceContent != null) {
-	        // Add the source content to the _sourcesContents map.
-	        // Create a new _sourcesContents map if the property is null.
-	        if (!this._sourcesContents) {
-	          this._sourcesContents = {};
-	        }
-	        this._sourcesContents[util.toSetString(source)] = aSourceContent;
-	      } else if (this._sourcesContents) {
-	        // Remove the source file from the _sourcesContents map.
-	        // If the _sourcesContents map is empty, set the property to null.
-	        delete this._sourcesContents[util.toSetString(source)];
-	        if (Object.keys(this._sourcesContents).length === 0) {
-	          this._sourcesContents = null;
-	        }
-	      }
-	    };
-
-	  /**
-	   * Applies the mappings of a sub-source-map for a specific source file to the
-	   * source map being generated. Each mapping to the supplied source file is
-	   * rewritten using the supplied source map. Note: The resolution for the
-	   * resulting mappings is the minimium of this map and the supplied map.
-	   *
-	   * @param aSourceMapConsumer The source map to be applied.
-	   * @param aSourceFile Optional. The filename of the source file.
-	   *        If omitted, SourceMapConsumer's file property will be used.
-	   * @param aSourceMapPath Optional. The dirname of the path to the source map
-	   *        to be applied. If relative, it is relative to the SourceMapConsumer.
-	   *        This parameter is needed when the two source maps aren't in the same
-	   *        directory, and the source map to be applied contains relative source
-	   *        paths. If so, those relative source paths need to be rewritten
-	   *        relative to the SourceMapGenerator.
-	   */
-	  SourceMapGenerator.prototype.applySourceMap =
-	    function SourceMapGenerator_applySourceMap(aSourceMapConsumer, aSourceFile, aSourceMapPath) {
-	      var sourceFile = aSourceFile;
-	      // If aSourceFile is omitted, we will use the file property of the SourceMap
-	      if (aSourceFile == null) {
-	        if (aSourceMapConsumer.file == null) {
-	          throw new Error(
-	            'SourceMapGenerator.prototype.applySourceMap requires either an explicit source file, ' +
-	            'or the source map\'s "file" property. Both were omitted.'
-	          );
-	        }
-	        sourceFile = aSourceMapConsumer.file;
-	      }
-	      var sourceRoot = this._sourceRoot;
-	      // Make "sourceFile" relative if an absolute Url is passed.
-	      if (sourceRoot != null) {
-	        sourceFile = util.relative(sourceRoot, sourceFile);
-	      }
-	      // Applying the SourceMap can add and remove items from the sources and
-	      // the names array.
-	      var newSources = new ArraySet();
-	      var newNames = new ArraySet();
-
-	      // Find mappings for the "sourceFile"
-	      this._mappings.unsortedForEach(function (mapping) {
-	        if (mapping.source === sourceFile && mapping.originalLine != null) {
-	          // Check if it can be mapped by the source map, then update the mapping.
-	          var original = aSourceMapConsumer.originalPositionFor({
-	            line: mapping.originalLine,
-	            column: mapping.originalColumn
-	          });
-	          if (original.source != null) {
-	            // Copy mapping
-	            mapping.source = original.source;
-	            if (aSourceMapPath != null) {
-	              mapping.source = util.join(aSourceMapPath, mapping.source)
-	            }
-	            if (sourceRoot != null) {
-	              mapping.source = util.relative(sourceRoot, mapping.source);
-	            }
-	            mapping.originalLine = original.line;
-	            mapping.originalColumn = original.column;
-	            if (original.name != null) {
-	              mapping.name = original.name;
-	            }
-	          }
-	        }
-
-	        var source = mapping.source;
-	        if (source != null && !newSources.has(source)) {
-	          newSources.add(source);
-	        }
-
-	        var name = mapping.name;
-	        if (name != null && !newNames.has(name)) {
-	          newNames.add(name);
-	        }
-
-	      }, this);
-	      this._sources = newSources;
-	      this._names = newNames;
-
-	      // Copy sourcesContents of applied map.
-	      aSourceMapConsumer.sources.forEach(function (sourceFile) {
-	        var content = aSourceMapConsumer.sourceContentFor(sourceFile);
-	        if (content != null) {
-	          if (aSourceMapPath != null) {
-	            sourceFile = util.join(aSourceMapPath, sourceFile);
-	          }
-	          if (sourceRoot != null) {
-	            sourceFile = util.relative(sourceRoot, sourceFile);
-	          }
-	          this.setSourceContent(sourceFile, content);
-	        }
-	      }, this);
-	    };
-
-	  /**
-	   * A mapping can have one of the three levels of data:
-	   *
-	   *   1. Just the generated position.
-	   *   2. The Generated position, original position, and original source.
-	   *   3. Generated and original position, original source, as well as a name
-	   *      token.
-	   *
-	   * To maintain consistency, we validate that any new mapping being added falls
-	   * in to one of these categories.
-	   */
-	  SourceMapGenerator.prototype._validateMapping =
-	    function SourceMapGenerator_validateMapping(aGenerated, aOriginal, aSource,
-	                                                aName) {
-	      if (aGenerated && 'line' in aGenerated && 'column' in aGenerated
-	          && aGenerated.line > 0 && aGenerated.column >= 0
-	          && !aOriginal && !aSource && !aName) {
-	        // Case 1.
-	        return;
-	      }
-	      else if (aGenerated && 'line' in aGenerated && 'column' in aGenerated
-	               && aOriginal && 'line' in aOriginal && 'column' in aOriginal
-	               && aGenerated.line > 0 && aGenerated.column >= 0
-	               && aOriginal.line > 0 && aOriginal.column >= 0
-	               && aSource) {
-	        // Cases 2 and 3.
-	        return;
-	      }
-	      else {
-	        throw new Error('Invalid mapping: ' + JSON.stringify({
-	          generated: aGenerated,
-	          source: aSource,
-	          original: aOriginal,
-	          name: aName
-	        }));
-	      }
-	    };
-
-	  /**
-	   * Serialize the accumulated mappings in to the stream of base 64 VLQs
-	   * specified by the source map format.
-	   */
-	  SourceMapGenerator.prototype._serializeMappings =
-	    function SourceMapGenerator_serializeMappings() {
-	      var previousGeneratedColumn = 0;
-	      var previousGeneratedLine = 1;
-	      var previousOriginalColumn = 0;
-	      var previousOriginalLine = 0;
-	      var previousName = 0;
-	      var previousSource = 0;
-	      var result = '';
-	      var mapping;
-	      var nameIdx;
-	      var sourceIdx;
-
-	      var mappings = this._mappings.toArray();
-	      for (var i = 0, len = mappings.length; i < len; i++) {
-	        mapping = mappings[i];
-
-	        if (mapping.generatedLine !== previousGeneratedLine) {
-	          previousGeneratedColumn = 0;
-	          while (mapping.generatedLine !== previousGeneratedLine) {
-	            result += ';';
-	            previousGeneratedLine++;
-	          }
-	        }
-	        else {
-	          if (i > 0) {
-	            if (!util.compareByGeneratedPositionsInflated(mapping, mappings[i - 1])) {
-	              continue;
-	            }
-	            result += ',';
-	          }
-	        }
-
-	        result += base64VLQ.encode(mapping.generatedColumn
-	                                   - previousGeneratedColumn);
-	        previousGeneratedColumn = mapping.generatedColumn;
-
-	        if (mapping.source != null) {
-	          sourceIdx = this._sources.indexOf(mapping.source);
-	          result += base64VLQ.encode(sourceIdx - previousSource);
-	          previousSource = sourceIdx;
-
-	          // lines are stored 0-based in SourceMap spec version 3
-	          result += base64VLQ.encode(mapping.originalLine - 1
-	                                     - previousOriginalLine);
-	          previousOriginalLine = mapping.originalLine - 1;
-
-	          result += base64VLQ.encode(mapping.originalColumn
-	                                     - previousOriginalColumn);
-	          previousOriginalColumn = mapping.originalColumn;
-
-	          if (mapping.name != null) {
-	            nameIdx = this._names.indexOf(mapping.name);
-	            result += base64VLQ.encode(nameIdx - previousName);
-	            previousName = nameIdx;
-	          }
-	        }
-	      }
-
-	      return result;
-	    };
-
-	  SourceMapGenerator.prototype._generateSourcesContent =
-	    function SourceMapGenerator_generateSourcesContent(aSources, aSourceRoot) {
-	      return aSources.map(function (source) {
-	        if (!this._sourcesContents) {
-	          return null;
-	        }
-	        if (aSourceRoot != null) {
-	          source = util.relative(aSourceRoot, source);
-	        }
-	        var key = util.toSetString(source);
-	        return Object.prototype.hasOwnProperty.call(this._sourcesContents,
-	                                                    key)
-	          ? this._sourcesContents[key]
-	          : null;
-	      }, this);
-	    };
-
-	  /**
-	   * Externalize the source map.
-	   */
-	  SourceMapGenerator.prototype.toJSON =
-	    function SourceMapGenerator_toJSON() {
-	      var map = {
-	        version: this._version,
-	        sources: this._sources.toArray(),
-	        names: this._names.toArray(),
-	        mappings: this._serializeMappings()
-	      };
-	      if (this._file != null) {
-	        map.file = this._file;
-	      }
-	      if (this._sourceRoot != null) {
-	        map.sourceRoot = this._sourceRoot;
-	      }
-	      if (this._sourcesContents) {
-	        map.sourcesContent = this._generateSourcesContent(map.sources, map.sourceRoot);
-	      }
-
-	      return map;
-	    };
-
-	  /**
-	   * Render the source map being generated to a string.
-	   */
-	  SourceMapGenerator.prototype.toString =
-	    function SourceMapGenerator_toString() {
-	      return JSON.stringify(this.toJSON());
-	    };
-
-	  exports.SourceMapGenerator = SourceMapGenerator;
-	}
-
-
-/***/ },
-/* 355 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* -*- Mode: js; js-indent-level: 2; -*- */
-	/*
-	 * Copyright 2011 Mozilla Foundation and contributors
-	 * Licensed under the New BSD license. See LICENSE or:
-	 * http://opensource.org/licenses/BSD-3-Clause
-	 *
-	 * Based on the Base 64 VLQ implementation in Closure Compiler:
-	 * https://code.google.com/p/closure-compiler/source/browse/trunk/src/com/google/debugging/sourcemap/Base64VLQ.java
-	 *
-	 * Copyright 2011 The Closure Compiler Authors. All rights reserved.
-	 * Redistribution and use in source and binary forms, with or without
-	 * modification, are permitted provided that the following conditions are
-	 * met:
-	 *
-	 *  * Redistributions of source code must retain the above copyright
-	 *    notice, this list of conditions and the following disclaimer.
-	 *  * Redistributions in binary form must reproduce the above
-	 *    copyright notice, this list of conditions and the following
-	 *    disclaimer in the documentation and/or other materials provided
-	 *    with the distribution.
-	 *  * Neither the name of Google Inc. nor the names of its
-	 *    contributors may be used to endorse or promote products derived
-	 *    from this software without specific prior written permission.
-	 *
-	 * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-	 * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-	 * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-	 * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-	 * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-	 * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-	 * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-	 * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-	 * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-	 * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-	 * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-	 */
-	{
-	  var base64 = __webpack_require__(356);
-
-	  // A single base 64 digit can contain 6 bits of data. For the base 64 variable
-	  // length quantities we use in the source map spec, the first bit is the sign,
-	  // the next four bits are the actual value, and the 6th bit is the
-	  // continuation bit. The continuation bit tells us whether there are more
-	  // digits in this value following this digit.
-	  //
-	  //   Continuation
-	  //   |    Sign
-	  //   |    |
-	  //   V    V
-	  //   101011
-
-	  var VLQ_BASE_SHIFT = 5;
-
-	  // binary: 100000
-	  var VLQ_BASE = 1 << VLQ_BASE_SHIFT;
-
-	  // binary: 011111
-	  var VLQ_BASE_MASK = VLQ_BASE - 1;
-
-	  // binary: 100000
-	  var VLQ_CONTINUATION_BIT = VLQ_BASE;
-
-	  /**
-	   * Converts from a two-complement value to a value where the sign bit is
-	   * placed in the least significant bit.  For example, as decimals:
-	   *   1 becomes 2 (10 binary), -1 becomes 3 (11 binary)
-	   *   2 becomes 4 (100 binary), -2 becomes 5 (101 binary)
-	   */
-	  function toVLQSigned(aValue) {
-	    return aValue < 0
-	      ? ((-aValue) << 1) + 1
-	      : (aValue << 1) + 0;
-	  }
-
-	  /**
-	   * Converts to a two-complement value from a value where the sign bit is
-	   * placed in the least significant bit.  For example, as decimals:
-	   *   2 (10 binary) becomes 1, 3 (11 binary) becomes -1
-	   *   4 (100 binary) becomes 2, 5 (101 binary) becomes -2
-	   */
-	  function fromVLQSigned(aValue) {
-	    var isNegative = (aValue & 1) === 1;
-	    var shifted = aValue >> 1;
-	    return isNegative
-	      ? -shifted
-	      : shifted;
-	  }
-
-	  /**
-	   * Returns the base 64 VLQ encoded value.
-	   */
-	  exports.encode = function base64VLQ_encode(aValue) {
-	    var encoded = "";
-	    var digit;
-
-	    var vlq = toVLQSigned(aValue);
-
-	    do {
-	      digit = vlq & VLQ_BASE_MASK;
-	      vlq >>>= VLQ_BASE_SHIFT;
-	      if (vlq > 0) {
-	        // There are still more digits in this value, so we must make sure the
-	        // continuation bit is marked.
-	        digit |= VLQ_CONTINUATION_BIT;
-	      }
-	      encoded += base64.encode(digit);
-	    } while (vlq > 0);
-
-	    return encoded;
-	  };
-
-	  /**
-	   * Decodes the next base 64 VLQ value from the given string and returns the
-	   * value and the rest of the string via the out parameter.
-	   */
-	  exports.decode = function base64VLQ_decode(aStr, aIndex, aOutParam) {
-	    var strLen = aStr.length;
-	    var result = 0;
-	    var shift = 0;
-	    var continuation, digit;
-
-	    do {
-	      if (aIndex >= strLen) {
-	        throw new Error("Expected more digits in base 64 VLQ value.");
-	      }
-
-	      digit = base64.decode(aStr.charCodeAt(aIndex++));
-	      if (digit === -1) {
-	        throw new Error("Invalid base64 digit: " + aStr.charAt(aIndex - 1));
-	      }
-
-	      continuation = !!(digit & VLQ_CONTINUATION_BIT);
-	      digit &= VLQ_BASE_MASK;
-	      result = result + (digit << shift);
-	      shift += VLQ_BASE_SHIFT;
-	    } while (continuation);
-
-	    aOutParam.value = fromVLQSigned(result);
-	    aOutParam.rest = aIndex;
-	  };
-	}
-
-
-/***/ },
-/* 356 */
-/***/ function(module, exports) {
-
-	/* -*- Mode: js; js-indent-level: 2; -*- */
-	/*
-	 * Copyright 2011 Mozilla Foundation and contributors
-	 * Licensed under the New BSD license. See LICENSE or:
-	 * http://opensource.org/licenses/BSD-3-Clause
-	 */
-	{
-	  var intToCharMap = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'.split('');
-
-	  /**
-	   * Encode an integer in the range of 0 to 63 to a single base 64 digit.
-	   */
-	  exports.encode = function (number) {
-	    if (0 <= number && number < intToCharMap.length) {
-	      return intToCharMap[number];
-	    }
-	    throw new TypeError("Must be between 0 and 63: " + number);
-	  };
-
-	  /**
-	   * Decode a single base 64 character code digit to an integer. Returns -1 on
-	   * failure.
-	   */
-	  exports.decode = function (charCode) {
-	    var bigA = 65;     // 'A'
-	    var bigZ = 90;     // 'Z'
-
-	    var littleA = 97;  // 'a'
-	    var littleZ = 122; // 'z'
-
-	    var zero = 48;     // '0'
-	    var nine = 57;     // '9'
-
-	    var plus = 43;     // '+'
-	    var slash = 47;    // '/'
-
-	    var littleOffset = 26;
-	    var numberOffset = 52;
-
-	    // 0 - 25: ABCDEFGHIJKLMNOPQRSTUVWXYZ
-	    if (bigA <= charCode && charCode <= bigZ) {
-	      return (charCode - bigA);
-	    }
-
-	    // 26 - 51: abcdefghijklmnopqrstuvwxyz
-	    if (littleA <= charCode && charCode <= littleZ) {
-	      return (charCode - littleA + littleOffset);
-	    }
-
-	    // 52 - 61: 0123456789
-	    if (zero <= charCode && charCode <= nine) {
-	      return (charCode - zero + numberOffset);
-	    }
-
-	    // 62: +
-	    if (charCode == plus) {
-	      return 62;
-	    }
-
-	    // 63: /
-	    if (charCode == slash) {
-	      return 63;
-	    }
-
-	    // Invalid base64 digit.
-	    return -1;
-	  };
-	}
-
-
-/***/ },
-/* 357 */
-/***/ function(module, exports) {
-
-	/* -*- Mode: js; js-indent-level: 2; -*- */
-	/*
-	 * Copyright 2011 Mozilla Foundation and contributors
-	 * Licensed under the New BSD license. See LICENSE or:
-	 * http://opensource.org/licenses/BSD-3-Clause
-	 */
-	{
-	  /**
-	   * This is a helper function for getting values from parameter/options
-	   * objects.
-	   *
-	   * @param args The object we are extracting values from
-	   * @param name The name of the property we are getting.
-	   * @param defaultValue An optional value to return if the property is missing
-	   * from the object. If this is not specified and the property is missing, an
-	   * error will be thrown.
-	   */
-	  function getArg(aArgs, aName, aDefaultValue) {
-	    if (aName in aArgs) {
-	      return aArgs[aName];
-	    } else if (arguments.length === 3) {
-	      return aDefaultValue;
-	    } else {
-	      throw new Error('"' + aName + '" is a required argument.');
-	    }
-	  }
-	  exports.getArg = getArg;
-
-	  var urlRegexp = /^(?:([\w+\-.]+):)?\/\/(?:(\w+:\w+)@)?([\w.]*)(?::(\d+))?(\S*)$/;
-	  var dataUrlRegexp = /^data:.+\,.+$/;
-
-	  function urlParse(aUrl) {
-	    var match = aUrl.match(urlRegexp);
-	    if (!match) {
-	      return null;
-	    }
-	    return {
-	      scheme: match[1],
-	      auth: match[2],
-	      host: match[3],
-	      port: match[4],
-	      path: match[5]
-	    };
-	  }
-	  exports.urlParse = urlParse;
-
-	  function urlGenerate(aParsedUrl) {
-	    var url = '';
-	    if (aParsedUrl.scheme) {
-	      url += aParsedUrl.scheme + ':';
-	    }
-	    url += '//';
-	    if (aParsedUrl.auth) {
-	      url += aParsedUrl.auth + '@';
-	    }
-	    if (aParsedUrl.host) {
-	      url += aParsedUrl.host;
-	    }
-	    if (aParsedUrl.port) {
-	      url += ":" + aParsedUrl.port
-	    }
-	    if (aParsedUrl.path) {
-	      url += aParsedUrl.path;
-	    }
-	    return url;
-	  }
-	  exports.urlGenerate = urlGenerate;
-
-	  /**
-	   * Normalizes a path, or the path portion of a URL:
-	   *
-	   * - Replaces consequtive slashes with one slash.
-	   * - Removes unnecessary '.' parts.
-	   * - Removes unnecessary '<dir>/..' parts.
-	   *
-	   * Based on code in the Node.js 'path' core module.
-	   *
-	   * @param aPath The path or url to normalize.
-	   */
-	  function normalize(aPath) {
-	    var path = aPath;
-	    var url = urlParse(aPath);
-	    if (url) {
-	      if (!url.path) {
-	        return aPath;
-	      }
-	      path = url.path;
-	    }
-	    var isAbsolute = exports.isAbsolute(path);
-
-	    var parts = path.split(/\/+/);
-	    for (var part, up = 0, i = parts.length - 1; i >= 0; i--) {
-	      part = parts[i];
-	      if (part === '.') {
-	        parts.splice(i, 1);
-	      } else if (part === '..') {
-	        up++;
-	      } else if (up > 0) {
-	        if (part === '') {
-	          // The first part is blank if the path is absolute. Trying to go
-	          // above the root is a no-op. Therefore we can remove all '..' parts
-	          // directly after the root.
-	          parts.splice(i + 1, up);
-	          up = 0;
-	        } else {
-	          parts.splice(i, 2);
-	          up--;
-	        }
-	      }
-	    }
-	    path = parts.join('/');
-
-	    if (path === '') {
-	      path = isAbsolute ? '/' : '.';
-	    }
-
-	    if (url) {
-	      url.path = path;
-	      return urlGenerate(url);
-	    }
-	    return path;
-	  }
-	  exports.normalize = normalize;
-
-	  /**
-	   * Joins two paths/URLs.
-	   *
-	   * @param aRoot The root path or URL.
-	   * @param aPath The path or URL to be joined with the root.
-	   *
-	   * - If aPath is a URL or a data URI, aPath is returned, unless aPath is a
-	   *   scheme-relative URL: Then the scheme of aRoot, if any, is prepended
-	   *   first.
-	   * - Otherwise aPath is a path. If aRoot is a URL, then its path portion
-	   *   is updated with the result and aRoot is returned. Otherwise the result
-	   *   is returned.
-	   *   - If aPath is absolute, the result is aPath.
-	   *   - Otherwise the two paths are joined with a slash.
-	   * - Joining for example 'http://' and 'www.example.com' is also supported.
-	   */
-	  function join(aRoot, aPath) {
-	    if (aRoot === "") {
-	      aRoot = ".";
-	    }
-	    if (aPath === "") {
-	      aPath = ".";
-	    }
-	    var aPathUrl = urlParse(aPath);
-	    var aRootUrl = urlParse(aRoot);
-	    if (aRootUrl) {
-	      aRoot = aRootUrl.path || '/';
-	    }
-
-	    // `join(foo, '//www.example.org')`
-	    if (aPathUrl && !aPathUrl.scheme) {
-	      if (aRootUrl) {
-	        aPathUrl.scheme = aRootUrl.scheme;
-	      }
-	      return urlGenerate(aPathUrl);
-	    }
-
-	    if (aPathUrl || aPath.match(dataUrlRegexp)) {
-	      return aPath;
-	    }
-
-	    // `join('http://', 'www.example.com')`
-	    if (aRootUrl && !aRootUrl.host && !aRootUrl.path) {
-	      aRootUrl.host = aPath;
-	      return urlGenerate(aRootUrl);
-	    }
-
-	    var joined = aPath.charAt(0) === '/'
-	      ? aPath
-	      : normalize(aRoot.replace(/\/+$/, '') + '/' + aPath);
-
-	    if (aRootUrl) {
-	      aRootUrl.path = joined;
-	      return urlGenerate(aRootUrl);
-	    }
-	    return joined;
-	  }
-	  exports.join = join;
-
-	  exports.isAbsolute = function (aPath) {
-	    return aPath.charAt(0) === '/' || !!aPath.match(urlRegexp);
-	  };
-
-	  /**
-	   * Make a path relative to a URL or another path.
-	   *
-	   * @param aRoot The root path or URL.
-	   * @param aPath The path or URL to be made relative to aRoot.
-	   */
-	  function relative(aRoot, aPath) {
-	    if (aRoot === "") {
-	      aRoot = ".";
-	    }
-
-	    aRoot = aRoot.replace(/\/$/, '');
-
-	    // It is possible for the path to be above the root. In this case, simply
-	    // checking whether the root is a prefix of the path won't work. Instead, we
-	    // need to remove components from the root one by one, until either we find
-	    // a prefix that fits, or we run out of components to remove.
-	    var level = 0;
-	    while (aPath.indexOf(aRoot + '/') !== 0) {
-	      var index = aRoot.lastIndexOf("/");
-	      if (index < 0) {
-	        return aPath;
-	      }
-
-	      // If the only part of the root that is left is the scheme (i.e. http://,
-	      // file:///, etc.), one or more slashes (/), or simply nothing at all, we
-	      // have exhausted all components, so the path is not relative to the root.
-	      aRoot = aRoot.slice(0, index);
-	      if (aRoot.match(/^([^\/]+:\/)?\/*$/)) {
-	        return aPath;
-	      }
-
-	      ++level;
-	    }
-
-	    // Make sure we add a "../" for each component we removed from the root.
-	    return Array(level + 1).join("../") + aPath.substr(aRoot.length + 1);
-	  }
-	  exports.relative = relative;
-
-	  /**
-	   * Because behavior goes wacky when you set `__proto__` on objects, we
-	   * have to prefix all the strings in our set with an arbitrary character.
-	   *
-	   * See https://github.com/mozilla/source-map/pull/31 and
-	   * https://github.com/mozilla/source-map/issues/30
-	   *
-	   * @param String aStr
-	   */
-	  function toSetString(aStr) {
-	    return '$' + aStr;
-	  }
-	  exports.toSetString = toSetString;
-
-	  function fromSetString(aStr) {
-	    return aStr.substr(1);
-	  }
-	  exports.fromSetString = fromSetString;
-
-	  /**
-	   * Comparator between two mappings where the original positions are compared.
-	   *
-	   * Optionally pass in `true` as `onlyCompareGenerated` to consider two
-	   * mappings with the same original source/line/column, but different generated
-	   * line and column the same. Useful when searching for a mapping with a
-	   * stubbed out mapping.
-	   */
-	  function compareByOriginalPositions(mappingA, mappingB, onlyCompareOriginal) {
-	    var cmp = mappingA.source - mappingB.source;
-	    if (cmp !== 0) {
-	      return cmp;
-	    }
-
-	    cmp = mappingA.originalLine - mappingB.originalLine;
-	    if (cmp !== 0) {
-	      return cmp;
-	    }
-
-	    cmp = mappingA.originalColumn - mappingB.originalColumn;
-	    if (cmp !== 0 || onlyCompareOriginal) {
-	      return cmp;
-	    }
-
-	    cmp = mappingA.generatedColumn - mappingB.generatedColumn;
-	    if (cmp !== 0) {
-	      return cmp;
-	    }
-
-	    cmp = mappingA.generatedLine - mappingB.generatedLine;
-	    if (cmp !== 0) {
-	      return cmp;
-	    }
-
-	    return mappingA.name - mappingB.name;
-	  }
-	  exports.compareByOriginalPositions = compareByOriginalPositions;
-
-	  /**
-	   * Comparator between two mappings with deflated source and name indices where
-	   * the generated positions are compared.
-	   *
-	   * Optionally pass in `true` as `onlyCompareGenerated` to consider two
-	   * mappings with the same generated line and column, but different
-	   * source/name/original line and column the same. Useful when searching for a
-	   * mapping with a stubbed out mapping.
-	   */
-	  function compareByGeneratedPositionsDeflated(mappingA, mappingB, onlyCompareGenerated) {
-	    var cmp = mappingA.generatedLine - mappingB.generatedLine;
-	    if (cmp !== 0) {
-	      return cmp;
-	    }
-
-	    cmp = mappingA.generatedColumn - mappingB.generatedColumn;
-	    if (cmp !== 0 || onlyCompareGenerated) {
-	      return cmp;
-	    }
-
-	    cmp = mappingA.source - mappingB.source;
-	    if (cmp !== 0) {
-	      return cmp;
-	    }
-
-	    cmp = mappingA.originalLine - mappingB.originalLine;
-	    if (cmp !== 0) {
-	      return cmp;
-	    }
-
-	    cmp = mappingA.originalColumn - mappingB.originalColumn;
-	    if (cmp !== 0) {
-	      return cmp;
-	    }
-
-	    return mappingA.name - mappingB.name;
-	  }
-	  exports.compareByGeneratedPositionsDeflated = compareByGeneratedPositionsDeflated;
-
-	  function strcmp(aStr1, aStr2) {
-	    if (aStr1 === aStr2) {
-	      return 0;
-	    }
-
-	    if (aStr1 > aStr2) {
-	      return 1;
-	    }
-
-	    return -1;
-	  }
-
-	  /**
-	   * Comparator between two mappings with inflated source and name strings where
-	   * the generated positions are compared.
-	   */
-	  function compareByGeneratedPositionsInflated(mappingA, mappingB) {
-	    var cmp = mappingA.generatedLine - mappingB.generatedLine;
-	    if (cmp !== 0) {
-	      return cmp;
-	    }
-
-	    cmp = mappingA.generatedColumn - mappingB.generatedColumn;
-	    if (cmp !== 0) {
-	      return cmp;
-	    }
-
-	    cmp = strcmp(mappingA.source, mappingB.source);
-	    if (cmp !== 0) {
-	      return cmp;
-	    }
-
-	    cmp = mappingA.originalLine - mappingB.originalLine;
-	    if (cmp !== 0) {
-	      return cmp;
-	    }
-
-	    cmp = mappingA.originalColumn - mappingB.originalColumn;
-	    if (cmp !== 0) {
-	      return cmp;
-	    }
-
-	    return strcmp(mappingA.name, mappingB.name);
-	  }
-	  exports.compareByGeneratedPositionsInflated = compareByGeneratedPositionsInflated;
-	}
-
-
-/***/ },
-/* 358 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* -*- Mode: js; js-indent-level: 2; -*- */
-	/*
-	 * Copyright 2011 Mozilla Foundation and contributors
-	 * Licensed under the New BSD license. See LICENSE or:
-	 * http://opensource.org/licenses/BSD-3-Clause
-	 */
-	{
-	  var util = __webpack_require__(357);
-
-	  /**
-	   * A data structure which is a combination of an array and a set. Adding a new
-	   * member is O(1), testing for membership is O(1), and finding the index of an
-	   * element is O(1). Removing elements from the set is not supported. Only
-	   * strings are supported for membership.
-	   */
-	  function ArraySet() {
-	    this._array = [];
-	    this._set = {};
-	  }
-
-	  /**
-	   * Static method for creating ArraySet instances from an existing array.
-	   */
-	  ArraySet.fromArray = function ArraySet_fromArray(aArray, aAllowDuplicates) {
-	    var set = new ArraySet();
-	    for (var i = 0, len = aArray.length; i < len; i++) {
-	      set.add(aArray[i], aAllowDuplicates);
-	    }
-	    return set;
-	  };
-
-	  /**
-	   * Return how many unique items are in this ArraySet. If duplicates have been
-	   * added, than those do not count towards the size.
-	   *
-	   * @returns Number
-	   */
-	  ArraySet.prototype.size = function ArraySet_size() {
-	    return Object.getOwnPropertyNames(this._set).length;
-	  };
-
-	  /**
-	   * Add the given string to this set.
-	   *
-	   * @param String aStr
-	   */
-	  ArraySet.prototype.add = function ArraySet_add(aStr, aAllowDuplicates) {
-	    var sStr = util.toSetString(aStr);
-	    var isDuplicate = this._set.hasOwnProperty(sStr);
-	    var idx = this._array.length;
-	    if (!isDuplicate || aAllowDuplicates) {
-	      this._array.push(aStr);
-	    }
-	    if (!isDuplicate) {
-	      this._set[sStr] = idx;
-	    }
-	  };
-
-	  /**
-	   * Is the given string a member of this set?
-	   *
-	   * @param String aStr
-	   */
-	  ArraySet.prototype.has = function ArraySet_has(aStr) {
-	    var sStr = util.toSetString(aStr);
-	    return this._set.hasOwnProperty(sStr);
-	  };
-
-	  /**
-	   * What is the index of the given string in the array?
-	   *
-	   * @param String aStr
-	   */
-	  ArraySet.prototype.indexOf = function ArraySet_indexOf(aStr) {
-	    var sStr = util.toSetString(aStr);
-	    if (this._set.hasOwnProperty(sStr)) {
-	      return this._set[sStr];
-	    }
-	    throw new Error('"' + aStr + '" is not in the set.');
-	  };
-
-	  /**
-	   * What is the element at the given index?
-	   *
-	   * @param Number aIdx
-	   */
-	  ArraySet.prototype.at = function ArraySet_at(aIdx) {
-	    if (aIdx >= 0 && aIdx < this._array.length) {
-	      return this._array[aIdx];
-	    }
-	    throw new Error('No element indexed by ' + aIdx);
-	  };
-
-	  /**
-	   * Returns the array representation of this set (which has the proper indices
-	   * indicated by indexOf). Note that this is a copy of the internal array used
-	   * for storing the members so that no one can mess with internal state.
-	   */
-	  ArraySet.prototype.toArray = function ArraySet_toArray() {
-	    return this._array.slice();
-	  };
-
-	  exports.ArraySet = ArraySet;
-	}
-
-
-/***/ },
-/* 359 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* -*- Mode: js; js-indent-level: 2; -*- */
-	/*
-	 * Copyright 2014 Mozilla Foundation and contributors
-	 * Licensed under the New BSD license. See LICENSE or:
-	 * http://opensource.org/licenses/BSD-3-Clause
-	 */
-	{
-	  var util = __webpack_require__(357);
-
-	  /**
-	   * Determine whether mappingB is after mappingA with respect to generated
-	   * position.
-	   */
-	  function generatedPositionAfter(mappingA, mappingB) {
-	    // Optimized for most common case
-	    var lineA = mappingA.generatedLine;
-	    var lineB = mappingB.generatedLine;
-	    var columnA = mappingA.generatedColumn;
-	    var columnB = mappingB.generatedColumn;
-	    return lineB > lineA || lineB == lineA && columnB >= columnA ||
-	           util.compareByGeneratedPositionsInflated(mappingA, mappingB) <= 0;
-	  }
-
-	  /**
-	   * A data structure to provide a sorted view of accumulated mappings in a
-	   * performance conscious manner. It trades a neglibable overhead in general
-	   * case for a large speedup in case of mappings being added in order.
-	   */
-	  function MappingList() {
-	    this._array = [];
-	    this._sorted = true;
-	    // Serves as infimum
-	    this._last = {generatedLine: -1, generatedColumn: 0};
-	  }
-
-	  /**
-	   * Iterate through internal items. This method takes the same arguments that
-	   * `Array.prototype.forEach` takes.
-	   *
-	   * NOTE: The order of the mappings is NOT guaranteed.
-	   */
-	  MappingList.prototype.unsortedForEach =
-	    function MappingList_forEach(aCallback, aThisArg) {
-	      this._array.forEach(aCallback, aThisArg);
-	    };
-
-	  /**
-	   * Add the given source mapping.
-	   *
-	   * @param Object aMapping
-	   */
-	  MappingList.prototype.add = function MappingList_add(aMapping) {
-	    if (generatedPositionAfter(this._last, aMapping)) {
-	      this._last = aMapping;
-	      this._array.push(aMapping);
-	    } else {
-	      this._sorted = false;
-	      this._array.push(aMapping);
-	    }
-	  };
-
-	  /**
-	   * Returns the flat, sorted array of mappings. The mappings are sorted by
-	   * generated position.
-	   *
-	   * WARNING: This method returns internal data without copying, for
-	   * performance. The return value must NOT be mutated, and should be treated as
-	   * an immutable borrow. If you want to take ownership, you must make your own
-	   * copy.
-	   */
-	  MappingList.prototype.toArray = function MappingList_toArray() {
-	    if (!this._sorted) {
-	      this._array.sort(util.compareByGeneratedPositionsInflated);
-	      this._sorted = true;
-	    }
-	    return this._array;
-	  };
-
-	  exports.MappingList = MappingList;
-	}
-
-
-/***/ },
-/* 360 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* -*- Mode: js; js-indent-level: 2; -*- */
-	/*
-	 * Copyright 2011 Mozilla Foundation and contributors
-	 * Licensed under the New BSD license. See LICENSE or:
-	 * http://opensource.org/licenses/BSD-3-Clause
-	 */
-	{
-	  var util = __webpack_require__(357);
-	  var binarySearch = __webpack_require__(361);
-	  var ArraySet = __webpack_require__(358).ArraySet;
-	  var base64VLQ = __webpack_require__(355);
-	  var quickSort = __webpack_require__(362).quickSort;
-
-	  function SourceMapConsumer(aSourceMap) {
-	    var sourceMap = aSourceMap;
-	    if (typeof aSourceMap === 'string') {
-	      sourceMap = JSON.parse(aSourceMap.replace(/^\)\]\}'/, ''));
-	    }
-
-	    return sourceMap.sections != null
-	      ? new IndexedSourceMapConsumer(sourceMap)
-	      : new BasicSourceMapConsumer(sourceMap);
-	  }
-
-	  SourceMapConsumer.fromSourceMap = function(aSourceMap) {
-	    return BasicSourceMapConsumer.fromSourceMap(aSourceMap);
-	  }
-
-	  /**
-	   * The version of the source mapping spec that we are consuming.
-	   */
-	  SourceMapConsumer.prototype._version = 3;
-
-	  // `__generatedMappings` and `__originalMappings` are arrays that hold the
-	  // parsed mapping coordinates from the source map's "mappings" attribute. They
-	  // are lazily instantiated, accessed via the `_generatedMappings` and
-	  // `_originalMappings` getters respectively, and we only parse the mappings
-	  // and create these arrays once queried for a source location. We jump through
-	  // these hoops because there can be many thousands of mappings, and parsing
-	  // them is expensive, so we only want to do it if we must.
-	  //
-	  // Each object in the arrays is of the form:
-	  //
-	  //     {
-	  //       generatedLine: The line number in the generated code,
-	  //       generatedColumn: The column number in the generated code,
-	  //       source: The path to the original source file that generated this
-	  //               chunk of code,
-	  //       originalLine: The line number in the original source that
-	  //                     corresponds to this chunk of generated code,
-	  //       originalColumn: The column number in the original source that
-	  //                       corresponds to this chunk of generated code,
-	  //       name: The name of the original symbol which generated this chunk of
-	  //             code.
-	  //     }
-	  //
-	  // All properties except for `generatedLine` and `generatedColumn` can be
-	  // `null`.
-	  //
-	  // `_generatedMappings` is ordered by the generated positions.
-	  //
-	  // `_originalMappings` is ordered by the original positions.
-
-	  SourceMapConsumer.prototype.__generatedMappings = null;
-	  Object.defineProperty(SourceMapConsumer.prototype, '_generatedMappings', {
-	    get: function () {
-	      if (!this.__generatedMappings) {
-	        this._parseMappings(this._mappings, this.sourceRoot);
-	      }
-
-	      return this.__generatedMappings;
-	    }
-	  });
-
-	  SourceMapConsumer.prototype.__originalMappings = null;
-	  Object.defineProperty(SourceMapConsumer.prototype, '_originalMappings', {
-	    get: function () {
-	      if (!this.__originalMappings) {
-	        this._parseMappings(this._mappings, this.sourceRoot);
-	      }
-
-	      return this.__originalMappings;
-	    }
-	  });
-
-	  SourceMapConsumer.prototype._charIsMappingSeparator =
-	    function SourceMapConsumer_charIsMappingSeparator(aStr, index) {
-	      var c = aStr.charAt(index);
-	      return c === ";" || c === ",";
-	    };
-
-	  /**
-	   * Parse the mappings in a string in to a data structure which we can easily
-	   * query (the ordered arrays in the `this.__generatedMappings` and
-	   * `this.__originalMappings` properties).
-	   */
-	  SourceMapConsumer.prototype._parseMappings =
-	    function SourceMapConsumer_parseMappings(aStr, aSourceRoot) {
-	      throw new Error("Subclasses must implement _parseMappings");
-	    };
-
-	  SourceMapConsumer.GENERATED_ORDER = 1;
-	  SourceMapConsumer.ORIGINAL_ORDER = 2;
-
-	  SourceMapConsumer.GREATEST_LOWER_BOUND = 1;
-	  SourceMapConsumer.LEAST_UPPER_BOUND = 2;
-
-	  /**
-	   * Iterate over each mapping between an original source/line/column and a
-	   * generated line/column in this source map.
-	   *
-	   * @param Function aCallback
-	   *        The function that is called with each mapping.
-	   * @param Object aContext
-	   *        Optional. If specified, this object will be the value of `this` every
-	   *        time that `aCallback` is called.
-	   * @param aOrder
-	   *        Either `SourceMapConsumer.GENERATED_ORDER` or
-	   *        `SourceMapConsumer.ORIGINAL_ORDER`. Specifies whether you want to
-	   *        iterate over the mappings sorted by the generated file's line/column
-	   *        order or the original's source/line/column order, respectively. Defaults to
-	   *        `SourceMapConsumer.GENERATED_ORDER`.
-	   */
-	  SourceMapConsumer.prototype.eachMapping =
-	    function SourceMapConsumer_eachMapping(aCallback, aContext, aOrder) {
-	      var context = aContext || null;
-	      var order = aOrder || SourceMapConsumer.GENERATED_ORDER;
-
-	      var mappings;
-	      switch (order) {
-	      case SourceMapConsumer.GENERATED_ORDER:
-	        mappings = this._generatedMappings;
-	        break;
-	      case SourceMapConsumer.ORIGINAL_ORDER:
-	        mappings = this._originalMappings;
-	        break;
-	      default:
-	        throw new Error("Unknown order of iteration.");
-	      }
-
-	      var sourceRoot = this.sourceRoot;
-	      mappings.map(function (mapping) {
-	        var source = mapping.source === null ? null : this._sources.at(mapping.source);
-	        if (source != null && sourceRoot != null) {
-	          source = util.join(sourceRoot, source);
-	        }
-	        return {
-	          source: source,
-	          generatedLine: mapping.generatedLine,
-	          generatedColumn: mapping.generatedColumn,
-	          originalLine: mapping.originalLine,
-	          originalColumn: mapping.originalColumn,
-	          name: mapping.name === null ? null : this._names.at(mapping.name)
-	        };
-	      }, this).forEach(aCallback, context);
-	    };
-
-	  /**
-	   * Returns all generated line and column information for the original source,
-	   * line, and column provided. If no column is provided, returns all mappings
-	   * corresponding to a either the line we are searching for or the next
-	   * closest line that has any mappings. Otherwise, returns all mappings
-	   * corresponding to the given line and either the column we are searching for
-	   * or the next closest column that has any offsets.
-	   *
-	   * The only argument is an object with the following properties:
-	   *
-	   *   - source: The filename of the original source.
-	   *   - line: The line number in the original source.
-	   *   - column: Optional. the column number in the original source.
-	   *
-	   * and an array of objects is returned, each with the following properties:
-	   *
-	   *   - line: The line number in the generated source, or null.
-	   *   - column: The column number in the generated source, or null.
-	   */
-	  SourceMapConsumer.prototype.allGeneratedPositionsFor =
-	    function SourceMapConsumer_allGeneratedPositionsFor(aArgs) {
-	      var line = util.getArg(aArgs, 'line');
-
-	      // When there is no exact match, BasicSourceMapConsumer.prototype._findMapping
-	      // returns the index of the closest mapping less than the needle. By
-	      // setting needle.originalColumn to 0, we thus find the last mapping for
-	      // the given line, provided such a mapping exists.
-	      var needle = {
-	        source: util.getArg(aArgs, 'source'),
-	        originalLine: line,
-	        originalColumn: util.getArg(aArgs, 'column', 0)
-	      };
-
-	      if (this.sourceRoot != null) {
-	        needle.source = util.relative(this.sourceRoot, needle.source);
-	      }
-	      if (!this._sources.has(needle.source)) {
-	        return [];
-	      }
-	      needle.source = this._sources.indexOf(needle.source);
-
-	      var mappings = [];
-
-	      var index = this._findMapping(needle,
-	                                    this._originalMappings,
-	                                    "originalLine",
-	                                    "originalColumn",
-	                                    util.compareByOriginalPositions,
-	                                    binarySearch.LEAST_UPPER_BOUND);
-	      if (index >= 0) {
-	        var mapping = this._originalMappings[index];
-
-	        if (aArgs.column === undefined) {
-	          var originalLine = mapping.originalLine;
-
-	          // Iterate until either we run out of mappings, or we run into
-	          // a mapping for a different line than the one we found. Since
-	          // mappings are sorted, this is guaranteed to find all mappings for
-	          // the line we found.
-	          while (mapping && mapping.originalLine === originalLine) {
-	            mappings.push({
-	              line: util.getArg(mapping, 'generatedLine', null),
-	              column: util.getArg(mapping, 'generatedColumn', null),
-	              lastColumn: util.getArg(mapping, 'lastGeneratedColumn', null)
-	            });
-
-	            mapping = this._originalMappings[++index];
-	          }
-	        } else {
-	          var originalColumn = mapping.originalColumn;
-
-	          // Iterate until either we run out of mappings, or we run into
-	          // a mapping for a different line than the one we were searching for.
-	          // Since mappings are sorted, this is guaranteed to find all mappings for
-	          // the line we are searching for.
-	          while (mapping &&
-	                 mapping.originalLine === line &&
-	                 mapping.originalColumn == originalColumn) {
-	            mappings.push({
-	              line: util.getArg(mapping, 'generatedLine', null),
-	              column: util.getArg(mapping, 'generatedColumn', null),
-	              lastColumn: util.getArg(mapping, 'lastGeneratedColumn', null)
-	            });
-
-	            mapping = this._originalMappings[++index];
-	          }
-	        }
-	      }
-
-	      return mappings;
-	    };
-
-	  exports.SourceMapConsumer = SourceMapConsumer;
-
-	  /**
-	   * A BasicSourceMapConsumer instance represents a parsed source map which we can
-	   * query for information about the original file positions by giving it a file
-	   * position in the generated source.
-	   *
-	   * The only parameter is the raw source map (either as a JSON string, or
-	   * already parsed to an object). According to the spec, source maps have the
-	   * following attributes:
-	   *
-	   *   - version: Which version of the source map spec this map is following.
-	   *   - sources: An array of URLs to the original source files.
-	   *   - names: An array of identifiers which can be referrenced by individual mappings.
-	   *   - sourceRoot: Optional. The URL root from which all sources are relative.
-	   *   - sourcesContent: Optional. An array of contents of the original source files.
-	   *   - mappings: A string of base64 VLQs which contain the actual mappings.
-	   *   - file: Optional. The generated file this source map is associated with.
-	   *
-	   * Here is an example source map, taken from the source map spec[0]:
-	   *
-	   *     {
-	   *       version : 3,
-	   *       file: "out.js",
-	   *       sourceRoot : "",
-	   *       sources: ["foo.js", "bar.js"],
-	   *       names: ["src", "maps", "are", "fun"],
-	   *       mappings: "AA,AB;;ABCDE;"
-	   *     }
-	   *
-	   * [0]: https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit?pli=1#
-	   */
-	  function BasicSourceMapConsumer(aSourceMap) {
-	    var sourceMap = aSourceMap;
-	    if (typeof aSourceMap === 'string') {
-	      sourceMap = JSON.parse(aSourceMap.replace(/^\)\]\}'/, ''));
-	    }
-
-	    var version = util.getArg(sourceMap, 'version');
-	    var sources = util.getArg(sourceMap, 'sources');
-	    // Sass 3.3 leaves out the 'names' array, so we deviate from the spec (which
-	    // requires the array) to play nice here.
-	    var names = util.getArg(sourceMap, 'names', []);
-	    var sourceRoot = util.getArg(sourceMap, 'sourceRoot', null);
-	    var sourcesContent = util.getArg(sourceMap, 'sourcesContent', null);
-	    var mappings = util.getArg(sourceMap, 'mappings');
-	    var file = util.getArg(sourceMap, 'file', null);
-
-	    // Once again, Sass deviates from the spec and supplies the version as a
-	    // string rather than a number, so we use loose equality checking here.
-	    if (version != this._version) {
-	      throw new Error('Unsupported version: ' + version);
-	    }
-
-	    sources = sources
-	      // Some source maps produce relative source paths like "./foo.js" instead of
-	      // "foo.js".  Normalize these first so that future comparisons will succeed.
-	      // See bugzil.la/1090768.
-	      .map(util.normalize)
-	      // Always ensure that absolute sources are internally stored relative to
-	      // the source root, if the source root is absolute. Not doing this would
-	      // be particularly problematic when the source root is a prefix of the
-	      // source (valid, but why??). See github issue #199 and bugzil.la/1188982.
-	      .map(function (source) {
-	        return sourceRoot && util.isAbsolute(sourceRoot) && util.isAbsolute(source)
-	          ? util.relative(sourceRoot, source)
-	          : source;
-	      });
-
-	    // Pass `true` below to allow duplicate names and sources. While source maps
-	    // are intended to be compressed and deduplicated, the TypeScript compiler
-	    // sometimes generates source maps with duplicates in them. See Github issue
-	    // #72 and bugzil.la/889492.
-	    this._names = ArraySet.fromArray(names, true);
-	    this._sources = ArraySet.fromArray(sources, true);
-
-	    this.sourceRoot = sourceRoot;
-	    this.sourcesContent = sourcesContent;
-	    this._mappings = mappings;
-	    this.file = file;
-	  }
-
-	  BasicSourceMapConsumer.prototype = Object.create(SourceMapConsumer.prototype);
-	  BasicSourceMapConsumer.prototype.consumer = SourceMapConsumer;
-
-	  /**
-	   * Create a BasicSourceMapConsumer from a SourceMapGenerator.
-	   *
-	   * @param SourceMapGenerator aSourceMap
-	   *        The source map that will be consumed.
-	   * @returns BasicSourceMapConsumer
-	   */
-	  BasicSourceMapConsumer.fromSourceMap =
-	    function SourceMapConsumer_fromSourceMap(aSourceMap) {
-	      var smc = Object.create(BasicSourceMapConsumer.prototype);
-
-	      var names = smc._names = ArraySet.fromArray(aSourceMap._names.toArray(), true);
-	      var sources = smc._sources = ArraySet.fromArray(aSourceMap._sources.toArray(), true);
-	      smc.sourceRoot = aSourceMap._sourceRoot;
-	      smc.sourcesContent = aSourceMap._generateSourcesContent(smc._sources.toArray(),
-	                                                              smc.sourceRoot);
-	      smc.file = aSourceMap._file;
-
-	      // Because we are modifying the entries (by converting string sources and
-	      // names to indices into the sources and names ArraySets), we have to make
-	      // a copy of the entry or else bad things happen. Shared mutable state
-	      // strikes again! See github issue #191.
-
-	      var generatedMappings = aSourceMap._mappings.toArray().slice();
-	      var destGeneratedMappings = smc.__generatedMappings = [];
-	      var destOriginalMappings = smc.__originalMappings = [];
-
-	      for (var i = 0, length = generatedMappings.length; i < length; i++) {
-	        var srcMapping = generatedMappings[i];
-	        var destMapping = new Mapping;
-	        destMapping.generatedLine = srcMapping.generatedLine;
-	        destMapping.generatedColumn = srcMapping.generatedColumn;
-
-	        if (srcMapping.source) {
-	          destMapping.source = sources.indexOf(srcMapping.source);
-	          destMapping.originalLine = srcMapping.originalLine;
-	          destMapping.originalColumn = srcMapping.originalColumn;
-
-	          if (srcMapping.name) {
-	            destMapping.name = names.indexOf(srcMapping.name);
-	          }
-
-	          destOriginalMappings.push(destMapping);
-	        }
-
-	        destGeneratedMappings.push(destMapping);
-	      }
-
-	      quickSort(smc.__originalMappings, util.compareByOriginalPositions);
-
-	      return smc;
-	    };
-
-	  /**
-	   * The version of the source mapping spec that we are consuming.
-	   */
-	  BasicSourceMapConsumer.prototype._version = 3;
-
-	  /**
-	   * The list of original sources.
-	   */
-	  Object.defineProperty(BasicSourceMapConsumer.prototype, 'sources', {
-	    get: function () {
-	      return this._sources.toArray().map(function (s) {
-	        return this.sourceRoot != null ? util.join(this.sourceRoot, s) : s;
-	      }, this);
-	    }
-	  });
-
-	  /**
-	   * Provide the JIT with a nice shape / hidden class.
-	   */
-	  function Mapping() {
-	    this.generatedLine = 0;
-	    this.generatedColumn = 0;
-	    this.source = null;
-	    this.originalLine = null;
-	    this.originalColumn = null;
-	    this.name = null;
-	  }
-
-	  /**
-	   * Parse the mappings in a string in to a data structure which we can easily
-	   * query (the ordered arrays in the `this.__generatedMappings` and
-	   * `this.__originalMappings` properties).
-	   */
-	  BasicSourceMapConsumer.prototype._parseMappings =
-	    function SourceMapConsumer_parseMappings(aStr, aSourceRoot) {
-	      var generatedLine = 1;
-	      var previousGeneratedColumn = 0;
-	      var previousOriginalLine = 0;
-	      var previousOriginalColumn = 0;
-	      var previousSource = 0;
-	      var previousName = 0;
-	      var length = aStr.length;
-	      var index = 0;
-	      var cachedSegments = {};
-	      var temp = {};
-	      var originalMappings = [];
-	      var generatedMappings = [];
-	      var mapping, str, segment, end, value;
-
-	      while (index < length) {
-	        if (aStr.charAt(index) === ';') {
-	          generatedLine++;
-	          index++;
-	          previousGeneratedColumn = 0;
-	        }
-	        else if (aStr.charAt(index) === ',') {
-	          index++;
-	        }
-	        else {
-	          mapping = new Mapping();
-	          mapping.generatedLine = generatedLine;
-
-	          // Because each offset is encoded relative to the previous one,
-	          // many segments often have the same encoding. We can exploit this
-	          // fact by caching the parsed variable length fields of each segment,
-	          // allowing us to avoid a second parse if we encounter the same
-	          // segment again.
-	          for (end = index; end < length; end++) {
-	            if (this._charIsMappingSeparator(aStr, end)) {
-	              break;
-	            }
-	          }
-	          str = aStr.slice(index, end);
-
-	          segment = cachedSegments[str];
-	          if (segment) {
-	            index += str.length;
-	          } else {
-	            segment = [];
-	            while (index < end) {
-	              base64VLQ.decode(aStr, index, temp);
-	              value = temp.value;
-	              index = temp.rest;
-	              segment.push(value);
-	            }
-
-	            if (segment.length === 2) {
-	              throw new Error('Found a source, but no line and column');
-	            }
-
-	            if (segment.length === 3) {
-	              throw new Error('Found a source and line, but no column');
-	            }
-
-	            cachedSegments[str] = segment;
-	          }
-
-	          // Generated column.
-	          mapping.generatedColumn = previousGeneratedColumn + segment[0];
-	          previousGeneratedColumn = mapping.generatedColumn;
-
-	          if (segment.length > 1) {
-	            // Original source.
-	            mapping.source = previousSource + segment[1];
-	            previousSource += segment[1];
-
-	            // Original line.
-	            mapping.originalLine = previousOriginalLine + segment[2];
-	            previousOriginalLine = mapping.originalLine;
-	            // Lines are stored 0-based
-	            mapping.originalLine += 1;
-
-	            // Original column.
-	            mapping.originalColumn = previousOriginalColumn + segment[3];
-	            previousOriginalColumn = mapping.originalColumn;
-
-	            if (segment.length > 4) {
-	              // Original name.
-	              mapping.name = previousName + segment[4];
-	              previousName += segment[4];
-	            }
-	          }
-
-	          generatedMappings.push(mapping);
-	          if (typeof mapping.originalLine === 'number') {
-	            originalMappings.push(mapping);
-	          }
-	        }
-	      }
-
-	      quickSort(generatedMappings, util.compareByGeneratedPositionsDeflated);
-	      this.__generatedMappings = generatedMappings;
-
-	      quickSort(originalMappings, util.compareByOriginalPositions);
-	      this.__originalMappings = originalMappings;
-	    };
-
-	  /**
-	   * Find the mapping that best matches the hypothetical "needle" mapping that
-	   * we are searching for in the given "haystack" of mappings.
-	   */
-	  BasicSourceMapConsumer.prototype._findMapping =
-	    function SourceMapConsumer_findMapping(aNeedle, aMappings, aLineName,
-	                                           aColumnName, aComparator, aBias) {
-	      // To return the position we are searching for, we must first find the
-	      // mapping for the given position and then return the opposite position it
-	      // points to. Because the mappings are sorted, we can use binary search to
-	      // find the best mapping.
-
-	      if (aNeedle[aLineName] <= 0) {
-	        throw new TypeError('Line must be greater than or equal to 1, got '
-	                            + aNeedle[aLineName]);
-	      }
-	      if (aNeedle[aColumnName] < 0) {
-	        throw new TypeError('Column must be greater than or equal to 0, got '
-	                            + aNeedle[aColumnName]);
-	      }
-
-	      return binarySearch.search(aNeedle, aMappings, aComparator, aBias);
-	    };
-
-	  /**
-	   * Compute the last column for each generated mapping. The last column is
-	   * inclusive.
-	   */
-	  BasicSourceMapConsumer.prototype.computeColumnSpans =
-	    function SourceMapConsumer_computeColumnSpans() {
-	      for (var index = 0; index < this._generatedMappings.length; ++index) {
-	        var mapping = this._generatedMappings[index];
-
-	        // Mappings do not contain a field for the last generated columnt. We
-	        // can come up with an optimistic estimate, however, by assuming that
-	        // mappings are contiguous (i.e. given two consecutive mappings, the
-	        // first mapping ends where the second one starts).
-	        if (index + 1 < this._generatedMappings.length) {
-	          var nextMapping = this._generatedMappings[index + 1];
-
-	          if (mapping.generatedLine === nextMapping.generatedLine) {
-	            mapping.lastGeneratedColumn = nextMapping.generatedColumn - 1;
-	            continue;
-	          }
-	        }
-
-	        // The last mapping for each line spans the entire line.
-	        mapping.lastGeneratedColumn = Infinity;
-	      }
-	    };
-
-	  /**
-	   * Returns the original source, line, and column information for the generated
-	   * source's line and column positions provided. The only argument is an object
-	   * with the following properties:
-	   *
-	   *   - line: The line number in the generated source.
-	   *   - column: The column number in the generated source.
-	   *   - bias: Either 'SourceMapConsumer.GREATEST_LOWER_BOUND' or
-	   *     'SourceMapConsumer.LEAST_UPPER_BOUND'. Specifies whether to return the
-	   *     closest element that is smaller than or greater than the one we are
-	   *     searching for, respectively, if the exact element cannot be found.
-	   *     Defaults to 'SourceMapConsumer.GREATEST_LOWER_BOUND'.
-	   *
-	   * and an object is returned with the following properties:
-	   *
-	   *   - source: The original source file, or null.
-	   *   - line: The line number in the original source, or null.
-	   *   - column: The column number in the original source, or null.
-	   *   - name: The original identifier, or null.
-	   */
-	  BasicSourceMapConsumer.prototype.originalPositionFor =
-	    function SourceMapConsumer_originalPositionFor(aArgs) {
-	      var needle = {
-	        generatedLine: util.getArg(aArgs, 'line'),
-	        generatedColumn: util.getArg(aArgs, 'column')
-	      };
-
-	      var index = this._findMapping(
-	        needle,
-	        this._generatedMappings,
-	        "generatedLine",
-	        "generatedColumn",
-	        util.compareByGeneratedPositionsDeflated,
-	        util.getArg(aArgs, 'bias', SourceMapConsumer.GREATEST_LOWER_BOUND)
-	      );
-
-	      if (index >= 0) {
-	        var mapping = this._generatedMappings[index];
-
-	        if (mapping.generatedLine === needle.generatedLine) {
-	          var source = util.getArg(mapping, 'source', null);
-	          if (source !== null) {
-	            source = this._sources.at(source);
-	            if (this.sourceRoot != null) {
-	              source = util.join(this.sourceRoot, source);
-	            }
-	          }
-	          var name = util.getArg(mapping, 'name', null);
-	          if (name !== null) {
-	            name = this._names.at(name);
-	          }
-	          return {
-	            source: source,
-	            line: util.getArg(mapping, 'originalLine', null),
-	            column: util.getArg(mapping, 'originalColumn', null),
-	            name: name
-	          };
-	        }
-	      }
-
-	      return {
-	        source: null,
-	        line: null,
-	        column: null,
-	        name: null
-	      };
-	    };
-
-	  /**
-	   * Return true if we have the source content for every source in the source
-	   * map, false otherwise.
-	   */
-	  BasicSourceMapConsumer.prototype.hasContentsOfAllSources =
-	    function BasicSourceMapConsumer_hasContentsOfAllSources() {
-	      if (!this.sourcesContent) {
-	        return false;
-	      }
-	      return this.sourcesContent.length >= this._sources.size() &&
-	        !this.sourcesContent.some(function (sc) { return sc == null; });
-	    };
-
-	  /**
-	   * Returns the original source content. The only argument is the url of the
-	   * original source file. Returns null if no original source content is
-	   * available.
-	   */
-	  BasicSourceMapConsumer.prototype.sourceContentFor =
-	    function SourceMapConsumer_sourceContentFor(aSource, nullOnMissing) {
-	      if (!this.sourcesContent) {
-	        return null;
-	      }
-
-	      if (this.sourceRoot != null) {
-	        aSource = util.relative(this.sourceRoot, aSource);
-	      }
-
-	      if (this._sources.has(aSource)) {
-	        return this.sourcesContent[this._sources.indexOf(aSource)];
-	      }
-
-	      var url;
-	      if (this.sourceRoot != null
-	          && (url = util.urlParse(this.sourceRoot))) {
-	        // XXX: file:// URIs and absolute paths lead to unexpected behavior for
-	        // many users. We can help them out when they expect file:// URIs to
-	        // behave like it would if they were running a local HTTP server. See
-	        // https://bugzilla.mozilla.org/show_bug.cgi?id=885597.
-	        var fileUriAbsPath = aSource.replace(/^file:\/\//, "");
-	        if (url.scheme == "file"
-	            && this._sources.has(fileUriAbsPath)) {
-	          return this.sourcesContent[this._sources.indexOf(fileUriAbsPath)]
-	        }
-
-	        if ((!url.path || url.path == "/")
-	            && this._sources.has("/" + aSource)) {
-	          return this.sourcesContent[this._sources.indexOf("/" + aSource)];
-	        }
-	      }
-
-	      // This function is used recursively from
-	      // IndexedSourceMapConsumer.prototype.sourceContentFor. In that case, we
-	      // don't want to throw if we can't find the source - we just want to
-	      // return null, so we provide a flag to exit gracefully.
-	      if (nullOnMissing) {
-	        return null;
-	      }
-	      else {
-	        throw new Error('"' + aSource + '" is not in the SourceMap.');
-	      }
-	    };
-
-	  /**
-	   * Returns the generated line and column information for the original source,
-	   * line, and column positions provided. The only argument is an object with
-	   * the following properties:
-	   *
-	   *   - source: The filename of the original source.
-	   *   - line: The line number in the original source.
-	   *   - column: The column number in the original source.
-	   *   - bias: Either 'SourceMapConsumer.GREATEST_LOWER_BOUND' or
-	   *     'SourceMapConsumer.LEAST_UPPER_BOUND'. Specifies whether to return the
-	   *     closest element that is smaller than or greater than the one we are
-	   *     searching for, respectively, if the exact element cannot be found.
-	   *     Defaults to 'SourceMapConsumer.GREATEST_LOWER_BOUND'.
-	   *
-	   * and an object is returned with the following properties:
-	   *
-	   *   - line: The line number in the generated source, or null.
-	   *   - column: The column number in the generated source, or null.
-	   */
-	  BasicSourceMapConsumer.prototype.generatedPositionFor =
-	    function SourceMapConsumer_generatedPositionFor(aArgs) {
-	      var source = util.getArg(aArgs, 'source');
-	      if (this.sourceRoot != null) {
-	        source = util.relative(this.sourceRoot, source);
-	      }
-	      if (!this._sources.has(source)) {
-	        return {
-	          line: null,
-	          column: null,
-	          lastColumn: null
-	        };
-	      }
-	      source = this._sources.indexOf(source);
-
-	      var needle = {
-	        source: source,
-	        originalLine: util.getArg(aArgs, 'line'),
-	        originalColumn: util.getArg(aArgs, 'column')
-	      };
-
-	      var index = this._findMapping(
-	        needle,
-	        this._originalMappings,
-	        "originalLine",
-	        "originalColumn",
-	        util.compareByOriginalPositions,
-	        util.getArg(aArgs, 'bias', SourceMapConsumer.GREATEST_LOWER_BOUND)
-	      );
-
-	      if (index >= 0) {
-	        var mapping = this._originalMappings[index];
-
-	        if (mapping.source === needle.source) {
-	          return {
-	            line: util.getArg(mapping, 'generatedLine', null),
-	            column: util.getArg(mapping, 'generatedColumn', null),
-	            lastColumn: util.getArg(mapping, 'lastGeneratedColumn', null)
-	          };
-	        }
-	      }
-
-	      return {
-	        line: null,
-	        column: null,
-	        lastColumn: null
-	      };
-	    };
-
-	  exports.BasicSourceMapConsumer = BasicSourceMapConsumer;
-
-	  /**
-	   * An IndexedSourceMapConsumer instance represents a parsed source map which
-	   * we can query for information. It differs from BasicSourceMapConsumer in
-	   * that it takes "indexed" source maps (i.e. ones with a "sections" field) as
-	   * input.
-	   *
-	   * The only parameter is a raw source map (either as a JSON string, or already
-	   * parsed to an object). According to the spec for indexed source maps, they
-	   * have the following attributes:
-	   *
-	   *   - version: Which version of the source map spec this map is following.
-	   *   - file: Optional. The generated file this source map is associated with.
-	   *   - sections: A list of section definitions.
-	   *
-	   * Each value under the "sections" field has two fields:
-	   *   - offset: The offset into the original specified at which this section
-	   *       begins to apply, defined as an object with a "line" and "column"
-	   *       field.
-	   *   - map: A source map definition. This source map could also be indexed,
-	   *       but doesn't have to be.
-	   *
-	   * Instead of the "map" field, it's also possible to have a "url" field
-	   * specifying a URL to retrieve a source map from, but that's currently
-	   * unsupported.
-	   *
-	   * Here's an example source map, taken from the source map spec[0], but
-	   * modified to omit a section which uses the "url" field.
-	   *
-	   *  {
-	   *    version : 3,
-	   *    file: "app.js",
-	   *    sections: [{
-	   *      offset: {line:100, column:10},
-	   *      map: {
-	   *        version : 3,
-	   *        file: "section.js",
-	   *        sources: ["foo.js", "bar.js"],
-	   *        names: ["src", "maps", "are", "fun"],
-	   *        mappings: "AAAA,E;;ABCDE;"
-	   *      }
-	   *    }],
-	   *  }
-	   *
-	   * [0]: https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit#heading=h.535es3xeprgt
-	   */
-	  function IndexedSourceMapConsumer(aSourceMap) {
-	    var sourceMap = aSourceMap;
-	    if (typeof aSourceMap === 'string') {
-	      sourceMap = JSON.parse(aSourceMap.replace(/^\)\]\}'/, ''));
-	    }
-
-	    var version = util.getArg(sourceMap, 'version');
-	    var sections = util.getArg(sourceMap, 'sections');
-
-	    if (version != this._version) {
-	      throw new Error('Unsupported version: ' + version);
-	    }
-
-	    this._sources = new ArraySet();
-	    this._names = new ArraySet();
-
-	    var lastOffset = {
-	      line: -1,
-	      column: 0
-	    };
-	    this._sections = sections.map(function (s) {
-	      if (s.url) {
-	        // The url field will require support for asynchronicity.
-	        // See https://github.com/mozilla/source-map/issues/16
-	        throw new Error('Support for url field in sections not implemented.');
-	      }
-	      var offset = util.getArg(s, 'offset');
-	      var offsetLine = util.getArg(offset, 'line');
-	      var offsetColumn = util.getArg(offset, 'column');
-
-	      if (offsetLine < lastOffset.line ||
-	          (offsetLine === lastOffset.line && offsetColumn < lastOffset.column)) {
-	        throw new Error('Section offsets must be ordered and non-overlapping.');
-	      }
-	      lastOffset = offset;
-
-	      return {
-	        generatedOffset: {
-	          // The offset fields are 0-based, but we use 1-based indices when
-	          // encoding/decoding from VLQ.
-	          generatedLine: offsetLine + 1,
-	          generatedColumn: offsetColumn + 1
-	        },
-	        consumer: new SourceMapConsumer(util.getArg(s, 'map'))
-	      }
-	    });
-	  }
-
-	  IndexedSourceMapConsumer.prototype = Object.create(SourceMapConsumer.prototype);
-	  IndexedSourceMapConsumer.prototype.constructor = SourceMapConsumer;
-
-	  /**
-	   * The version of the source mapping spec that we are consuming.
-	   */
-	  IndexedSourceMapConsumer.prototype._version = 3;
-
-	  /**
-	   * The list of original sources.
-	   */
-	  Object.defineProperty(IndexedSourceMapConsumer.prototype, 'sources', {
-	    get: function () {
-	      var sources = [];
-	      for (var i = 0; i < this._sections.length; i++) {
-	        for (var j = 0; j < this._sections[i].consumer.sources.length; j++) {
-	          sources.push(this._sections[i].consumer.sources[j]);
-	        }
-	      }
-	      return sources;
-	    }
-	  });
-
-	  /**
-	   * Returns the original source, line, and column information for the generated
-	   * source's line and column positions provided. The only argument is an object
-	   * with the following properties:
-	   *
-	   *   - line: The line number in the generated source.
-	   *   - column: The column number in the generated source.
-	   *
-	   * and an object is returned with the following properties:
-	   *
-	   *   - source: The original source file, or null.
-	   *   - line: The line number in the original source, or null.
-	   *   - column: The column number in the original source, or null.
-	   *   - name: The original identifier, or null.
-	   */
-	  IndexedSourceMapConsumer.prototype.originalPositionFor =
-	    function IndexedSourceMapConsumer_originalPositionFor(aArgs) {
-	      var needle = {
-	        generatedLine: util.getArg(aArgs, 'line'),
-	        generatedColumn: util.getArg(aArgs, 'column')
-	      };
-
-	      // Find the section containing the generated position we're trying to map
-	      // to an original position.
-	      var sectionIndex = binarySearch.search(needle, this._sections,
-	        function(needle, section) {
-	          var cmp = needle.generatedLine - section.generatedOffset.generatedLine;
-	          if (cmp) {
-	            return cmp;
-	          }
-
-	          return (needle.generatedColumn -
-	                  section.generatedOffset.generatedColumn);
-	        });
-	      var section = this._sections[sectionIndex];
-
-	      if (!section) {
-	        return {
-	          source: null,
-	          line: null,
-	          column: null,
-	          name: null
-	        };
-	      }
-
-	      return section.consumer.originalPositionFor({
-	        line: needle.generatedLine -
-	          (section.generatedOffset.generatedLine - 1),
-	        column: needle.generatedColumn -
-	          (section.generatedOffset.generatedLine === needle.generatedLine
-	           ? section.generatedOffset.generatedColumn - 1
-	           : 0),
-	        bias: aArgs.bias
-	      });
-	    };
-
-	  /**
-	   * Return true if we have the source content for every source in the source
-	   * map, false otherwise.
-	   */
-	  IndexedSourceMapConsumer.prototype.hasContentsOfAllSources =
-	    function IndexedSourceMapConsumer_hasContentsOfAllSources() {
-	      return this._sections.every(function (s) {
-	        return s.consumer.hasContentsOfAllSources();
-	      });
-	    };
-
-	  /**
-	   * Returns the original source content. The only argument is the url of the
-	   * original source file. Returns null if no original source content is
-	   * available.
-	   */
-	  IndexedSourceMapConsumer.prototype.sourceContentFor =
-	    function IndexedSourceMapConsumer_sourceContentFor(aSource, nullOnMissing) {
-	      for (var i = 0; i < this._sections.length; i++) {
-	        var section = this._sections[i];
-
-	        var content = section.consumer.sourceContentFor(aSource, true);
-	        if (content) {
-	          return content;
-	        }
-	      }
-	      if (nullOnMissing) {
-	        return null;
-	      }
-	      else {
-	        throw new Error('"' + aSource + '" is not in the SourceMap.');
-	      }
-	    };
-
-	  /**
-	   * Returns the generated line and column information for the original source,
-	   * line, and column positions provided. The only argument is an object with
-	   * the following properties:
-	   *
-	   *   - source: The filename of the original source.
-	   *   - line: The line number in the original source.
-	   *   - column: The column number in the original source.
-	   *
-	   * and an object is returned with the following properties:
-	   *
-	   *   - line: The line number in the generated source, or null.
-	   *   - column: The column number in the generated source, or null.
-	   */
-	  IndexedSourceMapConsumer.prototype.generatedPositionFor =
-	    function IndexedSourceMapConsumer_generatedPositionFor(aArgs) {
-	      for (var i = 0; i < this._sections.length; i++) {
-	        var section = this._sections[i];
-
-	        // Only consider this section if the requested source is in the list of
-	        // sources of the consumer.
-	        if (section.consumer.sources.indexOf(util.getArg(aArgs, 'source')) === -1) {
-	          continue;
-	        }
-	        var generatedPosition = section.consumer.generatedPositionFor(aArgs);
-	        if (generatedPosition) {
-	          var ret = {
-	            line: generatedPosition.line +
-	              (section.generatedOffset.generatedLine - 1),
-	            column: generatedPosition.column +
-	              (section.generatedOffset.generatedLine === generatedPosition.line
-	               ? section.generatedOffset.generatedColumn - 1
-	               : 0)
-	          };
-	          return ret;
-	        }
-	      }
-
-	      return {
-	        line: null,
-	        column: null
-	      };
-	    };
-
-	  /**
-	   * Parse the mappings in a string in to a data structure which we can easily
-	   * query (the ordered arrays in the `this.__generatedMappings` and
-	   * `this.__originalMappings` properties).
-	   */
-	  IndexedSourceMapConsumer.prototype._parseMappings =
-	    function IndexedSourceMapConsumer_parseMappings(aStr, aSourceRoot) {
-	      this.__generatedMappings = [];
-	      this.__originalMappings = [];
-	      for (var i = 0; i < this._sections.length; i++) {
-	        var section = this._sections[i];
-	        var sectionMappings = section.consumer._generatedMappings;
-	        for (var j = 0; j < sectionMappings.length; j++) {
-	          var mapping = sectionMappings[j];
-
-	          var source = section.consumer._sources.at(mapping.source);
-	          if (section.consumer.sourceRoot !== null) {
-	            source = util.join(section.consumer.sourceRoot, source);
-	          }
-	          this._sources.add(source);
-	          source = this._sources.indexOf(source);
-
-	          var name = section.consumer._names.at(mapping.name);
-	          this._names.add(name);
-	          name = this._names.indexOf(name);
-
-	          // The mappings coming from the consumer for the section have
-	          // generated positions relative to the start of the section, so we
-	          // need to offset them to be relative to the start of the concatenated
-	          // generated file.
-	          var adjustedMapping = {
-	            source: source,
-	            generatedLine: mapping.generatedLine +
-	              (section.generatedOffset.generatedLine - 1),
-	            generatedColumn: mapping.generatedColumn +
-	              (section.generatedOffset.generatedLine === mapping.generatedLine
-	              ? section.generatedOffset.generatedColumn - 1
-	              : 0),
-	            originalLine: mapping.originalLine,
-	            originalColumn: mapping.originalColumn,
-	            name: name
-	          };
-
-	          this.__generatedMappings.push(adjustedMapping);
-	          if (typeof adjustedMapping.originalLine === 'number') {
-	            this.__originalMappings.push(adjustedMapping);
-	          }
-	        }
-	      }
-
-	      quickSort(this.__generatedMappings, util.compareByGeneratedPositionsDeflated);
-	      quickSort(this.__originalMappings, util.compareByOriginalPositions);
-	    };
-
-	  exports.IndexedSourceMapConsumer = IndexedSourceMapConsumer;
-	}
-
-
-/***/ },
-/* 361 */
-/***/ function(module, exports) {
-
-	/* -*- Mode: js; js-indent-level: 2; -*- */
-	/*
-	 * Copyright 2011 Mozilla Foundation and contributors
-	 * Licensed under the New BSD license. See LICENSE or:
-	 * http://opensource.org/licenses/BSD-3-Clause
-	 */
-	{
-	  exports.GREATEST_LOWER_BOUND = 1;
-	  exports.LEAST_UPPER_BOUND = 2;
-
-	  /**
-	   * Recursive implementation of binary search.
-	   *
-	   * @param aLow Indices here and lower do not contain the needle.
-	   * @param aHigh Indices here and higher do not contain the needle.
-	   * @param aNeedle The element being searched for.
-	   * @param aHaystack The non-empty array being searched.
-	   * @param aCompare Function which takes two elements and returns -1, 0, or 1.
-	   * @param aBias Either 'binarySearch.GREATEST_LOWER_BOUND' or
-	   *     'binarySearch.LEAST_UPPER_BOUND'. Specifies whether to return the
-	   *     closest element that is smaller than or greater than the one we are
-	   *     searching for, respectively, if the exact element cannot be found.
-	   */
-	  function recursiveSearch(aLow, aHigh, aNeedle, aHaystack, aCompare, aBias) {
-	    // This function terminates when one of the following is true:
-	    //
-	    //   1. We find the exact element we are looking for.
-	    //
-	    //   2. We did not find the exact element, but we can return the index of
-	    //      the next-closest element.
-	    //
-	    //   3. We did not find the exact element, and there is no next-closest
-	    //      element than the one we are searching for, so we return -1.
-	    var mid = Math.floor((aHigh - aLow) / 2) + aLow;
-	    var cmp = aCompare(aNeedle, aHaystack[mid], true);
-	    if (cmp === 0) {
-	      // Found the element we are looking for.
-	      return mid;
-	    }
-	    else if (cmp > 0) {
-	      // Our needle is greater than aHaystack[mid].
-	      if (aHigh - mid > 1) {
-	        // The element is in the upper half.
-	        return recursiveSearch(mid, aHigh, aNeedle, aHaystack, aCompare, aBias);
-	      }
-
-	      // The exact needle element was not found in this haystack. Determine if
-	      // we are in termination case (3) or (2) and return the appropriate thing.
-	      if (aBias == exports.LEAST_UPPER_BOUND) {
-	        return aHigh < aHaystack.length ? aHigh : -1;
-	      } else {
-	        return mid;
-	      }
-	    }
-	    else {
-	      // Our needle is less than aHaystack[mid].
-	      if (mid - aLow > 1) {
-	        // The element is in the lower half.
-	        return recursiveSearch(aLow, mid, aNeedle, aHaystack, aCompare, aBias);
-	      }
-
-	      // we are in termination case (3) or (2) and return the appropriate thing.
-	      if (aBias == exports.LEAST_UPPER_BOUND) {
-	        return mid;
-	      } else {
-	        return aLow < 0 ? -1 : aLow;
-	      }
-	    }
-	  }
-
-	  /**
-	   * This is an implementation of binary search which will always try and return
-	   * the index of the closest element if there is no exact hit. This is because
-	   * mappings between original and generated line/col pairs are single points,
-	   * and there is an implicit region between each of them, so a miss just means
-	   * that you aren't on the very start of a region.
-	   *
-	   * @param aNeedle The element you are looking for.
-	   * @param aHaystack The array that is being searched.
-	   * @param aCompare A function which takes the needle and an element in the
-	   *     array and returns -1, 0, or 1 depending on whether the needle is less
-	   *     than, equal to, or greater than the element, respectively.
-	   * @param aBias Either 'binarySearch.GREATEST_LOWER_BOUND' or
-	   *     'binarySearch.LEAST_UPPER_BOUND'. Specifies whether to return the
-	   *     closest element that is smaller than or greater than the one we are
-	   *     searching for, respectively, if the exact element cannot be found.
-	   *     Defaults to 'binarySearch.GREATEST_LOWER_BOUND'.
-	   */
-	  exports.search = function search(aNeedle, aHaystack, aCompare, aBias) {
-	    if (aHaystack.length === 0) {
-	      return -1;
-	    }
-
-	    var index = recursiveSearch(-1, aHaystack.length, aNeedle, aHaystack,
-	                                aCompare, aBias || exports.GREATEST_LOWER_BOUND);
-	    if (index < 0) {
-	      return -1;
-	    }
-
-	    // We have found either the exact element, or the next-closest element than
-	    // the one we are searching for. However, there may be more than one such
-	    // element. Make sure we always return the smallest of these.
-	    while (index - 1 >= 0) {
-	      if (aCompare(aHaystack[index], aHaystack[index - 1], true) !== 0) {
-	        break;
-	      }
-	      --index;
-	    }
-
-	    return index;
-	  };
-	}
-
-
-/***/ },
-/* 362 */
-/***/ function(module, exports) {
-
-	/* -*- Mode: js; js-indent-level: 2; -*- */
-	/*
-	 * Copyright 2011 Mozilla Foundation and contributors
-	 * Licensed under the New BSD license. See LICENSE or:
-	 * http://opensource.org/licenses/BSD-3-Clause
-	 */
-	{
-	  // It turns out that some (most?) JavaScript engines don't self-host
-	  // `Array.prototype.sort`. This makes sense because C++ will likely remain
-	  // faster than JS when doing raw CPU-intensive sorting. However, when using a
-	  // custom comparator function, calling back and forth between the VM's C++ and
-	  // JIT'd JS is rather slow *and* loses JIT type information, resulting in
-	  // worse generated code for the comparator function than would be optimal. In
-	  // fact, when sorting with a comparator, these costs outweigh the benefits of
-	  // sorting in C++. By using our own JS-implemented Quick Sort (below), we get
-	  // a ~3500ms mean speed-up in `bench/bench.html`.
-
-	  /**
-	   * Swap the elements indexed by `x` and `y` in the array `ary`.
-	   *
-	   * @param {Array} ary
-	   *        The array.
-	   * @param {Number} x
-	   *        The index of the first item.
-	   * @param {Number} y
-	   *        The index of the second item.
-	   */
-	  function swap(ary, x, y) {
-	    var temp = ary[x];
-	    ary[x] = ary[y];
-	    ary[y] = temp;
-	  }
-
-	  /**
-	   * Returns a random integer within the range `low .. high` inclusive.
-	   *
-	   * @param {Number} low
-	   *        The lower bound on the range.
-	   * @param {Number} high
-	   *        The upper bound on the range.
-	   */
-	  function randomIntInRange(low, high) {
-	    return Math.round(low + (Math.random() * (high - low)));
-	  }
-
-	  /**
-	   * The Quick Sort algorithm.
-	   *
-	   * @param {Array} ary
-	   *        An array to sort.
-	   * @param {function} comparator
-	   *        Function to use to compare two items.
-	   * @param {Number} p
-	   *        Start index of the array
-	   * @param {Number} r
-	   *        End index of the array
-	   */
-	  function doQuickSort(ary, comparator, p, r) {
-	    // If our lower bound is less than our upper bound, we (1) partition the
-	    // array into two pieces and (2) recurse on each half. If it is not, this is
-	    // the empty array and our base case.
-
-	    if (p < r) {
-	      // (1) Partitioning.
-	      //
-	      // The partitioning chooses a pivot between `p` and `r` and moves all
-	      // elements that are less than or equal to the pivot to the before it, and
-	      // all the elements that are greater than it after it. The effect is that
-	      // once partition is done, the pivot is in the exact place it will be when
-	      // the array is put in sorted order, and it will not need to be moved
-	      // again. This runs in O(n) time.
-
-	      // Always choose a random pivot so that an input array which is reverse
-	      // sorted does not cause O(n^2) running time.
-	      var pivotIndex = randomIntInRange(p, r);
-	      var i = p - 1;
-
-	      swap(ary, pivotIndex, r);
-	      var pivot = ary[r];
-
-	      // Immediately after `j` is incremented in this loop, the following hold
-	      // true:
-	      //
-	      //   * Every element in `ary[p .. i]` is less than or equal to the pivot.
-	      //
-	      //   * Every element in `ary[i+1 .. j-1]` is greater than the pivot.
-	      for (var j = p; j < r; j++) {
-	        if (comparator(ary[j], pivot) <= 0) {
-	          i += 1;
-	          swap(ary, i, j);
-	        }
-	      }
-
-	      swap(ary, i + 1, j);
-	      var q = i + 1;
-
-	      // (2) Recurse on each half.
-
-	      doQuickSort(ary, comparator, p, q - 1);
-	      doQuickSort(ary, comparator, q + 1, r);
-	    }
-	  }
-
-	  /**
-	   * Sort the given array in-place with the given comparator function.
-	   *
-	   * @param {Array} ary
-	   *        An array to sort.
-	   * @param {function} comparator
-	   *        Function to use to compare two items.
-	   */
-	  exports.quickSort = function (ary, comparator) {
-	    doQuickSort(ary, comparator, 0, ary.length - 1);
-	  };
-	}
-
-
-/***/ },
-/* 363 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* -*- Mode: js; js-indent-level: 2; -*- */
-	/*
-	 * Copyright 2011 Mozilla Foundation and contributors
-	 * Licensed under the New BSD license. See LICENSE or:
-	 * http://opensource.org/licenses/BSD-3-Clause
-	 */
-	{
-	  var SourceMapGenerator = __webpack_require__(354).SourceMapGenerator;
-	  var util = __webpack_require__(357);
-
-	  // Matches a Windows-style `\r\n` newline or a `\n` newline used by all other
-	  // operating systems these days (capturing the result).
-	  var REGEX_NEWLINE = /(\r?\n)/;
-
-	  // Newline character code for charCodeAt() comparisons
-	  var NEWLINE_CODE = 10;
-
-	  // Private symbol for identifying `SourceNode`s when multiple versions of
-	  // the source-map library are loaded. This MUST NOT CHANGE across
-	  // versions!
-	  var isSourceNode = "$$$isSourceNode$$$";
-
-	  /**
-	   * SourceNodes provide a way to abstract over interpolating/concatenating
-	   * snippets of generated JavaScript source code while maintaining the line and
-	   * column information associated with the original source code.
-	   *
-	   * @param aLine The original line number.
-	   * @param aColumn The original column number.
-	   * @param aSource The original source's filename.
-	   * @param aChunks Optional. An array of strings which are snippets of
-	   *        generated JS, or other SourceNodes.
-	   * @param aName The original identifier.
-	   */
-	  function SourceNode(aLine, aColumn, aSource, aChunks, aName) {
-	    this.children = [];
-	    this.sourceContents = {};
-	    this.line = aLine == null ? null : aLine;
-	    this.column = aColumn == null ? null : aColumn;
-	    this.source = aSource == null ? null : aSource;
-	    this.name = aName == null ? null : aName;
-	    this[isSourceNode] = true;
-	    if (aChunks != null) this.add(aChunks);
-	  }
-
-	  /**
-	   * Creates a SourceNode from generated code and a SourceMapConsumer.
-	   *
-	   * @param aGeneratedCode The generated code
-	   * @param aSourceMapConsumer The SourceMap for the generated code
-	   * @param aRelativePath Optional. The path that relative sources in the
-	   *        SourceMapConsumer should be relative to.
-	   */
-	  SourceNode.fromStringWithSourceMap =
-	    function SourceNode_fromStringWithSourceMap(aGeneratedCode, aSourceMapConsumer, aRelativePath) {
-	      // The SourceNode we want to fill with the generated code
-	      // and the SourceMap
-	      var node = new SourceNode();
-
-	      // All even indices of this array are one line of the generated code,
-	      // while all odd indices are the newlines between two adjacent lines
-	      // (since `REGEX_NEWLINE` captures its match).
-	      // Processed fragments are removed from this array, by calling `shiftNextLine`.
-	      var remainingLines = aGeneratedCode.split(REGEX_NEWLINE);
-	      var shiftNextLine = function() {
-	        var lineContents = remainingLines.shift();
-	        // The last line of a file might not have a newline.
-	        var newLine = remainingLines.shift() || "";
-	        return lineContents + newLine;
-	      };
-
-	      // We need to remember the position of "remainingLines"
-	      var lastGeneratedLine = 1, lastGeneratedColumn = 0;
-
-	      // The generate SourceNodes we need a code range.
-	      // To extract it current and last mapping is used.
-	      // Here we store the last mapping.
-	      var lastMapping = null;
-
-	      aSourceMapConsumer.eachMapping(function (mapping) {
-	        if (lastMapping !== null) {
-	          // We add the code from "lastMapping" to "mapping":
-	          // First check if there is a new line in between.
-	          if (lastGeneratedLine < mapping.generatedLine) {
-	            // Associate first line with "lastMapping"
-	            addMappingWithCode(lastMapping, shiftNextLine());
-	            lastGeneratedLine++;
-	            lastGeneratedColumn = 0;
-	            // The remaining code is added without mapping
-	          } else {
-	            // There is no new line in between.
-	            // Associate the code between "lastGeneratedColumn" and
-	            // "mapping.generatedColumn" with "lastMapping"
-	            var nextLine = remainingLines[0];
-	            var code = nextLine.substr(0, mapping.generatedColumn -
-	                                          lastGeneratedColumn);
-	            remainingLines[0] = nextLine.substr(mapping.generatedColumn -
-	                                                lastGeneratedColumn);
-	            lastGeneratedColumn = mapping.generatedColumn;
-	            addMappingWithCode(lastMapping, code);
-	            // No more remaining code, continue
-	            lastMapping = mapping;
-	            return;
-	          }
-	        }
-	        // We add the generated code until the first mapping
-	        // to the SourceNode without any mapping.
-	        // Each line is added as separate string.
-	        while (lastGeneratedLine < mapping.generatedLine) {
-	          node.add(shiftNextLine());
-	          lastGeneratedLine++;
-	        }
-	        if (lastGeneratedColumn < mapping.generatedColumn) {
-	          var nextLine = remainingLines[0];
-	          node.add(nextLine.substr(0, mapping.generatedColumn));
-	          remainingLines[0] = nextLine.substr(mapping.generatedColumn);
-	          lastGeneratedColumn = mapping.generatedColumn;
-	        }
-	        lastMapping = mapping;
-	      }, this);
-	      // We have processed all mappings.
-	      if (remainingLines.length > 0) {
-	        if (lastMapping) {
-	          // Associate the remaining code in the current line with "lastMapping"
-	          addMappingWithCode(lastMapping, shiftNextLine());
-	        }
-	        // and add the remaining lines without any mapping
-	        node.add(remainingLines.join(""));
-	      }
-
-	      // Copy sourcesContent into SourceNode
-	      aSourceMapConsumer.sources.forEach(function (sourceFile) {
-	        var content = aSourceMapConsumer.sourceContentFor(sourceFile);
-	        if (content != null) {
-	          if (aRelativePath != null) {
-	            sourceFile = util.join(aRelativePath, sourceFile);
-	          }
-	          node.setSourceContent(sourceFile, content);
-	        }
-	      });
-
-	      return node;
-
-	      function addMappingWithCode(mapping, code) {
-	        if (mapping === null || mapping.source === undefined) {
-	          node.add(code);
-	        } else {
-	          var source = aRelativePath
-	            ? util.join(aRelativePath, mapping.source)
-	            : mapping.source;
-	          node.add(new SourceNode(mapping.originalLine,
-	                                  mapping.originalColumn,
-	                                  source,
-	                                  code,
-	                                  mapping.name));
-	        }
-	      }
-	    };
-
-	  /**
-	   * Add a chunk of generated JS to this source node.
-	   *
-	   * @param aChunk A string snippet of generated JS code, another instance of
-	   *        SourceNode, or an array where each member is one of those things.
-	   */
-	  SourceNode.prototype.add = function SourceNode_add(aChunk) {
-	    if (Array.isArray(aChunk)) {
-	      aChunk.forEach(function (chunk) {
-	        this.add(chunk);
-	      }, this);
-	    }
-	    else if (aChunk[isSourceNode] || typeof aChunk === "string") {
-	      if (aChunk) {
-	        this.children.push(aChunk);
-	      }
-	    }
-	    else {
-	      throw new TypeError(
-	        "Expected a SourceNode, string, or an array of SourceNodes and strings. Got " + aChunk
-	      );
-	    }
-	    return this;
-	  };
-
-	  /**
-	   * Add a chunk of generated JS to the beginning of this source node.
-	   *
-	   * @param aChunk A string snippet of generated JS code, another instance of
-	   *        SourceNode, or an array where each member is one of those things.
-	   */
-	  SourceNode.prototype.prepend = function SourceNode_prepend(aChunk) {
-	    if (Array.isArray(aChunk)) {
-	      for (var i = aChunk.length-1; i >= 0; i--) {
-	        this.prepend(aChunk[i]);
-	      }
-	    }
-	    else if (aChunk[isSourceNode] || typeof aChunk === "string") {
-	      this.children.unshift(aChunk);
-	    }
-	    else {
-	      throw new TypeError(
-	        "Expected a SourceNode, string, or an array of SourceNodes and strings. Got " + aChunk
-	      );
-	    }
-	    return this;
-	  };
-
-	  /**
-	   * Walk over the tree of JS snippets in this node and its children. The
-	   * walking function is called once for each snippet of JS and is passed that
-	   * snippet and the its original associated source's line/column location.
-	   *
-	   * @param aFn The traversal function.
-	   */
-	  SourceNode.prototype.walk = function SourceNode_walk(aFn) {
-	    var chunk;
-	    for (var i = 0, len = this.children.length; i < len; i++) {
-	      chunk = this.children[i];
-	      if (chunk[isSourceNode]) {
-	        chunk.walk(aFn);
-	      }
-	      else {
-	        if (chunk !== '') {
-	          aFn(chunk, { source: this.source,
-	                       line: this.line,
-	                       column: this.column,
-	                       name: this.name });
-	        }
-	      }
-	    }
-	  };
-
-	  /**
-	   * Like `String.prototype.join` except for SourceNodes. Inserts `aStr` between
-	   * each of `this.children`.
-	   *
-	   * @param aSep The separator.
-	   */
-	  SourceNode.prototype.join = function SourceNode_join(aSep) {
-	    var newChildren;
-	    var i;
-	    var len = this.children.length;
-	    if (len > 0) {
-	      newChildren = [];
-	      for (i = 0; i < len-1; i++) {
-	        newChildren.push(this.children[i]);
-	        newChildren.push(aSep);
-	      }
-	      newChildren.push(this.children[i]);
-	      this.children = newChildren;
-	    }
-	    return this;
-	  };
-
-	  /**
-	   * Call String.prototype.replace on the very right-most source snippet. Useful
-	   * for trimming whitespace from the end of a source node, etc.
-	   *
-	   * @param aPattern The pattern to replace.
-	   * @param aReplacement The thing to replace the pattern with.
-	   */
-	  SourceNode.prototype.replaceRight = function SourceNode_replaceRight(aPattern, aReplacement) {
-	    var lastChild = this.children[this.children.length - 1];
-	    if (lastChild[isSourceNode]) {
-	      lastChild.replaceRight(aPattern, aReplacement);
-	    }
-	    else if (typeof lastChild === 'string') {
-	      this.children[this.children.length - 1] = lastChild.replace(aPattern, aReplacement);
-	    }
-	    else {
-	      this.children.push(''.replace(aPattern, aReplacement));
-	    }
-	    return this;
-	  };
-
-	  /**
-	   * Set the source content for a source file. This will be added to the SourceMapGenerator
-	   * in the sourcesContent field.
-	   *
-	   * @param aSourceFile The filename of the source file
-	   * @param aSourceContent The content of the source file
-	   */
-	  SourceNode.prototype.setSourceContent =
-	    function SourceNode_setSourceContent(aSourceFile, aSourceContent) {
-	      this.sourceContents[util.toSetString(aSourceFile)] = aSourceContent;
-	    };
-
-	  /**
-	   * Walk over the tree of SourceNodes. The walking function is called for each
-	   * source file content and is passed the filename and source content.
-	   *
-	   * @param aFn The traversal function.
-	   */
-	  SourceNode.prototype.walkSourceContents =
-	    function SourceNode_walkSourceContents(aFn) {
-	      for (var i = 0, len = this.children.length; i < len; i++) {
-	        if (this.children[i][isSourceNode]) {
-	          this.children[i].walkSourceContents(aFn);
-	        }
-	      }
-
-	      var sources = Object.keys(this.sourceContents);
-	      for (var i = 0, len = sources.length; i < len; i++) {
-	        aFn(util.fromSetString(sources[i]), this.sourceContents[sources[i]]);
-	      }
-	    };
-
-	  /**
-	   * Return the string representation of this source node. Walks over the tree
-	   * and concatenates all the various snippets together to one string.
-	   */
-	  SourceNode.prototype.toString = function SourceNode_toString() {
-	    var str = "";
-	    this.walk(function (chunk) {
-	      str += chunk;
-	    });
-	    return str;
-	  };
-
-	  /**
-	   * Returns the string representation of this source node along with a source
-	   * map.
-	   */
-	  SourceNode.prototype.toStringWithSourceMap = function SourceNode_toStringWithSourceMap(aArgs) {
-	    var generated = {
-	      code: "",
-	      line: 1,
-	      column: 0
-	    };
-	    var map = new SourceMapGenerator(aArgs);
-	    var sourceMappingActive = false;
-	    var lastOriginalSource = null;
-	    var lastOriginalLine = null;
-	    var lastOriginalColumn = null;
-	    var lastOriginalName = null;
-	    this.walk(function (chunk, original) {
-	      generated.code += chunk;
-	      if (original.source !== null
-	          && original.line !== null
-	          && original.column !== null) {
-	        if(lastOriginalSource !== original.source
-	           || lastOriginalLine !== original.line
-	           || lastOriginalColumn !== original.column
-	           || lastOriginalName !== original.name) {
-	          map.addMapping({
-	            source: original.source,
-	            original: {
-	              line: original.line,
-	              column: original.column
-	            },
-	            generated: {
-	              line: generated.line,
-	              column: generated.column
-	            },
-	            name: original.name
-	          });
-	        }
-	        lastOriginalSource = original.source;
-	        lastOriginalLine = original.line;
-	        lastOriginalColumn = original.column;
-	        lastOriginalName = original.name;
-	        sourceMappingActive = true;
-	      } else if (sourceMappingActive) {
-	        map.addMapping({
-	          generated: {
-	            line: generated.line,
-	            column: generated.column
-	          }
-	        });
-	        lastOriginalSource = null;
-	        sourceMappingActive = false;
-	      }
-	      for (var idx = 0, length = chunk.length; idx < length; idx++) {
-	        if (chunk.charCodeAt(idx) === NEWLINE_CODE) {
-	          generated.line++;
-	          generated.column = 0;
-	          // Mappings end at eol
-	          if (idx + 1 === length) {
-	            lastOriginalSource = null;
-	            sourceMappingActive = false;
-	          } else if (sourceMappingActive) {
-	            map.addMapping({
-	              source: original.source,
-	              original: {
-	                line: original.line,
-	                column: original.column
-	              },
-	              generated: {
-	                line: generated.line,
-	                column: generated.column
-	              },
-	              name: original.name
-	            });
-	          }
-	        } else {
-	          generated.column++;
-	        }
-	      }
-	    });
-	    this.walkSourceContents(function (sourceFile, sourceContent) {
-	      map.setSourceContent(sourceFile, sourceContent);
-	    });
-
-	    return { code: generated.code, map: map };
-	  };
-
-	  exports.SourceNode = SourceNode;
-	}
-
-
-/***/ },
-/* 364 */
+/* 345 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var defaults = {
 	    // If you want to use a different branch of esprima, or any other
 	    // module that supports a .parse function, pass that module object to
 	    // recast.parse as options.parser (legacy synonym: options.esprima).
-	    parser: __webpack_require__(365),
+	    parser: __webpack_require__(346),
 
 	    // Number of spaces the pretty-printer should use per tab for
 	    // indentation. If you do not pass this option explicitly, it will be
@@ -82015,7 +78620,7 @@
 	    reuseWhitespace: true,
 
 	    // Override this option to use a different line terminator, e.g. \r\n.
-	    lineTerminator: __webpack_require__(366).EOL,
+	    lineTerminator: __webpack_require__(347).EOL,
 
 	    // Some of the pretty-printer code (such as that for printing function
 	    // parameter lists) makes a valiant attempt to prevent really long
@@ -82093,7 +78698,7 @@
 
 
 /***/ },
-/* 365 */
+/* 346 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
@@ -87838,13 +84443,13 @@
 
 
 /***/ },
-/* 366 */
+/* 347 */
 /***/ function(module, exports) {
 
 	module.exports = require("os");
 
 /***/ },
-/* 367 */
+/* 348 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -87979,14 +84584,14 @@
 
 
 /***/ },
-/* 368 */
+/* 349 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var assert = __webpack_require__(225);
-	var types = __webpack_require__(332);
+	var assert = __webpack_require__(224);
+	var types = __webpack_require__(324);
 	var getFieldValue = types.getFieldValue;
 	var n = types.namedTypes;
-	var sourceMap = __webpack_require__(353);
+	var sourceMap = __webpack_require__(289);
 	var SourceMapConsumer = sourceMap.SourceMapConsumer;
 	var SourceMapGenerator = sourceMap.SourceMapGenerator;
 	var hasOwn = Object.prototype.hasOwnProperty;
@@ -88268,17 +84873,17 @@
 
 
 /***/ },
-/* 369 */
+/* 350 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var assert = __webpack_require__(225);
-	var types = __webpack_require__(332);
+	var assert = __webpack_require__(224);
+	var types = __webpack_require__(324);
 	var isString = types.builtInTypes.string;
 	var isNumber = types.builtInTypes.number;
 	var SourceLocation = types.namedTypes.SourceLocation;
 	var Position = types.namedTypes.Position;
-	var linesModule = __webpack_require__(352);
-	var comparePos = __webpack_require__(368).comparePos;
+	var linesModule = __webpack_require__(344);
+	var comparePos = __webpack_require__(349).comparePos;
 
 	function Mapping(sourceLines, sourceLoc, targetLoc) {
 	    assert.ok(this instanceof Mapping);
@@ -88551,11 +85156,11 @@
 
 
 /***/ },
-/* 370 */
+/* 351 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var assert = __webpack_require__(225);
-	var types = __webpack_require__(332);
+	var assert = __webpack_require__(224);
+	var types = __webpack_require__(324);
 	var n = types.namedTypes;
 	var Node = n.Node;
 	var isArray = types.builtInTypes.array;
@@ -89034,21 +85639,21 @@
 
 
 /***/ },
-/* 371 */
+/* 352 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var assert = __webpack_require__(225);
-	var types = __webpack_require__(332);
+	var assert = __webpack_require__(224);
+	var types = __webpack_require__(324);
 	var n = types.namedTypes;
 	var isArray = types.builtInTypes.array;
 	var isObject = types.builtInTypes.object;
-	var linesModule = __webpack_require__(352);
+	var linesModule = __webpack_require__(344);
 	var fromString = linesModule.fromString;
 	var Lines = linesModule.Lines;
 	var concat = linesModule.concat;
-	var util = __webpack_require__(368);
+	var util = __webpack_require__(349);
 	var comparePos = util.comparePos;
-	var childNodesCacheKey = __webpack_require__(367).makeUniqueKey();
+	var childNodesCacheKey = __webpack_require__(348).makeUniqueKey();
 
 	// TODO Move a non-caching implementation of this function into ast-types,
 	// and implement a caching wrapper function here.
@@ -89391,23 +85996,23 @@
 
 
 /***/ },
-/* 372 */
+/* 353 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var assert = __webpack_require__(225);
-	var sourceMap = __webpack_require__(353);
-	var printComments = __webpack_require__(371).printComments;
-	var linesModule = __webpack_require__(352);
+	var assert = __webpack_require__(224);
+	var sourceMap = __webpack_require__(289);
+	var printComments = __webpack_require__(352).printComments;
+	var linesModule = __webpack_require__(344);
 	var fromString = linesModule.fromString;
 	var concat = linesModule.concat;
-	var normalizeOptions = __webpack_require__(364).normalize;
-	var getReprinter = __webpack_require__(351).getReprinter;
-	var types = __webpack_require__(332);
+	var normalizeOptions = __webpack_require__(345).normalize;
+	var getReprinter = __webpack_require__(343).getReprinter;
+	var types = __webpack_require__(324);
 	var namedTypes = types.namedTypes;
 	var isString = types.builtInTypes.string;
 	var isObject = types.builtInTypes.object;
-	var FastPath = __webpack_require__(370);
-	var util = __webpack_require__(368);
+	var FastPath = __webpack_require__(351);
+	var util = __webpack_require__(349);
 
 	function PrintResult(code, sourceMap) {
 	    assert.ok(this instanceof PrintResult);
@@ -91199,7 +87804,7 @@
 
 
 /***/ },
-/* 373 */
+/* 354 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -91220,12 +87825,12 @@
 	//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxpYi9jb21wb25lbnRzL0xpbmVDb3VudC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLElBQU0sUUFBUSxRQUFRLE9BQVIsQ0FBUjtBQUNOLElBQU0sTUFBTSxNQUFNLGFBQU4sQ0FBb0IsS0FBcEIsQ0FBTjtBQUNOLElBQU0sT0FBTyxNQUFNLGFBQU4sQ0FBb0IsTUFBcEIsQ0FBUDs7QUFFTixPQUFPLE9BQVAsR0FBaUIsU0FBUyxTQUFULENBQW1CLEtBQW5CLEVBQTBCO0FBQ3ZDLFFBQU0sTUFBTSxNQUFNLEtBQU4sQ0FEMkI7QUFFdkMsUUFBSSxLQUFKLENBRnVDO0FBR3ZDLFFBQUksTUFBTSxHQUFOLEVBQ0EsUUFBUSxTQUFSLENBREosS0FFSyxJQUFJLE1BQU0sR0FBTixFQUNMLFFBQVEsU0FBUixDQURDLEtBRUEsSUFBSSxNQUFNLEdBQU4sRUFDTCxRQUFRLFNBQVIsQ0FEQyxLQUVBLElBQUksTUFBTSxHQUFOLEVBQ0wsUUFBUSxTQUFSLENBREMsS0FFQSxJQUFJLE1BQU0sSUFBTixFQUNMLFFBQVEsU0FBUixDQURDLEtBR0QsUUFBUSxLQUFSLENBSEM7O0FBS0wsUUFBTSxRQUFRLEVBQUMsT0FBTyxLQUFQLEVBQVQsQ0FoQmlDOztBQWtCdkMsV0FBTyxLQUFLLEVBQUMsT0FBTyxLQUFQLEVBQU4sRUFBcUIsQ0FBQyxNQUFNLEtBQU4sRUFBYSxNQUFkLENBQXJCLENBQVAsQ0FsQnVDO0NBQTFCIiwiZmlsZSI6IkxpbmVDb3VudC5qcyIsInNvdXJjZVJvb3QiOiIvVXNlcnMvbHVrYXN6L2F0b20tbHVwYSIsInNvdXJjZXNDb250ZW50IjpbImNvbnN0IFJlYWN0ID0gcmVxdWlyZSgncmVhY3QnKTtcbmNvbnN0IGRpdiA9IFJlYWN0LmNyZWF0ZUZhY3RvcnkoJ2RpdicpO1xuY29uc3Qgc3BhbiA9IFJlYWN0LmNyZWF0ZUZhY3RvcnkoJ3NwYW4nKTtcblxubW9kdWxlLmV4cG9ydHMgPSBmdW5jdGlvbiBMaW5lQ291bnQocHJvcHMpIHtcbiAgICBjb25zdCBsb2MgPSBwcm9wcy5saW5lcztcbiAgICB2YXIgY29sb3I7XG4gICAgaWYgKGxvYyA8IDEwMClcbiAgICAgICAgY29sb3IgPSAnIzAwYmIwMCc7XG4gICAgZWxzZSBpZiAobG9jIDwgMTUwKVxuICAgICAgICBjb2xvciA9ICcjOTliYjAwJztcbiAgICBlbHNlIGlmIChsb2MgPCAzMDApXG4gICAgICAgIGNvbG9yID0gJyNjYzk5MDAnO1xuICAgIGVsc2UgaWYgKGxvYyA8IDUwMClcbiAgICAgICAgY29sb3IgPSAnI2RkODgwMCc7XG4gICAgZWxzZSBpZiAobG9jIDwgMTAwMClcbiAgICAgICAgY29sb3IgPSAnI2VlNjYwMCc7XG4gICAgZWxzZVxuICAgICAgICBjb2xvciA9ICdyZWQnO1xuXG4gICAgY29uc3Qgc3R5bGUgPSB7Y29sb3I6IGNvbG9yfTtcblxuICAgIHJldHVybiBzcGFuKHtzdHlsZTogc3R5bGV9LCBbcHJvcHMubGluZXMsICcgbG9jJ10pO1xufVxuIl19
 
 /***/ },
-/* 374 */
+/* 355 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	var Point = __webpack_require__(375).Point;
+	var Point = __webpack_require__(356).Point;
 
 	exports.createTextEditor = function (path, line) {
 	    line = line || 0;
@@ -91249,13 +87854,13 @@
 	//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxpYi9lZGl0b3IuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7O0FBRUEsSUFBSSxRQUFRLFFBQVEsTUFBUixFQUFnQixLQUFoQjs7QUFFWixRQUFRLGdCQUFSLEdBQTJCLFVBQVUsSUFBVixFQUFnQixJQUFoQixFQUFzQjtBQUM3QyxXQUFPLFFBQVEsQ0FBUixDQURzQztBQUU3QyxRQUFJLE9BQU8sS0FBSyxPQUFMLENBQWEsaUJBQWIsQ0FBK0IsSUFBL0IsQ0FBUCxDQUZ5QztBQUc3QyxRQUFJLEtBQUssS0FBSyxTQUFMLENBQWUsZUFBZixDQUErQixFQUFDLFFBQVEsSUFBUixFQUFoQyxDQUFMLENBSHlDOztBQUs3QyxlQUFXLFlBQVk7QUFDbkIsWUFBSSxNQUFNLEdBQUcsK0JBQUgsQ0FBbUMsQ0FBQyxJQUFELEVBQU8sQ0FBUCxDQUFuQyxDQUFOOztBQURlLFVBR25CLENBQUcsc0JBQUgsQ0FBMEIsQ0FBQyxPQUFPLEVBQVAsRUFBVyxDQUFaLENBQTFCLEVBQTBDLEVBQUMsUUFBUSxLQUFSLEVBQTNDOztLQUhPLEVBTVIsRUFOSDtBQUF1Qjs7QUFMc0IsTUFlN0MsQ0FBRyxPQUFILENBQVcsVUFBWCxHQUF3QixLQUF4QixDQWY2QztBQWdCN0MsUUFBSSxZQUFZLEdBQUcsT0FBSCxDQUFXLFNBQVgsQ0FoQjZCO0FBaUI3QyxjQUFVLEdBQVYsQ0FBYyxhQUFkLEVBakI2Qzs7QUFtQjdDLFdBQU8sRUFBUCxDQW5CNkM7Q0FBdEIiLCJmaWxlIjoiZWRpdG9yLmpzIiwic291cmNlUm9vdCI6Ii9Vc2Vycy9sdWthc3ovYXRvbS1sdXBhIiwic291cmNlc0NvbnRlbnQiOlsiXCJ1c2Ugc3RyaWN0XCI7XG5cbnZhciBQb2ludCA9IHJlcXVpcmUoJ2F0b20nKS5Qb2ludDtcblxuZXhwb3J0cy5jcmVhdGVUZXh0RWRpdG9yID0gZnVuY3Rpb24gKHBhdGgsIGxpbmUpIHtcbiAgICBsaW5lID0gbGluZSB8fCAwO1xuICAgIHZhciBidWZmID0gYXRvbS5wcm9qZWN0LmJ1ZmZlckZvclBhdGhTeW5jKHBhdGgpXG4gICAgdmFyIGVkID0gYXRvbS53b3Jrc3BhY2UuYnVpbGRUZXh0RWRpdG9yKHtidWZmZXI6IGJ1ZmZ9KVxuXG4gICAgc2V0VGltZW91dChmdW5jdGlvbiAoKSB7XG4gICAgICAgIHZhciBwb3MgPSBlZC5zY3JlZW5Qb3NpdGlvbkZvckJ1ZmZlclBvc2l0aW9uKFtsaW5lLCAwXSk7XG4gICAgICAgIC8vIHZhciBwb3MxID0gZWQuc2NyZWVuUG9zaXRpb25Gb3JCdWZmZXJQb3NpdGlvbihbbGluZSArIDQsIDBdKTtcbiAgICAgICAgZWQuc2Nyb2xsVG9CdWZmZXJQb3NpdGlvbihbbGluZSArIDE2LCAwXSwge2NlbnRlcjogZmFsc2V9KTtcbiAgICAgICAgLy9lZC5zY3JvbGxUb1NjcmVlblJhbmdlKFtbbGluZSwgMF0sIFtsaW5lKzQsIDBdXSk7XG5cbiAgICB9LCA1MCk7XG5cblxuICAgIC8vYXRvbS50ZXh0RWRpdG9ycy5hZGQoZWQpXG4gICAgZWQuZWxlbWVudC5hdXRvSGVpZ2h0ID0gZmFsc2U7XG4gICAgdmFyIGNsYXNzTGlzdCA9IGVkLmVsZW1lbnQuY2xhc3NMaXN0O1xuICAgIGNsYXNzTGlzdC5hZGQoJ2x1cGEtZWRpdG9yJyk7XG5cbiAgICByZXR1cm4gZWQ7XG59XG4iXX0=
 
 /***/ },
-/* 375 */
+/* 356 */
 /***/ function(module, exports) {
 
 	module.exports = require("atom");
 
 /***/ },
-/* 376 */
+/* 357 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -91273,7 +87878,7 @@
 	var Metadata = __webpack_require__(168).Metadata;
 	var getMetadata = Metadata.getMetadata;
 
-	var getEntitiesByType = __webpack_require__(377);
+	var getEntitiesByType = __webpack_require__(358);
 
 	var getLines = function getLines(f) {
 	    var item = getMetadata(f).filter(function (item) {
@@ -91330,7 +87935,7 @@
 	                return res.concat(getEntitiesByType(f, _this2.state.entityType));
 	            }, []).map(function (entity) {
 	                var line = entity.source && entity.source.start.line - 1;
-	                return React.createElement(FileName, { desc: entity.data, file: entity.file,
+	                return React.createElement(FileName, { desc: entity.data || entity.name, file: entity.file,
 	                    line: line, preview: _this2.props.preview, onChange: _this2.props.onChange });
 	            });
 
@@ -91390,10 +87995,10 @@
 	}(React.Component);
 
 	module.exports = ProjectExplorer;
-	//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxpYi9jb21wb25lbnRzL1Byb2plY3RFeHBsb3Jlci5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7O0FBQUEsSUFBTSxRQUFRLFFBQVEsT0FBUixDQUFSO0FBQ04sSUFBTSxXQUFXLFFBQVEsWUFBUixDQUFYO0FBQ04sSUFBTSxXQUFXLFFBQVEsTUFBUixFQUFnQixRQUFoQjtBQUNqQixJQUFNLGNBQWMsU0FBUyxXQUFUOztBQUVwQixJQUFNLG9CQUFvQixRQUFRLHNCQUFSLENBQXBCOztBQUVOLElBQU0sV0FBVyxTQUFYLFFBQVcsQ0FBQyxDQUFELEVBQU87QUFDcEIsUUFBTSxPQUFPLFlBQVksQ0FBWixFQUFlLE1BQWYsQ0FBc0IsVUFBQyxJQUFEO2VBQVUsS0FBSyxJQUFMLElBQWEsT0FBYjtLQUFWLENBQXRCLENBQXNELENBQXRELEtBQTRELEVBQTVELENBRE87QUFFcEIsV0FBTyxLQUFLLElBQUwsSUFBYSxDQUFiLENBRmE7Q0FBUDs7QUFLakIsU0FBUyxjQUFULENBQXdCLEtBQXhCLEVBQStCO0FBQzNCLFFBQUksUUFBUSxFQUFSLENBRHVCO0FBRTNCLFVBQU0sT0FBTixDQUFjLGFBQUs7QUFDZixZQUFNLFdBQVcsWUFBWSxDQUFaLENBQVgsQ0FEUztBQUVmLGlCQUFTLE9BQVQsQ0FBaUI7bUJBQVEsTUFBTSxLQUFLLElBQUwsSUFBYSxLQUFLLElBQUwsQ0FBbkIsR0FBZ0MsSUFBaEM7U0FBUixDQUFqQixDQUZlO0tBQUwsQ0FBZCxDQUYyQjtBQU0zQixXQUFPLE9BQU8sSUFBUCxDQUFZLEtBQVosQ0FBUCxDQU4yQjtDQUEvQjs7SUFXTTs7O0FBQ0YsYUFERSxlQUNGLEdBQWM7OEJBRFosaUJBQ1k7OzJFQURaLDZCQUNZOztBQUVWLGNBQUssS0FBTCxHQUFhO0FBQ1QscUJBQVMsT0FBVDtBQUNBLHdCQUFZLFFBQVo7U0FGSixDQUZVOztLQUFkOztpQkFERTs7MkNBUWlCLEdBQUc7QUFDbEIsZ0JBQU0sYUFBYSxFQUFFLE1BQUYsQ0FBUyxZQUFULENBQXNCLFdBQXRCLENBQWIsQ0FEWTtBQUVsQixnQkFBTSxnQkFBZ0IsRUFBRSxNQUFGLENBQVMsWUFBVCxDQUFzQixrQkFBdEIsQ0FBaEIsQ0FGWTtBQUdsQixpQkFBSyxRQUFMLENBQWM7QUFDVix5QkFBUyxVQUFUO0FBQ0EsNEJBQVksYUFBWjthQUZKLEVBSGtCOzs7O2lDQVFiOzs7QUFFTCxnQkFBTSxjQUFjLGVBQWUsS0FBSyxLQUFMLENBQVcsS0FBWCxDQUE3QixDQUZEO0FBR0wsb0JBQVEsR0FBUixDQUFZLGFBQVosRUFBMkIsV0FBM0IsRUFISzs7QUFLTCxnQkFBTSxXQUFXLEtBQUssS0FBTCxDQUFXLEtBQVgsQ0FBaUIsTUFBakIsQ0FDWixVQUFDLEdBQUQsRUFBTSxDQUFOO3VCQUFZLElBQUksTUFBSixDQUFXLGtCQUFrQixDQUFsQixFQUFxQixPQUFLLEtBQUwsQ0FBVyxVQUFYLENBQWhDO2FBQVosRUFDSCxFQUZlLEVBR2hCLEdBSGdCLENBR1gsVUFBQyxNQUFELEVBQVk7QUFDZCxvQkFBTSxPQUFPLE9BQU8sTUFBUCxJQUFrQixPQUFPLE1BQVAsQ0FBYyxLQUFkLENBQW9CLElBQXBCLEdBQTJCLENBQTNCLENBRGpCO0FBRWQsdUJBQU8sTUFBTSxhQUFOLENBQW9CLFFBQXBCLEVBQThCLEVBQUMsTUFBTSxPQUFPLElBQVAsRUFBYSxNQUFNLE9BQU8sSUFBUDtBQUMzRCw4QkFEaUMsRUFDM0IsU0FBUyxPQUFLLEtBQUwsQ0FBVyxPQUFYLEVBQW9CLFVBQVUsT0FBSyxLQUFMLENBQVcsUUFBWCxFQUQxQyxDQUFQLENBRmM7YUFBWixDQUhBLENBTEQ7O0FBY0wsZ0JBQU0sZUFBZSxLQUFLLEtBQUwsQ0FBVyxLQUFYLENBQWlCLElBQWpCLENBQXVCLFVBQUMsQ0FBRCxFQUFJLENBQUo7dUJBQ3hDLFNBQVMsQ0FBVCxJQUFjLFNBQVMsQ0FBVCxDQUFkO2FBRHdDLENBQXZCLENBR3BCLEdBSG9CLENBR2YsVUFBQyxDQUFEO3VCQUFPLE1BQU0sYUFBTixDQUFvQixRQUFwQixFQUE4QixFQUFDLE1BQU0sQ0FBTixFQUFTLFNBQVMsT0FBSyxLQUFMLENBQVcsT0FBWCxFQUFvQixVQUFVLE9BQUssS0FBTCxDQUFXLFFBQVgsRUFBL0U7YUFBUCxDQUhBLENBZEQ7O0FBbUJMLGdCQUFJLFVBQVU7QUFDVix1QkFBTyxZQUFQO0FBQ0EsMEJBQVUsUUFBVjthQUZVLENBR1gsS0FBSyxLQUFMLENBQVcsT0FBWCxDQUhXLElBR1ksYUFBYSxLQUFLLEtBQUwsQ0FBVyxPQUFYLEdBQXFCLGFBQWxDLENBdEJyQjs7QUF3QkwsbUJBQU87O2tCQUFLLE9BQU8sRUFBQyxTQUFTLE1BQVQsRUFBaUIsUUFBUSxNQUFSLEVBQXpCLEVBQUw7Z0JBQ0g7O3NCQUFLLE9BQU8sRUFBQyxXQUFXLEtBQVgsRUFBUixFQUEyQixXQUFVLHdCQUFWLEVBQW1DLFNBQVMsS0FBSyxrQkFBTCxDQUF3QixJQUF4QixDQUE2QixJQUE3QixDQUFULEVBQW5FO29CQUNJOzswQkFBUSxhQUFVLE9BQVYsRUFBa0IsV0FBVSxLQUFWLEVBQTFCOztxQkFESjtvQkFFSTs7MEJBQVEsb0JBQWlCLFFBQWpCLEVBQTBCLGFBQVUsVUFBVixFQUFxQixXQUFVLEtBQVYsRUFBdkQ7O3FCQUZKO29CQUdJOzswQkFBUSxvQkFBaUIsU0FBakIsRUFBMkIsYUFBVSxVQUFWLEVBQXFCLFdBQVUsS0FBVixFQUF4RDs7cUJBSEo7b0JBS1EsWUFBWSxHQUFaLENBQ0k7K0JBQVE7OzhCQUFRLG9CQUFrQixJQUFsQixFQUF3QixhQUFVLFVBQVYsRUFBcUIsV0FBVSxLQUFWLEVBQXJEOzRCQUFzRSxJQUF0RTs7cUJBQVIsQ0FOWjtvQkFTSSwrQkFBTyxNQUFLLE1BQUwsRUFBWSxPQUFPLEtBQUssS0FBTCxDQUFXLFVBQVgsRUFBdUIsVUFBVzttQ0FBSyxPQUFLLFFBQUwsQ0FBYyxFQUFDLFlBQVksRUFBRSxNQUFGLENBQVMsS0FBVCxFQUEzQjt5QkFBTCxFQUE1RCxDQVRKO2lCQURHO2dCQVlIOztzQkFBSyxPQUFPLEVBQUMsVUFBVSxRQUFWLEVBQVIsRUFBTDtvQkFDTSxPQUROO2lCQVpHO2FBQVAsQ0F4Qks7Ozs7V0FoQlA7RUFBd0IsTUFBTSxTQUFOOztBQTBEOUIsT0FBTyxPQUFQLEdBQWlCLGVBQWpCIiwiZmlsZSI6IlByb2plY3RFeHBsb3Jlci5qcyIsInNvdXJjZVJvb3QiOiIvVXNlcnMvbHVrYXN6L2F0b20tbHVwYSIsInNvdXJjZXNDb250ZW50IjpbImNvbnN0IFJlYWN0ID0gcmVxdWlyZSgncmVhY3QnKTtcbmNvbnN0IEZpbGVOYW1lID0gcmVxdWlyZSgnLi9GaWxlTmFtZScpO1xuY29uc3QgTWV0YWRhdGEgPSByZXF1aXJlKCdsdXBhJykuTWV0YWRhdGFcbmNvbnN0IGdldE1ldGFkYXRhID0gTWV0YWRhdGEuZ2V0TWV0YWRhdGFcblxuY29uc3QgZ2V0RW50aXRpZXNCeVR5cGUgPSByZXF1aXJlKCcuLi9nZXRFbnRpdGllc0J5VHlwZScpO1xuXG5jb25zdCBnZXRMaW5lcyA9IChmKSA9PiB7XG4gICAgY29uc3QgaXRlbSA9IGdldE1ldGFkYXRhKGYpLmZpbHRlcigoaXRlbSkgPT4gaXRlbS5uYW1lID09ICdsaW5lcycpWzBdIHx8IHt9XG4gICAgcmV0dXJuIGl0ZW0uZGF0YSB8fCAwXG59O1xuXG5mdW5jdGlvbiBnZXRFbnRpdHlUeXBlcyhmaWxlcykge1xuICAgIHZhciB0eXBlcyA9IHt9O1xuICAgIGZpbGVzLmZvckVhY2goZiA9PiB7XG4gICAgICAgIGNvbnN0IG1ldGFkYXRhID0gZ2V0TWV0YWRhdGEoZik7XG4gICAgICAgIG1ldGFkYXRhLmZvckVhY2goaXRlbSA9PiB0eXBlc1tpdGVtLnR5cGUgfHwgaXRlbS5uYW1lXSA9IHRydWUpO1xuICAgIH0pO1xuICAgIHJldHVybiBPYmplY3Qua2V5cyh0eXBlcyk7XG59XG5cblxuXG5jbGFzcyBQcm9qZWN0RXhwbG9yZXIgZXh0ZW5kcyBSZWFjdC5Db21wb25lbnQge1xuICAgIGNvbnN0cnVjdG9yKCkge1xuICAgICAgICBzdXBlcigpO1xuICAgICAgICB0aGlzLnN0YXRlID0ge1xuICAgICAgICAgICAgc2VjdGlvbjogJ2ZpbGVzJyxcbiAgICAgICAgICAgIGVudGl0eVR5cGU6ICdAbWl4aW4nXG4gICAgICAgIH1cbiAgICB9XG4gICAgaGFuZGxlQ2xpY2tTZWN0aW9uKGUpIHtcbiAgICAgICAgY29uc3QgbmV3U2VjdGlvbiA9IGUudGFyZ2V0LmdldEF0dHJpYnV0ZSgnZGF0YS1pdGVtJyk7XG4gICAgICAgIGNvbnN0IG5ld0VudGl0eVR5cGUgPSBlLnRhcmdldC5nZXRBdHRyaWJ1dGUoJ2RhdGEtZW50aXR5LW5hbWUnKTtcbiAgICAgICAgdGhpcy5zZXRTdGF0ZSh7XG4gICAgICAgICAgICBzZWN0aW9uOiBuZXdTZWN0aW9uLFxuICAgICAgICAgICAgZW50aXR5VHlwZTogbmV3RW50aXR5VHlwZVxuICAgICAgICB9KTtcbiAgICB9XG4gICAgcmVuZGVyKCkge1xuXG4gICAgICAgIGNvbnN0IGVudGl0eVR5cGVzID0gZ2V0RW50aXR5VHlwZXModGhpcy5wcm9wcy5maWxlcyk7XG4gICAgICAgIGNvbnNvbGUubG9nKCdlbnRpdHlUeXBlcycsIGVudGl0eVR5cGVzKTtcblxuICAgICAgICBjb25zdCBlbnRpdGllcyA9IHRoaXMucHJvcHMuZmlsZXMucmVkdWNlKFxuICAgICAgICAgICAgIChyZXMsIGYpID0+IHJlcy5jb25jYXQoZ2V0RW50aXRpZXNCeVR5cGUoZiwgdGhpcy5zdGF0ZS5lbnRpdHlUeXBlKSlcbiAgICAgICAgLCBbXSlcbiAgICAgICAgLm1hcCggKGVudGl0eSkgPT4ge1xuICAgICAgICAgICAgY29uc3QgbGluZSA9IGVudGl0eS5zb3VyY2UgJiYgKGVudGl0eS5zb3VyY2Uuc3RhcnQubGluZSAtIDEpXG4gICAgICAgICAgICByZXR1cm4gUmVhY3QuY3JlYXRlRWxlbWVudChGaWxlTmFtZSwge2Rlc2M6IGVudGl0eS5kYXRhLCBmaWxlOiBlbnRpdHkuZmlsZSxcbiAgICAgICAgICAgICAgICBsaW5lLCBwcmV2aWV3OiB0aGlzLnByb3BzLnByZXZpZXcsIG9uQ2hhbmdlOiB0aGlzLnByb3BzLm9uQ2hhbmdlfSlcbiAgICAgICAgfSlcblxuICAgICAgICBjb25zdCBmaWxlRWxlbWVudHMgPSB0aGlzLnByb3BzLmZpbGVzLnNvcnQoIChhLCBiKSA9PlxuICAgICAgICAgICAgZ2V0TGluZXMoYikgLSBnZXRMaW5lcyhhKVxuICAgICAgICApXG4gICAgICAgIC5tYXAoIChmKSA9PiBSZWFjdC5jcmVhdGVFbGVtZW50KEZpbGVOYW1lLCB7ZmlsZTogZiwgcHJldmlldzogdGhpcy5wcm9wcy5wcmV2aWV3LCBvbkNoYW5nZTogdGhpcy5wcm9wcy5vbkNoYW5nZX0pKTtcblxuICAgICAgICB2YXIgc2VjdGlvbiA9ICh7XG4gICAgICAgICAgICBmaWxlczogZmlsZUVsZW1lbnRzLFxuICAgICAgICAgICAgZW50aXRpZXM6IGVudGl0aWVzXG4gICAgICAgIH0pW3RoaXMuc3RhdGUuc2VjdGlvbl0gfHwgJ3NlY3Rpb24gJyArIHRoaXMuc3RhdGUuc2VjdGlvbiArICcgbm90IGZvdW5kLic7XG5cbiAgICAgICAgcmV0dXJuIDxkaXYgc3R5bGU9e3tkaXNwbGF5OiAnZmxleCcsIGhlaWdodDogJzEwMCUnfX0+XG4gICAgICAgICAgICA8ZGl2IHN0eWxlPXt7ZmxleEJhc2lzOiAnMzAlJ319IGNsYXNzTmFtZT0naW5saW5lLWJsb2NrIGJ0bi1ncm91cCcgb25DbGljaz17dGhpcy5oYW5kbGVDbGlja1NlY3Rpb24uYmluZCh0aGlzKX0+XG4gICAgICAgICAgICAgICAgPGJ1dHRvbiBkYXRhLWl0ZW09XCJmaWxlc1wiIGNsYXNzTmFtZT0nYnRuJz5GaWxlczwvYnV0dG9uPlxuICAgICAgICAgICAgICAgIDxidXR0b24gZGF0YS1lbnRpdHktbmFtZT1cIkBtaXhpblwiIGRhdGEtaXRlbT1cImVudGl0aWVzXCIgY2xhc3NOYW1lPSdidG4nPk1peGluczwvYnV0dG9uPlxuICAgICAgICAgICAgICAgIDxidXR0b24gZGF0YS1lbnRpdHktbmFtZT1cIm1vZHVsZXNcIiBkYXRhLWl0ZW09XCJlbnRpdGllc1wiIGNsYXNzTmFtZT0nYnRuJz5Nb2R1bGVzPC9idXR0b24+XG4gICAgICAgICAgICAgICAge1xuICAgICAgICAgICAgICAgICAgICBlbnRpdHlUeXBlcy5tYXAoXG4gICAgICAgICAgICAgICAgICAgICAgICB0eXBlID0+IDxidXR0b24gZGF0YS1lbnRpdHktbmFtZT17dHlwZX0gZGF0YS1pdGVtPVwiZW50aXRpZXNcIiBjbGFzc05hbWU9J2J0bic+e3R5cGV9PC9idXR0b24+XG4gICAgICAgICAgICAgICAgICAgIClcbiAgICAgICAgICAgICAgICB9XG4gICAgICAgICAgICAgICAgPGlucHV0IHR5cGU9XCJ0ZXh0XCIgdmFsdWU9e3RoaXMuc3RhdGUuZW50aXR5VHlwZX0gb25DaGFuZ2U9eyBlID0+IHRoaXMuc2V0U3RhdGUoe2VudGl0eVR5cGU6IGUudGFyZ2V0LnZhbHVlfSkgfS8+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDxkaXYgc3R5bGU9e3tvdmVyZmxvdzogJ3Njcm9sbCd9fT5cbiAgICAgICAgICAgICAgICB7IHNlY3Rpb24gfVxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvZGl2PjtcbiAgICB9XG59XG5tb2R1bGUuZXhwb3J0cyA9IFByb2plY3RFeHBsb3JlcjtcbiJdfQ==
+	//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxpYi9jb21wb25lbnRzL1Byb2plY3RFeHBsb3Jlci5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7O0FBQUEsSUFBTSxRQUFRLFFBQVEsT0FBUixDQUFSO0FBQ04sSUFBTSxXQUFXLFFBQVEsWUFBUixDQUFYO0FBQ04sSUFBTSxXQUFXLFFBQVEsTUFBUixFQUFnQixRQUFoQjtBQUNqQixJQUFNLGNBQWMsU0FBUyxXQUFUOztBQUVwQixJQUFNLG9CQUFvQixRQUFRLHNCQUFSLENBQXBCOztBQUVOLElBQU0sV0FBVyxTQUFYLFFBQVcsQ0FBQyxDQUFELEVBQU87QUFDcEIsUUFBTSxPQUFPLFlBQVksQ0FBWixFQUFlLE1BQWYsQ0FBc0IsVUFBQyxJQUFEO2VBQVUsS0FBSyxJQUFMLElBQWEsT0FBYjtLQUFWLENBQXRCLENBQXNELENBQXRELEtBQTRELEVBQTVELENBRE87QUFFcEIsV0FBTyxLQUFLLElBQUwsSUFBYSxDQUFiLENBRmE7Q0FBUDs7QUFLakIsU0FBUyxjQUFULENBQXdCLEtBQXhCLEVBQStCO0FBQzNCLFFBQUksUUFBUSxFQUFSLENBRHVCO0FBRTNCLFVBQU0sT0FBTixDQUFjLGFBQUs7QUFDZixZQUFNLFdBQVcsWUFBWSxDQUFaLENBQVgsQ0FEUztBQUVmLGlCQUFTLE9BQVQsQ0FBaUI7bUJBQVEsTUFBTSxLQUFLLElBQUwsSUFBYSxLQUFLLElBQUwsQ0FBbkIsR0FBZ0MsSUFBaEM7U0FBUixDQUFqQixDQUZlO0tBQUwsQ0FBZCxDQUYyQjtBQU0zQixXQUFPLE9BQU8sSUFBUCxDQUFZLEtBQVosQ0FBUCxDQU4yQjtDQUEvQjs7SUFXTTs7O0FBQ0YsYUFERSxlQUNGLEdBQWM7OEJBRFosaUJBQ1k7OzJFQURaLDZCQUNZOztBQUVWLGNBQUssS0FBTCxHQUFhO0FBQ1QscUJBQVMsT0FBVDtBQUNBLHdCQUFZLFFBQVo7U0FGSixDQUZVOztLQUFkOztpQkFERTs7MkNBUWlCLEdBQUc7QUFDbEIsZ0JBQU0sYUFBYSxFQUFFLE1BQUYsQ0FBUyxZQUFULENBQXNCLFdBQXRCLENBQWIsQ0FEWTtBQUVsQixnQkFBTSxnQkFBZ0IsRUFBRSxNQUFGLENBQVMsWUFBVCxDQUFzQixrQkFBdEIsQ0FBaEIsQ0FGWTtBQUdsQixpQkFBSyxRQUFMLENBQWM7QUFDVix5QkFBUyxVQUFUO0FBQ0EsNEJBQVksYUFBWjthQUZKLEVBSGtCOzs7O2lDQVFiOzs7QUFFTCxnQkFBTSxjQUFjLGVBQWUsS0FBSyxLQUFMLENBQVcsS0FBWCxDQUE3QixDQUZEO0FBR0wsb0JBQVEsR0FBUixDQUFZLGFBQVosRUFBMkIsV0FBM0IsRUFISzs7QUFLTCxnQkFBTSxXQUFXLEtBQUssS0FBTCxDQUFXLEtBQVgsQ0FBaUIsTUFBakIsQ0FDWixVQUFDLEdBQUQsRUFBTSxDQUFOO3VCQUFZLElBQUksTUFBSixDQUFXLGtCQUFrQixDQUFsQixFQUFxQixPQUFLLEtBQUwsQ0FBVyxVQUFYLENBQWhDO2FBQVosRUFDSCxFQUZlLEVBR2hCLEdBSGdCLENBR1gsVUFBQyxNQUFELEVBQVk7QUFDZCxvQkFBTSxPQUFPLE9BQU8sTUFBUCxJQUFrQixPQUFPLE1BQVAsQ0FBYyxLQUFkLENBQW9CLElBQXBCLEdBQTJCLENBQTNCLENBRGpCO0FBRWQsdUJBQU8sTUFBTSxhQUFOLENBQW9CLFFBQXBCLEVBQThCLEVBQUMsTUFBTSxPQUFPLElBQVAsSUFBZSxPQUFPLElBQVAsRUFBYSxNQUFNLE9BQU8sSUFBUDtBQUMxRSw4QkFEaUMsRUFDM0IsU0FBUyxPQUFLLEtBQUwsQ0FBVyxPQUFYLEVBQW9CLFVBQVUsT0FBSyxLQUFMLENBQVcsUUFBWCxFQUQxQyxDQUFQLENBRmM7YUFBWixDQUhBLENBTEQ7O0FBY0wsZ0JBQU0sZUFBZSxLQUFLLEtBQUwsQ0FBVyxLQUFYLENBQWlCLElBQWpCLENBQXVCLFVBQUMsQ0FBRCxFQUFJLENBQUo7dUJBQ3hDLFNBQVMsQ0FBVCxJQUFjLFNBQVMsQ0FBVCxDQUFkO2FBRHdDLENBQXZCLENBR3BCLEdBSG9CLENBR2YsVUFBQyxDQUFEO3VCQUFPLE1BQU0sYUFBTixDQUFvQixRQUFwQixFQUE4QixFQUFDLE1BQU0sQ0FBTixFQUFTLFNBQVMsT0FBSyxLQUFMLENBQVcsT0FBWCxFQUFvQixVQUFVLE9BQUssS0FBTCxDQUFXLFFBQVgsRUFBL0U7YUFBUCxDQUhBLENBZEQ7O0FBbUJMLGdCQUFJLFVBQVU7QUFDVix1QkFBTyxZQUFQO0FBQ0EsMEJBQVUsUUFBVjthQUZVLENBR1gsS0FBSyxLQUFMLENBQVcsT0FBWCxDQUhXLElBR1ksYUFBYSxLQUFLLEtBQUwsQ0FBVyxPQUFYLEdBQXFCLGFBQWxDLENBdEJyQjs7QUF3QkwsbUJBQU87O2tCQUFLLE9BQU8sRUFBQyxTQUFTLE1BQVQsRUFBaUIsUUFBUSxNQUFSLEVBQXpCLEVBQUw7Z0JBQ0g7O3NCQUFLLE9BQU8sRUFBQyxXQUFXLEtBQVgsRUFBUixFQUEyQixXQUFVLHdCQUFWLEVBQW1DLFNBQVMsS0FBSyxrQkFBTCxDQUF3QixJQUF4QixDQUE2QixJQUE3QixDQUFULEVBQW5FO29CQUNJOzswQkFBUSxhQUFVLE9BQVYsRUFBa0IsV0FBVSxLQUFWLEVBQTFCOztxQkFESjtvQkFFSTs7MEJBQVEsb0JBQWlCLFFBQWpCLEVBQTBCLGFBQVUsVUFBVixFQUFxQixXQUFVLEtBQVYsRUFBdkQ7O3FCQUZKO29CQUdJOzswQkFBUSxvQkFBaUIsU0FBakIsRUFBMkIsYUFBVSxVQUFWLEVBQXFCLFdBQVUsS0FBVixFQUF4RDs7cUJBSEo7b0JBS1EsWUFBWSxHQUFaLENBQ0k7K0JBQVE7OzhCQUFRLG9CQUFrQixJQUFsQixFQUF3QixhQUFVLFVBQVYsRUFBcUIsV0FBVSxLQUFWLEVBQXJEOzRCQUFzRSxJQUF0RTs7cUJBQVIsQ0FOWjtvQkFTSSwrQkFBTyxNQUFLLE1BQUwsRUFBWSxPQUFPLEtBQUssS0FBTCxDQUFXLFVBQVgsRUFBdUIsVUFBVzttQ0FBSyxPQUFLLFFBQUwsQ0FBYyxFQUFDLFlBQVksRUFBRSxNQUFGLENBQVMsS0FBVCxFQUEzQjt5QkFBTCxFQUE1RCxDQVRKO2lCQURHO2dCQVlIOztzQkFBSyxPQUFPLEVBQUMsVUFBVSxRQUFWLEVBQVIsRUFBTDtvQkFDTSxPQUROO2lCQVpHO2FBQVAsQ0F4Qks7Ozs7V0FoQlA7RUFBd0IsTUFBTSxTQUFOOztBQTBEOUIsT0FBTyxPQUFQLEdBQWlCLGVBQWpCIiwiZmlsZSI6IlByb2plY3RFeHBsb3Jlci5qcyIsInNvdXJjZVJvb3QiOiIvVXNlcnMvbHVrYXN6L2F0b20tbHVwYSIsInNvdXJjZXNDb250ZW50IjpbImNvbnN0IFJlYWN0ID0gcmVxdWlyZSgncmVhY3QnKTtcbmNvbnN0IEZpbGVOYW1lID0gcmVxdWlyZSgnLi9GaWxlTmFtZScpO1xuY29uc3QgTWV0YWRhdGEgPSByZXF1aXJlKCdsdXBhJykuTWV0YWRhdGFcbmNvbnN0IGdldE1ldGFkYXRhID0gTWV0YWRhdGEuZ2V0TWV0YWRhdGFcblxuY29uc3QgZ2V0RW50aXRpZXNCeVR5cGUgPSByZXF1aXJlKCcuLi9nZXRFbnRpdGllc0J5VHlwZScpO1xuXG5jb25zdCBnZXRMaW5lcyA9IChmKSA9PiB7XG4gICAgY29uc3QgaXRlbSA9IGdldE1ldGFkYXRhKGYpLmZpbHRlcigoaXRlbSkgPT4gaXRlbS5uYW1lID09ICdsaW5lcycpWzBdIHx8IHt9XG4gICAgcmV0dXJuIGl0ZW0uZGF0YSB8fCAwXG59O1xuXG5mdW5jdGlvbiBnZXRFbnRpdHlUeXBlcyhmaWxlcykge1xuICAgIHZhciB0eXBlcyA9IHt9O1xuICAgIGZpbGVzLmZvckVhY2goZiA9PiB7XG4gICAgICAgIGNvbnN0IG1ldGFkYXRhID0gZ2V0TWV0YWRhdGEoZik7XG4gICAgICAgIG1ldGFkYXRhLmZvckVhY2goaXRlbSA9PiB0eXBlc1tpdGVtLnR5cGUgfHwgaXRlbS5uYW1lXSA9IHRydWUpO1xuICAgIH0pO1xuICAgIHJldHVybiBPYmplY3Qua2V5cyh0eXBlcyk7XG59XG5cblxuXG5jbGFzcyBQcm9qZWN0RXhwbG9yZXIgZXh0ZW5kcyBSZWFjdC5Db21wb25lbnQge1xuICAgIGNvbnN0cnVjdG9yKCkge1xuICAgICAgICBzdXBlcigpO1xuICAgICAgICB0aGlzLnN0YXRlID0ge1xuICAgICAgICAgICAgc2VjdGlvbjogJ2ZpbGVzJyxcbiAgICAgICAgICAgIGVudGl0eVR5cGU6ICdAbWl4aW4nXG4gICAgICAgIH1cbiAgICB9XG4gICAgaGFuZGxlQ2xpY2tTZWN0aW9uKGUpIHtcbiAgICAgICAgY29uc3QgbmV3U2VjdGlvbiA9IGUudGFyZ2V0LmdldEF0dHJpYnV0ZSgnZGF0YS1pdGVtJyk7XG4gICAgICAgIGNvbnN0IG5ld0VudGl0eVR5cGUgPSBlLnRhcmdldC5nZXRBdHRyaWJ1dGUoJ2RhdGEtZW50aXR5LW5hbWUnKTtcbiAgICAgICAgdGhpcy5zZXRTdGF0ZSh7XG4gICAgICAgICAgICBzZWN0aW9uOiBuZXdTZWN0aW9uLFxuICAgICAgICAgICAgZW50aXR5VHlwZTogbmV3RW50aXR5VHlwZVxuICAgICAgICB9KTtcbiAgICB9XG4gICAgcmVuZGVyKCkge1xuXG4gICAgICAgIGNvbnN0IGVudGl0eVR5cGVzID0gZ2V0RW50aXR5VHlwZXModGhpcy5wcm9wcy5maWxlcyk7XG4gICAgICAgIGNvbnNvbGUubG9nKCdlbnRpdHlUeXBlcycsIGVudGl0eVR5cGVzKTtcblxuICAgICAgICBjb25zdCBlbnRpdGllcyA9IHRoaXMucHJvcHMuZmlsZXMucmVkdWNlKFxuICAgICAgICAgICAgIChyZXMsIGYpID0+IHJlcy5jb25jYXQoZ2V0RW50aXRpZXNCeVR5cGUoZiwgdGhpcy5zdGF0ZS5lbnRpdHlUeXBlKSlcbiAgICAgICAgLCBbXSlcbiAgICAgICAgLm1hcCggKGVudGl0eSkgPT4ge1xuICAgICAgICAgICAgY29uc3QgbGluZSA9IGVudGl0eS5zb3VyY2UgJiYgKGVudGl0eS5zb3VyY2Uuc3RhcnQubGluZSAtIDEpXG4gICAgICAgICAgICByZXR1cm4gUmVhY3QuY3JlYXRlRWxlbWVudChGaWxlTmFtZSwge2Rlc2M6IGVudGl0eS5kYXRhIHx8IGVudGl0eS5uYW1lLCBmaWxlOiBlbnRpdHkuZmlsZSxcbiAgICAgICAgICAgICAgICBsaW5lLCBwcmV2aWV3OiB0aGlzLnByb3BzLnByZXZpZXcsIG9uQ2hhbmdlOiB0aGlzLnByb3BzLm9uQ2hhbmdlfSlcbiAgICAgICAgfSlcblxuICAgICAgICBjb25zdCBmaWxlRWxlbWVudHMgPSB0aGlzLnByb3BzLmZpbGVzLnNvcnQoIChhLCBiKSA9PlxuICAgICAgICAgICAgZ2V0TGluZXMoYikgLSBnZXRMaW5lcyhhKVxuICAgICAgICApXG4gICAgICAgIC5tYXAoIChmKSA9PiBSZWFjdC5jcmVhdGVFbGVtZW50KEZpbGVOYW1lLCB7ZmlsZTogZiwgcHJldmlldzogdGhpcy5wcm9wcy5wcmV2aWV3LCBvbkNoYW5nZTogdGhpcy5wcm9wcy5vbkNoYW5nZX0pKTtcblxuICAgICAgICB2YXIgc2VjdGlvbiA9ICh7XG4gICAgICAgICAgICBmaWxlczogZmlsZUVsZW1lbnRzLFxuICAgICAgICAgICAgZW50aXRpZXM6IGVudGl0aWVzXG4gICAgICAgIH0pW3RoaXMuc3RhdGUuc2VjdGlvbl0gfHwgJ3NlY3Rpb24gJyArIHRoaXMuc3RhdGUuc2VjdGlvbiArICcgbm90IGZvdW5kLic7XG5cbiAgICAgICAgcmV0dXJuIDxkaXYgc3R5bGU9e3tkaXNwbGF5OiAnZmxleCcsIGhlaWdodDogJzEwMCUnfX0+XG4gICAgICAgICAgICA8ZGl2IHN0eWxlPXt7ZmxleEJhc2lzOiAnMzAlJ319IGNsYXNzTmFtZT0naW5saW5lLWJsb2NrIGJ0bi1ncm91cCcgb25DbGljaz17dGhpcy5oYW5kbGVDbGlja1NlY3Rpb24uYmluZCh0aGlzKX0+XG4gICAgICAgICAgICAgICAgPGJ1dHRvbiBkYXRhLWl0ZW09XCJmaWxlc1wiIGNsYXNzTmFtZT0nYnRuJz5GaWxlczwvYnV0dG9uPlxuICAgICAgICAgICAgICAgIDxidXR0b24gZGF0YS1lbnRpdHktbmFtZT1cIkBtaXhpblwiIGRhdGEtaXRlbT1cImVudGl0aWVzXCIgY2xhc3NOYW1lPSdidG4nPk1peGluczwvYnV0dG9uPlxuICAgICAgICAgICAgICAgIDxidXR0b24gZGF0YS1lbnRpdHktbmFtZT1cIm1vZHVsZXNcIiBkYXRhLWl0ZW09XCJlbnRpdGllc1wiIGNsYXNzTmFtZT0nYnRuJz5Nb2R1bGVzPC9idXR0b24+XG4gICAgICAgICAgICAgICAge1xuICAgICAgICAgICAgICAgICAgICBlbnRpdHlUeXBlcy5tYXAoXG4gICAgICAgICAgICAgICAgICAgICAgICB0eXBlID0+IDxidXR0b24gZGF0YS1lbnRpdHktbmFtZT17dHlwZX0gZGF0YS1pdGVtPVwiZW50aXRpZXNcIiBjbGFzc05hbWU9J2J0bic+e3R5cGV9PC9idXR0b24+XG4gICAgICAgICAgICAgICAgICAgIClcbiAgICAgICAgICAgICAgICB9XG4gICAgICAgICAgICAgICAgPGlucHV0IHR5cGU9XCJ0ZXh0XCIgdmFsdWU9e3RoaXMuc3RhdGUuZW50aXR5VHlwZX0gb25DaGFuZ2U9eyBlID0+IHRoaXMuc2V0U3RhdGUoe2VudGl0eVR5cGU6IGUudGFyZ2V0LnZhbHVlfSkgfS8+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDxkaXYgc3R5bGU9e3tvdmVyZmxvdzogJ3Njcm9sbCd9fT5cbiAgICAgICAgICAgICAgICB7IHNlY3Rpb24gfVxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvZGl2PjtcbiAgICB9XG59XG5tb2R1bGUuZXhwb3J0cyA9IFByb2plY3RFeHBsb3JlcjtcbiJdfQ==
 
 /***/ },
-/* 377 */
+/* 358 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Metadata, getEntitiesByType, getMetadata, isArray;
@@ -91410,18 +88015,18 @@
 	  var e, error, item;
 	  try {
 	    item = getMetadata(f).filter(function(item) {
-	      return item.name === type;
+	      return item.type === type;
 	    }).reduce(function(res, item) {
 	      if (isArray(item.data) && item.data.length > 1) {
 	        return res.concat(item.data.map(function(entity) {
 	          if (entity.substr) {
 	            return {
-	              name: 'module',
+	              type: 'module',
 	              data: entity
 	            };
 	          } else {
 	            return Object.assign({
-	              name: 'module',
+	              type: 'module',
 	              data: entity.name
 	            });
 	          }
@@ -91447,20 +88052,20 @@
 
 
 /***/ },
-/* 378 */
+/* 359 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var File, Metadata, Range, addLabelDecoration, allFiles, child_process, createTextEditor, currentFile, dashboard, debug, decorations, doc, editor, el, fs, getCssPreview, getFileFor, getFileForModule, getFileForRequire, getFileForSymbol, getHtmlPreview, getMetadata, labelDecorations, lastPos, lastState, lupa, path_, plugin, previewEditor, previewMarker, refresh, update1;
 
 	debug = false;
 
-	getHtmlPreview = __webpack_require__(379).getHtmlPreview;
+	getHtmlPreview = __webpack_require__(360).getHtmlPreview;
 
-	getCssPreview = __webpack_require__(379).getCssPreview;
+	getCssPreview = __webpack_require__(360).getCssPreview;
 
-	Range = __webpack_require__(375).Range;
+	Range = __webpack_require__(356).Range;
 
-	child_process = __webpack_require__(380);
+	child_process = __webpack_require__(361);
 
 	File = __webpack_require__(207);
 
@@ -91472,13 +88077,13 @@
 
 	getMetadata = Metadata.getMetadata;
 
-	getFileForModule = __webpack_require__(381).getFileForModule;
+	getFileForModule = __webpack_require__(362).getFileForModule;
 
-	getFileForSymbol = __webpack_require__(381).getFileForSymbol;
+	getFileForSymbol = __webpack_require__(362).getFileForSymbol;
 
-	getFileForRequire = __webpack_require__(381).getFileForRequire;
+	getFileForRequire = __webpack_require__(362).getFileForRequire;
 
-	createTextEditor = __webpack_require__(374).createTextEditor;
+	createTextEditor = __webpack_require__(355).createTextEditor;
 
 	previewMarker = null;
 
@@ -91629,7 +88234,7 @@
 
 	document.getElementById('lupa-run').addEventListener('click', function() {
 	  var result;
-	  result = __webpack_require__(382)(currentFile);
+	  result = __webpack_require__(363)(currentFile);
 	  return alert(result);
 	});
 
@@ -91687,6 +88292,9 @@
 	      return ("<h3 style='color:grey'>" + entry.name + "</h3>") + entry.data.map(function(importer) {
 	        return "<div class='lupa-file' data-path='" + importer.path + "'> " + (path_.basename(importer.path)) + "</div>";
 	      }).join("<br>");
+	    },
+	    "function": function(entry) {
+	      return "<div data-column='" + entry.loc.start.column + "' data-column-end='" + entry.loc.end.column + "' data-line-end='" + entry.loc.end.line + "' data-line='" + entry.loc.start.line + "' >𝑓 " + entry.name + "</div>";
 	    },
 	    imports: function(entry) {
 	      return ("<h3 style='color:grey'>" + entry.name + "</h3>") + entry.data.map(function(item) {
@@ -91759,7 +88367,7 @@
 	    if (safeToRun) {
 	      __webpack_require__.c[editor.buffer.file.path] = null;
 	      try {
-	        result = __webpack_require__(382)(editor.buffer.file.path);
+	        result = __webpack_require__(363)(editor.buffer.file.path);
 	      } catch (error) {
 	        e = error;
 	        result = e;
@@ -91822,9 +88430,15 @@
 	            data: importers
 	          };
 	          html = getMetadata(found[0]).concat(fixture).map(function(entry) {
-	            var render;
-	            render = print[entry.name] || print["default"];
-	            return render(entry);
+	            var error1, render;
+	            try {
+	              render = print[entry.type || entry.name] || print["default"];
+	              return render(entry);
+	            } catch (error1) {
+	              e = error1;
+	              console.error(e);
+	              return console.log('error', entry);
+	            }
 	          }).join('');
 	        }
 	        if (ext === '.scss' || ext === '.css') {
@@ -91852,7 +88466,7 @@
 
 
 /***/ },
-/* 379 */
+/* 360 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -91925,13 +88539,13 @@
 	//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxpYi9wcmV2aWV3LmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7QUFBQSxPQUFPLE9BQVAsR0FBaUI7QUFDYixvQkFBZ0Isd0JBQVUsSUFBVixFQUFnQjtBQUM1QixnQkFBUSxHQUFSLENBQVksc0JBQVosRUFBb0MsSUFBcEMsRUFENEI7QUFFNUIsWUFBSSxNQUFNLEtBQUssR0FBTCxDQUZrQjtBQUc1QixZQUFJLEdBQUosRUFBUztnQkFDRCxLQURDO2dCQUVELEVBRkM7OztvQkFHSSxRQUFULFNBQVMsS0FBVCxDQUFlLElBQWYsRUFBcUI7QUFDakIsd0JBQUksQ0FBQyxLQUFLLEdBQUwsRUFBVSxPQUFPLEVBQVAsQ0FBZjtBQUNBLHlCQUFLLE1BQUwsQ0FGaUI7QUFHakIseUJBQUssS0FBSyxHQUFMLENBSFk7QUFJakIseUJBQUssTUFBTCxDQUppQjtBQUtqQix5QkFBSyxRQUFMLElBQWlCLEtBQUssUUFBTCxDQUFjLE9BQWQsQ0FBc0IsS0FBdEIsQ0FBakIsQ0FMaUI7QUFNakIseUJBQUssWUFBTCxDQU5pQjtpQkFBckI7O0FBRkksdUJBQU8sSUFBSSxJQUFKO0FBQ1Asb0JBQUksRUFBSjs7QUFTSixzQkFBTSxJQUFOO0FBQ0E7dUJBQU8sU0FBTyxDQUFQLEdBQVMsT0FBVDtpQkFBUDtnQkFaSzs7O1NBQVQ7S0FIWTtBQWtCaEIsbUJBQWUsdUJBQVUsSUFBVixFQUFnQjtBQUMzQixZQUFJLE1BQU0sS0FBSyxHQUFMLENBRGlCO0FBRTNCLGdCQUFRLEdBQVIsQ0FBWSxLQUFaLEVBQWtCLElBQUksSUFBSixDQUFsQixDQUYyQjtBQUczQixZQUFJLEdBQUosRUFBUztnQkFDRCxLQURDO2dCQUVELEVBRkM7OztvQkFHSSxRQUFULFNBQVMsS0FBVCxDQUFlLElBQWYsRUFBcUI7QUFDakIsd0JBQUksT0FBTyxLQUFLLE1BQUwsR0FBYSxLQUFLLE1BQUwsQ0FBWSxLQUFaLENBQWtCLElBQWxCLEdBQXlCLENBQUMsQ0FBRDs7QUFEaEMsd0JBR2IsS0FBSyxJQUFMLElBQWEsTUFBYixJQUF1QixLQUFLLElBQUwsSUFBVyxRQUFYLEVBQXFCO0FBQzVDLDRCQUFJLFFBQVEsZ0JBQWUsSUFBZixHQUFzQix5QkFBdEIsQ0FEZ0M7QUFFNUMsNkJBQUssU0FBUyxLQUFULEdBQWlCLEdBQWpCLEdBQXVCLEtBQUssSUFBTCxHQUFZLE9BQW5DLENBRnVDO3FCQUFoRDtBQUlBLHlCQUFLLG1DQUFMLENBUGlCO0FBUWpCLHlCQUFLLFFBQUwsSUFBaUIsS0FBSyxRQUFMLENBQWMsT0FBZCxDQUFzQixLQUF0QixDQUFqQixDQVJpQjtBQVNqQix5QkFBSyxZQUFMLENBVGlCO2lCQUFyQjs7QUFGSSx1QkFBTyxJQUFJLElBQUo7QUFDUCxvQkFBSSxFQUFKOztBQVlKLHNCQUFNLElBQU47QUFDQTt1QkFBTyxxREFBbUQsQ0FBbkQsR0FBcUQsT0FBckQ7aUJBQVA7Z0JBZks7OztTQUFUO0tBSFc7Q0FuQm5CIiwiZmlsZSI6InByZXZpZXcuanMiLCJzb3VyY2VSb290IjoiL1VzZXJzL2x1a2Fzei9hdG9tLWx1cGEiLCJzb3VyY2VzQ29udGVudCI6WyJtb2R1bGUuZXhwb3J0cyA9IHtcbiAgICBnZXRIdG1sUHJldmlldzogZnVuY3Rpb24gKGZpbGUpIHtcbiAgICAgICAgY29uc29sZS5sb2coXCJtb3ZlZCBnZXRIdG1sUHJldmlld1wiLCBmaWxlKTtcbiAgICAgICAgdmFyIGFzdCA9IGZpbGUuYXN0O1xuICAgICAgICBpZiAoYXN0KSB7XG4gICAgICAgICAgICB2YXIgcm9vdCA9IGFzdC5yb290O1xuICAgICAgICAgICAgdmFyIHMgPSAnJztcbiAgICAgICAgICAgIGZ1bmN0aW9uIHZpc2l0KG5vZGUpIHtcbiAgICAgICAgICAgICAgICBpZiAoIW5vZGUudGFnKSByZXR1cm4gJyc7XG4gICAgICAgICAgICAgICAgcyArPSAnPGxpPic7XG4gICAgICAgICAgICAgICAgcyArPSBub2RlLnRhZztcbiAgICAgICAgICAgICAgICBzICs9ICc8dWw+JztcbiAgICAgICAgICAgICAgICBub2RlLmNoaWxkcmVuICYmIG5vZGUuY2hpbGRyZW4uZm9yRWFjaCh2aXNpdCk7XG4gICAgICAgICAgICAgICAgcyArPSAnPC91bD48L2xpPic7XG4gICAgICAgICAgICB9XG4gICAgICAgICAgICB2aXNpdChyb290KTtcbiAgICAgICAgICAgIHJldHVybiAnPHVsPicrcysnPC91bD4nO1xuICAgICAgICB9XG4gICAgfSxcbiAgICBnZXRDc3NQcmV2aWV3OiBmdW5jdGlvbiAoZmlsZSkge1xuICAgICAgICB2YXIgYXN0ID0gZmlsZS5hc3Q7XG4gICAgICAgIGNvbnNvbGUubG9nKCdjc3MnLGFzdC5yb290KTtcbiAgICAgICAgaWYgKGFzdCkge1xuICAgICAgICAgICAgdmFyIHJvb3QgPSBhc3Qucm9vdDtcbiAgICAgICAgICAgIHZhciBzID0gJyc7XG4gICAgICAgICAgICBmdW5jdGlvbiB2aXNpdChub2RlKSB7XG4gICAgICAgICAgICAgICAgdmFyIGxpbmUgPSBub2RlLnNvdXJjZT8gbm9kZS5zb3VyY2Uuc3RhcnQubGluZSA6IC0xO1xuICAgICAgICAgICAgICAgIC8vdmFyIHMgPSBub2RlLnR5cGUgPT0gJ3J1bGUnPyBzIDogJyc7XG4gICAgICAgICAgICAgICAgaWYgKG5vZGUudHlwZSA9PSAncnVsZScgfHwgbm9kZS50eXBlPT0nQG1peGluJykge1xuICAgICAgICAgICAgICAgICAgICB2YXIgYXR0cnMgPSAnZGF0YS1saW5lPVwiJysgbGluZSArICdcIiBzdHlsZT1cImxpbmUtaGVpZ2h0OjJcIic7XG4gICAgICAgICAgICAgICAgICAgIHMgKz0gJzxsaSAnICsgYXR0cnMgKyAnPicgKyBub2RlLm5hbWUgKyAnPC9saT4nO1xuICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgICBzICs9ICc8dWwgc3R5bGU9XCJsaXN0LXN0eWxlLXR5cGU6bm9uZVwiPic7XG4gICAgICAgICAgICAgICAgbm9kZS5jaGlsZHJlbiAmJiBub2RlLmNoaWxkcmVuLmZvckVhY2godmlzaXQpO1xuICAgICAgICAgICAgICAgIHMgKz0gJzwvdWw+PC9saT4nO1xuICAgICAgICAgICAgfVxuICAgICAgICAgICAgdmlzaXQocm9vdCk7XG4gICAgICAgICAgICByZXR1cm4gJzx1bCBzdHlsZT1cInBhZGRpbmctbGVmdDowO2xpc3Qtc3R5bGUtdHlwZTpub25lXCI+JytzKyc8L3VsPic7XG4gICAgICAgIH1cbiAgICB9LFxufTtcbiJdfQ==
 
 /***/ },
-/* 380 */
+/* 361 */
 /***/ function(module, exports) {
 
 	module.exports = require("child_process");
 
 /***/ },
-/* 381 */
+/* 362 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -91986,42 +88600,36 @@
 	//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxpYi9nZXRGaWxlRm9yLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsT0FBTyxPQUFQLENBQWUsZ0JBQWYsR0FBa0MsU0FBUyxnQkFBVCxDQUEwQixLQUExQixFQUFpQyxJQUFqQyxFQUF1QztBQUNyRSxRQUFJLFFBQVEsTUFBTSxLQUFOLElBQWUsRUFBZjtRQUFtQixDQUEvQixDQURxRTtBQUVyRSxTQUFLLElBQUksSUFBSSxDQUFKLEVBQU8sSUFBSSxNQUFNLE1BQU4sRUFBYyxHQUFsQyxFQUF1QztBQUNuQyxZQUFJLE1BQU0sQ0FBTixDQUFKLENBRG1DO0FBRW5DLGFBQUssSUFBSSxJQUFJLENBQUosRUFBTyxJQUFJLEVBQUUsUUFBRixDQUFXLE1BQVgsRUFBbUIsR0FBdkMsRUFBNEM7QUFDeEMsZ0JBQUksRUFBRSxRQUFGLENBQVcsQ0FBWCxFQUFjLElBQWQsSUFBc0IsU0FBdEIsSUFBbUMsRUFBRSxRQUFGLENBQVcsQ0FBWCxFQUFjLElBQWQsQ0FBbUIsT0FBbkIsQ0FBMkIsSUFBM0IsS0FBb0MsQ0FBQyxDQUFELEVBQUk7QUFDM0UsdUJBQU8sQ0FBUCxDQUQyRTthQUEvRTtTQURKO0tBRko7QUFRQSxXQUFPO0FBQ0gsY0FBTSxFQUFOO0tBREosQ0FWcUU7Q0FBdkM7O0FBZ0JsQyxPQUFPLE9BQVAsQ0FBZSxnQkFBZixHQUFrQyxTQUFTLGdCQUFULENBQTBCLEtBQTFCLEVBQWlDLElBQWpDLEVBQXVDO0FBQ3JFLFFBQUksQ0FBSixDQURxRTtBQUVyRSxTQUFLLElBQUksSUFBSSxDQUFKLEVBQU8sSUFBSSxNQUFNLE1BQU4sRUFBYyxHQUFsQyxFQUF1QztBQUNuQyxZQUFJLE1BQU0sQ0FBTixDQUFKLENBRG1DO0FBRW5DLFlBQUksS0FBSyxFQUFFLFFBQUYsSUFBYyxFQUFkLENBRjBCO0FBR25DLGFBQUssSUFBSSxJQUFJLENBQUosRUFBTyxJQUFJLEdBQUcsTUFBSCxFQUFXLEdBQS9CLEVBQW9DO0FBQ2hDLGdCQUFJLEdBQUcsQ0FBSCxFQUFNLElBQU4sSUFBYyxhQUFkLElBQStCLEdBQUcsQ0FBSCxFQUFNLElBQU4sQ0FBVyxDQUFYLEtBQWtCLElBQWxCLEVBQXdCO0FBQ3ZELHVCQUFPLENBQVAsQ0FEdUQ7YUFBM0Q7U0FESjtLQUhKO0FBU0EsV0FBTztBQUNILGNBQU0sRUFBTjtLQURKLENBWHFFO0NBQXZDOztBQWdCbEMsT0FBTyxPQUFQLENBQWUsaUJBQWYsR0FBbUMsU0FBUyxpQkFBVCxDQUEyQixLQUEzQixFQUFrQyxJQUFsQyxFQUF3QztBQUN2RSxRQUFJLENBQUosQ0FEdUU7QUFFdkUsU0FBSyxJQUFJLElBQUksQ0FBSixFQUFPLElBQUksTUFBTSxNQUFOLEVBQWMsR0FBbEMsRUFBdUM7QUFDbkMsWUFBSSxNQUFNLENBQU4sQ0FBSixDQURtQztBQUVuQyxZQUFJLEtBQUssRUFBRSxRQUFGLElBQWMsRUFBZCxDQUYwQjtBQUduQyxhQUFLLElBQUksSUFBSSxDQUFKLEVBQU8sSUFBSSxHQUFHLE1BQUgsRUFBVyxHQUEvQixFQUFvQztBQUNoQyxnQkFBSSxHQUFHLENBQUgsRUFBTSxJQUFOLElBQWMsZ0JBQWQsSUFBa0MsR0FBRyxDQUFILEVBQU0sSUFBTixDQUFXLENBQVgsS0FBa0IsSUFBbEIsRUFBd0I7QUFDMUQsdUJBQU8sQ0FBUCxDQUQwRDthQUE5RDtTQURKO0tBSEo7QUFTQSxXQUFPO0FBQ0gsY0FBTSxJQUFOO0tBREosQ0FYdUU7Q0FBeEMiLCJmaWxlIjoiZ2V0RmlsZUZvci5qcyIsInNvdXJjZVJvb3QiOiIvVXNlcnMvbHVrYXN6L2F0b20tbHVwYSIsInNvdXJjZXNDb250ZW50IjpbIm1vZHVsZS5leHBvcnRzLmdldEZpbGVGb3JNb2R1bGUgPSBmdW5jdGlvbiBnZXRGaWxlRm9yTW9kdWxlKHN0YXRlLCBuYW1lKSB7XG4gICAgdmFyIGZpbGVzID0gc3RhdGUuZmlsZXMgfHwgW10sIGY7XG4gICAgZm9yICh2YXIgaSA9IDA7IGkgPCBmaWxlcy5sZW5ndGg7IGkrKykge1xuICAgICAgICBmID0gZmlsZXNbaV07XG4gICAgICAgIGZvciAodmFyIGogPSAwOyBqIDwgZi5tZXRhZGF0YS5sZW5ndGg7IGorKykge1xuICAgICAgICAgICAgaWYgKGYubWV0YWRhdGFbal0ubmFtZSA9PSAnbW9kdWxlcycgJiYgZi5tZXRhZGF0YVtqXS5kYXRhLmluZGV4T2YobmFtZSkgIT0gLTEpIHtcbiAgICAgICAgICAgICAgICByZXR1cm4gZjtcbiAgICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgIH1cbiAgICByZXR1cm4ge1xuICAgICAgICBwYXRoOiAnJ1xuICAgIH1cbn1cblxuXG5tb2R1bGUuZXhwb3J0cy5nZXRGaWxlRm9yU3ltYm9sID0gZnVuY3Rpb24gZ2V0RmlsZUZvclN5bWJvbChmaWxlcywgbmFtZSkge1xuICAgIHZhciBmO1xuICAgIGZvciAodmFyIGkgPSAwOyBpIDwgZmlsZXMubGVuZ3RoOyBpKyspIHtcbiAgICAgICAgZiA9IGZpbGVzW2ldO1xuICAgICAgICB2YXIgbWQgPSBmLm1ldGFkYXRhIHx8IFtdO1xuICAgICAgICBmb3IgKHZhciBqID0gMDsgaiA8IG1kLmxlbmd0aDsgaisrKSB7XG4gICAgICAgICAgICBpZiAobWRbal0ubmFtZSA9PSAnZGVjbGFyYXRpb24nICYmIG1kW2pdLmRhdGFbMF0gPT0gIG5hbWUpIHtcbiAgICAgICAgICAgICAgICByZXR1cm4gZjtcbiAgICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgIH1cbiAgICByZXR1cm4ge1xuICAgICAgICBwYXRoOiAnJ1xuICAgIH1cbn1cblxubW9kdWxlLmV4cG9ydHMuZ2V0RmlsZUZvclJlcXVpcmUgPSBmdW5jdGlvbiBnZXRGaWxlRm9yUmVxdWlyZShmaWxlcywgbmFtZSkge1xuICAgIHZhciBmO1xuICAgIGZvciAodmFyIGkgPSAwOyBpIDwgZmlsZXMubGVuZ3RoOyBpKyspIHtcbiAgICAgICAgZiA9IGZpbGVzW2ldO1xuICAgICAgICB2YXIgbWQgPSBmLm1ldGFkYXRhIHx8IFtdO1xuICAgICAgICBmb3IgKHZhciBqID0gMDsgaiA8IG1kLmxlbmd0aDsgaisrKSB7XG4gICAgICAgICAgICBpZiAobWRbal0ubmFtZSA9PSAncHJvdmlkZXNNb2R1bGUnICYmIG1kW2pdLmRhdGFbMF0gPT0gIG5hbWUpIHtcbiAgICAgICAgICAgICAgICByZXR1cm4gZjtcbiAgICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgIH1cbiAgICByZXR1cm4ge1xuICAgICAgICBwYXRoOiBuYW1lXG4gICAgfVxufVxuIl19
 
 /***/ },
-/* 382 */
+/* 363 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./answer": 383,
-		"./answer.coffee": 383,
 		"./atom-lupa": 1,
 		"./atom-lupa-view": 2,
 		"./atom-lupa-view.coffee": 2,
 		"./atom-lupa.coffee": 1,
-		"./autocomplete": 384,
-		"./autocomplete.coffee": 384,
 		"./components/FileName": 167,
 		"./components/FileName.js": 167,
-		"./components/LineCount": 373,
-		"./components/LineCount.js": 373,
-		"./components/ProjectExplorer": 376,
-		"./components/ProjectExplorer.js": 376,
-		"./debug": 385,
-		"./debug.js": 385,
-		"./editor": 374,
-		"./editor.js": 374,
-		"./getEntitiesByType": 377,
-		"./getEntitiesByType.coffee": 377,
-		"./getFileFor": 381,
-		"./getFileFor.js": 381,
-		"./init": 378,
-		"./init.coffee": 378,
-		"./parsers": 386,
-		"./parsers.js": 386,
-		"./plugin": 387,
-		"./plugin.js": 387,
-		"./preview": 379,
-		"./preview.js": 379,
-		"./worker": 388,
-		"./worker.js": 388
+		"./components/LineCount": 354,
+		"./components/LineCount.js": 354,
+		"./components/ProjectExplorer": 357,
+		"./components/ProjectExplorer.js": 357,
+		"./editor": 355,
+		"./editor.js": 355,
+		"./getEntitiesByType": 358,
+		"./getEntitiesByType.coffee": 358,
+		"./getFileFor": 362,
+		"./getFileFor.js": 362,
+		"./init": 359,
+		"./init.coffee": 359,
+		"./parsers": 364,
+		"./parsers.js": 364,
+		"./plugin": 365,
+		"./plugin.js": 365,
+		"./preview": 360,
+		"./preview.js": 360,
+		"./worker": 366,
+		"./worker.js": 366
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -92034,81 +88642,21 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 382;
+	webpackContext.id = 363;
 
 
 /***/ },
-/* 383 */
-/***/ function(module, exports) {
-
-	module.exports = 42;
-
-
-/***/ },
-/* 384 */
-/***/ function(module, exports) {
-
-	module.exports = {
-	  selector: '.source.js, .source.coffee',
-	  disableForSelector: '.source.js .comment',
-	  inclusionPriority: 0,
-	  excludeLowerPriority: false,
-	  getSuggestions: function(arg) {
-	    var activatedManually, bufferPosition, editor, prefix, requireSnippet, scopeDescriptor, suggestions;
-	    editor = arg.editor, bufferPosition = arg.bufferPosition, scopeDescriptor = arg.scopeDescriptor, prefix = arg.prefix, activatedManually = arg.activatedManually;
-	    console.log("GET SUG", arguments);
-	    requireSnippet = 'var ${1} = require(${2});';
-	    suggestions = [
-	      {
-	        snippet: 'console.log(${1:myyyy});'
-	      }, {
-	        snippet: requireSnippet
-	      }
-	    ];
-	    return new Promise(function(resolve) {
-	      return resolve(suggestions.filter(function(sug) {
-	        return sug.snippet.indexOf(prefix) !== -1;
-	      }));
-	    });
-	  },
-	  onDidInsertSuggestion: function(arg) {
-	    var editor, suggestion, triggerPosition;
-	    editor = arg.editor, triggerPosition = arg.triggerPosition, suggestion = arg.suggestion;
-	  },
-	  dispose: function() {}
-	};
-
-
-/***/ },
-/* 385 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var cp = __webpack_require__(380);
-	var child = cp.fork('./plugin');
-
-	child.on('message', function (d) {
-	    console.log('MSG', d, d.files);
-	});
-	child.send({
-	    type: 'analyze',
-	    path: '/Users/lukasz/atom-lupa/lib/plugin.js'
-	});
-	//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxpYi9kZWJ1Zy5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLElBQUksS0FBSyxRQUFRLGVBQVIsQ0FBTDtBQUNKLElBQUksUUFBUSxHQUFHLElBQUgsQ0FBUSxVQUFSLENBQVI7O0FBRUosTUFBTSxFQUFOLENBQVMsU0FBVCxFQUFvQixVQUFVLENBQVYsRUFBYTtBQUM3QixZQUFRLEdBQVIsQ0FBWSxLQUFaLEVBQW1CLENBQW5CLEVBQXNCLEVBQUUsS0FBRixDQUF0QixDQUQ2QjtDQUFiLENBQXBCO0FBR0EsTUFBTSxJQUFOLENBQVc7QUFDUCxVQUFNLFNBQU47QUFDQSxVQUFNLHVDQUFOO0NBRkoiLCJmaWxlIjoiZGVidWcuanMiLCJzb3VyY2VSb290IjoiL1VzZXJzL2x1a2Fzei9hdG9tLWx1cGEiLCJzb3VyY2VzQ29udGVudCI6WyJ2YXIgY3AgPSByZXF1aXJlKCdjaGlsZF9wcm9jZXNzJyk7XG52YXIgY2hpbGQgPSBjcC5mb3JrKCcuL3BsdWdpbicpO1xuXG5jaGlsZC5vbignbWVzc2FnZScsIGZ1bmN0aW9uIChkKSB7XG4gICAgY29uc29sZS5sb2coJ01TRycsIGQsIGQuZmlsZXMpO1xufSk7XG5jaGlsZC5zZW5kKHtcbiAgICB0eXBlOiAnYW5hbHl6ZScsXG4gICAgcGF0aDogJy9Vc2Vycy9sdWthc3ovYXRvbS1sdXBhL2xpYi9wbHVnaW4uanMnXG59KTtcbiJdfQ==
-
-/***/ },
-/* 386 */
+/* 364 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var Path = __webpack_require__(208);
 
-	var parseHtml = __webpack_require__(240).parseHtml;
+	var parseHtml = __webpack_require__(238).parseHtml;
 
 	var parsers = {
-	    '.js': __webpack_require__(329),
+	    '.js': __webpack_require__(321),
 	    '.html': {
 	        parse: function parse(code) {
 	            var ast = parseHtml(code);
@@ -92129,7 +88677,7 @@
 	//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxpYi9wYXJzZXJzLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsSUFBSSxPQUFPLFFBQVEsTUFBUixDQUFQOztBQUVKLElBQUksWUFBWSxRQUFRLGNBQVIsRUFBd0IsU0FBeEI7O0FBRWhCLElBQUksVUFBVTtBQUNWLFdBQU8sUUFBUSxhQUFSLENBQVA7QUFDQSxhQUFTO0FBQ0wsZUFBTyxlQUFVLElBQVYsRUFBZ0I7QUFDbkIsZ0JBQUksTUFBTSxVQUFVLElBQVYsQ0FBTixDQURlO0FBRW5CLG1CQUFPLEdBQVAsQ0FGbUI7U0FBaEI7S0FEWDtDQUZBOztBQVVKLFNBQVMsWUFBVCxDQUFzQixJQUF0QixFQUE0QjtBQUN4QixRQUFJLE1BQU0sS0FBSyxPQUFMLENBQWEsSUFBYixDQUFOLENBRG9CO0FBRXhCLFlBQVEsR0FBUixDQUFZLEdBQVosRUFGd0I7QUFHeEIsUUFBSSxRQUFRLGNBQVIsQ0FBdUIsR0FBdkIsQ0FBSixFQUFpQztBQUM3QixlQUFPLFFBQVEsR0FBUixDQUFQLENBRDZCO0tBQWpDO0NBSEo7O0FBUUEsT0FBTyxPQUFQLEdBQWlCLFlBQWpCIiwiZmlsZSI6InBhcnNlcnMuanMiLCJzb3VyY2VSb290IjoiL1VzZXJzL2x1a2Fzei9hdG9tLWx1cGEiLCJzb3VyY2VzQ29udGVudCI6WyJ2YXIgUGF0aCA9IHJlcXVpcmUoJ3BhdGgnKTtcblxudmFyIHBhcnNlSHRtbCA9IHJlcXVpcmUoJ2h0bWwtZmxhdm9ycycpLnBhcnNlSHRtbDtcblxudmFyIHBhcnNlcnMgPSB7XG4gICAgJy5qcyc6IHJlcXVpcmUoJ2Zsb3ctcGFyc2VyJyksXG4gICAgJy5odG1sJzoge1xuICAgICAgICBwYXJzZTogZnVuY3Rpb24gKGNvZGUpIHtcbiAgICAgICAgICAgIHZhciBhc3QgPSBwYXJzZUh0bWwoY29kZSk7XG4gICAgICAgICAgICByZXR1cm4gYXN0O1xuICAgICAgICB9XG4gICAgfVxufTtcblxuZnVuY3Rpb24gY3JlYXRlUGFyc2VyKHBhdGgpIHtcbiAgICB2YXIgZXh0ID0gUGF0aC5leHRuYW1lKHBhdGgpO1xuICAgIGNvbnNvbGUubG9nKGV4dClcbiAgICBpZiAocGFyc2Vycy5oYXNPd25Qcm9wZXJ0eShleHQpKSB7XG4gICAgICAgIHJldHVybiBwYXJzZXJzW2V4dF07XG4gICAgfVxufVxuXG5tb2R1bGUuZXhwb3J0cyA9IGNyZWF0ZVBhcnNlcjtcbiJdfQ==
 
 /***/ },
-/* 387 */
+/* 365 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -92161,7 +88709,7 @@
 	//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxpYi9wbHVnaW4uanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxRQUFRLEVBQVIsQ0FBVyxtQkFBWCxFQUFnQyxVQUFVLElBQVYsRUFBZ0I7QUFDNUMsWUFBUSxHQUFSLENBQVksT0FBWixFQUFxQixJQUFyQixFQUQ0QztBQUU1QyxZQUFRLElBQVIsQ0FBYSxFQUFDLE9BQU8sSUFBUCxFQUFkOztBQUY0QyxDQUFoQixDQUFoQzs7QUFPQSxRQUFRLEVBQVIsQ0FBVyxTQUFYLEVBQXNCLFVBQVUsR0FBVixFQUFlO0FBQ2pDLFlBQVEsR0FBUixDQUFZLHFCQUFaLEVBQW1DLEdBQW5DLEVBRGlDOztBQUdqQyxRQUFJLElBQUksSUFBSixJQUFZLFNBQVosRUFBdUI7QUFDdkIsZUFBTyxPQUFQLENBQWUsT0FBZixDQUF1QixJQUFJLElBQUosRUFBVSxVQUFVLEtBQVYsRUFBaUI7QUFDOUMsb0JBQVEsR0FBUixDQUFZLGtCQUFaLEVBRDhDO0FBRTlDLG9CQUFRLElBQVIsQ0FBYSxLQUFiLEVBRjhDO1NBQWpCLENBQWpDLENBRHVCO0tBQTNCOztBQU9BLFFBQUksSUFBSSxJQUFKLElBQVksZUFBWixFQUE2QjtBQUM3QixZQUFJLE9BQU8sR0FBRyxZQUFILENBQWdCLElBQUksSUFBSixFQUFVLE1BQTFCLENBQVAsQ0FEeUI7QUFFN0IsWUFBSSxRQUFRLEtBQUssS0FBTCxDQUFXLElBQVgsQ0FBUixDQUZ5QjtBQUc3QixhQUFLLElBQUwsQ0FBVSxLQUFWLEVBSDZCO0tBQWpDO0NBVmtCLENBQXRCOztBQWlCQSxPQUFPLE9BQVAsR0FBaUIsRUFBakIiLCJmaWxlIjoicGx1Z2luLmpzIiwic291cmNlUm9vdCI6Ii9Vc2Vycy9sdWthc3ovYXRvbS1sdXBhIiwic291cmNlc0NvbnRlbnQiOlsicHJvY2Vzcy5vbigndW5jYXVnaHRFeGNlcHRpb24nLCBmdW5jdGlvbiAoZGF0YSkge1xuICAgIGNvbnNvbGUubG9nKFwiRVJST1JcIiwgZGF0YSk7XG4gICAgcHJvY2Vzcy5zZW5kKHtlcnJvcjogZGF0YX0pO1xuICAgIC8vY29uc29sZS5sb2coXCJnb3QgdW5jYXVnaHRFeGNlcHRpb25cIiwgYXJndW1lbnRzKTtcbn0pO1xuXG5cbnByb2Nlc3Mub24oJ21lc3NhZ2UnLCBmdW5jdGlvbiAobXNnKSB7XG4gICAgY29uc29sZS5sb2coXCJwbHVnaW4sIGdvdCBtZXNzYWdlXCIsIG1zZyk7XG5cbiAgICBpZiAobXNnLnR5cGUgPT0gJ2FuYWx5emUnKSB7XG4gICAgICAgIG1vZHVsZS5leHBvcnRzLmFuYWx5emUobXNnLnBhdGgsIGZ1bmN0aW9uIChzdGF0ZSkge1xuICAgICAgICAgICAgY29uc29sZS5sb2coXCJwbHVnaW4sIGFuYWx5emVkXCIpO1xuICAgICAgICAgICAgcHJvY2Vzcy5zZW5kKHN0YXRlKTtcbiAgICAgICAgfSk7XG4gICAgfVxuXG4gICAgaWYgKG1zZy50eXBlID09ICdsb2FkSW5kZXhGaWxlJykge1xuICAgICAgICB2YXIganNvbiA9IGZzLnJlYWRGaWxlU3luYyhtc2cucGF0aCwgJ3V0ZjgnKTtcbiAgICAgICAgdmFyIHN0YXRlID0gSlNPTi5wYXJzZShqc29uKTtcbiAgICAgICAgbHVwYS5sb2FkKHN0YXRlKTtcbiAgICB9XG59KTtcblxubW9kdWxlLmV4cG9ydHMgPSB7XG5cbn1cbiJdfQ==
 
 /***/ },
-/* 388 */
+/* 366 */
 /***/ function(module, exports) {
 
 	'use strict';

@@ -6,14 +6,14 @@ isArray = (obj) ->
 
 getEntitiesByType = (f, type) ->
     try
-        item = getMetadata(f).filter((item) -> item.name == type)
+        item = getMetadata(f).filter((item) -> item.type == type)
             .reduce (res, item)->
                 if isArray(item.data) && item.data.length > 1
                     res.concat(item.data.map (entity) ->
                         if entity.substr
-                            return {name: 'module', data: entity}
+                            return {type: 'module', data: entity}
                         else
-                            return Object.assign({name: 'module', data: entity.name})
+                            return Object.assign({type: 'module', data: entity.name})
                     )
                 else
                     res.concat(item)

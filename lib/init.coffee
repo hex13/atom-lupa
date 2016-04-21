@@ -256,6 +256,13 @@ update1 = ->
             entry.data.map (importer) ->
                 "<div class='lupa-file' data-path='#{importer.path}'> #{path_.basename(importer.path)}</div>"
             .join("<br>")
+        function: (entry) ->
+            "<div
+                data-column='#{entry.loc.start.column}'
+                data-column-end='#{entry.loc.end.column}'
+                data-line-end='#{entry.loc.end.line}'
+                data-line='#{entry.loc.start.line}'
+            >𝑓 #{entry.name}</div>"
         imports: (entry) ->
             "<h3 style='color:grey'>#{entry.name}</h3>" +
             entry.data.map (item) ->
@@ -406,9 +413,14 @@ update1 = ->
                     name:'imported by'
                     data: importers #.map((f) => path_.basename(f.path))
 
+
                 html = getMetadata(found[0]).concat(fixture).map (entry) ->
-                    render = print[entry.name] || print.default
-                    render(entry)
+                    try
+                        render = print[entry.type || entry.name] || print.default
+                        render(entry)
+                    catch e
+                        console.error(e);
+                        console.log('error', entry)
                 .join('')
             if ext == '.scss' || ext == '.css'
                 html += getCssPreview(found[0])
