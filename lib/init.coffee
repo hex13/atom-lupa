@@ -276,18 +276,15 @@ update1 = ->
              #{entry.data} </span>"
 
 
-        classes: (entry) ->
-            "<h3 style='color:grey'>#{entry.name}</h3>" +
-                entry.data.map(
-                    (cls) ->
-                        "<h4
-                        data-column='#{cls.loc.start.column}'
-                        data-column-end='#{cls.loc.end.column}'
-                        data-line-end='#{cls.loc.end.line}'
-                        data-line='#{cls.loc.start.line}'
-                        >#{cls.name}</h4>" + cls.methods.join('<br>')
-                ).join('<br>') +
-                '<br>'
+        class: (entry) ->
+            cls = entry
+            cls.loc = cls.loc || defaultLoc
+            "<h4
+            data-column='#{cls.loc.start.column}'
+            data-column-end='#{cls.loc.end.column}'
+            data-line-end='#{cls.loc.end.line}'
+            data-line='#{cls.loc.start.line}'
+            >class #{cls.name}</h4>" + cls.methods.join('<br>')
         '@mixin': (entry) ->
             "<h3 >#{entry.name}</h3>" +
                     "<div data-line='#{entry.source.start.line}'>#{entry.data}</div>" +
