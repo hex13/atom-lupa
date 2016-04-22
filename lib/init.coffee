@@ -39,6 +39,11 @@ doc = document
 
 dashboard = null
 
+defaultLoc = {
+    start: {line:0, row:0},
+    end: {line:0, row:0},
+}
+
 module.exports = (aDashboard) ->
     dashboard = aDashboard
 
@@ -257,19 +262,12 @@ update1 = ->
                 "<div class='lupa-file' data-path='#{importer.path}'> #{path_.basename(importer.path)}</div>"
             .join("<br>")
         function: (entry) ->
-            "<div
-                data-column='#{entry.loc.start.column}'
-                data-column-end='#{entry.loc.end.column}'
-                data-line-end='#{entry.loc.end.line}'
-                data-line='#{entry.loc.start.line}'
-            >𝑓 #{entry.name}</div>"
-        imports: (entry) ->
-            "<h3 style='color:grey'>#{entry.name}</h3>" +
-            entry.data.map (item) ->
-                "<div> #{item.name} from
-                <span class='lupa-file' data-path='#{item.source}'>#{item.originalSource}</span>
+            this.default(entry)
+        import: (entry) ->
+            "<h3 style='color:grey'>#{entry.type}</h3>" +
+                "<div> #{entry.name} from
+                <span class='lupa-file' data-path='#{entry.source}'>#{entry.originalSource}</span>
                 </div>"
-            .join("<br>")
         label: (entry) ->
             "<span
                 data-label='#{entry.data}'
@@ -310,17 +308,6 @@ update1 = ->
                         data-line-end='#{entry.loc.end.line}'
                         data-line='#{entry.loc.start.line}' class='lupa-entry'>#{entry.data}</div>" +
                 '<br>'
-
-        functions: (entry) ->
-            "<h3 style='color:grey'>#{entry.name}</h3>" +
-                entry.data.map(
-                    (n) -> "<div
-                    data-column='#{n.loc.start.column}'
-                    data-column-end='#{n.loc.end.column}'
-                    data-line-end='#{n.loc.end.line}'
-                    data-line='#{n.loc.start.line}' class='lupa-entry'>#{n.name}</div>"
-                ).join('<br>') +
-                '<br>'
         lines: (entry) ->
             loc = entry.data[0]
             if loc < 150
@@ -337,15 +324,22 @@ update1 = ->
                         (n) -> "<div style='color:#{color}' class='lupa-entry'>#{n}</div>"
                     ).join('<br>') +
                     '<br>'
-        default: (entry) ->
-            if entry.data.length
+        default: (entry, description) ->
+            if entry.data && entry.data.length
                 "<h3 style='color:grey'>#{entry.name}</h3>" +
                     entry.data.map(
                         (n) -> "<div data-path='#{getFileForModule(lastState, n).path}' class='lupa-entry'>#{n}</div>"
                     ).join('<br>') +
                     '<br>'
             else
-                '' #"<br><em style='color:grey'>no #{entry.name}</em>"
+                entry.loc = entry.loc || defaultLoc
+                "<h3>#{entry.type}</h3>
+                <div
+                    data-column='#{entry.loc.start.column}'
+                    data-column-end='#{entry.loc.end.column}'
+                    data-line-end='#{entry.loc.end.line}'
+                    data-line='#{entry.loc.start.line}'
+                >#{entry.name}</div>"
 
     }
     if editor.buffer.file
