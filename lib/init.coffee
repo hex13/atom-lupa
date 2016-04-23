@@ -55,10 +55,11 @@ module.exports = (aDashboard) ->
 el.innerHTML = "
 <div id='lupa-editor-wrapper'></div>
 <div id='lupa-info'></div>
+<div style='height:10px'></div>
 <button style='display:none' id='lupa-run'>Run</button>
-<button id='lupa-refresh'>Refresh</button>
+<button class='btn' id='lupa-refresh'>Refresh</button>
 <br>
-<button id='lupa-index-project'>Index project</button>
+<button class='btn' id='lupa-index-project'>Index project</button>
 (It requires lupaProject.json file.)
 <div id='lupa-structure'></div>
 <div id='moje'
@@ -231,7 +232,7 @@ refresh = ->
 doc.getElementById('lupa-refresh').addEventListener('click', refresh)
 
 update1 = ->
-    # TODO this is copy pasted
+    # TODO this is copy pasted§
     if dashboard
         plugin.filterFiles((v) -> v).toArray().subscribe( (files)->
             dashboard.setFiles(files, addLabelDecoration) # TODO remove addLabelDecoration from here. This is hack
@@ -440,4 +441,4 @@ atom.workspace.onDidChangeActivePaneItem ->
 
 update1()
 
-#setInterval(refresh, 1500)
+setInterval(refresh, 1500)
