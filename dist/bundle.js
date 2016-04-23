@@ -167,7 +167,7 @@
 
 	  AtomLupaView.prototype.setFiles = function(files, addLabelDecoration) {
 	    var onChange, preview, totalLoc;
-	    console.log("AAAD", addLabelDecoration);
+	    console.log("AAAD", files.length, addLabelDecoration);
 	    onChange = function(line) {
 	      return addLabelDecoration(preview, line + 1, 0, line + 2, 0, [], 'label-decoration');
 	    };
@@ -88189,7 +88189,8 @@
 	};
 
 	module.exports = function(aDashboard) {
-	  return dashboard = aDashboard;
+	  dashboard = aDashboard;
+	  return update1();
 	};
 
 	el.innerHTML = "<div id='lupa-editor-wrapper'></div> <div id='lupa-info'></div> <button style='display:none' id='lupa-run'>Run</button> <button id='lupa-refresh'>Refresh</button> <br> <button id='lupa-index-project'>Index project</button> (It requires lupaProject.json file.) <div id='lupa-structure'></div> <div id='moje' style='padding: 10px; width:240px;overflow:scroll;'>sss <br> <br> atom.workspace.addLeftPanel(item: el) </div> <div style='margin-bottom:10px'> <div style='display:none'> <label>glob file pattern to analyze (e.g. /Users/john/my-project/src/**/*.js  ) <div><input id='lupa-project-root' type='text'></div></label> <br> </div> </div> <div style='display:none'> <input id='lupa-index-file' type='text'><br> <button id='lupa-load-index-file'>Load index file (not implemented)</button></div>";
@@ -88362,6 +88363,13 @@
 
 	update1 = function() {
 	  var block, decoration, e, error, filename, identitity, onUpdate, print, range, result, safeToRun, update;
+	  if (dashboard) {
+	    plugin.filterFiles(function(v) {
+	      return v;
+	    }).toArray().subscribe(function(files) {
+	      return dashboard.setFiles(files, addLabelDecoration);
+	    });
+	  }
 	  identitity = function(v) {
 	    return v;
 	  };
