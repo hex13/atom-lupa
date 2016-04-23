@@ -20007,7 +20007,7 @@
 
 	var getLines = function getLines(f) {
 	    var item = getMetadata(f).filter(function (item) {
-	        return item.name == 'lines';
+	        return item.type == 'lines';
 	    })[0] || {};
 	    return item.data || 0;
 	};
@@ -20036,9 +20036,7 @@
 	            var onClick = function onClick() {
 	                // if !fs.existsSync(path)
 	                //     path = getFileForRequire(allFiles, path).path
-	                console.log("LIIINE INITIAL", f, _this2.props.line);
 
-	                console.log("aBCD", preview);
 	                preview.getBuffer().setPath(f.path);
 	                preview.setText(f.contents + '');
 	                _this2.props.onChange && _this2.props.onChange(_this2.props.line);
@@ -20062,7 +20060,7 @@
 	}(React.Component);
 
 	module.exports = FileName;
-	//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxpYi9jb21wb25lbnRzL0ZpbGVOYW1lLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOzs7Ozs7Ozs7O0FBRUEsSUFBTSxXQUFXLFFBQVEsTUFBUixFQUFnQixRQUFqQztBQUNBLElBQU0sY0FBYyxTQUFTLFdBQTdCOztBQUVBLElBQU0sV0FBVyxTQUFYLFFBQVcsQ0FBQyxDQUFELEVBQU87QUFDcEIsUUFBTSxPQUFPLFlBQVksQ0FBWixFQUFlLE1BQWYsQ0FBc0IsVUFBQyxJQUFEO0FBQUEsZUFBVSxLQUFLLElBQUwsSUFBYSxPQUF2QjtBQUFBLEtBQXRCLEVBQXNELENBQXRELEtBQTRELEVBQXpFO0FBQ0EsV0FBTyxLQUFLLElBQUwsSUFBYSxDQUFwQjtBQUNILENBSEQ7O0FBTUEsSUFBTSxRQUFRLFFBQVEsT0FBUixDQUFkO0FBQ0EsSUFBTSxNQUFNLE1BQU0sYUFBTixDQUFvQixLQUFwQixDQUFaO0FBQ0EsSUFBTSxPQUFPLE1BQU0sYUFBTixDQUFvQixNQUFwQixDQUFiO0FBQ0EsSUFBTSxZQUFZLFFBQVEsYUFBUixDQUFsQjs7SUFHTSxROzs7Ozs7Ozs7OztpQ0FDTztBQUFBOztBQUNMLGdCQUFNLElBQUksS0FBSyxLQUFMLENBQVcsSUFBckI7QUFDQSxnQkFBTSxVQUFVLEtBQUssS0FBTCxDQUFXLE9BQTNCO0FBQ0EsZ0JBQU0sVUFBVSxTQUFWLE9BQVUsR0FBTTs7O0FBR2xCLHdCQUFRLEdBQVIsQ0FBWSxnQkFBWixFQUE4QixDQUE5QixFQUFpQyxPQUFLLEtBQUwsQ0FBVyxJQUE1Qzs7QUFFQSx3QkFBUSxHQUFSLENBQVksTUFBWixFQUFvQixPQUFwQjtBQUNBLHdCQUFRLFNBQVIsR0FBb0IsT0FBcEIsQ0FBNEIsRUFBRSxJQUE5QjtBQUNBLHdCQUFRLE9BQVIsQ0FBZ0IsRUFBRSxRQUFGLEdBQWEsRUFBN0I7QUFDQSx1QkFBSyxLQUFMLENBQVcsUUFBWCxJQUF1QixPQUFLLEtBQUwsQ0FBVyxRQUFYLENBQW9CLE9BQUssS0FBTCxDQUFXLElBQS9CLENBQXZCO0FBQ0Esd0JBQVEsc0JBQVIsQ0FBK0IsQ0FBQyxPQUFLLEtBQUwsQ0FBVyxJQUFYLElBQW1CLENBQXBCLEVBQXVCLENBQXZCLENBQS9COztBQUVILGFBWEQ7QUFZQSxtQkFBTyxJQUFJLEVBQUMsV0FBVyxXQUFaLEVBQXlCLFNBQVMsT0FBbEMsRUFBSixFQUFnRCxDQUNuRCxLQUFLLEtBQUwsQ0FBVyxJQUFYLEdBQWlCO0FBQUE7Z0JBQUE7Z0JBQ1osS0FBSyxLQUFMLENBQVcsSUFEQztnQkFFYjtBQUFBO29CQUFBLEVBQU0sT0FBTyxFQUFDLFVBQVUsQ0FBWCxFQUFiO29CQUE2QixFQUFFO0FBQS9CO0FBRmEsYUFBakIsR0FHVSxFQUFFLElBSnVDLEVBS25ELE1BQU0sYUFBTixDQUFvQixTQUFwQixFQUErQixFQUFDLE9BQU8sU0FBUyxDQUFULENBQVIsRUFBL0IsQ0FMbUQsQ0FBaEQsQ0FBUDtBQU9IOzs7O0VBdkJrQixNQUFNLFM7O0FBMEI3QixPQUFPLE9BQVAsR0FBaUIsUUFBakIiLCJmaWxlIjoiRmlsZU5hbWUuanMiLCJzb3VyY2VSb290IjoiL1VzZXJzL2x1a2Fzei9hdG9tLWx1cGEiLCJzb3VyY2VzQ29udGVudCI6WyJcInVzZSBzdHJpY3RcIjtcblxuY29uc3QgTWV0YWRhdGEgPSByZXF1aXJlKCdsdXBhJykuTWV0YWRhdGE7XG5jb25zdCBnZXRNZXRhZGF0YSA9IE1ldGFkYXRhLmdldE1ldGFkYXRhO1xuXG5jb25zdCBnZXRMaW5lcyA9IChmKSA9PiB7XG4gICAgY29uc3QgaXRlbSA9IGdldE1ldGFkYXRhKGYpLmZpbHRlcigoaXRlbSkgPT4gaXRlbS5uYW1lID09ICdsaW5lcycpWzBdIHx8IHt9XG4gICAgcmV0dXJuIGl0ZW0uZGF0YSB8fCAwO1xufVxuXG5cbmNvbnN0IFJlYWN0ID0gcmVxdWlyZSgncmVhY3QnKTtcbmNvbnN0IGRpdiA9IFJlYWN0LmNyZWF0ZUZhY3RvcnkoJ2RpdicpO1xuY29uc3Qgc3BhbiA9IFJlYWN0LmNyZWF0ZUZhY3RvcnkoJ3NwYW4nKTtcbmNvbnN0IExpbmVDb3VudCA9IHJlcXVpcmUoJy4vTGluZUNvdW50Jyk7XG5cblxuY2xhc3MgRmlsZU5hbWUgZXh0ZW5kcyBSZWFjdC5Db21wb25lbnQge1xuICAgIHJlbmRlcigpIHtcbiAgICAgICAgY29uc3QgZiA9IHRoaXMucHJvcHMuZmlsZTtcbiAgICAgICAgY29uc3QgcHJldmlldyA9IHRoaXMucHJvcHMucHJldmlldztcbiAgICAgICAgY29uc3Qgb25DbGljayA9ICgpID0+IHtcbiAgICAgICAgICAgIC8vIGlmICFmcy5leGlzdHNTeW5jKHBhdGgpXG4gICAgICAgICAgICAvLyAgICAgcGF0aCA9IGdldEZpbGVGb3JSZXF1aXJlKGFsbEZpbGVzLCBwYXRoKS5wYXRoXG4gICAgICAgICAgICBjb25zb2xlLmxvZyhcIkxJSUlORSBJTklUSUFMXCIsIGYsIHRoaXMucHJvcHMubGluZSk7XG5cbiAgICAgICAgICAgIGNvbnNvbGUubG9nKFwiYUJDRFwiLCBwcmV2aWV3KTtcbiAgICAgICAgICAgIHByZXZpZXcuZ2V0QnVmZmVyKCkuc2V0UGF0aChmLnBhdGgpXG4gICAgICAgICAgICBwcmV2aWV3LnNldFRleHQoZi5jb250ZW50cyArICcnKTtcbiAgICAgICAgICAgIHRoaXMucHJvcHMub25DaGFuZ2UgJiYgdGhpcy5wcm9wcy5vbkNoYW5nZSh0aGlzLnByb3BzLmxpbmUpO1xuICAgICAgICAgICAgcHJldmlldy5zY3JvbGxUb0J1ZmZlclBvc2l0aW9uKFt0aGlzLnByb3BzLmxpbmUgfHwgMCwgMF0pO1xuICAgICAgICAgICAgLy9hdG9tLndvcmtzcGFjZS5vcGVuKGYucGF0aCwge2luaXRpYWxMaW5lOiB0aGlzLnByb3BzLmxpbmUgfHwgMH0pO1xuICAgICAgICB9O1xuICAgICAgICByZXR1cm4gZGl2KHtjbGFzc05hbWU6ICdsdXBhLWZpbGUnLCBvbkNsaWNrOiBvbkNsaWNrfSwgW1xuICAgICAgICAgICAgdGhpcy5wcm9wcy5kZXNjPyA8c3Bhbj5cbiAgICAgICAgICAgICAgICB7dGhpcy5wcm9wcy5kZXNjfVxuICAgICAgICAgICAgICAgIDxzcGFuIHN0eWxlPXt7Zm9udFNpemU6IDh9fT57Zi5wYXRofTwvc3Bhbj5cbiAgICAgICAgICAgIDwvc3Bhbj4gOiBmLnBhdGgsXG4gICAgICAgICAgICBSZWFjdC5jcmVhdGVFbGVtZW50KExpbmVDb3VudCwge2xpbmVzOiBnZXRMaW5lcyhmKX0pXG4gICAgICAgIF0pXG4gICAgfVxufVxuXG5tb2R1bGUuZXhwb3J0cyA9IEZpbGVOYW1lO1xuIl19
+	//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxpYi9jb21wb25lbnRzL0ZpbGVOYW1lLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOzs7Ozs7Ozs7O0FBRUEsSUFBTSxXQUFXLFFBQVEsTUFBUixFQUFnQixRQUFqQztBQUNBLElBQU0sY0FBYyxTQUFTLFdBQTdCOztBQUVBLElBQU0sV0FBVyxTQUFYLFFBQVcsQ0FBQyxDQUFELEVBQU87QUFDcEIsUUFBTSxPQUFPLFlBQVksQ0FBWixFQUFlLE1BQWYsQ0FBc0IsVUFBQyxJQUFEO0FBQUEsZUFBVSxLQUFLLElBQUwsSUFBYSxPQUF2QjtBQUFBLEtBQXRCLEVBQXNELENBQXRELEtBQTRELEVBQXpFO0FBQ0EsV0FBTyxLQUFLLElBQUwsSUFBYSxDQUFwQjtBQUNILENBSEQ7O0FBTUEsSUFBTSxRQUFRLFFBQVEsT0FBUixDQUFkO0FBQ0EsSUFBTSxNQUFNLE1BQU0sYUFBTixDQUFvQixLQUFwQixDQUFaO0FBQ0EsSUFBTSxPQUFPLE1BQU0sYUFBTixDQUFvQixNQUFwQixDQUFiO0FBQ0EsSUFBTSxZQUFZLFFBQVEsYUFBUixDQUFsQjs7SUFHTSxROzs7Ozs7Ozs7OztpQ0FDTztBQUFBOztBQUNMLGdCQUFNLElBQUksS0FBSyxLQUFMLENBQVcsSUFBckI7QUFDQSxnQkFBTSxVQUFVLEtBQUssS0FBTCxDQUFXLE9BQTNCO0FBQ0EsZ0JBQU0sVUFBVSxTQUFWLE9BQVUsR0FBTTs7OztBQUlsQix3QkFBUSxTQUFSLEdBQW9CLE9BQXBCLENBQTRCLEVBQUUsSUFBOUI7QUFDQSx3QkFBUSxPQUFSLENBQWdCLEVBQUUsUUFBRixHQUFhLEVBQTdCO0FBQ0EsdUJBQUssS0FBTCxDQUFXLFFBQVgsSUFBdUIsT0FBSyxLQUFMLENBQVcsUUFBWCxDQUFvQixPQUFLLEtBQUwsQ0FBVyxJQUEvQixDQUF2QjtBQUNBLHdCQUFRLHNCQUFSLENBQStCLENBQUMsT0FBSyxLQUFMLENBQVcsSUFBWCxJQUFtQixDQUFwQixFQUF1QixDQUF2QixDQUEvQjs7QUFFSCxhQVREO0FBVUEsbUJBQU8sSUFBSSxFQUFDLFdBQVcsV0FBWixFQUF5QixTQUFTLE9BQWxDLEVBQUosRUFBZ0QsQ0FDbkQsS0FBSyxLQUFMLENBQVcsSUFBWCxHQUFpQjtBQUFBO2dCQUFBO2dCQUNaLEtBQUssS0FBTCxDQUFXLElBREM7Z0JBRWI7QUFBQTtvQkFBQSxFQUFNLE9BQU8sRUFBQyxVQUFVLENBQVgsRUFBYjtvQkFBNkIsRUFBRTtBQUEvQjtBQUZhLGFBQWpCLEdBR1UsRUFBRSxJQUp1QyxFQUtuRCxNQUFNLGFBQU4sQ0FBb0IsU0FBcEIsRUFBK0IsRUFBQyxPQUFPLFNBQVMsQ0FBVCxDQUFSLEVBQS9CLENBTG1ELENBQWhELENBQVA7QUFPSDs7OztFQXJCa0IsTUFBTSxTOztBQXdCN0IsT0FBTyxPQUFQLEdBQWlCLFFBQWpCIiwiZmlsZSI6IkZpbGVOYW1lLmpzIiwic291cmNlUm9vdCI6Ii9Vc2Vycy9sdWthc3ovYXRvbS1sdXBhIiwic291cmNlc0NvbnRlbnQiOlsiXCJ1c2Ugc3RyaWN0XCI7XG5cbmNvbnN0IE1ldGFkYXRhID0gcmVxdWlyZSgnbHVwYScpLk1ldGFkYXRhO1xuY29uc3QgZ2V0TWV0YWRhdGEgPSBNZXRhZGF0YS5nZXRNZXRhZGF0YTtcblxuY29uc3QgZ2V0TGluZXMgPSAoZikgPT4ge1xuICAgIGNvbnN0IGl0ZW0gPSBnZXRNZXRhZGF0YShmKS5maWx0ZXIoKGl0ZW0pID0+IGl0ZW0udHlwZSA9PSAnbGluZXMnKVswXSB8fCB7fVxuICAgIHJldHVybiBpdGVtLmRhdGEgfHwgMDtcbn1cblxuXG5jb25zdCBSZWFjdCA9IHJlcXVpcmUoJ3JlYWN0Jyk7XG5jb25zdCBkaXYgPSBSZWFjdC5jcmVhdGVGYWN0b3J5KCdkaXYnKTtcbmNvbnN0IHNwYW4gPSBSZWFjdC5jcmVhdGVGYWN0b3J5KCdzcGFuJyk7XG5jb25zdCBMaW5lQ291bnQgPSByZXF1aXJlKCcuL0xpbmVDb3VudCcpO1xuXG5cbmNsYXNzIEZpbGVOYW1lIGV4dGVuZHMgUmVhY3QuQ29tcG9uZW50IHtcbiAgICByZW5kZXIoKSB7XG4gICAgICAgIGNvbnN0IGYgPSB0aGlzLnByb3BzLmZpbGU7XG4gICAgICAgIGNvbnN0IHByZXZpZXcgPSB0aGlzLnByb3BzLnByZXZpZXc7XG4gICAgICAgIGNvbnN0IG9uQ2xpY2sgPSAoKSA9PiB7XG4gICAgICAgICAgICAvLyBpZiAhZnMuZXhpc3RzU3luYyhwYXRoKVxuICAgICAgICAgICAgLy8gICAgIHBhdGggPSBnZXRGaWxlRm9yUmVxdWlyZShhbGxGaWxlcywgcGF0aCkucGF0aFxuXG4gICAgICAgICAgICBwcmV2aWV3LmdldEJ1ZmZlcigpLnNldFBhdGgoZi5wYXRoKVxuICAgICAgICAgICAgcHJldmlldy5zZXRUZXh0KGYuY29udGVudHMgKyAnJyk7XG4gICAgICAgICAgICB0aGlzLnByb3BzLm9uQ2hhbmdlICYmIHRoaXMucHJvcHMub25DaGFuZ2UodGhpcy5wcm9wcy5saW5lKTtcbiAgICAgICAgICAgIHByZXZpZXcuc2Nyb2xsVG9CdWZmZXJQb3NpdGlvbihbdGhpcy5wcm9wcy5saW5lIHx8IDAsIDBdKTtcbiAgICAgICAgICAgIC8vYXRvbS53b3Jrc3BhY2Uub3BlbihmLnBhdGgsIHtpbml0aWFsTGluZTogdGhpcy5wcm9wcy5saW5lIHx8IDB9KTtcbiAgICAgICAgfTtcbiAgICAgICAgcmV0dXJuIGRpdih7Y2xhc3NOYW1lOiAnbHVwYS1maWxlJywgb25DbGljazogb25DbGlja30sIFtcbiAgICAgICAgICAgIHRoaXMucHJvcHMuZGVzYz8gPHNwYW4+XG4gICAgICAgICAgICAgICAge3RoaXMucHJvcHMuZGVzY31cbiAgICAgICAgICAgICAgICA8c3BhbiBzdHlsZT17e2ZvbnRTaXplOiA4fX0+e2YucGF0aH08L3NwYW4+XG4gICAgICAgICAgICA8L3NwYW4+IDogZi5wYXRoLFxuICAgICAgICAgICAgUmVhY3QuY3JlYXRlRWxlbWVudChMaW5lQ291bnQsIHtsaW5lczogZ2V0TGluZXMoZil9KVxuICAgICAgICBdKVxuICAgIH1cbn1cblxubW9kdWxlLmV4cG9ydHMgPSBGaWxlTmFtZTtcbiJdfQ==
 
 /***/ },
 /* 168 */
@@ -34886,7 +34884,7 @@
 	                            root: parseCss(file.contents + '', false, onVisit)
 	                        };
 	                        var clone = cloneAndUpdate(file, {
-	                            metadata: md.concat({name:'lines', data: [info.lines]}).concat(metadata),
+	                            metadata: md.concat({type:'lines', data: [info.lines]}).concat(metadata),
 	                            ast: ast
 	                        })
 	                        observer.onNext(clone);
@@ -34901,7 +34899,7 @@
 	                        var md = file.metadata || [];
 	                        var info = fileInfo(file.contents + '', file.path);
 	                        var clone = cloneAndUpdate(file, {
-	                            metadata: md.concat({name:'lines', data: [info.lines]})
+	                            metadata: md.concat({type:'lines', data: [info.lines]})
 	                        })
 	                        observer.onNext(clone);
 	                    }
@@ -35062,7 +35060,7 @@
 	        var imports = (f.metadata || [])
 	            .filter(n => n.type == 'import');
 	        console.log("IMPORTY", f.path, imports);
-	        return (imports.data || []).filter(item => item.source == filename).length;
+	        return imports.filter(item => item.source == filename).length;
 
 	        // return f.metadata
 	        //     .filter(item => item.type == 'import' && item.source == filename).length;
@@ -51957,6 +51955,7 @@
 	                var pluralName = pluralNames.hasOwnProperty(part.name)?
 	                    pluralNames[part.name]
 	                    : part.name + 's';
+	                //console.log('part.name', part.name, part.arguments[0]);
 	                entities[pluralName] = entities[pluralName] || [];
 	                entities[pluralName].push(part.arguments[0]);
 	            }
@@ -51965,6 +51964,7 @@
 	                modules.push(part.arguments[0]);
 	                if (part.arguments.length >= 2) {
 	                    deps.push.apply(deps, part.arguments[1]);
+
 	                    // deps.push.apply(
 	                    //     deps, part.arguments[1].map(function(dep) {
 	                    //         return {name: 'dependencies', data: dep}
@@ -51974,8 +51974,6 @@
 	            }
 	        });
 	    });
-	    console.log('DEPS',deps);
-	    var entityTypes = ['directive', 'module'];
 
 	    var metadataForEntities = [];
 	    for (var ent in entities) {
@@ -51984,11 +51982,26 @@
 	            data: entities[ent]
 	        });
 	    }
+	    const metadataForModuleDeps = deps.map(function (dep) {
+	        return {
+	            type: 'angularModuleDependency',
+	            name: dep
+	        }
+	    });
+
+	    const metadataForModules = modules.map(function (module) {
+	        return {
+	            type: 'angularModule',
+	            name: module
+	        }
+	    })
 
 	    return [
-	        {name: 'modules', data: modules},
+	        //{name: 'modules', data: modules, legacy: true},
 	        {name: 'dependencies', data: deps}
-	    ].concat(metadataForEntities);
+	    ].concat(metadataForEntities)
+	        .concat(metadataForModules)
+	        .concat(metadataForModuleDeps);
 	}
 
 	exports.getAngularInfoFromChains = getAngularInfoFromChains;
@@ -60685,7 +60698,7 @@
 	        // Add the source content to the _sourcesContents map.
 	        // Create a new _sourcesContents map if the property is null.
 	        if (!this._sourcesContents) {
-	          this._sourcesContents = {};
+	          this._sourcesContents = Object.create(null);
 	        }
 	        this._sourcesContents[util.toSetString(source)] = aSourceContent;
 	      } else if (this._sourcesContents) {
@@ -60842,6 +60855,7 @@
 	      var previousName = 0;
 	      var previousSource = 0;
 	      var result = '';
+	      var next;
 	      var mapping;
 	      var nameIdx;
 	      var sourceIdx;
@@ -60849,11 +60863,12 @@
 	      var mappings = this._mappings.toArray();
 	      for (var i = 0, len = mappings.length; i < len; i++) {
 	        mapping = mappings[i];
+	        next = ''
 
 	        if (mapping.generatedLine !== previousGeneratedLine) {
 	          previousGeneratedColumn = 0;
 	          while (mapping.generatedLine !== previousGeneratedLine) {
-	            result += ';';
+	            next += ';';
 	            previousGeneratedLine++;
 	          }
 	        }
@@ -60862,34 +60877,36 @@
 	            if (!util.compareByGeneratedPositionsInflated(mapping, mappings[i - 1])) {
 	              continue;
 	            }
-	            result += ',';
+	            next += ',';
 	          }
 	        }
 
-	        result += base64VLQ.encode(mapping.generatedColumn
+	        next += base64VLQ.encode(mapping.generatedColumn
 	                                   - previousGeneratedColumn);
 	        previousGeneratedColumn = mapping.generatedColumn;
 
 	        if (mapping.source != null) {
 	          sourceIdx = this._sources.indexOf(mapping.source);
-	          result += base64VLQ.encode(sourceIdx - previousSource);
+	          next += base64VLQ.encode(sourceIdx - previousSource);
 	          previousSource = sourceIdx;
 
 	          // lines are stored 0-based in SourceMap spec version 3
-	          result += base64VLQ.encode(mapping.originalLine - 1
+	          next += base64VLQ.encode(mapping.originalLine - 1
 	                                     - previousOriginalLine);
 	          previousOriginalLine = mapping.originalLine - 1;
 
-	          result += base64VLQ.encode(mapping.originalColumn
+	          next += base64VLQ.encode(mapping.originalColumn
 	                                     - previousOriginalColumn);
 	          previousOriginalColumn = mapping.originalColumn;
 
 	          if (mapping.name != null) {
 	            nameIdx = this._names.indexOf(mapping.name);
-	            result += base64VLQ.encode(nameIdx - previousName);
+	            next += base64VLQ.encode(nameIdx - previousName);
 	            previousName = nameIdx;
 	          }
 	        }
+
+	        result += next;
 	      }
 
 	      return result;
@@ -60905,8 +60922,7 @@
 	          source = util.relative(aSourceRoot, source);
 	        }
 	        var key = util.toSetString(source);
-	        return Object.prototype.hasOwnProperty.call(this._sourcesContents,
-	                                                    key)
+	        return Object.prototype.hasOwnProperty.call(this._sourcesContents, key)
 	          ? this._sourcesContents[key]
 	          : null;
 	      }, this);
@@ -61400,6 +61416,11 @@
 	  }
 	  exports.relative = relative;
 
+	  var supportsNullProto = (function () {
+	    var obj = Object.create(null);
+	    return !('__proto__' in obj);
+	  }());
+
 	  /**
 	   * Because behavior goes wacky when you set `__proto__` on objects, we
 	   * have to prefix all the strings in our set with an arbitrary character.
@@ -61410,14 +61431,58 @@
 	   * @param String aStr
 	   */
 	  function toSetString(aStr) {
-	    return '$' + aStr;
+	    if (isProtoString(aStr)) {
+	      return '$' + aStr;
+	    }
+
+	    return aStr;
 	  }
-	  exports.toSetString = toSetString;
+	  exports.toSetString = supportsNullProto ? identity : toSetString;
 
 	  function fromSetString(aStr) {
-	    return aStr.substr(1);
+	    if (isProtoString(aStr)) {
+	      return aStr.slice(1);
+	    }
+
+	    return aStr;
 	  }
-	  exports.fromSetString = fromSetString;
+	  exports.fromSetString = supportsNullProto ? identity : fromSetString;
+
+	  function isProtoString(s) {
+	    if (!s) {
+	      return false;
+	    }
+
+	    var length = s.length;
+
+	    if (length < 9 /* "__proto__".length */) {
+	      return false;
+	    }
+
+	    if (s.charCodeAt(length - 1) !== 95  /* '_' */ ||
+	        s.charCodeAt(length - 2) !== 95  /* '_' */ ||
+	        s.charCodeAt(length - 3) !== 111 /* 'o' */ ||
+	        s.charCodeAt(length - 4) !== 116 /* 't' */ ||
+	        s.charCodeAt(length - 5) !== 111 /* 'o' */ ||
+	        s.charCodeAt(length - 6) !== 114 /* 'r' */ ||
+	        s.charCodeAt(length - 7) !== 112 /* 'p' */ ||
+	        s.charCodeAt(length - 8) !== 95  /* '_' */ ||
+	        s.charCodeAt(length - 9) !== 95  /* '_' */) {
+	      return false;
+	    }
+
+	    for (var i = length - 10; i >= 0; i--) {
+	      if (s.charCodeAt(i) !== 36 /* '$' */) {
+	        return false;
+	      }
+	    }
+
+	    return true;
+	  }
+
+	  function identity (s) {
+	    return s;
+	  }
 
 	  /**
 	   * Comparator between two mappings where the original positions are compared.
@@ -61556,6 +61621,7 @@
 	 */
 	{
 	  var util = __webpack_require__(293);
+	  var has = Object.prototype.hasOwnProperty;
 
 	  /**
 	   * A data structure which is a combination of an array and a set. Adding a new
@@ -61565,7 +61631,7 @@
 	   */
 	  function ArraySet() {
 	    this._array = [];
-	    this._set = {};
+	    this._set = Object.create(null);
 	  }
 
 	  /**
@@ -61596,7 +61662,7 @@
 	   */
 	  ArraySet.prototype.add = function ArraySet_add(aStr, aAllowDuplicates) {
 	    var sStr = util.toSetString(aStr);
-	    var isDuplicate = this._set.hasOwnProperty(sStr);
+	    var isDuplicate = has.call(this._set, sStr);
 	    var idx = this._array.length;
 	    if (!isDuplicate || aAllowDuplicates) {
 	      this._array.push(aStr);
@@ -61613,7 +61679,7 @@
 	   */
 	  ArraySet.prototype.has = function ArraySet_has(aStr) {
 	    var sStr = util.toSetString(aStr);
-	    return this._set.hasOwnProperty(sStr);
+	    return has.call(this._set, sStr);
 	  };
 
 	  /**
@@ -61623,7 +61689,7 @@
 	   */
 	  ArraySet.prototype.indexOf = function ArraySet_indexOf(aStr) {
 	    var sStr = util.toSetString(aStr);
-	    if (this._set.hasOwnProperty(sStr)) {
+	    if (has.call(this._set, sStr)) {
 	      return this._set[sStr];
 	    }
 	    throw new Error('"' + aStr + '" is not in the set.');
@@ -72745,6 +72811,7 @@
 	                var node = path.node;
 	                var classBody = node.body.body;
 	                var cls = {
+	                    type: 'class',
 	                    name: getName(node),
 	                    loc: node.loc,
 	                    methods: classBody.map(function (meth) {
@@ -72770,16 +72837,9 @@
 	            {
 	                'type': 'exports', data: exports
 	            },
-	            {
-	                'type': 'classes', data: classes
-	            },
-	        ]).concat(dependencies.map(function(depList) {
-	            return {
-	                type: 'dependencies', data: depList
-	            }
-	        })).concat(
+	        ]).concat(
 	            angularMetadata
-	        ).concat(functions).concat(imports);
+	        ).concat(functions).concat(imports).concat(classes);
 	        var clone = addMetadata(file, finalMetadata);
 
 	        cb(null, clone);
@@ -88067,7 +88127,7 @@
 /* 360 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var File, Metadata, Range, addLabelDecoration, allFiles, child_process, createTextEditor, currentFile, dashboard, debug, decorations, defaultLoc, doc, editor, el, fs, getCssPreview, getFileFor, getFileForModule, getFileForRequire, getFileForSymbol, getHtmlPreview, getMetadata, labelDecorations, lastPos, lastState, lupa, path_, plugin, previewEditor, previewMarker, refresh, update1;
+	var File, Metadata, Range, React, ReactDOM, Structure, addLabelDecoration, allFiles, child_process, createTextEditor, currentFile, dashboard, debug, decorations, defaultLoc, doc, editor, el, fs, getCssPreview, getFileFor, getFileForModule, getFileForRequire, getFileForSymbol, getHtmlPreview, getMetadata, labelDecorations, lastPos, lastState, lupa, path_, plugin, previewEditor, previewMarker, refresh, update1;
 
 	debug = false;
 
@@ -88096,6 +88156,12 @@
 	getFileForRequire = __webpack_require__(363).getFileForRequire;
 
 	createTextEditor = __webpack_require__(356).createTextEditor;
+
+	Structure = __webpack_require__(364).Structure;
+
+	ReactDOM = __webpack_require__(33);
+
+	React = __webpack_require__(3);
 
 	previewMarker = null;
 
@@ -88126,7 +88192,7 @@
 	  return dashboard = aDashboard;
 	};
 
-	el.innerHTML = "<div id='lupa-editor-wrapper'></div> <div id='lupa-info'></div> <button style='display:none' id='lupa-run'>Run</button> <button id='lupa-refresh'>Refresh</button> <br> <button id='lupa-index-project'>Index project</button> (It requires lupaProject.json file.) <div id='moje' style='padding: 10px; width:240px;overflow:scroll;'>sss <br> <br> atom.workspace.addLeftPanel(item: el) </div> <style> .lupa-file, [data-line] { color: #cca; cursor: pointer; } .lupa-label { cursor: pointer; } .lupa-file { line-height: 2; } </style> <div style='margin-bottom:10px'> <div style='display:none'> <label>glob file pattern to analyze (e.g. /Users/john/my-project/src/**/*.js  ) <div><input id='lupa-project-root' type='text'></div></label> <br> </div> </div> <div style='display:none'> <input id='lupa-index-file' type='text'><br> <button id='lupa-load-index-file'>Load index file (not implemented)</button></div>";
+	el.innerHTML = "<div id='lupa-editor-wrapper'></div> <div id='lupa-info'></div> <button style='display:none' id='lupa-run'>Run</button> <button id='lupa-refresh'>Refresh</button> <br> <button id='lupa-index-project'>Index project</button> (It requires lupaProject.json file.) <div id='lupa-structure'></div> <div id='moje' style='padding: 10px; width:240px;overflow:scroll;'>sss <br> <br> atom.workspace.addLeftPanel(item: el) </div> <div style='margin-bottom:10px'> <div style='display:none'> <label>glob file pattern to analyze (e.g. /Users/john/my-project/src/**/*.js  ) <div><input id='lupa-project-root' type='text'></div></label> <br> </div> </div> <div style='display:none'> <input id='lupa-index-file' type='text'><br> <button id='lupa-load-index-file'>Load index file (not implemented)</button></div>";
 
 	decorations = [];
 
@@ -88257,7 +88323,7 @@
 
 	document.getElementById('lupa-run').addEventListener('click', function() {
 	  var result;
-	  result = __webpack_require__(364)(currentFile);
+	  result = __webpack_require__(365)(currentFile);
 	  return alert(result);
 	});
 
@@ -88312,26 +88378,10 @@
 	  el = document.getElementById('moje');
 	  print = {
 	    'imported by': function(entry) {
-	      return ("<h3 style='color:grey'>" + entry.name + "</h3>") + entry.data.map(function(importer) {
+	      console.log("EEEEEE", entry);
+	      return ("<h3 style='color:grey'>" + entry.name + "</h3>") + (entry.data || []).map(function(importer) {
 	        return "<div class='lupa-file' data-path='" + importer.path + "'> " + (path_.basename(importer.path)) + "</div>";
 	      }).join("<br>");
-	    },
-	    "function": function(entry) {
-	      return this["default"](entry);
-	    },
-	    "import": function(entry) {
-	      return ("<h3 style='color:grey'>" + entry.type + "</h3>") + ("<div> " + entry.name + " from <span class='lupa-file' data-path='" + entry.source + "'>" + entry.originalSource + "</span> </div>");
-	    },
-	    label: function(entry) {
-	      return "<span data-label='" + entry.data + "' class='lupa-label' style='display: inline-block;text-shadow: 1px 1px 2px black; color: #eee; background: #b73; padding: 4px; margin: 4px;border-radius: 4px;'> " + entry.data + " </span>";
-	    },
-	    classes: function(entry) {
-	      return ("<h3 style='color:grey'>" + entry.name + "</h3>") + entry.data.map(function(cls) {
-	        return ("<h4 data-column='" + cls.loc.start.column + "' data-column-end='" + cls.loc.end.column + "' data-line-end='" + cls.loc.end.line + "' data-line='" + cls.loc.start.line + "' >" + cls.name + "</h4>") + cls.methods.join('<br>');
-	      }).join('<br>') + '<br>';
-	    },
-	    '@mixin': function(entry) {
-	      return ("<h3 >" + entry.name + "</h3>") + ("<div data-line='" + entry.source.start.line + "'>" + entry.data + "</div>") + '<br>';
 	    },
 	    symbol: function(entry) {
 	      return ("<h3 style='color:blue'>" + entry.name + "</h3>") + entry.data.map(function(n) {
@@ -88341,26 +88391,8 @@
 	    declaration: function(entry) {
 	      return ("<h3 style='color:grey'>" + entry.name + "</h3>") + ("<div data-column='" + entry.loc.start.column + "' data-column-end='" + entry.loc.end.column + "' data-line-end='" + entry.loc.end.line + "' data-line='" + entry.loc.start.line + "' class='lupa-entry'>" + entry.data + "</div>") + '<br>';
 	    },
-	    lines: function(entry) {
-	      var color, loc;
-	      loc = entry.data[0];
-	      if (loc < 150) {
-	        color = 'green';
-	      } else if (loc < 300) {
-	        color = '#bb5';
-	      } else if (loc < 1000) {
-	        color = '#fa8';
-	      } else {
-	        color = 'red';
-	      }
-	      if (entry.data.length) {
-	        return ("<h3 style='color:grey'>" + entry.name + "</h3>") + entry.data.map(function(n) {
-	          return "<div style='color:" + color + "' class='lupa-entry'>" + n + "</div>";
-	        }).join('<br>') + '<br>';
-	      }
-	    },
 	    "default": function(entry, description) {
-	      if (entry.data && entry.data.length) {
+	      if (entry.data && entry.data.length && entry.data.map) {
 	        return ("<h3 style='color:grey'>" + entry.name + "</h3>") + entry.data.map(function(n) {
 	          return "<div data-path='" + (getFileForModule(lastState, n).path) + "' class='lupa-entry'>" + n + "</div>";
 	        }).join('<br>') + '<br>';
@@ -88384,7 +88416,7 @@
 	    if (safeToRun) {
 	      __webpack_require__.c[editor.buffer.file.path] = null;
 	      try {
-	        result = __webpack_require__(364)(editor.buffer.file.path);
+	        result = __webpack_require__(365)(editor.buffer.file.path);
 	      } catch (error) {
 	        e = error;
 	        result = e;
@@ -88420,7 +88452,8 @@
 	    importersOfModule = plugin.findImporters(moduleName);
 	    return plugin.findImporters(filename).merge(importersOfModule).toArray().subscribe((function(_this) {
 	      return function(importers) {
-	        var ext, fixture, found, html, state;
+	        var ext, fixture, found, html, metadata, state;
+	        console.log("IMPORTERS ", importers);
 	        state = {
 	          files: [f]
 	        };
@@ -88441,22 +88474,27 @@
 	        ext = path_.extname(found[0].path);
 	        if (ext === '.html') {
 	          html = getHtmlPreview(found[0]);
-	        } else {
+	        } else if (ext === '.js' || ext === '.coffee') {
 	          fixture = {
-	            name: 'imported by',
+	            type: 'imported by',
 	            data: importers
 	          };
-	          html = getMetadata(found[0]).concat(fixture).map(function(entry) {
+	          metadata = getMetadata(found[0]).concat(fixture);
+	          html = metadata.map(function(entry) {
 	            var error1, render;
 	            try {
 	              render = print[entry.type || entry.name] || print["default"];
-	              return render(entry);
+	              return render.call(print, entry);
 	            } catch (error1) {
 	              e = error1;
 	              console.error(e);
 	              return console.log('error', entry);
 	            }
 	          }).join('');
+	          ReactDOM.render(React.createElement(Structure, {
+	            metadata: metadata
+	          }), document.getElementById('lupa-structure'));
+	          return;
 	        }
 	        if (ext === '.scss' || ext === '.css') {
 	          html += getCssPreview(found[0]);
@@ -88478,8 +88516,6 @@
 	});
 
 	update1();
-
-	setInterval(refresh, 1500);
 
 
 /***/ },
@@ -88620,6 +88656,257 @@
 /* 364 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.Structure = undefined;
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _path = __webpack_require__(208);
+
+	var Path = _interopRequireWildcard(_path);
+
+	var _LineCount = __webpack_require__(355);
+
+	var _LineCount2 = _interopRequireDefault(_LineCount);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var defaultLoc = {
+	    start: { line: 0, column: 0 },
+	    end: { line: 0, column: 0 }
+	};
+
+	var Entity = function (_React$Component) {
+	    _inherits(Entity, _React$Component);
+
+	    function Entity() {
+	        _classCallCheck(this, Entity);
+
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Entity).apply(this, arguments));
+	    }
+
+	    _createClass(Entity, [{
+	        key: 'render',
+	        value: function render() {
+	            var props = this.props;
+	            var entity = props.entity;
+	            var type = entity.type;
+	            var C = components.hasOwnProperty(type) ? components[type] : EntityName;
+
+	            return _react2.default.createElement(C, { entity: props.entity });
+	        }
+	    }]);
+
+	    return Entity;
+	}(_react2.default.Component);
+
+	var Class = function (_React$Component2) {
+	    _inherits(Class, _React$Component2);
+
+	    function Class() {
+	        _classCallCheck(this, Class);
+
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Class).apply(this, arguments));
+	    }
+
+	    _createClass(Class, [{
+	        key: 'render',
+	        value: function render() {
+	            var entity = this.props.entity;
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement(EntityName, { entity: entity }),
+	                entity.methods.map(function (meth) {
+	                    return _react2.default.createElement(
+	                        'div',
+	                        null,
+	                        meth
+	                    );
+	                })
+	            );
+	        }
+	    }]);
+
+	    return Class;
+	}(_react2.default.Component);
+
+	function Import(_ref) {
+	    var entity = _ref.entity;
+
+	    return _react2.default.createElement(
+	        'div',
+	        null,
+	        entity.name,
+	        ' from',
+	        _react2.default.createElement(
+	            'span',
+	            { className: 'lupa-file', 'data-path': entity.source },
+	            ' ',
+	            entity.originalSource
+	        )
+	    );
+	}
+
+	function Lines(_ref2) {
+	    var entity = _ref2.entity;
+
+	    var loc = entity.data[0];
+	    return _react2.default.createElement(_LineCount2.default, { lines: loc });
+	}
+
+	var components = {
+	    class: Class,
+	    import: Import,
+	    lines: Lines,
+	    label: Ignored,
+	    rnd: Ignored,
+	    providesModule: Ignored,
+	    'imported by': ImportedBy
+
+	};
+
+	function ImportedBy(_ref3) {
+	    var entity = _ref3.entity;
+
+	    return _react2.default.createElement(
+	        'div',
+	        null,
+	        entity.data.map(function (file) {
+	            return _react2.default.createElement(
+	                'div',
+	                {
+	                    className: 'lupa-file',
+	                    'data-path': file.path },
+	                Path.basename(file.path)
+	            );
+	        })
+	    );
+	}
+	function Ignored() {
+	    return _react2.default.createElement('span', null);
+	}
+
+	function Label(_ref4) {
+	    var entity = _ref4.entity;
+
+	    return _react2.default.createElement(
+	        'span',
+	        {
+	            'data-label': entity.data,
+	            className: 'lupa-label',
+	            style: { display: 'inline-block', textShadow: '1px 1px 2px black',
+	                color: '#eee', background: '#b73',
+	                padding: 4, margin: 4, 'borderRadius': 4 } },
+	        entity.data,
+	        ' '
+	    );
+	}
+
+	function EntityName(_ref5) {
+	    var entity = _ref5.entity;
+
+	    var loc = entity.loc || defaultLoc;
+	    return _react2.default.createElement(
+	        'div',
+	        { className: 'lupa-entity-name' },
+	        _react2.default.createElement(
+	            'span',
+	            {
+	                'data-column': loc.start.column,
+	                'data-column-end': loc.end.column,
+	                'data-line-end': loc.end.line,
+	                'data-line': loc.start.line
+	            },
+	            entity.name
+	        )
+	    );
+	}
+
+	function split(filter, arr) {
+	    var yes = [],
+	        no = [];
+	    for (var i = 0, len = arr.length; i < len; i++) {
+	        var item = arr[i];
+	        filter(item) ? yes.push(item) : no.push(item);
+	    }
+	    return [yes, no];
+	}
+	var ignored = ['rnd'];
+
+	var Structure = exports.Structure = function (_React$Component3) {
+	    _inherits(Structure, _React$Component3);
+
+	    function Structure() {
+	        _classCallCheck(this, Structure);
+
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Structure).apply(this, arguments));
+	    }
+
+	    _createClass(Structure, [{
+	        key: 'renderMetadata',
+	        value: function renderMetadata(item) {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'lupa-entity' },
+	                _react2.default.createElement(
+	                    'h3',
+	                    { className: 'lupa-entity-type' },
+	                    item.type
+	                ),
+	                _react2.default.createElement(Entity, { entity: item })
+	            );
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var arrays = split(function (item) {
+	                return item.type == 'label';
+	            }, this.props.metadata);
+	            var labels = arrays[0];
+	            var metadata = arrays[1].filter(function (item) {
+	                return ignored.indexOf(item.type) == -1;
+	            });
+
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement(
+	                    'div',
+	                    { style: { width: 300 } },
+	                    labels.map(function (label) {
+	                        return _react2.default.createElement(Label, { entity: label });
+	                    })
+	                ),
+	                metadata.map(this.renderMetadata)
+	            );
+	        }
+	    }]);
+
+	    return Structure;
+	}(_react2.default.Component);
+	//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxpYi9jb21wb25lbnRzL1N0cnVjdHVyZS5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7QUFBQTs7OztBQUNBOztJQUFZLEk7O0FBQ1o7Ozs7Ozs7Ozs7Ozs7O0FBRUEsSUFBTSxhQUFhO0FBQ2YsV0FBTyxFQUFDLE1BQUssQ0FBTixFQUFTLFFBQU8sQ0FBaEIsRUFEUTtBQUVmLFNBQUssRUFBQyxNQUFLLENBQU4sRUFBUyxRQUFPLENBQWhCO0FBRlUsQ0FBbkI7O0lBS00sTTs7Ozs7Ozs7Ozs7aUNBQ087QUFDTCxnQkFBTSxRQUFRLEtBQUssS0FBbkI7QUFDQSxnQkFBTSxTQUFTLE1BQU0sTUFBckI7QUFDQSxnQkFBTSxPQUFPLE9BQU8sSUFBcEI7QUFDQSxnQkFBTSxJQUFJLFdBQVcsY0FBWCxDQUEwQixJQUExQixJQUFpQyxXQUFXLElBQVgsQ0FBakMsR0FBb0QsVUFBOUQ7O0FBRUEsbUJBQU8sOEJBQUMsQ0FBRCxJQUFHLFFBQVEsTUFBTSxNQUFqQixHQUFQO0FBQ0g7Ozs7RUFSZ0IsZ0JBQU0sUzs7SUFZckIsSzs7Ozs7Ozs7Ozs7aUNBQ087QUFDTCxnQkFBTSxTQUFTLEtBQUssS0FBTCxDQUFXLE1BQTFCO0FBQ0EsbUJBQU87QUFBQTtnQkFBQTtnQkFDSCw4QkFBQyxVQUFELElBQVksUUFBUSxNQUFwQixHQURHO2dCQUdDLE9BQU8sT0FBUCxDQUFlLEdBQWYsQ0FBbUI7QUFBQSwyQkFBUTtBQUFBO3dCQUFBO3dCQUFNO0FBQU4scUJBQVI7QUFBQSxpQkFBbkI7QUFIRCxhQUFQO0FBTUg7Ozs7RUFUZSxnQkFBTSxTOztBQVkxQixTQUFTLE1BQVQsT0FBMEI7QUFBQSxRQUFULE1BQVMsUUFBVCxNQUFTOztBQUN0QixXQUFPO0FBQUE7UUFBQTtRQUFNLE9BQU8sSUFBYjtRQUFBO1FBQ0g7QUFBQTtZQUFBLEVBQU0sV0FBVSxXQUFoQixFQUE0QixhQUFXLE9BQU8sTUFBOUM7WUFBQTtZQUF3RCxPQUFPO0FBQS9EO0FBREcsS0FBUDtBQUdIOztBQUVELFNBQVMsS0FBVCxRQUF5QjtBQUFBLFFBQVQsTUFBUyxTQUFULE1BQVM7O0FBQ3JCLFFBQU0sTUFBTSxPQUFPLElBQVAsQ0FBWSxDQUFaLENBQVo7QUFDQSxXQUFPLHFEQUFXLE9BQU8sR0FBbEIsR0FBUDtBQUNIOztBQUdELElBQUksYUFBYTtBQUNiLFdBQU8sS0FETTtBQUViLFlBQVEsTUFGSztBQUdiLFdBQU8sS0FITTtBQUliLFdBQU8sT0FKTTtBQUtiLFNBQUssT0FMUTtBQU1iLG9CQUFnQixPQU5IO0FBT2IsbUJBQWU7O0FBUEYsQ0FBakI7O0FBV0EsU0FBUyxVQUFULFFBQThCO0FBQUEsUUFBVCxNQUFTLFNBQVQsTUFBUzs7QUFDMUIsV0FBTztBQUFBO1FBQUE7UUFFQyxPQUFPLElBQVAsQ0FBWSxHQUFaLENBQWdCO0FBQUEsbUJBQVE7QUFBQTtnQkFBQTtBQUNwQiwrQkFBVSxXQURVO0FBRXBCLGlDQUFXLEtBQUssSUFGSTtnQkFHZixLQUFLLFFBQUwsQ0FBYyxLQUFLLElBQW5CO0FBSGUsYUFBUjtBQUFBLFNBQWhCO0FBRkQsS0FBUDtBQVVIO0FBQ0QsU0FBUyxPQUFULEdBQW1CO0FBQ2YsV0FBTywyQ0FBUDtBQUNIOztBQUVELFNBQVMsS0FBVCxRQUF5QjtBQUFBLFFBQVQsTUFBUyxTQUFULE1BQVM7O0FBQ3JCLFdBQU87QUFBQTtRQUFBO0FBQ0gsMEJBQVksT0FBTyxJQURoQjtBQUVILHVCQUFVLFlBRlA7QUFHSCxtQkFBTyxFQUFDLFNBQVMsY0FBVixFQUEwQixZQUFZLG1CQUF0QztBQUNDLHVCQUFPLE1BRFIsRUFDZ0IsWUFBWSxNQUQ1QjtBQUVDLHlCQUFTLENBRlYsRUFFYSxRQUFRLENBRnJCLEVBRXdCLGdCQUFnQixDQUZ4QyxFQUhKO1FBTUwsT0FBTyxJQU5GO1FBQUE7QUFBQSxLQUFQO0FBU0g7O0FBRUQsU0FBUyxVQUFULFFBQThCO0FBQUEsUUFBVCxNQUFTLFNBQVQsTUFBUzs7QUFDMUIsUUFBTSxNQUFNLE9BQU8sR0FBUCxJQUFjLFVBQTFCO0FBQ0EsV0FBTztBQUFBO1FBQUEsRUFBSyxXQUFVLGtCQUFmO1FBQWtDO0FBQUE7WUFBQTtBQUNyQywrQkFBYSxJQUFJLEtBQUosQ0FBVSxNQURjO0FBRXJDLG1DQUFpQixJQUFJLEdBQUosQ0FBUSxNQUZZO0FBR3JDLGlDQUFlLElBQUksR0FBSixDQUFRLElBSGM7QUFJckMsNkJBQVcsSUFBSSxLQUFKLENBQVU7QUFKZ0I7WUFLdkMsT0FBTztBQUxnQztBQUFsQyxLQUFQO0FBTUg7O0FBRUQsU0FBUyxLQUFULENBQWUsTUFBZixFQUF1QixHQUF2QixFQUE0QjtBQUN4QixRQUFJLE1BQU0sRUFBVjtRQUFjLEtBQUssRUFBbkI7QUFDQSxTQUFLLElBQUksSUFBSSxDQUFSLEVBQVcsTUFBTSxJQUFJLE1BQTFCLEVBQWtDLElBQUksR0FBdEMsRUFBMkMsR0FBM0MsRUFBZ0Q7QUFDNUMsWUFBTSxPQUFPLElBQUksQ0FBSixDQUFiO0FBQ0EsZUFBTyxJQUFQLElBQWMsSUFBSSxJQUFKLENBQVMsSUFBVCxDQUFkLEdBQStCLEdBQUcsSUFBSCxDQUFRLElBQVIsQ0FBL0I7QUFDSDtBQUNELFdBQU8sQ0FBQyxHQUFELEVBQU0sRUFBTixDQUFQO0FBQ0g7QUFDRCxJQUFJLFVBQVUsQ0FBQyxLQUFELENBQWQ7O0lBQ2EsUyxXQUFBLFM7Ozs7Ozs7Ozs7O3VDQUNNLEksRUFBTTtBQUNqQixtQkFBTztBQUFBO2dCQUFBLEVBQUssV0FBVSxhQUFmO2dCQUNIO0FBQUE7b0JBQUEsRUFBSSxXQUFVLGtCQUFkO29CQUFrQyxLQUFLO0FBQXZDLGlCQURHO2dCQUVILDhCQUFDLE1BQUQsSUFBUSxRQUFRLElBQWhCO0FBRkcsYUFBUDtBQUtIOzs7aUNBQ1E7QUFDTCxnQkFBTSxTQUFTLE1BQU07QUFBQSx1QkFBUSxLQUFLLElBQUwsSUFBYSxPQUFyQjtBQUFBLGFBQU4sRUFBb0MsS0FBSyxLQUFMLENBQVcsUUFBL0MsQ0FBZjtBQUNBLGdCQUFNLFNBQVMsT0FBTyxDQUFQLENBQWY7QUFDQSxnQkFBTSxXQUFXLE9BQU8sQ0FBUCxFQUFVLE1BQVYsQ0FBaUI7QUFBQSx1QkFBUSxRQUFRLE9BQVIsQ0FBZ0IsS0FBSyxJQUFyQixLQUE4QixDQUFDLENBQXZDO0FBQUEsYUFBakIsQ0FBakI7O0FBRUEsbUJBQU87QUFBQTtnQkFBQTtnQkFDSDtBQUFBO29CQUFBLEVBQUssT0FBTyxFQUFDLE9BQU8sR0FBUixFQUFaO29CQUVJLE9BQU8sR0FBUCxDQUFXO0FBQUEsK0JBQVMsOEJBQUMsS0FBRCxJQUFPLFFBQVEsS0FBZixHQUFUO0FBQUEscUJBQVg7QUFGSixpQkFERztnQkFPQyxTQUFTLEdBQVQsQ0FBYSxLQUFLLGNBQWxCO0FBUEQsYUFBUDtBQVVIOzs7O0VBdkIwQixnQkFBTSxTIiwiZmlsZSI6IlN0cnVjdHVyZS5qcyIsInNvdXJjZVJvb3QiOiIvVXNlcnMvbHVrYXN6L2F0b20tbHVwYSIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBSZWFjdCBmcm9tICdyZWFjdCc7XG5pbXBvcnQgKiBhcyBQYXRoIGZyb20gJ3BhdGgnO1xuaW1wb3J0IExpbmVDb3VudCBmcm9tICcuL0xpbmVDb3VudCc7XG5cbmNvbnN0IGRlZmF1bHRMb2MgPSB7XG4gICAgc3RhcnQ6IHtsaW5lOjAsIGNvbHVtbjowfSxcbiAgICBlbmQ6IHtsaW5lOjAsIGNvbHVtbjowfSxcbn07XG5cbmNsYXNzIEVudGl0eSBleHRlbmRzIFJlYWN0LkNvbXBvbmVudCB7XG4gICAgcmVuZGVyKCkge1xuICAgICAgICBjb25zdCBwcm9wcyA9IHRoaXMucHJvcHM7XG4gICAgICAgIGNvbnN0IGVudGl0eSA9IHByb3BzLmVudGl0eTtcbiAgICAgICAgY29uc3QgdHlwZSA9IGVudGl0eS50eXBlO1xuICAgICAgICBjb25zdCBDID0gY29tcG9uZW50cy5oYXNPd25Qcm9wZXJ0eSh0eXBlKT8gY29tcG9uZW50c1t0eXBlXSA6IEVudGl0eU5hbWU7XG5cbiAgICAgICAgcmV0dXJuIDxDIGVudGl0eT17cHJvcHMuZW50aXR5fSAvPjtcbiAgICB9XG59XG5cblxuY2xhc3MgQ2xhc3MgZXh0ZW5kcyBSZWFjdC5Db21wb25lbnQge1xuICAgIHJlbmRlcigpIHtcbiAgICAgICAgY29uc3QgZW50aXR5ID0gdGhpcy5wcm9wcy5lbnRpdHk7XG4gICAgICAgIHJldHVybiA8ZGl2PlxuICAgICAgICAgICAgPEVudGl0eU5hbWUgZW50aXR5PXtlbnRpdHl9IC8+XG4gICAgICAgICAgICB7XG4gICAgICAgICAgICAgICAgZW50aXR5Lm1ldGhvZHMubWFwKG1ldGggPT4gPGRpdj57bWV0aH08L2Rpdj4pXG4gICAgICAgICAgICB9XG4gICAgICAgIDwvZGl2PjtcbiAgICB9XG59XG5cbmZ1bmN0aW9uIEltcG9ydCh7ZW50aXR5fSkge1xuICAgIHJldHVybiA8ZGl2PntlbnRpdHkubmFtZX0gZnJvbVxuICAgICAgICA8c3BhbiBjbGFzc05hbWU9J2x1cGEtZmlsZScgZGF0YS1wYXRoPXtlbnRpdHkuc291cmNlfT4ge2VudGl0eS5vcmlnaW5hbFNvdXJjZX08L3NwYW4+XG4gICAgPC9kaXY+O1xufVxuXG5mdW5jdGlvbiBMaW5lcyh7ZW50aXR5fSkge1xuICAgIGNvbnN0IGxvYyA9IGVudGl0eS5kYXRhWzBdO1xuICAgIHJldHVybiA8TGluZUNvdW50IGxpbmVzPXtsb2N9IC8+XG59XG5cblxudmFyIGNvbXBvbmVudHMgPSB7XG4gICAgY2xhc3M6IENsYXNzLFxuICAgIGltcG9ydDogSW1wb3J0LFxuICAgIGxpbmVzOiBMaW5lcyxcbiAgICBsYWJlbDogSWdub3JlZCxcbiAgICBybmQ6IElnbm9yZWQsXG4gICAgcHJvdmlkZXNNb2R1bGU6IElnbm9yZWQsXG4gICAgJ2ltcG9ydGVkIGJ5JzogSW1wb3J0ZWRCeVxuXG59O1xuXG5mdW5jdGlvbiBJbXBvcnRlZEJ5KHtlbnRpdHl9KSB7XG4gICAgcmV0dXJuIDxkaXY+XG4gICAgICAgIHtcbiAgICAgICAgICAgIGVudGl0eS5kYXRhLm1hcChmaWxlID0+IDxkaXZcbiAgICAgICAgICAgICAgICBjbGFzc05hbWU9J2x1cGEtZmlsZSdcbiAgICAgICAgICAgICAgICBkYXRhLXBhdGg9e2ZpbGUucGF0aH0+XG4gICAgICAgICAgICAgICAgICAgIHtQYXRoLmJhc2VuYW1lKGZpbGUucGF0aCl9XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIClcbiAgICAgICAgfVxuICAgIDwvZGl2PlxufVxuZnVuY3Rpb24gSWdub3JlZCgpIHtcbiAgICByZXR1cm4gPHNwYW4+PC9zcGFuPlxufVxuXG5mdW5jdGlvbiBMYWJlbCh7ZW50aXR5fSkge1xuICAgIHJldHVybiA8c3BhblxuICAgICAgICBkYXRhLWxhYmVsPXtlbnRpdHkuZGF0YX1cbiAgICAgICAgY2xhc3NOYW1lPSdsdXBhLWxhYmVsJ1xuICAgICAgICBzdHlsZT17e2Rpc3BsYXk6ICdpbmxpbmUtYmxvY2snLCB0ZXh0U2hhZG93OiAnMXB4IDFweCAycHggYmxhY2snLFxuICAgICAgICAgICAgICAgIGNvbG9yOiAnI2VlZScsIGJhY2tncm91bmQ6ICcjYjczJyxcbiAgICAgICAgICAgICAgICBwYWRkaW5nOiA0LCBtYXJnaW46IDQsICdib3JkZXJSYWRpdXMnOiA0fX0+XG4gICAgIHtlbnRpdHkuZGF0YX0gPC9zcGFuPjtcblxuXG59XG5cbmZ1bmN0aW9uIEVudGl0eU5hbWUoe2VudGl0eX0pIHtcbiAgICBjb25zdCBsb2MgPSBlbnRpdHkubG9jIHx8IGRlZmF1bHRMb2M7XG4gICAgcmV0dXJuIDxkaXYgY2xhc3NOYW1lPVwibHVwYS1lbnRpdHktbmFtZVwiPjxzcGFuXG4gICAgICAgIGRhdGEtY29sdW1uPXtsb2Muc3RhcnQuY29sdW1ufVxuICAgICAgICBkYXRhLWNvbHVtbi1lbmQ9e2xvYy5lbmQuY29sdW1ufVxuICAgICAgICBkYXRhLWxpbmUtZW5kPXtsb2MuZW5kLmxpbmV9XG4gICAgICAgIGRhdGEtbGluZT17bG9jLnN0YXJ0LmxpbmV9XG4gICAgPntlbnRpdHkubmFtZX08L3NwYW4+PC9kaXY+XG59XG5cbmZ1bmN0aW9uIHNwbGl0KGZpbHRlciwgYXJyKSB7XG4gICAgdmFyIHllcyA9IFtdLCBubyA9IFtdO1xuICAgIGZvciAodmFyIGkgPSAwLCBsZW4gPSBhcnIubGVuZ3RoOyBpIDwgbGVuOyBpKyspIHtcbiAgICAgICAgY29uc3QgaXRlbSA9IGFycltpXTtcbiAgICAgICAgZmlsdGVyKGl0ZW0pPyB5ZXMucHVzaChpdGVtKSA6IG5vLnB1c2goaXRlbSk7XG4gICAgfVxuICAgIHJldHVybiBbeWVzLCBub107XG59XG52YXIgaWdub3JlZCA9IFsncm5kJ107XG5leHBvcnQgY2xhc3MgU3RydWN0dXJlIGV4dGVuZHMgUmVhY3QuQ29tcG9uZW50IHtcbiAgICByZW5kZXJNZXRhZGF0YShpdGVtKSB7XG4gICAgICAgIHJldHVybiA8ZGl2IGNsYXNzTmFtZT1cImx1cGEtZW50aXR5XCI+XG4gICAgICAgICAgICA8aDMgY2xhc3NOYW1lPVwibHVwYS1lbnRpdHktdHlwZVwiPntpdGVtLnR5cGV9PC9oMz5cbiAgICAgICAgICAgIDxFbnRpdHkgZW50aXR5PXtpdGVtfS8+XG4gICAgICAgIDwvZGl2PjtcblxuICAgIH1cbiAgICByZW5kZXIoKSB7XG4gICAgICAgIGNvbnN0IGFycmF5cyA9IHNwbGl0KGl0ZW0gPT4gaXRlbS50eXBlID09ICdsYWJlbCcsIHRoaXMucHJvcHMubWV0YWRhdGEpO1xuICAgICAgICBjb25zdCBsYWJlbHMgPSBhcnJheXNbMF07XG4gICAgICAgIGNvbnN0IG1ldGFkYXRhID0gYXJyYXlzWzFdLmZpbHRlcihpdGVtID0+IGlnbm9yZWQuaW5kZXhPZihpdGVtLnR5cGUpID09IC0xKTtcblxuICAgICAgICByZXR1cm4gPGRpdj5cbiAgICAgICAgICAgIDxkaXYgc3R5bGU9e3t3aWR0aDogMzAwfX0+XG4gICAgICAgICAgICB7XG4gICAgICAgICAgICAgICAgbGFiZWxzLm1hcChsYWJlbCA9PiA8TGFiZWwgZW50aXR5PXtsYWJlbH0gLz4pXG4gICAgICAgICAgICB9XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIHtcbiAgICAgICAgICAgICAgICBtZXRhZGF0YS5tYXAodGhpcy5yZW5kZXJNZXRhZGF0YSlcbiAgICAgICAgICAgIH1cbiAgICAgICAgPC9kaXY+O1xuICAgIH1cbn1cbiJdfQ==
+
+/***/ },
+/* 365 */
+/***/ function(module, exports, __webpack_require__) {
+
 	var map = {
 		"./atom-lupa": 1,
 		"./atom-lupa-view": 2,
@@ -88631,6 +88918,8 @@
 		"./components/LineCount.js": 355,
 		"./components/ProjectExplorer": 358,
 		"./components/ProjectExplorer.js": 358,
+		"./components/Structure": 364,
+		"./components/Structure.js": 364,
 		"./editor": 356,
 		"./editor.js": 356,
 		"./getEntitiesByType": 359,
@@ -88639,14 +88928,14 @@
 		"./getFileFor.js": 363,
 		"./init": 360,
 		"./init.coffee": 360,
-		"./parsers": 365,
-		"./parsers.js": 365,
-		"./plugin": 366,
-		"./plugin.js": 366,
+		"./parsers": 366,
+		"./parsers.js": 366,
+		"./plugin": 367,
+		"./plugin.js": 367,
 		"./preview": 361,
 		"./preview.js": 361,
-		"./worker": 367,
-		"./worker.js": 367
+		"./worker": 368,
+		"./worker.js": 368
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -88659,11 +88948,11 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 364;
+	webpackContext.id = 365;
 
 
 /***/ },
-/* 365 */
+/* 366 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -88694,7 +88983,7 @@
 	//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxpYi9wYXJzZXJzLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsSUFBSSxPQUFPLFFBQVEsTUFBUixDQUFYOztBQUVBLElBQUksWUFBWSxRQUFRLGNBQVIsRUFBd0IsU0FBeEM7O0FBRUEsSUFBSSxVQUFVO0FBQ1YsV0FBTyxRQUFRLGFBQVIsQ0FERztBQUVWLGFBQVM7QUFDTCxlQUFPLGVBQVUsSUFBVixFQUFnQjtBQUNuQixnQkFBSSxNQUFNLFVBQVUsSUFBVixDQUFWO0FBQ0EsbUJBQU8sR0FBUDtBQUNIO0FBSkk7QUFGQyxDQUFkOztBQVVBLFNBQVMsWUFBVCxDQUFzQixJQUF0QixFQUE0QjtBQUN4QixRQUFJLE1BQU0sS0FBSyxPQUFMLENBQWEsSUFBYixDQUFWO0FBQ0EsWUFBUSxHQUFSLENBQVksR0FBWjtBQUNBLFFBQUksUUFBUSxjQUFSLENBQXVCLEdBQXZCLENBQUosRUFBaUM7QUFDN0IsZUFBTyxRQUFRLEdBQVIsQ0FBUDtBQUNIO0FBQ0o7O0FBRUQsT0FBTyxPQUFQLEdBQWlCLFlBQWpCIiwiZmlsZSI6InBhcnNlcnMuanMiLCJzb3VyY2VSb290IjoiL1VzZXJzL2x1a2Fzei9hdG9tLWx1cGEiLCJzb3VyY2VzQ29udGVudCI6WyJ2YXIgUGF0aCA9IHJlcXVpcmUoJ3BhdGgnKTtcblxudmFyIHBhcnNlSHRtbCA9IHJlcXVpcmUoJ2h0bWwtZmxhdm9ycycpLnBhcnNlSHRtbDtcblxudmFyIHBhcnNlcnMgPSB7XG4gICAgJy5qcyc6IHJlcXVpcmUoJ2Zsb3ctcGFyc2VyJyksXG4gICAgJy5odG1sJzoge1xuICAgICAgICBwYXJzZTogZnVuY3Rpb24gKGNvZGUpIHtcbiAgICAgICAgICAgIHZhciBhc3QgPSBwYXJzZUh0bWwoY29kZSk7XG4gICAgICAgICAgICByZXR1cm4gYXN0O1xuICAgICAgICB9XG4gICAgfVxufTtcblxuZnVuY3Rpb24gY3JlYXRlUGFyc2VyKHBhdGgpIHtcbiAgICB2YXIgZXh0ID0gUGF0aC5leHRuYW1lKHBhdGgpO1xuICAgIGNvbnNvbGUubG9nKGV4dClcbiAgICBpZiAocGFyc2Vycy5oYXNPd25Qcm9wZXJ0eShleHQpKSB7XG4gICAgICAgIHJldHVybiBwYXJzZXJzW2V4dF07XG4gICAgfVxufVxuXG5tb2R1bGUuZXhwb3J0cyA9IGNyZWF0ZVBhcnNlcjtcbiJdfQ==
 
 /***/ },
-/* 366 */
+/* 367 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -88726,7 +89015,7 @@
 	//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxpYi9wbHVnaW4uanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxRQUFRLEVBQVIsQ0FBVyxtQkFBWCxFQUFnQyxVQUFVLElBQVYsRUFBZ0I7QUFDNUMsWUFBUSxHQUFSLENBQVksT0FBWixFQUFxQixJQUFyQjtBQUNBLFlBQVEsSUFBUixDQUFhLEVBQUMsT0FBTyxJQUFSLEVBQWI7O0FBRUgsQ0FKRDs7QUFPQSxRQUFRLEVBQVIsQ0FBVyxTQUFYLEVBQXNCLFVBQVUsR0FBVixFQUFlO0FBQ2pDLFlBQVEsR0FBUixDQUFZLHFCQUFaLEVBQW1DLEdBQW5DOztBQUVBLFFBQUksSUFBSSxJQUFKLElBQVksU0FBaEIsRUFBMkI7QUFDdkIsZUFBTyxPQUFQLENBQWUsT0FBZixDQUF1QixJQUFJLElBQTNCLEVBQWlDLFVBQVUsS0FBVixFQUFpQjtBQUM5QyxvQkFBUSxHQUFSLENBQVksa0JBQVo7QUFDQSxvQkFBUSxJQUFSLENBQWEsS0FBYjtBQUNILFNBSEQ7QUFJSDs7QUFFRCxRQUFJLElBQUksSUFBSixJQUFZLGVBQWhCLEVBQWlDO0FBQzdCLFlBQUksT0FBTyxHQUFHLFlBQUgsQ0FBZ0IsSUFBSSxJQUFwQixFQUEwQixNQUExQixDQUFYO0FBQ0EsWUFBSSxRQUFRLEtBQUssS0FBTCxDQUFXLElBQVgsQ0FBWjtBQUNBLGFBQUssSUFBTCxDQUFVLEtBQVY7QUFDSDtBQUNKLENBZkQ7O0FBaUJBLE9BQU8sT0FBUCxHQUFpQixFQUFqQiIsImZpbGUiOiJwbHVnaW4uanMiLCJzb3VyY2VSb290IjoiL1VzZXJzL2x1a2Fzei9hdG9tLWx1cGEiLCJzb3VyY2VzQ29udGVudCI6WyJwcm9jZXNzLm9uKCd1bmNhdWdodEV4Y2VwdGlvbicsIGZ1bmN0aW9uIChkYXRhKSB7XG4gICAgY29uc29sZS5sb2coXCJFUlJPUlwiLCBkYXRhKTtcbiAgICBwcm9jZXNzLnNlbmQoe2Vycm9yOiBkYXRhfSk7XG4gICAgLy9jb25zb2xlLmxvZyhcImdvdCB1bmNhdWdodEV4Y2VwdGlvblwiLCBhcmd1bWVudHMpO1xufSk7XG5cblxucHJvY2Vzcy5vbignbWVzc2FnZScsIGZ1bmN0aW9uIChtc2cpIHtcbiAgICBjb25zb2xlLmxvZyhcInBsdWdpbiwgZ290IG1lc3NhZ2VcIiwgbXNnKTtcblxuICAgIGlmIChtc2cudHlwZSA9PSAnYW5hbHl6ZScpIHtcbiAgICAgICAgbW9kdWxlLmV4cG9ydHMuYW5hbHl6ZShtc2cucGF0aCwgZnVuY3Rpb24gKHN0YXRlKSB7XG4gICAgICAgICAgICBjb25zb2xlLmxvZyhcInBsdWdpbiwgYW5hbHl6ZWRcIik7XG4gICAgICAgICAgICBwcm9jZXNzLnNlbmQoc3RhdGUpO1xuICAgICAgICB9KTtcbiAgICB9XG5cbiAgICBpZiAobXNnLnR5cGUgPT0gJ2xvYWRJbmRleEZpbGUnKSB7XG4gICAgICAgIHZhciBqc29uID0gZnMucmVhZEZpbGVTeW5jKG1zZy5wYXRoLCAndXRmOCcpO1xuICAgICAgICB2YXIgc3RhdGUgPSBKU09OLnBhcnNlKGpzb24pO1xuICAgICAgICBsdXBhLmxvYWQoc3RhdGUpO1xuICAgIH1cbn0pO1xuXG5tb2R1bGUuZXhwb3J0cyA9IHtcblxufVxuIl19
 
 /***/ },
-/* 367 */
+/* 368 */
 /***/ function(module, exports) {
 
 	'use strict';

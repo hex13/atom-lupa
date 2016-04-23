@@ -28,6 +28,9 @@ getFileForModule = require('./getFileFor').getFileForModule
 getFileForSymbol = require('./getFileFor').getFileForSymbol
 getFileForRequire = require('./getFileFor').getFileForRequire
 createTextEditor = require('./editor.js').createTextEditor
+{Structure} = require './components/Structure'
+ReactDOM = require('react-dom')
+React = require('react')
 previewMarker = null
 fs = require 'fs'
 path_ = require 'path'
@@ -56,28 +59,13 @@ el.innerHTML = "
 <br>
 <button id='lupa-index-project'>Index project</button>
 (It requires lupaProject.json file.)
-
+<div id='lupa-structure'></div>
 <div id='moje'
     style='padding: 10px; width:240px;overflow:scroll;'>sss <br> <br>
 atom.workspace.addLeftPanel(item: el)
 
 
 </div>
-<style>
-.lupa-file, [data-line] {
-    color: #cca;
-    cursor: pointer;
-}
-
-.lupa-label {
-    cursor: pointer;
-}
-
-.lupa-file {
-    line-height: 2;
-}
-
-</style>
 <div style='margin-bottom:10px'>
     <div style='display:none'>
         <label>glob file pattern to analyze (e.g. /Users/john/my-project/src/**/*.js  )
@@ -257,39 +245,38 @@ update1 = ->
 
     print = {
         'imported by': (entry) ->
+            console.log("EEEEEE", entry)
             "<h3 style='color:grey'>#{entry.name}</h3>" +
-            entry.data.map (importer) ->
+            (entry.data || []).map (importer) ->
                 "<div class='lupa-file' data-path='#{importer.path}'> #{path_.basename(importer.path)}</div>"
             .join("<br>")
-        function: (entry) ->
-            this.default(entry)
-        import: (entry) ->
-            "<h3 style='color:grey'>#{entry.type}</h3>" +
-                "<div> #{entry.name} from
-                <span class='lupa-file' data-path='#{entry.source}'>#{entry.originalSource}</span>
-                </div>"
-        label: (entry) ->
-            "<span
-                data-label='#{entry.data}'
-                class='lupa-label'
-                style='display: inline-block;text-shadow: 1px 1px 2px black; color: #eee; background: #b73; padding: 4px; margin: 4px;border-radius: 4px;'>
-             #{entry.data} </span>"
+        # import: (entry) ->
+        #     "<h3 style='color:grey'>#{entry.type}</h3>" +
+        #         "<div> #{entry.name} from
+        #         <span class='lupa-file' data-path='#{entry.source}'>#{entry.originalSource}</span>
+        #         </div>"
+        # label: (entry) ->
+        #     "<span
+        #         data-label='#{entry.data}'
+        #         class='lupa-label'
+        #         style='display: inline-block;text-shadow: 1px 1px 2px black; color: #eee; background: #b73; padding: 4px; margin: 4px;border-radius: 4px;'>
+        #      #{entry.data} </span>"
 
 
-        class: (entry) ->
-            cls = entry
-            cls.loc = cls.loc || defaultLoc
-            "<h4
-            data-column='#{cls.loc.start.column}'
-            data-column-end='#{cls.loc.end.column}'
-            data-line-end='#{cls.loc.end.line}'
-            data-line='#{cls.loc.start.line}'
-            >class #{cls.name}</h4>" + cls.methods.join('<br>')
-        '@mixin': (entry) ->
-            "<h3 >#{entry.name}</h3>" +
-                    "<div data-line='#{entry.source.start.line}'>#{entry.data}</div>" +
-                '<br>'
-
+        # class: (entry) ->
+        #     cls = entry
+        #     cls.loc = cls.loc || defaultLoc
+        #     "<h4
+        #     data-column='#{cls.loc.start.column}'
+        #     data-column-end='#{cls.loc.end.column}'
+        #     data-line-end='#{cls.loc.end.line}'
+        #     data-line='#{cls.loc.start.line}'
+        #     >class #{cls.name}</h4>" + cls.methods.join('<br>')
+        # '@mixin': (entry) ->
+        #     "<h3 >#{entry.name}</h3>" +
+        #             "<div data-line='#{entry.source.start.line}'>#{entry.data}</div>" +
+        #         '<br>'
+        #
         symbol: (entry) ->
             "<h3 style='color:blue'>#{entry.name}</h3>" +
                 entry.data.map(
@@ -305,24 +292,24 @@ update1 = ->
                         data-line-end='#{entry.loc.end.line}'
                         data-line='#{entry.loc.start.line}' class='lupa-entry'>#{entry.data}</div>" +
                 '<br>'
-        lines: (entry) ->
-            loc = entry.data[0]
-            if loc < 150
-                color = 'green'
-            else if loc < 300
-                color = '#bb5'
-            else if loc < 1000
-                color = '#fa8'
-            else
-                color = 'red'
-            if entry.data.length
-                "<h3 style='color:grey'>#{entry.name}</h3>" +
-                    entry.data.map(
-                        (n) -> "<div style='color:#{color}' class='lupa-entry'>#{n}</div>"
-                    ).join('<br>') +
-                    '<br>'
+        # lines: (entry) ->
+        #     loc = entry.data[0]
+        #     if loc < 150
+        #         color = 'green'
+        #     else if loc < 300
+        #         color = '#bb5'
+        #     else if loc < 1000
+        #         color = '#fa8'
+        #     else
+        #         color = 'red'
+        #     if entry.data.length
+        #         "<h3 style='color:grey'>#{entry.name}</h3>" +
+        #             entry.data.map(
+        #                 (n) -> "<div style='color:#{color}' class='lupa-entry'>#{n}</div>"
+        #             ).join('<br>') +
+        #             '<br>'
         default: (entry, description) ->
-            if entry.data && entry.data.length
+            if entry.data && entry.data.length && entry.data.map
                 "<h3 style='color:grey'>#{entry.name}</h3>" +
                     entry.data.map(
                         (n) -> "<div data-path='#{getFileForModule(lastState, n).path}' class='lupa-entry'>#{n}</div>"
@@ -384,6 +371,7 @@ update1 = ->
         #moduleName = filename
         importersOfModule = plugin.findImporters(moduleName)
         plugin.findImporters(filename).merge(importersOfModule).toArray().subscribe( (importers) =>
+            console.log("IMPORTERS ",importers)
             state = {files: [f]}
             if !state.files
                 console.log("got message from child", state)
@@ -399,24 +387,31 @@ update1 = ->
             ext = path_.extname(found[0].path)
             if ext == '.html'
                 html = getHtmlPreview(found[0])
-            else
+            else if ext == '.js' || ext == '.coffee'
                 fixture =
-                    name:'imported by'
+                    type:'imported by'
                     data: importers #.map((f) => path_.basename(f.path))
 
-
-                html = getMetadata(found[0]).concat(fixture).map (entry) ->
+                metadata = getMetadata(found[0]).concat(fixture)
+                html = metadata.map (entry) ->
                     try
                         render = print[entry.type || entry.name] || print.default
-                        render(entry)
+                        render.call(print, entry)
                     catch e
                         console.error(e);
                         console.log('error', entry)
                 .join('')
+                ReactDOM.render(
+                    React.createElement(Structure,{metadata: metadata}),
+                    document.getElementById('lupa-structure')
+                )
+                return
             if ext == '.scss' || ext == '.css'
                 html += getCssPreview(found[0])
 
             el.innerHTML = html
+
+
 
         )
 
@@ -438,4 +433,4 @@ atom.workspace.onDidChangeActivePaneItem ->
 
 update1()
 
-setInterval(refresh, 1500)
+#setInterval(refresh, 1500)
