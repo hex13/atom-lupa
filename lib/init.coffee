@@ -51,15 +51,17 @@ module.exports = (aDashboard) ->
     dashboard = aDashboard
     update1()
 
-
+el.style.paddingLeft = '8px'
 el.innerHTML = "
 <div id='lupa-editor-wrapper'></div>
 <div id='lupa-info'></div>
 <div style='height:10px'></div>
 <button style='display:none' id='lupa-run'>Run</button>
-<button class='btn' id='lupa-refresh'>Refresh</button>
+<button class='btn' id='lupa-refresh'><span class='icon icon-sync'></span>Refresh</button>
 <br>
-<button class='btn' id='lupa-index-project'>Index project</button>
+<button class='btn' id='lupa-index-project'>
+<span class='icon icon-telescope'></span>
+Index project</button>
 (It requires lupaProject.json file.)
 <div id='lupa-structure'></div>
 <div id='moje'
