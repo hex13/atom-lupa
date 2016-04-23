@@ -56,9 +56,10 @@ class AtomLupaView
         res + ~~getLines(f)
     ,0
 
-    ReactDom.render(React.createElement(ProjectExplorer, {files: files, preview: preview, onChange: onChange},[
-        div({}, '---')
-    ]), @list)
+    ReactDom.render(React.createElement(ProjectExplorer,
+        {files: files, preview: preview, onChange: onChange},[
+            div({}, '---')
+        ]), @list)
 
     #@message.innerHTML = "File count: #{files.length}<br> Total Lines: #{totalLoc} <br> #{filesHtml}"
 
