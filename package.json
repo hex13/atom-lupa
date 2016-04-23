@@ -2,7 +2,7 @@
   "name": "atom-lupa",
   "__main": "./lib/atom-lupa",
   "main": "./dist/bundle.js",
-  "version": "0.4.44",
+  "version": "0.4.45",
   "description": "Navigation sidebar capable to perform full indexing of JavaScript project",
   "keywords": [
     "angular",
