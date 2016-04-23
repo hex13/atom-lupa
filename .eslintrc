@@ -10,5 +10,10 @@
             "es6": true,
             "jsx": true
         }
+    },
+    "rules": {
+        "comma-dangle": [0],
+        "no-unused-vars" : [1],
+        "no-console": [1]
     }
 }
