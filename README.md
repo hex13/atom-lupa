@@ -17,6 +17,12 @@ To allow full project indexing you have to create `lupaProject.json` in root dir
 ```
 
 # CHANGELOG
+# 2016-04-23
+* redesign, rewrite, refactor
+* support for TODOs
+* fix bug with line highlighting in ProjectExplorer
+* fix other bugs
+
 # 2016-04-20
 * Smalltalk-like project explorer
 
