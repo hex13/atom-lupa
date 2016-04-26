@@ -253,89 +253,6 @@ update1 = ->
 
     el = document.getElementById('moje')
 
-    print = {
-        'imported by': (entry) ->
-            console.log("EEEEEE", entry)
-            "<h3 style='color:grey'>#{entry.name}</h3>" +
-            (entry.data || []).map (importer) ->
-                "<div class='lupa-file' data-path='#{importer.path}'> #{path_.basename(importer.path)}</div>"
-            .join("<br>")
-        # import: (entry) ->
-        #     "<h3 style='color:grey'>#{entry.type}</h3>" +
-        #         "<div> #{entry.name} from
-        #         <span class='lupa-file' data-path='#{entry.source}'>#{entry.originalSource}</span>
-        #         </div>"
-        # label: (entry) ->
-        #     "<span
-        #         data-label='#{entry.data}'
-        #         class='lupa-label'
-        #         style='display: inline-block;text-shadow: 1px 1px 2px black; color: #eee; background: #b73; padding: 4px; margin: 4px;border-radius: 4px;'>
-        #      #{entry.data} </span>"
-
-
-        # class: (entry) ->
-        #     cls = entry
-        #     cls.loc = cls.loc || defaultLoc
-        #     "<h4
-        #     data-column='#{cls.loc.start.column}'
-        #     data-column-end='#{cls.loc.end.column}'
-        #     data-line-end='#{cls.loc.end.line}'
-        #     data-line='#{cls.loc.start.line}'
-        #     >class #{cls.name}</h4>" + cls.methods.join('<br>')
-        # '@mixin': (entry) ->
-        #     "<h3 >#{entry.name}</h3>" +
-        #             "<div data-line='#{entry.source.start.line}'>#{entry.data}</div>" +
-        #         '<br>'
-        #
-        symbol: (entry) ->
-            "<h3 style='color:blue'>#{entry.name}</h3>" +
-                entry.data.map(
-                    (n) -> "<div data-path='#{getFileForSymbol(allFiles, n).path}'>#{n}</div>"
-                    #(n) -> "<div data-path=''>#{n}</div>"
-                ).join('<br>') +
-                '<br>'
-        declaration: (entry) ->
-            "<h3 style='color:grey'>#{entry.name}</h3>" +
-                    "<div
-                        data-column='#{entry.loc.start.column}'
-                        data-column-end='#{entry.loc.end.column}'
-                        data-line-end='#{entry.loc.end.line}'
-                        data-line='#{entry.loc.start.line}' class='lupa-entry'>#{entry.data}</div>" +
-                '<br>'
-        # lines: (entry) ->
-        #     loc = entry.data[0]
-        #     if loc < 150
-        #         color = 'green'
-        #     else if loc < 300
-        #         color = '#bb5'
-        #     else if loc < 1000
-        #         color = '#fa8'
-        #     else
-        #         color = 'red'
-        #     if entry.data.length
-        #         "<h3 style='color:grey'>#{entry.name}</h3>" +
-        #             entry.data.map(
-        #                 (n) -> "<div style='color:#{color}' class='lupa-entry'>#{n}</div>"
-        #             ).join('<br>') +
-        #             '<br>'
-        default: (entry, description) ->
-            if entry.data && entry.data.length && entry.data.map
-                "<h3 style='color:grey'>#{entry.name}</h3>" +
-                    entry.data.map(
-                        (n) -> "<div data-path='#{getFileForModule(lastState, n).path}' class='lupa-entry'>#{n}</div>"
-                    ).join('<br>') +
-                    '<br>'
-            else
-                entry.loc = entry.loc || defaultLoc
-                "<h3>#{entry.type}</h3>
-                <div
-                    data-column='#{entry.loc.start.column}'
-                    data-column-end='#{entry.loc.end.column}'
-                    data-line-end='#{entry.loc.end.line}'
-                    data-line='#{entry.loc.start.line}'
-                >#{entry.name}</div>"
-
-    }
     if editor.buffer.file
         filename = editor.buffer.file.path
     else
@@ -403,14 +320,6 @@ update1 = ->
                     data: importers #.map((f) => path_.basename(f.path))
 
                 metadata = getMetadata(found[0]).concat(fixture)
-                html = metadata.map (entry) ->
-                    try
-                        render = print[entry.type || entry.name] || print.default
-                        render.call(print, entry)
-                    catch e
-                        console.error(e);
-                        console.log('error', entry)
-                .join('')
                 ReactDOM.render(
                     React.createElement(Structure,{metadata: metadata}),
                     document.getElementById('lupa-structure')
