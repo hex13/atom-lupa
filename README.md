@@ -2,7 +2,6 @@
 
 Navigation sidebar capable to perform full indexing of JavaScript project. It shows structure of each JavaScript file, with clickable list of functions, imports etc. It allows you to navigate also between different files in project, shows what modules in project import particular file.
 ![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-1.png)
-![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/atom-lupa.png)
 
 To allow full project indexing you have to create `lupaProject.json` in root directory of your project. Example file:
 ```
