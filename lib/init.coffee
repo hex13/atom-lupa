@@ -323,24 +323,14 @@ update1 = ->
             if ext == '.html'
                 preview = getHtmlPreview(found[0])
                 metadata = metadata.concat({type: 'preview', html: preview})
-                ReactDOM.render(
-                    React.createElement(Structure, {metadata: metadata}),
-                    document.getElementById('lupa-structure')
-                )
-                return
-            else if ext == '.js' || ext == '.coffee'
-                ReactDOM.render(
-                    React.createElement(Structure,{metadata: metadata}),
-                    document.getElementById('lupa-structure')
-                )
-                return
-            if ext == '.scss' || ext == '.css'
-                html += getCssPreview(found[0])
+            else if ext == '.scss' || ext == '.css'
+                preview = getCssPreview(found[0])
+                metadata = metadata.concat({type: 'preview', html: preview})
 
-            el.innerHTML = html
-
-
-
+            ReactDOM.render(
+                React.createElement(Structure, {metadata: metadata}),
+                document.getElementById('lupa-structure')
+            )
         )
 
 
