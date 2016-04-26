@@ -63,7 +63,7 @@ el.innerHTML = "
 <span class='icon icon-telescope'></span>
 Index project</button>
 (It requires lupaProject.json file.)
-<div id='lupa-structure'></div>
+<div class='lupa-structure' id='lupa-structure'></div>
 <div id='moje'
     style='padding: 10px; width:240px;overflow:scroll;'>sss <br> <br>
 atom.workspace.addLeftPanel(item: el)
@@ -312,14 +312,23 @@ update1 = ->
 
             html = '...'
             ext = path_.extname(found[0].path)
-            if ext == '.html'
-                html = getHtmlPreview(found[0])
-            else if ext == '.js' || ext == '.coffee'
-                fixture =
-                    type:'imported by'
-                    data: importers #.map((f) => path_.basename(f.path))
 
-                metadata = getMetadata(found[0]).concat(fixture)
+
+            fixture =
+                type:'imported by'
+                data: importers #.map((f) => path_.basename(f.path))
+
+            metadata = getMetadata(found[0]).concat(fixture)
+
+            if ext == '.html'
+                preview = getHtmlPreview(found[0])
+                metadata = metadata.concat({type: 'preview', html: preview})
+                ReactDOM.render(
+                    React.createElement(Structure, {metadata: metadata}),
+                    document.getElementById('lupa-structure')
+                )
+                return
+            else if ext == '.js' || ext == '.coffee'
                 ReactDOM.render(
                     React.createElement(Structure,{metadata: metadata}),
                     document.getElementById('lupa-structure')
