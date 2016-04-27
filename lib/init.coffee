@@ -173,6 +173,9 @@ el.addEventListener('click',
             lastPos = pos
             editor.setCursorBufferPosition pos
             editor.scrollToBufferPosition pos, {center: true}
+            wrapper = document.getElementById('lupa-editor-wrapper')
+            wrapper.innerHTML = ''
+
 
         path = e.target.getAttribute('data-path')
         console.log("path, open file:", path)
