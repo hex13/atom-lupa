@@ -51,7 +51,7 @@
     "flow-parser": "^0.21.0",
     "html-flavors": "0.0.20",
     "json-loader": "^0.5.4",
-    "lupa": "0.1.51",
+    "lupa": "0.1.52",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
     "through2": "^2.0.1",
