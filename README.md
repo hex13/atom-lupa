@@ -17,6 +17,9 @@ To allow full project indexing you have to create `lupaProject.json` in root dir
 ```
 
 # CHANGELOG
+# 2016-04-27
+* better support for functions
+
 # 2016-04-23
 * redesign, rewrite, refactor
 * support for TODOs
