@@ -2,7 +2,7 @@
   "name": "atom-lupa",
   "main": "./lib/atom-lupa",
   "__main": "./dist/bundle.js",
-  "version": "0.4.65",
+  "version": "0.4.66",
   "description": "Lupa 🔍  (from Polish: 'magnifying glass'). Know your codebase.",
   "scripts": {
     "reinstall": "rm -rf node_modules; npm install; webpack"
