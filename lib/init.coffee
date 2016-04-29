@@ -58,6 +58,7 @@ el.innerHTML = "
 <div style='height:10px'></div>
 <button style='display:none' id='lupa-run'>Run</button>
 <button class='btn' id='lupa-refresh'><span class='icon icon-sync'></span>Refresh</button>
+<button class='btn' id='lupa-change-colors'>Change colors</button>
 <br>
 <button class='btn' id='lupa-index-project'>
 <span class='icon icon-telescope'></span>
@@ -204,6 +205,13 @@ getFileFor = (name) ->
 currentFile = ''
 
 atom.workspace.addLeftPanel(item: el)
+
+
+backgroundColors = ['#2b2b2c', '#21252b', 'inherit']
+document.getElementById('lupa-change-colors').addEventListener 'click', () ->
+    bck = backgroundColors.shift()
+    backgroundColors.push(bck)
+    document.getElementById('lupa-structure').style.background = bck;
 
 document.getElementById('lupa-run').addEventListener 'click', () ->
     result = require(currentFile)
