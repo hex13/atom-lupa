@@ -10,6 +10,10 @@ module.exports = AtomLupa =
       autoRefresh:
           type: 'boolean'
           default: true
+      shouldShowBreadcrumbs:
+          type: 'boolean'
+          default: 'false'
+          description: '(Experimental feature. Restart of Atom is required)'
 
   activate: (state) ->
 
