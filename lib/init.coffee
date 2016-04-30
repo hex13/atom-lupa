@@ -330,6 +330,7 @@ update1 = ->
                 data: importers #.map((f) => path_.basename(f.path))
 
             metadata = getMetadata(found[0]).concat(fixture)
+            editor.metadata = metadata
 
             if ext == '.html'
                 preview = getHtmlPreview(found[0])
