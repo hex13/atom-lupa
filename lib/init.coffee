@@ -171,20 +171,6 @@ el.addEventListener('click',
 )
 
 
-getFileFor = (name) ->
-    return ''
-    # files = plugin.lupa.getState().files
-    # found = files.filter(
-    #     (f) -> f.metadata.filter(
-    #         (entry) -> entry.name == 'modules' && entry.data.indexOf(name) != -1
-    #     ).length
-    # )
-    # console.log('getFileFor ' + name, files)
-    # console.log('getFileFor found', found)
-    # if found.length
-    #     return "(" + found[0].path + ")"
-    # return ''
-
 currentFile = ''
 
 atom.workspace.addLeftPanel(item: el)
