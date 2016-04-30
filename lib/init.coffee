@@ -206,6 +206,11 @@ currentFile = ''
 
 atom.workspace.addLeftPanel(item: el)
 
+if false
+    statusBar = document.createElement('div')
+    statusBar.innerHTML = "<div id='lupa-statusbar'></div>"
+    atom.workspace.addTopPanel(item: statusBar)
+
 
 backgroundColors = ['#2b2b2c', '#21252b', 'inherit']
 document.getElementById('lupa-change-colors').addEventListener 'click', () ->
@@ -235,6 +240,25 @@ editor = null
 refresh = ->
     if !editor
         return
+
+    if editor.metadata && false
+        pos = editor.getCursorBufferPosition()
+        pos.row += 1
+        entitiesAtPos = editor.metadata.filter (item) ->
+            if (item.loc)
+                console.log('xeee', item.loc.start.line, pos.row)
+                console.log('xeee1', item.loc.end.line, pos.row)
+            item.loc &&
+            item.loc.start.line <= pos.row &&
+            item.loc.end.line >= pos.row
+        .map (item) ->
+            item.name
+        statusBar.innerHTML = "<div style='padding: 4px; color: #ffa'>#{entitiesAtPos.join(', ')}</div>"
+
+
+
+
+
     f = new File({
         path: currentFile,
         contents: new Buffer(editor.getBuffer().getText())
