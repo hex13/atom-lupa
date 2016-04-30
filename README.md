@@ -5,9 +5,11 @@ It has support for:
 
 * ES5 (just plain old JavaScript)
 * ES6 (e.g. it detects imports/exports, ES6 classes and arrow functions)
+* JSX  
 * CommonJS (it detects `require(...)`s ) 
 * AngularJS (partially)
 * CoffeeScript (partially)
+
 
 ![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-1.png)
 ![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-2.png)
