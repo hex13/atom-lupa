@@ -199,7 +199,6 @@ document.getElementById('lupa-index-project').addEventListener('click', () ->
         alert "Error: " + e.message
 )
 
-lastState = {}
 allFiles = []
 editor = null
 
@@ -298,30 +297,23 @@ update1 = ->
         #moduleName = filename
         importersOfModule = plugin.findImporters(moduleName)
         plugin.findImporters(filename).merge(importersOfModule).toArray().subscribe( (importers) =>
-            state = {files: [f]}
-            lastState = state
-
-            found = state.files.filter( (f) -> f.path == filename)
-            if (!found.length)
-                console.log("error: !found.length")
-                return
 
             html = '...'
-            ext = path_.extname(found[0].path)
+            ext = path_.extname(f.path)
 
 
             fixture =
                 type:'imported by'
-                data: importers #.map((f) => path_.basename(f.path))
+                data: importers
 
-            metadata = getMetadata(found[0]).concat(fixture)
+            metadata = getMetadata(f).concat(fixture)
             editor.metadata = metadata
 
             if ext == '.html'
-                preview = getHtmlPreview(found[0])
+                preview = getHtmlPreview(f)
                 metadata = metadata.concat({type: 'preview', html: preview})
             else if ext == '.scss' || ext == '.css'
-                preview = getCssPreview(found[0])
+                preview = getCssPreview(f)
                 metadata = metadata.concat({type: 'preview', html: preview})
 
             ReactDOM.render(
