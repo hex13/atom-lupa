@@ -28,6 +28,7 @@ getFileForSymbol = require('./getFileFor').getFileForSymbol
 getFileForRequire = require('./getFileFor').getFileForRequire
 createTextEditor = require('./editor.js').createTextEditor
 {Structure} = require './components/Structure'
+{StatusBar} = require './components/StatusBar'
 ReactDOM = require('react-dom')
 React = require('react')
 previewMarker = null
@@ -216,9 +217,10 @@ refresh = ->
             item.loc &&
             item.loc.start.line <= pos.row &&
             item.loc.end.line >= pos.row
-        .map (item) ->
-            item.name
-        statusBar.innerHTML = "<div style='padding: 4px; color: #ffa'>#{entitiesAtPos.join(', ')}</div>"
+        # .map (item) ->
+        #     item.name
+        ReactDOM.render(React.createElement(StatusBar, {entities: entitiesAtPos}), statusBar)
+        #statusBar.innerHTML = "<div style='padding: 4px; color: #ffa'>#{entitiesAtPos.join(', ')}</div>"
 
 
 
