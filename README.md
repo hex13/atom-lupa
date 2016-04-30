@@ -17,8 +17,14 @@ To allow full project indexing you have to create `lupaProject.json` in root dir
 ```
 
 # CHANGELOG
+# 2016-04-30
+* settings: autoRefresh(on/off)
+
 # 2016-04-29
 * now it's possible to filter symbols by name
+* better class preview in sidepanel
+* project explorer now uses components from sidepanel
+* changeColors button for users with light backgrounds 
 
 # 2016-04-27
 * better support for functions
