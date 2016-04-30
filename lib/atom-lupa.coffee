@@ -1,19 +1,19 @@
 AtomLupaView = require './atom-lupa-view'
 {CompositeDisposable, Range} = require 'atom'
-plugin = require './init.coffee'
-
-activePane = atom.workspace.paneContainer.activePane
-@atomLupaView = new AtomLupaView()
-activePane.addItem(@atomLupaView)
-plugin(@atomLupaView)
 
 console.log("lupa module")
 module.exports = AtomLupa =
   atomLupaView: null
   modalPanel: null
   subscriptions: null
+  config:
+      autoRefresh:
+          type: 'boolean'
+          default: true
 
   activate: (state) ->
+
+
 
     #@atomLupaView.setContent '<h1>kotek</h1> na plotek i mruga!'
 
@@ -29,6 +29,12 @@ module.exports = AtomLupa =
     editor = atom.workspace.getActiveTextEditor()
 
 
+    plugin = require './init.coffee'
+
+    activePane = atom.workspace.paneContainer.activePane
+    @atomLupaView = new AtomLupaView()
+    activePane.addItem(@atomLupaView)
+    plugin(@atomLupaView)
 
 
 
@@ -38,7 +44,7 @@ module.exports = AtomLupa =
     @atomLupaView.destroy()
 
   serialize: ->
-    atomLupaViewState: @atomLupaView.serialize()
+    #atomLupaViewState: @atomLupaView.serialize()
 
   toggle: ->
     console.log 'AtomLupa was toggled!'

@@ -387,4 +387,16 @@ atom.workspace.onDidChangeActivePaneItem ->
 
 update1()
 
-setInterval(refresh, 1500)
+
+
+refreshInterval = null
+updateAutoRefresh = (value) ->
+    if value
+        refreshInterval = setInterval(refresh, 1500)
+    else
+        clearInterval(refreshInterval)
+        refreshInterval = null
+
+atom.config.onDidChange 'atom-lupa.autoRefresh', ({newValue, oldValue}) ->
+    updateAutoRefresh(newValue)
+updateAutoRefresh(atom.config.get 'atom-lupa.autoRefresh')
