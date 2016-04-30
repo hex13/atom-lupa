@@ -1,6 +1,11 @@
 # Lupa 🔍
 
 Navigation sidebar capable to perform full indexing of JavaScript project. It shows structure of each JavaScript file, with clickable list of functions, imports etc. It allows you to navigate also between different files in project, shows what modules in project import particular file.
+
+It also allows you to filter entries by name or type, e.g.:
+
+![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-3.png)
+
 It has support for:
 
 * ES5 (just plain old JavaScript)
@@ -29,7 +34,7 @@ To allow full project indexing you have to create `lupaProject.json` in root dir
 # CHANGELOG
 # 2016-04-30
 * settings: autoRefresh(on/off)
-
+* filter by type (e.g. type:function)
 # 2016-04-29
 * now it's possible to filter symbols by name
 * better class preview in sidepanel
