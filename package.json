@@ -29,7 +29,11 @@
     "todos",
     "react",
     "reactjs",
-    "jsx"
+    "jsx",
+    "symbols",
+    "list",
+    "tree",
+    "symbol"
   ],
   "__providedServices": {
     "autocomplete.provider": {
