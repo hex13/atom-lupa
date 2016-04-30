@@ -15,9 +15,11 @@ It has support for:
 * AngularJS (partially)
 * CoffeeScript (partially)
 
-
+Breadcrumbs:
 ![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-breadcrumbs.png)
+Sidepanel:
 ![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-1.png)
+Project explorer:
 ![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-2.png)
 
 To allow full project indexing you have to create `lupaProject.json` in root directory of your project. Example file:
