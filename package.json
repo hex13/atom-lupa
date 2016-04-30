@@ -3,7 +3,7 @@
   "main": "./lib/atom-lupa",
   "__main": "./dist/bundle.js",
   "version": "0.4.93",
-  "description": "Lupa 🔍  (from Polish: 'magnifying glass'). Know your codebase.",
+  "description": "Lupa 🔍  Shows symbols and does it better than alternatives",
   "scripts": {
     "reinstall": "rm -rf node_modules; npm install; webpack"
   },
