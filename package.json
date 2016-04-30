@@ -26,7 +26,10 @@
     "summary",
     "go to definition",
     "todo",
-    "todos"
+    "todos",
+    "react",
+    "reactjs",
+    "jsx"
   ],
   "__providedServices": {
     "autocomplete.provider": {
