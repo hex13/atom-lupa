@@ -33,7 +33,10 @@
     "symbols",
     "list",
     "tree",
-    "symbol"
+    "symbol",
+    "view",
+    "class",
+    "classes"
   ],
   "__providedServices": {
     "autocomplete.provider": {
