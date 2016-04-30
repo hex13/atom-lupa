@@ -1,6 +1,14 @@
 # Lupa 🔍
 
 Navigation sidebar capable to perform full indexing of JavaScript project. It shows structure of each JavaScript file, with clickable list of functions, imports etc. It allows you to navigate also between different files in project, shows what modules in project import particular file.
+It has support for:
+
+* ES5 (just plain old JavaScript)
+* ES6 (e.g. it detects imports/exports, ES6 classes and arrow functions)
+* CommonJS (it detects `require(...)`s ) 
+* AngularJS (partially)
+* CoffeeScript (partially)
+
 ![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-1.png)
 ![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-2.png)
 
