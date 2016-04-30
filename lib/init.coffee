@@ -34,6 +34,7 @@ React = require('react')
 previewMarker = null
 fs = require 'fs'
 path_ = require 'path'
+refreshStructure = require('./refresh').refreshStructure
 
 
 el = document.createElement('div');
@@ -316,10 +317,7 @@ update1 = ->
                 preview = getCssPreview(f)
                 metadata = metadata.concat({type: 'preview', html: preview})
 
-            ReactDOM.render(
-                React.createElement(Structure, {metadata: metadata}),
-                document.getElementById('lupa-structure')
-            )
+            refreshStructure(metadata)
         )
 
 
