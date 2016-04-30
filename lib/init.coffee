@@ -13,8 +13,6 @@
 
 #plugin = require './plugin'
 debug = false
-getHtmlPreview = require('./preview').getHtmlPreview
-getCssPreview = require('./preview').getCssPreview
 
 {Range} = require 'atom'
 child_process = require('child_process')
@@ -310,14 +308,8 @@ update1 = ->
             metadata = getMetadata(f).concat(fixture)
             editor.metadata = metadata
 
-            if ext == '.html'
-                preview = getHtmlPreview(f)
-                metadata = metadata.concat({type: 'preview', html: preview})
-            else if ext == '.scss' || ext == '.css'
-                preview = getCssPreview(f)
-                metadata = metadata.concat({type: 'preview', html: preview})
 
-            refreshStructure(metadata)
+            refreshStructure(f, metadata)
         )
 
 
