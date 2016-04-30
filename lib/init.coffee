@@ -66,10 +66,7 @@ Index project</button>
 (It requires lupaProject.json file.)
 <div class='lupa-structure' id='lupa-structure'></div>
 <div id='moje'
-    style='padding: 10px; width:240px;overflow:scroll;'>sss <br> <br>
-atom.workspace.addLeftPanel(item: el)
-
-
+    style='padding: 10px; width:240px;overflow:scroll;'>
 </div>"
 
 decorations = []
