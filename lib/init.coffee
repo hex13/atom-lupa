@@ -13,6 +13,7 @@
 
 #plugin = require './plugin'
 debug = false
+shouldShowBreadcrumbs = atom.config.get('atom-lupa.shouldShowBreadcrumbs')
 
 {Range} = require 'atom'
 child_process = require('child_process')
@@ -174,7 +175,7 @@ currentFile = ''
 
 atom.workspace.addLeftPanel(item: el)
 
-if false
+if shouldShowBreadcrumbs
     statusBar = document.createElement('div')
     statusBar.innerHTML = "<div id='lupa-statusbar'></div>"
     atom.workspace.addTopPanel(item: statusBar)
@@ -205,7 +206,7 @@ refresh = ->
     if !editor
         return
 
-    if editor.metadata && false
+    if editor.metadata && shouldShowBreadcrumbs
         pos = editor.getCursorBufferPosition()
         pos.row += 1
         entitiesAtPos = editor.metadata.filter (item) ->
@@ -292,25 +293,9 @@ update1 = ->
                 dashboard.setFiles(files, addLabelDecoration) # TODO remove addLabelDecoration from here. This is hack
             )
 
-        moduleName = path_.basename(filename, path_.extname(filename))
-        #moduleName = filename
-        importersOfModule = plugin.findImporters(moduleName)
-        plugin.findImporters(filename).merge(importersOfModule).toArray().subscribe( (importers) =>
 
-            html = '...'
-            ext = path_.extname(f.path)
-
-
-            fixture =
-                type:'imported by'
-                data: importers
-
-            metadata = getMetadata(f).concat(fixture)
+        refreshStructure plugin, f, (metadata) ->
             editor.metadata = metadata
-
-
-            refreshStructure(f, metadata)
-        )
 
 
     # assign to global variable
