@@ -333,13 +333,9 @@ update1 = ->
         #moduleName = filename
         importersOfModule = plugin.findImporters(moduleName)
         plugin.findImporters(filename).merge(importersOfModule).toArray().subscribe( (importers) =>
-            console.log("IMPORTERS ",importers)
             state = {files: [f]}
-            if !state.files
-                console.log("got message from child", state)
-                return
             lastState = state
-            console.log("got message")
+
             found = state.files.filter( (f) -> f.path == filename)
             if (!found.length)
                 console.log("error: !found.length")
