@@ -55,7 +55,6 @@ el.style.paddingLeft = '8px'
 el.innerHTML = "
 <div id='lupa-editor-wrapper'></div>
 <div id='lupa-info'></div>
-<div style='height:10px'></div>
 <button style='display:none' id='lupa-run'>Run</button>
 <button class='btn' id='lupa-refresh'><span class='icon icon-sync'></span>Refresh</button>
 <button class='btn' id='lupa-change-colors'>Change colors</button>
@@ -64,10 +63,7 @@ el.innerHTML = "
 <span class='icon icon-telescope'></span>
 Index project</button>
 (It requires lupaProject.json file.)
-<div class='lupa-structure' id='lupa-structure'></div>
-<div id='moje'
-    style='padding: 10px; width:240px;overflow:scroll;'>
-</div>"
+<div class='lupa-structure' id='lupa-structure'></div>"
 
 decorations = []
 labelDecorations = []
@@ -270,7 +266,6 @@ update1 = ->
     if (!editor.buffer)
         return
 
-    el = document.getElementById('moje')
 
     if editor.buffer.file
         filename = editor.buffer.file.path
@@ -349,8 +344,6 @@ update1 = ->
             )
         )
 
-
-    el.innerHTML = ''
 
     # assign to global variable
     onUpdate = update
