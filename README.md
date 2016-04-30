@@ -35,6 +35,7 @@ To allow full project indexing you have to create `lupaProject.json` in root dir
 # 2016-04-30
 * settings: autoRefresh(on/off)
 * filter by type (e.g. type:function)
+* breadcrumbs (you must enable it in settings)
 
 # 2016-04-29
 * now it's possible to filter symbols by name
