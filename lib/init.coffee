@@ -70,17 +70,7 @@ Index project</button>
 atom.workspace.addLeftPanel(item: el)
 
 
-</div>
-<div style='margin-bottom:10px'>
-    <div style='display:none'>
-        <label>glob file pattern to analyze (e.g. /Users/john/my-project/src/**/*.js  )
-        <div><input id='lupa-project-root' type='text'></div></label>
-        <br>
-    </div>
-</div>
-<div style='display:none'>
-<input id='lupa-index-file' type='text'><br>
-<button id='lupa-load-index-file'>Load index file (not implemented)</button></div>"
+</div>"
 
 decorations = []
 labelDecorations = []
@@ -222,10 +212,7 @@ document.getElementById('lupa-run').addEventListener 'click', () ->
     result = require(currentFile)
     alert(result)
 
-#'/Users/lukasz/sandbox/Mancy/src/**/*'
 document.getElementById('lupa-index-project').addEventListener('click', () ->
-    path = document.getElementById('lupa-project-root').value;
-    # plugin.indexProject({filePattern: path})
     alert "Click ok to start indexing (it can take few minutes)."
     try
         plugin.indexProject(path_.dirname(currentFile))
