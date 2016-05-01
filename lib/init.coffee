@@ -104,7 +104,10 @@ console.log("GRA", atom.grammars)
 lastPos = null
 previewEditor = null
 
-handleDestroyDecorations = (e)
+handleDestroyDecorations = (e) ->
+    decorations.forEach (d) ->
+        d.destroy()
+
 
 handleEntityMouseOver = (entity, e) ->
         target = e.target
@@ -124,8 +127,6 @@ handleEntityMouseOver = (entity, e) ->
             fileToPreview = target.getAttribute('data-path') || currentFile
             previewEditor = createTextEditor(fileToPreview, ~~line)
             if entity # show in main editor 
-                decorations.forEach (d) ->
-                    d.destroy()
                 addLabelDecoration(editor, line, col, lineEnd, colEnd, decorations)
             else
                 addLabelDecoration(previewEditor, line, col, lineEnd, colEnd, decorations)
