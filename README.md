@@ -35,6 +35,10 @@ To allow full project indexing you have to create `lupaProject.json` in root dir
 ```
 
 # CHANGELOG
+# 2016-05-01
+* support for object literals
+* support for CSS class names in JSX
+
 # 2016-04-30
 * settings: autoRefresh(on/off)
 * filter by type (e.g. type:function)
