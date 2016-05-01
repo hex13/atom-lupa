@@ -15,7 +15,7 @@ It has support for:
 * AngularJS (partially)
 * CoffeeScript (partially)
 
-Breadcrumbs:
+Breadcrumbs (experimental feature: you must enable it in settings):
 ![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-breadcrumbs.png)
 Sidepanel:
 ![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-1.png)
