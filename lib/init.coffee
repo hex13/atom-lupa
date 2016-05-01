@@ -104,22 +104,37 @@ console.log("GRA", atom.grammars)
 lastPos = null
 previewEditor = null
 
-el.addEventListener('mouseover',
-    (e) ->
+handleDestroyDecorations = (e)
+
+handleEntityMouseOver = (entity, e) ->
         target = e.target
-        line = target.getAttribute('data-line') || 0
-        col = ~~target.getAttribute('data-column') || 0
-        colEnd = ~~target.getAttribute('data-column-end') || col
-        lineEnd = target.getAttribute('data-line-end') || line
+        ed = null
+        if target
+            line = target.getAttribute('data-line') || 0
+            col = ~~target.getAttribute('data-column') || 0
+            colEnd = ~~target.getAttribute('data-column-end') || col
+            lineEnd = target.getAttribute('data-line-end') || line
+        else if entity
+            line = entity.loc.start.line
+            col = entity.loc.start.column
+            colEnd = entity.loc.end.column
+            lineEnd = entity.loc.end.line
+        console.log("AAAAX", editor)
         if line || target.getAttribute('data-path') #&& editor
             fileToPreview = target.getAttribute('data-path') || currentFile
             previewEditor = createTextEditor(fileToPreview, ~~line)
-            addLabelDecoration(previewEditor, line, col, lineEnd, colEnd, decorations)
-            edEl = previewEditor.element
-            wrapper = document.getElementById('lupa-editor-wrapper')
-            wrapper.innerHTML = ''
-            wrapper.appendChild(edEl)
-)
+            if entity # show in main editor 
+                decorations.forEach (d) ->
+                    d.destroy()
+                addLabelDecoration(editor, line, col, lineEnd, colEnd, decorations)
+            else
+                addLabelDecoration(previewEditor, line, col, lineEnd, colEnd, decorations)
+                edEl = previewEditor.element
+                wrapper = document.getElementById('lupa-editor-wrapper')
+                wrapper.innerHTML = ''
+                wrapper.appendChild(edEl)
+
+el.addEventListener('mouseover', handleEntityMouseOver.bind(this, null))
 
 
 el.addEventListener('click',
@@ -219,7 +234,11 @@ refresh = ->
             item.loc.end.line >= pos.row
         # .map (item) ->
         #     item.name
-        ReactDOM.render(React.createElement(StatusBar, {entities: entitiesAtPos}), statusBar)
+        ReactDOM.render(React.createElement(StatusBar, {
+            onMouseOver: handleEntityMouseOver,
+            onMouseOut: handleDestroyDecorations,
+            entities: entitiesAtPos
+        }), statusBar)
         #statusBar.innerHTML = "<div style='padding: 4px; color: #ffa'>#{entitiesAtPos.join(', ')}</div>"
 
 
