@@ -43,13 +43,10 @@ class AtomLupaView
     @message.innerHTML = content
 
   setFiles: (files, addLabelDecoration)->
-    console.log("AAAD", files.length, addLabelDecoration)
+
     onChange = (line) ->
         addLabelDecoration(preview, line + 1, 0, line + 2, 0, [], 'label-decoration')
     preview = @preview
-    console.log("DBG T", preview)
-
-
 
 
     totalLoc = files.reduce (res, f) ->
