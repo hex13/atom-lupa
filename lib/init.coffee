@@ -79,7 +79,7 @@ addLabelDecoration = (editor, line, col, lineEnd, colEnd, list, cls) ->
     item.style.position = 'relative'
     item.className = 'my-line-class'
     decoration = editor.decorateMarker(marker, {item, type: 'highlight', class: cls || 'my-line-class'})
-    console.log "deco", decoration, marker
+
     lastPos = editor.getCursorBufferPosition()
     editor.scrollToBufferPosition pos, {center: true}
     if list
@@ -98,7 +98,7 @@ el.addEventListener('mouseout',
         wrapper.innerHTML = ''
 
 )
-console.log("GRA", atom.grammars)
+
 
 
 lastPos = null
@@ -122,11 +122,11 @@ handleEntityMouseOver = (entity, e) ->
             col = entity.loc.start.column
             colEnd = entity.loc.end.column
             lineEnd = entity.loc.end.line
-        console.log("AAAAX", editor)
+
         if line || target.getAttribute('data-path') #&& editor
             fileToPreview = target.getAttribute('data-path') || currentFile
             previewEditor = createTextEditor(fileToPreview, ~~line)
-            if entity # show in main editor 
+            if entity # show in main editor
                 addLabelDecoration(editor, line, col, lineEnd, colEnd, decorations)
             else
                 addLabelDecoration(previewEditor, line, col, lineEnd, colEnd, decorations)
@@ -227,9 +227,6 @@ refresh = ->
         pos = editor.getCursorBufferPosition()
         pos.row += 1
         entitiesAtPos = editor.metadata.filter (item) ->
-            if (item.loc)
-                console.log('xeee', item.loc.start.line, pos.row)
-                console.log('xeee1', item.loc.end.line, pos.row)
             item.loc &&
             item.loc.start.line <= pos.row &&
             item.loc.end.line >= pos.row
