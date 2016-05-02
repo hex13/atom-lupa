@@ -52,6 +52,11 @@ module.exports = AtomLupa =
 
   toggle: ->
     console.log 'AtomLupa was toggled!'
+    structure = document.getElementById('lupa-structure')
+    if structure
+        search = structure.querySelector('.lupa-search')
+        if search
+            search.focus()
 
     # if @modalPanel.isVisible()
     #   @modalPanel.hide()
