@@ -2,7 +2,7 @@
 
 Navigation sidebar capable to perform full indexing of JavaScript project. It shows structure of each JavaScript file, with clickable list of functions, imports etc. It allows you to navigate also between different files in project, shows what modules in project import particular file.
 
-It also allows you to filter entries by name or type, e.g.:
+##### It allows you to filter entries by name or type, e.g.:
 
 ![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-3.png)
 
@@ -11,7 +11,7 @@ It also allows you to filter entries by name or type, e.g.:
 
 ![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-deepsearch.png)
 
-It has support for:
+##### It has support for:
 
 * ES5 (just plain old JavaScript)
 * ES6 (e.g. it detects imports/exports, ES6 classes and arrow functions)
@@ -20,7 +20,8 @@ It has support for:
 * AngularJS (partially)
 * CoffeeScript (partially)
 
-Breadcrumbs (experimental feature: you must enable it in settings):
+##### Breadcrumbs (experimental feature: you must enable it in settings):
+
 ![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-breadcrumbs.png)
 Sidepanel:
 ![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-1.png)
