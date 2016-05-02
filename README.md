@@ -7,6 +7,8 @@ It also allows you to filter entries by name or type, e.g.:
 ![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-3.png)
 
 You can also perform deep searching, e.g. you can find all functions that have their first parameter named `err`:
+#####
+
 ![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-deepsearch.png)
 
 It has support for:
