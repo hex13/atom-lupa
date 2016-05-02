@@ -21,8 +21,7 @@ getEntitiesByType = (f, type) ->
             .map (item)->
                 Object.assign({}, item, {path: f.path, file: f})
     catch e
-        console.log("KURWA", e)
-    console.log "GET ENTITIES BY TYPE", f, type, "=>", item
+        console.log("Error", e)
     return item
 
 module.exports = getEntitiesByType
