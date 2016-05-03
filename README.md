@@ -1,6 +1,13 @@
 # Lupa 🔍
 
-Navigation sidebar capable to perform full indexing of JavaScript project. It shows structure of each JavaScript file, with clickable list of functions, imports etc. It allows you to navigate also between different files in project, shows what modules in project import particular file.
+- Better navigation
+- Better understanding the codebase 
+- Semantic code search
+- JavaScript/ES6 support
+
+Navigation sidebar capable to perform full indexing of JavaScript project. 
+
+It shows structure of each JavaScript file, with clickable list of functions, imports etc. It allows you to navigate also between different files in project, shows what modules in project import particular file.
 
 ##### It allows you to filter entries by name or type, e.g.:
 
