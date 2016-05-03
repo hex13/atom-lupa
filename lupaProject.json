@@ -1,3 +1,6 @@
 {
-    "filePattern": "lib/**/*"
+    "filePattern": "lib/**/*",
+    "autolabels": [
+        ["atom", "atom"]
+    ]
 }

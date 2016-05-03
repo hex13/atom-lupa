@@ -5,8 +5,10 @@ isArray = (obj) ->
     Object.prototype.toString.call(obj) == '[object Array]'
 
 getEntitiesByType = (f, type) ->
+    filterByType = (item) -> item.type == type
+    filter = if type then filterByType else -> true
     try
-        item = getMetadata(f).filter((item) -> item.type == type)
+        item = getMetadata(f).filter(filter)
             .reduce (res, item)->
                 if isArray(item.data) && item.data.length > 1
                     res.concat(item.data.map (entity) ->
