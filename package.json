@@ -2,7 +2,7 @@
   "name": "atom-lupa",
   "main": "./lib/atom-lupa",
   "__main": "./dist/bundle.js",
-  "version": "0.4.148",
+  "version": "0.4.149",
   "description": "Shows functions from file on the side panel",
   "scripts": {
     "reinstall": "rm -rf node_modules; npm install; webpack"
