@@ -105,11 +105,16 @@ lastPos = null
 previewEditor = null
 
 handleDestroyDecorations = (e) ->
+    if !editor 
+        return
+
     decorations.forEach (d) ->
         d.destroy()
 
 
 handleEntityMouseOver = (entity, e) ->
+        if !editor
+            return
         target = e.target
         ed = null
         if target
