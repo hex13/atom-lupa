@@ -48,6 +48,9 @@ To allow full project indexing you have to create `lupaProject.json` in root dir
 ```
 
 # CHANGELOG
+# 2016-05-03
+* better AngularJS support (jumping to definition/location information)
+
 # 2016-05-02
 * deep search (e.g. params[0].name )
 
@@ -124,3 +127,9 @@ To allow full project indexing you have to create `lupaProject.json` in root dir
 # 2016-03-16
 
 * analyze files in separate process - to avoid freezing Atom.
+
+
+LICENSES:
+- Atom-Lupa: MIT
+
+- The AngularJS logo design is licensed under a "[Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/)"
