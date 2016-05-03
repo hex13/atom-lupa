@@ -11,7 +11,7 @@
         .directive('Dog', function () {
             return {
                 restrict: 'E',
-                template: 'Hello Kitty'
+                template: 'Wow'
             };
         });
 
