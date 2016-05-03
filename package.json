@@ -3,7 +3,7 @@
   "main": "./lib/atom-lupa",
   "__main": "./dist/bundle.js",
   "version": "0.4.138",
-  "description": "Anatomy of JavaScript project 🔍 🐀",
+  "description": "🔍  Anatomy of JavaScript project 🔍 🐀",
   "scripts": {
     "reinstall": "rm -rf node_modules; npm install; webpack"
   },
