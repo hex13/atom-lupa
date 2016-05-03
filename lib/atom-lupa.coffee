@@ -12,8 +12,8 @@ module.exports = AtomLupa =
           default: true
       shouldShowBreadcrumbs:
           type: 'boolean'
-          default: 'false'
-          description: '(Experimental feature. Restart of Atom is required)'
+          default: 'true'
+          description: '(Restart of Atom is required after changing)'
 
   activate: (state) ->
 

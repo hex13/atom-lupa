@@ -27,7 +27,7 @@ It shows structure of each JavaScript file, with clickable list of functions, im
 * AngularJS (partially)
 * CoffeeScript (partially)
 
-##### Breadcrumbs (experimental feature: you must enable it in settings):
+##### Breadcrumbs: 
 
 ![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-breadcrumbs.png)
 Sidepanel:
