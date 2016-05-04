@@ -106,7 +106,7 @@ lastPos = null
 previewEditor = null
 
 handleDestroyDecorations = (e) ->
-    if !editor 
+    if !editor
         return
 
     decorations.forEach (d) ->
