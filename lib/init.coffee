@@ -56,6 +56,7 @@ el.style.paddingLeft = '8px'
 el.innerHTML = "
 <div id='lupa-editor-wrapper'></div>
 <div id='lupa-info'></div>
+<div style='height: 4px'></div>
 <button style='display:none' id='lupa-run'>Run</button>
 <button class='btn' id='lupa-refresh'><span class='icon icon-sync'></span>Refresh</button>
 <button class='btn' id='lupa-change-colors'>Change colors</button>
@@ -341,10 +342,13 @@ update1()
 
 refreshInterval = null
 updateAutoRefresh = (value) ->
+    autoRefreshEl = document.getElementById('lupa-refresh')
     if value
+        autoRefreshEl.style.display = 'none'
         refreshInterval = setInterval(refresh, 1500)
     else
         clearInterval(refreshInterval)
+        autoRefreshEl.style.display = 'block'
         refreshInterval = null
 
 atom.config.onDidChange 'atom-lupa.autoRefresh', ({newValue, oldValue}) ->
