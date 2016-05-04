@@ -21,16 +21,25 @@ It shows structure of each JavaScript file, with clickable list of functions, im
 examples of semantic search (DSL can change in future versions):
 
 type:objectLiteral
+
 type:function
+
 type:class
+
 type:todo
+
 params.length:2 
+
 params[0].name:err
+
 jsx:true
+
 loc.start.column:7
+
 loc.start.row:3
 
 Finds external imports: 
+
 source:node_modules
 
 ##### It has support for:
