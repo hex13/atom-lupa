@@ -75,6 +75,7 @@ To allow full project indexing you have to create `lupaProject.json` in root dir
 # 2016-05-04
 * show type only before first entity of that type
 * autohiding refresh button when autorefresh is enabled
+
 # 2016-05-03
 * better AngularJS support (jumping to definition/location information)
 
