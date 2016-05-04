@@ -70,7 +70,6 @@ To allow full project indexing you have to create `lupaProject.json` in root dir
     ]
 }
 ```
-![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-ng.png)
 
 # CHANGELOG
 # 2016-05-04
