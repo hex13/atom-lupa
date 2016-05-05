@@ -48,6 +48,22 @@ defaultLoc = {
     end: {line:0, row:0},
 }
 
+window.lupaGoToPos = (pos) ->
+    editor.setCursorBufferPosition pos
+    editor.scrollToBufferPosition pos, {center: true}
+    wrapper = document.getElementById('lupa-editor-wrapper')
+    wrapper.innerHTML = ''
+
+window.lupaGoToFile = (path) ->
+    if !fs.existsSync(path)
+        path = getFileForRequire(allFiles, path).path
+    if fs.existsSync(path)
+        atom.workspace.open(path)
+    else
+        alert('Can\'t open ' + path)
+
+
+
 module.exports = (aDashboard) ->
     dashboard = aDashboard
     update1()
@@ -178,18 +194,13 @@ el.addEventListener('click',
         if line
             pos = [~~line - 1, 0]
             lastPos = pos
-            editor.setCursorBufferPosition pos
-            editor.scrollToBufferPosition pos, {center: true}
-            wrapper = document.getElementById('lupa-editor-wrapper')
-            wrapper.innerHTML = ''
+            window.lupaGoToPos(pos)
 
 
         path = e.target.getAttribute('data-path')
         console.log("path, open file:", path)
         if path
-            if !fs.existsSync(path)
-                path = getFileForRequire(allFiles, path).path
-            atom.workspace.open(path)
+            window.lupaGoToFile(path)
 
 )
 

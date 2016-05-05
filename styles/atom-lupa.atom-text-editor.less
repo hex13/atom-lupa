@@ -60,6 +60,7 @@
     cursor: default;
 }
 
+
 .lupa-entity-type {
     font-size: 12px;
     font-style: italic;
@@ -115,4 +116,9 @@
     background: #444;
     color: #eda;
     padding: 2px;
+}
+
+.lupa-structure *:focus {
+    background: fade(@background-color-highlight, 50%);
+    color: @text-color-highlight;
 }

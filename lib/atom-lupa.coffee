@@ -29,6 +29,8 @@ module.exports = AtomLupa =
 
     # Register command that toggles this view
     @subscriptions.add atom.commands.add 'atom-workspace', 'atom-lupa:toggle': => @toggle()
+    sel = '.lupa-structure .lupa-entity'
+    @subscriptions.add atom.commands.add sel, 'atom-lupa:lupa-structure-enter': => @enter()
 
     editor = atom.workspace.getActiveTextEditor()
 
@@ -49,6 +51,16 @@ module.exports = AtomLupa =
 
   serialize: ->
     #atomLupaViewState: @atomLupaView.serialize()
+
+  enter: (e)->
+      entity = window.lupaActiveEntity
+      loc = entity.loc
+      if loc
+          pos = [loc.start.line - 1, loc.start.column]
+          window.lupaGoToPos(pos)
+      else if entity.source
+          window.lupaGoToFile(entity.source)
+
 
   toggle: ->
     console.log 'AtomLupa was toggled!'

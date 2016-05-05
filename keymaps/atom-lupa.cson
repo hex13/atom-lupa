@@ -9,3 +9,6 @@
 # https://atom.io/docs/latest/behind-atom-keymaps-in-depth
 'atom-workspace':
   'cmd-alt-l': 'atom-lupa:toggle'
+
+'.lupa-structure .lupa-entity':
+  'enter': 'atom-lupa:lupa-structure-enter'
