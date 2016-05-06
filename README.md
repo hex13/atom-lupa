@@ -22,7 +22,9 @@ examples of semantic search (DSL can change in future versions):
 
 type:objectLiteral
 
-type:function
+Example below finds functions which have foo in name:
+
+type:function foo
 
 type:class
 
@@ -38,7 +40,7 @@ loc.start.column:7
 
 loc.start.line:3
 
-Finds external imports: 
+Example below finds external imports (i.e. these from node_modules):
 
 source:node_modules
 
