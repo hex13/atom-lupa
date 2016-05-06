@@ -18,9 +18,13 @@ It shows structure of each JavaScript file, with clickable list of functions, im
 
 ![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-deepsearch.png)
 
-examples of semantic search (DSL can change in future versions):
+examples of semantic search (DSL can change in future versions). 
 
 type:objectLiteral
+
+(space has meaning so this isn't gonna work: 
+
+type :   objectLiteral #doesn't gonna work
 
 Example below finds functions which have foo in name:
 
