@@ -78,10 +78,12 @@ el.innerHTML = "
 <button class='btn' id='lupa-refresh'><span class='icon icon-sync'></span>Refresh</button>
 <button class='btn' id='lupa-change-colors'>Change colors</button>
 <br>
+<span id='lupa-index-project-wrapper'>
 <button class='btn' id='lupa-index-project'>
 <span class='icon icon-telescope'></span>
 Index project</button>
 (It requires lupaProject.json file.)
+</span>
 <div class='lupa-structure' id='lupa-structure'></div>"
 
 decorations = []
@@ -227,7 +229,7 @@ document.getElementById('lupa-run').addEventListener 'click', () ->
     alert(result)
 
 document.getElementById('lupa-index-project').addEventListener('click', () ->
-    alert "Click ok to start indexing (it can take few minutes)."
+    alert "Click ok to start indexing (it can take a while)."
     try
         plugin.indexProject(path_.dirname(currentFile))
     catch e
@@ -350,7 +352,9 @@ atom.workspace.onDidChangeActivePaneItem ->
 
 update1()
 
-
+plugin.indexing.subscribe (files) ->
+    atom.notifications.addSuccess("#{files && files.length} files have been indexed.")
+    document.getElementById('lupa-index-project-wrapper').style.display = 'none';
 
 refreshInterval = null
 updateAutoRefresh = (value) ->
