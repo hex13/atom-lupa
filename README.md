@@ -36,7 +36,7 @@ jsx:true
 
 loc.start.column:7
 
-loc.start.row:3
+loc.start.line:3
 
 Finds external imports: 
 
