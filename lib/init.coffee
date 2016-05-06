@@ -49,6 +49,7 @@ defaultLoc = {
 }
 
 window.lupaGoToPos = (pos) ->
+    atom.workspace.getActivePane().activate()
     editor.setCursorBufferPosition pos
     editor.scrollToBufferPosition pos, {center: true}
     wrapper = document.getElementById('lupa-editor-wrapper')
