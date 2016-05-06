@@ -72,6 +72,10 @@ To allow full project indexing you have to create `lupaProject.json` in root dir
 ```
 
 # CHANGELOG
+# 2016-05-06
+* Keyboard support
+* Complex searches (like type:function jsx:true render)
+
 # 2016-05-04
 * show type only before first entity of that type
 * autohiding refresh button when autorefresh is enabled
