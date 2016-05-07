@@ -65,7 +65,7 @@
     "flow-parser": "^0.21.0",
     "html-flavors": "0.0.20",
     "lodash": "^4.11.2",
-    "lupa": "0.2.105",
+    "lupa": "0.2.106",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
     "through2": "^2.0.1",
@@ -73,7 +73,12 @@
     "vinyl-fs": "^2.4.3"
   },
   "devDependencies": {
+    "babel-jest": "^12.0.2",
+    "babel-polyfill": "^6.8.0",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-react": "^6.5.0",
     "eslint": "^2.8.0",
+    "jest-cli": "^12.0.2",
     "tape": "^4.4.0"
   }
 }
