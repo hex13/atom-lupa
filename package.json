@@ -5,7 +5,8 @@
   "version": "0.4.177",
   "description": "🔍  Anatomy of JavaScript project 🔍 🐀",
   "scripts": {
-    "reinstall": "rm -rf node_modules; npm install; webpack"
+    "reinstall": "rm -rf node_modules; npm install;",
+    "test": "node_modules/.bin/jest"
   },
   "keywords": [
     "navigation",
