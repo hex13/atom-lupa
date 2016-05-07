@@ -57,7 +57,10 @@ module.exports = AtomLupa =
       loc = entity.loc
       if loc
           pos = [loc.start.line - 1, loc.start.column]
-          window.lupaGoToPos(pos)
+          if entity.file && entity.file.path
+              window.lupaGoToFile(entity.file.path, loc.start.line)
+          else
+              window.lupaGoToPos(pos)
       else if entity.source
           window.lupaGoToFile(entity.source)
 

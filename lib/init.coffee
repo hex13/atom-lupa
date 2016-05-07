@@ -55,11 +55,11 @@ window.lupaGoToPos = (pos) ->
     wrapper = document.getElementById('lupa-editor-wrapper')
     wrapper.innerHTML = ''
 
-window.lupaGoToFile = (path) ->
+window.lupaGoToFile = (path, line) ->
     if !fs.existsSync(path)
         path = getFileForRequire(allFiles, path).path
     if fs.existsSync(path)
-        atom.workspace.open(path)
+        atom.workspace.open(path, {initialLine: if line then line - 1 else 0})
     else
         alert('Can\'t open ' + path)
 
@@ -193,17 +193,15 @@ el.addEventListener('click',
                     .join('')
                     doc.getElementById('lupa-info').innerHTML = "Files with this label '#{label}: #{paths}"
         line = target.getAttribute('data-line')
-        console.log("LINE:", line)
-        if line
+        path = e.target.getAttribute('data-path')
+        if path
+            console.log("lInIa", line)
+            window.lupaGoToFile(path, line)
+        else if line
             pos = [~~line - 1, 0]
             lastPos = pos
             window.lupaGoToPos(pos)
 
-
-        path = e.target.getAttribute('data-path')
-        console.log("path, open file:", path)
-        if path
-            window.lupaGoToFile(path)
 
 )
 
@@ -276,6 +274,7 @@ update1 = ->
     # TODO this is copy pasted§
     if dashboard
         plugin.filterFiles((v) -> v).toArray().subscribe( (files)->
+            window.lupaFiles = files
             dashboard.setFiles(files, addLabelDecoration) # TODO remove addLabelDecoration from here. This is hack
         )
 
