@@ -360,7 +360,7 @@ updateAutoRefresh = (value) ->
     autoRefreshEl = document.getElementById('lupa-refresh')
     if value
         autoRefreshEl.style.display = 'none'
-        refreshInterval = setInterval(refresh, 800)
+        refreshInterval = setInterval(refresh, 1800)
     else
         clearInterval(refreshInterval)
         autoRefreshEl.style.display = 'block'
