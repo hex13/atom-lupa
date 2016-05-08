@@ -1,4 +1,4 @@
-{CompositeDisposable, Range} = require 'atom'
+{CompositeDisposable} = require 'atom'
 
 module.exports = AtomLupa =
   atomLupaView: null
@@ -14,7 +14,7 @@ module.exports = AtomLupa =
           description: '(Restart of Atom is required after changing)'
 
   activate: (state) ->
-
+      
 
 
     # @subscriptions = new CompositeDisposable

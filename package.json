@@ -1,6 +1,6 @@
 {
   "name": "atom-lupa",
-  "main": "./lib/atom-lupa",
+  "main": "./lib/atom-bindings/atom-main",
   "__main": "./dist/bundle.js",
   "version": "0.4.189",
   "description": "🔍  Anatomy of JavaScript project 🔍 🐀",
