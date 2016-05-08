@@ -21,7 +21,7 @@ previewMarker = null
 fs = require 'fs'
 path_ = require 'path'
 refreshStructure = require('./refresh').refreshStructure
-
+events = require './events/events.js'
 
 el = document.createElement('div');
 el.style.overflow = 'scroll'
@@ -35,18 +35,14 @@ defaultLoc = {
 }
 
 window.lupaGoToPos = (pos) ->
-    atom.workspace.getActivePane().activate()
-    editor.setCursorBufferPosition pos
-    editor.scrollToBufferPosition pos, {center: true}
-    wrapper = document.getElementById('lupa-editor-wrapper')
-    wrapper.innerHTML = ''
-
-window.lupaGoToFile = (path, line) ->
-    if fs.existsSync(path)
-        atom.workspace.open(path, {initialLine: if line then line - 1 else 0})
-    else
-        alert('Can\'t open ' + path)
-
+    alert('lupaGoToPos')
+    # window.lupaEmit('goToPos', pos)
+    # atom.workspace.getActivePane().activate()
+    # editor.setCursorBufferPosition pos
+    # editor.scrollToBufferPosition pos, {center: true}
+    # wrapper = document.getElementById('lupa-editor-wrapper')
+    # wrapper.innerHTML = ''
+    #window.lupaEmit('goToPos', pos)
 
 
 module.exports = (aDashboard) ->
@@ -164,7 +160,7 @@ el.addEventListener('click',
         path = e.target.getAttribute('data-path')
         if path
             console.log("lInIa", line)
-            window.lupaGoToFile(path, line)
+            window.lupaEmit('goToFile', [path, line])
         else if line
             pos = [~~line - 1, 0]
             lastPos = pos

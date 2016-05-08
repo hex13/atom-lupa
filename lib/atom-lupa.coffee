@@ -58,11 +58,11 @@ module.exports = AtomLupa =
       if loc
           pos = [loc.start.line - 1, loc.start.column]
           if entity.file && entity.file.path
-              window.lupaGoToFile(entity.file.path, loc.start.line)
+              window.lupaEmit('goToFile', [entity.file.path, loc.start.line])
           else
               window.lupaGoToPos(pos)
       else if entity.source
-          window.lupaGoToFile(entity.source)
+          window.lupaEmit('goToFile', [entity.source])
 
 
   toggle: ->
