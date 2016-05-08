@@ -12,9 +12,6 @@ Main = (require './components/main').Main
 plugin = lupa.analysis;
 Metadata = lupa.Metadata;
 getMetadata = Metadata.getMetadata
-getFileForModule = require('./getFileFor').getFileForModule
-getFileForSymbol = require('./getFileFor').getFileForSymbol
-getFileForRequire = require('./getFileFor').getFileForRequire
 createTextEditor = require('./editor.js').createTextEditor
 {Structure} = require './components/Structure'
 {StatusBar} = require './components/StatusBar'
@@ -45,8 +42,6 @@ window.lupaGoToPos = (pos) ->
     wrapper.innerHTML = ''
 
 window.lupaGoToFile = (path, line) ->
-    if !fs.existsSync(path)
-        path = getFileForRequire(allFiles, path).path
     if fs.existsSync(path)
         atom.workspace.open(path, {initialLine: if line then line - 1 else 0})
     else
@@ -92,7 +87,6 @@ el.addEventListener('mouseout',
         wrapper.innerHTML = ''
 
 )
-
 
 
 lastPos = null
@@ -208,7 +202,6 @@ document.getElementById('lupa-index-project').addEventListener('click', () ->
         alert "Error: " + e.message
 )
 
-allFiles = []
 editor = null
 
 refresh = ->
@@ -231,10 +224,6 @@ refresh = ->
         }), statusBar)
 
 
-
-
-
-
     f = new File({
         path: currentFile,
         contents: new Buffer(editor.getBuffer().getText())
@@ -248,8 +237,6 @@ update1 = ->
 
     identitity = (v) ->
         v
-    plugin.filterFiles(identitity).toArray().subscribe (files) ->
-        allFiles = files
     editor = atom.workspace.getActiveTextEditor()
 
     if (!editor)
