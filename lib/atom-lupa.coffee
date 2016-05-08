@@ -40,8 +40,6 @@ module.exports = AtomLupa =
     activePane = atom.workspace.paneContainer.activePane
     @atomLupaView = new AtomLupaView()
     activePane.addItem(@atomLupaView)
-    plugin(@atomLupaView)
-
 
 
   deactivate: ->
