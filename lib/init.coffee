@@ -245,11 +245,6 @@ refresh = ->
 doc.getElementById('lupa-refresh').addEventListener('click', refresh)
 
 update1 = ->
-    # TODO this is copy pasted§
-    if dashboard
-        plugin.filterFiles((v) -> v).toArray().subscribe( (files)->
-            #dashboard.setFiles(files, addLabelDecoration) # TODO remove addLabelDecoration from here. This is hack
-        )
 
     identitity = (v) ->
         v
