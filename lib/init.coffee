@@ -110,6 +110,7 @@ refresh = ->
     if !editor
         return
 
+    # breadcrumbs
     if editor.metadata && shouldShowBreadcrumbs
         pos = editor.getCursorBufferPosition()
         pos.row += 1
@@ -124,8 +125,6 @@ refresh = ->
     })
     plugin.invalidate(f)
     plugin.process(f).subscribe(update1)
-
-doc.getElementById('lupa-refresh').addEventListener('click', refresh)
 
 update1 = ->
 
@@ -177,7 +176,7 @@ plugin.indexing.subscribe (files) ->
     ,[]
     if dashboard
         dashboard.setFiles(files, addLabelDecoration) # TODO remove addLabelDecoration from here. This is hack
-
+        
     atom.notifications.addSuccess("#{files && files.length} files have been indexed.")
     document.getElementById('lupa-index-project-wrapper').style.display = 'none';
 
