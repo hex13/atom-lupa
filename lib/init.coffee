@@ -174,8 +174,6 @@ plugin.indexing.subscribe (files) ->
     window.lupaEntities = files.reduce (res,f) ->
         res.concat(f.metadata)
     ,[]
-    if dashboard
-        dashboard.setFiles(files, addLabelDecoration) # TODO remove addLabelDecoration from here. This is hack
     window.lupaEmit('msg', ["#{files && files.length} files have been indexed."])
     document.getElementById('lupa-index-project-wrapper').style.display = 'none';
 
