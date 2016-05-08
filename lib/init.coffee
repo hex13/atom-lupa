@@ -1,23 +1,19 @@
-
 #plugin = require './plugin'
 debug = false
 shouldShowBreadcrumbs = atom.config.get('atom-lupa.shouldShowBreadcrumbs')
 
 {Range} = require 'atom'
-child_process = require('child_process')
 File = require('vinyl')
 lupa = require 'lupa'
 Main = (require './components/main').Main
 
 plugin = lupa.analysis;
-Metadata = lupa.Metadata;
-getMetadata = Metadata.getMetadata
-createTextEditor = require('./editor.js').createTextEditor
+
 {Structure} = require './components/Structure'
 {StatusBar} = require './components/StatusBar'
 ReactDOM = require('react-dom')
 React = require('react')
-previewMarker = null
+
 fs = require 'fs'
 path_ = require 'path'
 refreshStructure = require('./refresh').refreshStructure
