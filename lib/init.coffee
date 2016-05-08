@@ -74,8 +74,6 @@ previewEditor = null
 
 
 
-
-
 currentFile = ''
 
 atom.workspace.addLeftPanel(item: el)
@@ -85,12 +83,6 @@ if shouldShowBreadcrumbs
     statusBar.innerHTML = "<div id='lupa-statusbar'></div>"
     atom.workspace.addTopPanel(item: statusBar)
 
-
-backgroundColors = ['#2b2b2c', '#21252b', 'inherit']
-document.getElementById('lupa-change-colors').addEventListener 'click', () ->
-    bck = backgroundColors.shift()
-    backgroundColors.push(bck)
-    document.getElementById('lupa-structure').style.background = bck;
 
 document.getElementById('lupa-index-project').addEventListener('click', () ->
     alert "Click ok to start indexing (it can take a while)."
