@@ -243,7 +243,7 @@ refresh = ->
             onMouseOut: handleDestroyDecorations,
             entities: entitiesAtPos
         }), statusBar)
-        #statusBar.innerHTML = "<div style='padding: 4px; color: #ffa'>#{entitiesAtPos.join(', ')}</div>"
+
 
 
 
@@ -287,37 +287,8 @@ update1 = ->
     if !filename
         return
 
-    if debug
-        safeToRun = editor.buffer.getText().match(/\/\/ safe to run/)
-        if safeToRun
-            require.cache[editor.buffer.file.path] = null
-            try
-                result = require(editor.buffer.file.path)
-            catch e
-                result = e
-        else
-            result = '???'
-        block = document.createElement('div')
-        block.innerHTML = result
-        #block.src = 'http://localhost:8000'
-        block.width = '100%'
-        block.height = '900px'
-        #block.style.height = (15 * 5) + 'px';
-
-        range = new Range([0, 0], [0, 0])
-        if previewMarker
-            previewMarker.destroy()
-        previewMarker = editor.markScreenPosition([0, 0]) #editor.markBufferRange(range)
-        decoration = editor.decorateMarker(previewMarker, {item:block, type: 'block', position: 'before'})
-
-
 
     update = (f)->
-        if dashboard
-            plugin.filterFiles((v) -> v).toArray().subscribe( (files)->
-                dashboard.setFiles(files, addLabelDecoration) # TODO remove addLabelDecoration from here. This is hack
-            )
-
 
         refreshStructure plugin, f, (metadata) ->
             editor.metadata = metadata
@@ -343,6 +314,8 @@ plugin.indexing.subscribe (files) ->
     window.lupaEntities = files.reduce (res,f) ->
         res.concat(f.metadata)
     ,[]
+    if dashboard
+        dashboard.setFiles(files, addLabelDecoration) # TODO remove addLabelDecoration from here. This is hack
 
     atom.notifications.addSuccess("#{files && files.length} files have been indexed.")
     document.getElementById('lupa-index-project-wrapper').style.display = 'none';
