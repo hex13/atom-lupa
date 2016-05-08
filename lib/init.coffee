@@ -52,7 +52,7 @@ module.exports = (aDashboard) ->
 el.style.paddingLeft = '8px'
 ReactDOM.render(React.createElement(Main), el)
 decorations = []
-labelDecorations = []
+
 
 addLabelDecoration = (editor, line, col, lineEnd, colEnd, list, cls) ->
     #line = line -= 2 # WTF?
@@ -71,29 +71,10 @@ addLabelDecoration = (editor, line, col, lineEnd, colEnd, list, cls) ->
         list.push(decoration)
 
 
-el.addEventListener('mouseout',
-    (e) ->
-        if lastPos && editor
-            editor.scrollToBufferPosition lastPos, {center: true}
-        #return
-        decorations.forEach (d) ->
-            d.destroy()
-
-        wrapper = document.getElementById('lupa-editor-wrapper')
-        wrapper.innerHTML = ''
-
-)
 
 
 lastPos = null
 previewEditor = null
-
-handleDestroyDecorations = (e) ->
-    if !editor
-        return
-
-    decorations.forEach (d) ->
-        d.destroy()
 
 
 
@@ -136,14 +117,6 @@ refresh = ->
             item.loc &&
             item.loc.start.line <= pos.row &&
             item.loc.end.line >= pos.row
-        # .map (item) ->
-        #     item.name
-        ReactDOM.render(React.createElement(StatusBar, {
-            onMouseOver: handleEntityMouseOver,
-            onMouseOut: handleDestroyDecorations,
-            entities: entitiesAtPos
-        }), statusBar)
-
 
     f = new File({
         path: currentFile,
