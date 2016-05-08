@@ -14,8 +14,6 @@ module.exports = AtomLupa =
           description: '(Restart of Atom is required after changing)'
 
   activate: (state) ->
-      
-
 
     # @subscriptions = new CompositeDisposable
     #
