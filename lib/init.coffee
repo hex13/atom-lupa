@@ -266,7 +266,7 @@ refresh = ->
         contents: new Buffer(editor.getBuffer().getText())
     })
     plugin.invalidate(f)
-    plugin.process(f).subscribe(update1)
+    #plugin.process(f).subscribe(update1)
 
 doc.getElementById('lupa-refresh').addEventListener('click', refresh)
 
@@ -274,8 +274,7 @@ update1 = ->
     # TODO this is copy pasted§
     if dashboard
         plugin.filterFiles((v) -> v).toArray().subscribe( (files)->
-            window.lupaFiles = files
-            dashboard.setFiles(files, addLabelDecoration) # TODO remove addLabelDecoration from here. This is hack
+            #dashboard.setFiles(files, addLabelDecoration) # TODO remove addLabelDecoration from here. This is hack
         )
 
     identitity = (v) ->
@@ -352,6 +351,11 @@ atom.workspace.onDidChangeActivePaneItem ->
 update1()
 
 plugin.indexing.subscribe (files) ->
+    window.lupaFiles = files
+    window.lupaEntities = files.reduce (res,f) ->
+        res.concat(f.metadata)
+    ,[]
+
     atom.notifications.addSuccess("#{files && files.length} files have been indexed.")
     document.getElementById('lupa-index-project-wrapper').style.display = 'none';
 
