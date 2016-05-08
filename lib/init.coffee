@@ -131,31 +131,6 @@ el.addEventListener('click',
     (e) ->
         target = e.target
 
-        if target.className.indexOf('lupa-label') != -1
-            label = target.getAttribute('data-label')
-            if editor && editor.buffer
-                labelDecorations.forEach (d) ->
-                    d.destroy()
-
-                autolabels = plugin.getConfig().autolabels || []
-
-                filter = (l) ->
-                    l[0] == label
-                pattern = ((autolabels.filter(filter)[0] || [])[1]) || label
-
-                editor.buffer.lines.forEach (line, idx) ->
-                    if line.match(new RegExp(pattern))
-                        addLabelDecoration(editor, idx + 1, 0, idx + 2, 0, labelDecorations, 'label-decoration')
-            plugin
-                .filterFiles (f) ->
-                    getMetadata(f).filter (item)->
-                        item.type == 'label' && item.data == label
-                    .length
-                .toArray().subscribe (files) ->
-                    paths = files.map (f) ->
-                        "<div data-path='#{f.path}'> #{path_.basename(f.path)} </div>"
-                    .join('')
-                    doc.getElementById('lupa-info').innerHTML = "Files with this label '#{label}: #{paths}"
         line = target.getAttribute('data-line')
         path = e.target.getAttribute('data-path')
         if path
