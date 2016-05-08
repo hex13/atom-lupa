@@ -126,25 +126,6 @@ handleEntityMouseOver = (entity, e) ->
 
 el.addEventListener('mouseover', handleEntityMouseOver.bind(this, null))
 
-
-el.addEventListener('click',
-    (e) ->
-        target = e.target
-
-        line = target.getAttribute('data-line')
-        path = e.target.getAttribute('data-path')
-        if path
-            console.log("lInIa", line)
-            window.lupaEmit('goToFile', [path, line])
-        else if line
-            pos = [~~line - 1, 0]
-            lastPos = pos
-            window.lupaGoToPos(pos)
-
-
-)
-
-
 currentFile = ''
 
 atom.workspace.addLeftPanel(item: el)
