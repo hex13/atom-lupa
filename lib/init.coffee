@@ -282,11 +282,11 @@ update1 = ->
     # assign to global variable
     onUpdate = update
     #plugin.on('message', update)
-    plugin.process(new File({
-        path: filename,
-        contents: fs.readFileSync(filename)
-    })).subscribe(update)
-
+    if fs.existsSync(filename)
+        plugin.process(new File({
+            path: filename,
+            contents: fs.readFileSync(filename)
+        })).subscribe(update)
 
 
 atom.workspace.onDidChangeActivePaneItem ->
