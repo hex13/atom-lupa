@@ -266,7 +266,7 @@ refresh = ->
         contents: new Buffer(editor.getBuffer().getText())
     })
     plugin.invalidate(f)
-    #plugin.process(f).subscribe(update1)
+    plugin.process(f).subscribe(update1)
 
 doc.getElementById('lupa-refresh').addEventListener('click', refresh)
 
