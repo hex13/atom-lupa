@@ -176,8 +176,7 @@ plugin.indexing.subscribe (files) ->
     ,[]
     if dashboard
         dashboard.setFiles(files, addLabelDecoration) # TODO remove addLabelDecoration from here. This is hack
-        
-    atom.notifications.addSuccess("#{files && files.length} files have been indexed.")
+    window.lupaEmit('msg', ["#{files && files.length} files have been indexed."])
     document.getElementById('lupa-index-project-wrapper').style.display = 'none';
 
 refreshInterval = null
