@@ -1,6 +1,6 @@
 {
   "name": "atom-lupa",
-  "main": "./lib/atom-bindings/atom-main",
+  "main": "./index.js",
   "__main": "./dist/bundle.js",
   "version": "0.4.189",
   "description": "🔍  Anatomy of JavaScript project 🔍 🐀",
@@ -69,6 +69,8 @@
     "lupa": "0.2.109",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
+    "react-redux": "^4.4.5",
+    "redux": "^3.5.2",
     "through2": "^2.0.1",
     "vinyl": "^1.1.1",
     "vinyl-fs": "^2.4.3"

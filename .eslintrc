@@ -1,7 +1,8 @@
 {
     "env": {
         "es6": true,
-        "node": true
+        "node": true,
+        "browser": true
     },
     "extends": "eslint:recommended",
     "parserOptions": {
@@ -15,5 +16,8 @@
         "comma-dangle": [0],
         "no-unused-vars" : [1],
         "no-console": [1]
+    },
+    "globals": {
+        "atom": false
     }
 }
