@@ -1,4 +1,3 @@
-AtomLupaView = require './atom-lupa-view'
 {CompositeDisposable, Range} = require 'atom'
 
 module.exports = AtomLupa =
