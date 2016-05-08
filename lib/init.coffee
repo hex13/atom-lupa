@@ -96,35 +96,8 @@ handleDestroyDecorations = (e) ->
         d.destroy()
 
 
-handleEntityMouseOver = (entity, e) ->
-        if !editor
-            return
-        target = e.target
-        ed = null
-        if target
-            line = target.getAttribute('data-line') || 0
-            col = ~~target.getAttribute('data-column') || 0
-            colEnd = ~~target.getAttribute('data-column-end') || col
-            lineEnd = target.getAttribute('data-line-end') || line
-        else if entity
-            line = entity.loc.start.line
-            col = entity.loc.start.column
-            colEnd = entity.loc.end.column
-            lineEnd = entity.loc.end.line
 
-        if line || target.getAttribute('data-path') #&& editor
-            fileToPreview = target.getAttribute('data-path') || currentFile
-            previewEditor = createTextEditor(fileToPreview, ~~line)
-            if entity # show in main editor
-                addLabelDecoration(editor, line, col, lineEnd, colEnd, decorations)
-            else
-                addLabelDecoration(previewEditor, line, col, lineEnd, colEnd, decorations)
-                edEl = previewEditor.element
-                wrapper = document.getElementById('lupa-editor-wrapper')
-                wrapper.innerHTML = ''
-                wrapper.appendChild(edEl)
 
-el.addEventListener('mouseover', handleEntityMouseOver.bind(this, null))
 
 currentFile = ''
 
