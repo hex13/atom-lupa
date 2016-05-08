@@ -7,6 +7,7 @@ shouldShowBreadcrumbs = atom.config.get('atom-lupa.shouldShowBreadcrumbs')
 child_process = require('child_process')
 File = require('vinyl')
 lupa = require 'lupa'
+Main = (require './components/main').Main
 
 plugin = lupa.analysis;
 Metadata = lupa.Metadata;
@@ -58,22 +59,7 @@ module.exports = (aDashboard) ->
     update1()
 
 el.style.paddingLeft = '8px'
-el.innerHTML = "
-<div id='lupa-editor-wrapper'></div>
-<div id='lupa-info'></div>
-<div style='height: 4px'></div>
-<button style='display:none' id='lupa-run'>Run</button>
-<button class='btn' id='lupa-refresh'><span class='icon icon-sync'></span>Refresh</button>
-<button class='btn' id='lupa-change-colors'>Change colors</button>
-<br>
-<span id='lupa-index-project-wrapper'>
-<button class='btn' id='lupa-index-project'>
-<span class='icon icon-telescope'></span>
-Index project</button>
-(It requires lupaProject.json file.)
-</span>
-<div class='lupa-structure' id='lupa-structure'></div>"
-
+ReactDOM.render(React.createElement(Main), el)
 decorations = []
 labelDecorations = []
 
@@ -289,7 +275,6 @@ update1 = ->
 
 
     update = (f)->
-
         refreshStructure plugin, f, (metadata) ->
             editor.metadata = metadata
 
