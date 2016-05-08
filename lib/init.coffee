@@ -142,10 +142,6 @@ document.getElementById('lupa-change-colors').addEventListener 'click', () ->
     backgroundColors.push(bck)
     document.getElementById('lupa-structure').style.background = bck;
 
-document.getElementById('lupa-run').addEventListener 'click', () ->
-    result = require(currentFile)
-    alert(result)
-
 document.getElementById('lupa-index-project').addEventListener('click', () ->
     alert "Click ok to start indexing (it can take a while)."
     try
