@@ -58,6 +58,7 @@
 .lupa-entity {
     margin-top: 6px;
     cursor: default;
+    transition: 0.2s background-color;
 }
 
 
@@ -118,7 +119,7 @@
     padding: 2px;
 }
 
-.lupa-structure *:focus {
-    background: fade(@background-color-highlight, 50%);
+.lupa-entity.lupa-entity-active {
+    background: fade(@background-color-highlight, 60%);
     color: @text-color-highlight;
 }
