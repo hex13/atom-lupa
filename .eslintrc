@@ -17,7 +17,8 @@
         "no-unused-vars" : [1],
         "no-console": [0],
         "no-unreachable": [1],
-        "no-return-assign": [1]
+        "no-return-assign": [1],
+        "no-inner-declarations": [1]
     },
     "globals": {
         "atom": false
