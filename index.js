@@ -6,6 +6,7 @@ import domMiddleware  from './lib/middleware/domMiddleware';
 
 let env;
 const redux = require('redux');
+import thunk from 'redux-thunk';
 
 
 const Lupa = require('./lib/components/Lupa').Lupa;
@@ -68,7 +69,7 @@ function mapDispatchToProps(dispatch) {
 const store = redux.createStore(
     reducer,
     {},
-    redux.applyMiddleware(domMiddleware, lupaMiddleware, editorMiddleware)
+    redux.applyMiddleware(thunk, domMiddleware, lupaMiddleware, editorMiddleware)
 );
 store.subscribe(function () {
     console.log("SUBSCRIBE", store.getState())
