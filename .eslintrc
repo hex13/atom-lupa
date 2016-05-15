@@ -19,7 +19,8 @@
         "no-unreachable": [1],
         "no-return-assign": [1],
         "no-inner-declarations": [1],
-        "no-empty": [1]
+        "no-empty": [1],
+        "no-mixed-spaces-and-tabs": [1]
     },
     "globals": {
         "atom": false
