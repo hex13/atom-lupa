@@ -10,5 +10,9 @@
 'atom-workspace':
   'cmd-.': 'atom-lupa:toggle'
 
+# TODO don't duplicate selector
 '.lupa-structure .lupa-entity':
   'enter': 'atom-lupa:lupa-structure-enter'
+
+'.lupa-structure':
+  'escape': 'atom-lupa:lupa-structure-esc'
