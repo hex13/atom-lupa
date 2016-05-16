@@ -11,7 +11,10 @@ Version 0.5.0: Many improvements
 
 
 ====================================================
+What is Lupa atom package?
+===
 
+It's something you surely would like to install.
 
 - Better navigation
 - Better understanding the codebase 
