@@ -14,7 +14,7 @@ const lupa = require('lupa');
 const analysis = lupa.analysis;
 const File = require('vinyl');
 
-
+const Path = require('path');
 
 if (typeof atom != 'undefined') {
     env = 'atom';
@@ -29,9 +29,22 @@ const editorMiddleware = ({
     atom: require('./lib/atom-bindings/middleware.js')
 })[env];
 
+analysis.indexing.subscribe(files => {
+    files.forEach(f => {
+        store.dispatch({
+            type: 'setMetadata',
+            file: f
+        })
+    })
+});
 
-function lupaMiddleware(action) {
+
+function lupaMiddleware(store) {
     return (next) => (action) => {
+        if (action.type == 'indexProject') {
+            const currentFile = store.getState().activeFile.path;
+            analysis.indexProject(Path.dirname(currentFile));
+        }
         if (action.type == 'setActiveFile') {
             const contents = action.file.contents;
             const f = new File({
@@ -83,6 +96,7 @@ window.lupaStore = store;
 const CLupa = connect(mapStateToProps, mapDispatchToProps)(Lupa);
 module.exports = main({
     dispatch: store.dispatch,
+    analysis: analysis,
     //Lupa: (props) => <Lupa {...props}  />,
     Lupa: (props) => <Provider store={store}>
         <CLupa {...props}/>
