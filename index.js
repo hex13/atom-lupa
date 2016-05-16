@@ -15,6 +15,7 @@ const analysis = lupa.analysis;
 const File = require('vinyl');
 
 
+
 if (typeof atom != 'undefined') {
     env = 'atom';
 }
@@ -74,6 +75,7 @@ const store = redux.createStore(
 store.subscribe(function () {
     console.log("SUBSCRIBE", store.getState())
 })
+window.lupaStore = store;
 
  //<Provider store={store}>
 const CLupa = connect(mapStateToProps, mapDispatchToProps)(Lupa);
