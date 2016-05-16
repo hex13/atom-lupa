@@ -43,6 +43,7 @@ function lupaMiddleware(action) {
                 console.log('procesowalo sie', f.metadata);
                 store.dispatch({
                     type: 'setMetadata',
+                    file: f,
                     metadata: (f.metadata || []).map((ent, i) => {
                         return Object.assign({}, ent, {id: i});
                     })
@@ -57,6 +58,7 @@ function mapStateToProps(state) {
     console.log("MAP", state);
     return {
         metadata: state.metadata || [],
+        allMetadata: state.allMetadata || [],
     };
 }
 
@@ -73,7 +75,7 @@ const store = redux.createStore(
     redux.applyMiddleware(thunk, domMiddleware, lupaMiddleware, editorMiddleware)
 );
 store.subscribe(function () {
-    console.log("SUBSCRIBE", store.getState())
+
 })
 window.lupaStore = store;
 
