@@ -2,7 +2,7 @@
   "name": "atom-lupa",
   "main": "./index.js",
   "__main": "./dist/bundle.js",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "🔍  Anatomy of JavaScript project 🔍 🐀",
   "scripts": {
     "reinstall": "rm -rf node_modules; npm install;",
