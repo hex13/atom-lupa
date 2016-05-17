@@ -25,7 +25,7 @@ It's something you surely would like to install.
 Navigation sidebar capable to perform full indexing of JavaScript project. 
 
 Note:
-=====
+--------
 
 To allow full project indexing you have to create `lupaProject.json` in root directory of your project. Example file:
 ```
