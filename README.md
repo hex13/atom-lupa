@@ -40,7 +40,7 @@ To allow full project indexing you have to create `lupaProject.json` in root dir
 ```
 
 
-It shows structure of each JavaScript file, with clickable list of functions, imports etc. It allows you to navigate also between different files in project, shows what modules in project import particular file.
+This package shows structure of each JavaScript file, with clickable list of functions, imports etc. It allows you to navigate also between different files in project, shows what modules in project import particular file.
 
 ##### It allows you to filter entries by name or type, e.g.:
 
