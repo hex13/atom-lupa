@@ -3,7 +3,7 @@
   "main": "./index.js",
   "__main": "./dist/bundle.js",
   "version": "0.5.2",
-  "description": "🔍  Anatomy of JavaScript project 🔍 🐀",
+  "description": "**NEW VERSION** MANY IMPROVEMENTS",
   "scripts": {
     "reinstall": "rm -rf node_modules; npm install;",
     "test": "node_modules/.bin/jest"
