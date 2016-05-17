@@ -54,14 +54,24 @@ function lupaMiddleware(store) {
             analysis.invalidate(f);
             analysis.process(f).subscribe(f => {
                 console.log('procesowalo sie', f.metadata);
-                store.dispatch({
-                    type: 'setMetadata',
-                    file: f,
-                    metadata: (f.metadata || []).map((ent, i) => {
-                        return Object.assign({}, ent, {id: i});
-                    })
+
+                analysis.findImporters(f.path).toArray().subscribe(function (importers) {
+                    const importersMd = importers.map(f => ({
+                        type: 'imported by',
+                        name: f.path,
+                        file: f,
+                    }))
+                    const finalMetadata = (f.metadata || []).concat(importersMd)
+                    store.dispatch({
+                        type: 'setMetadata',
+                        file: f,
+                        metadata: finalMetadata.map((ent, i) => {
+                            return Object.assign({}, ent, {id: i});
+                        })
+                    });
                 });
             });
+
         }
         next(action);
     }
