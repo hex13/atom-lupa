@@ -3,7 +3,7 @@
   "main": "./index.js",
   "__main": "./dist/bundle.js",
   "version": "0.5.11",
-  "description": "**NEW VERSION** MANY IMPROVEMENTS",
+  "description": "list of JavaScript functions on sidebar",
   "scripts": {
     "reinstall": "rm -rf node_modules; npm install;",
     "test": "node_modules/.bin/jest"
