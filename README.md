@@ -3,9 +3,9 @@
 Version 0.5.0: Many improvements
 
 - Resizable panel
-- More integration with Atom color theme 
+- More integration with Atom color theme
 - Better keyboard navigation
-- Better preview 
+- Better preview
 - Global search (by two dots on the beginning e.g. `..something`
 - Other improvements
 ![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-0-5-0.png)
@@ -18,11 +18,11 @@ What is Lupa atom package?
 It's something you surely would like to install.
 
 - Better navigation
-- Better understanding the codebase 
+- Better understanding the codebase
 - Semantic code search
 - JavaScript/ES6 support
 
-Navigation sidebar capable to perform full indexing of JavaScript project. 
+Navigation sidebar capable to perform full indexing of JavaScript project.
 
 Note:
 --------
@@ -34,6 +34,7 @@ To allow full project indexing you have to create `lupaProject.json` in root dir
     "autolabels": [
         ["angular", "angular"],
         ["foo", "foo"],
+        ["react", "React"],
         ["numbers", "\\d+"],
     ]
 }
@@ -51,11 +52,11 @@ This package shows structure of each JavaScript file, with clickable list of fun
 
 ![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-deepsearch.png)
 
-examples of semantic search (DSL can change in future versions). 
+examples of semantic search (DSL can change in future versions).
 
 type:objectLiteral
 
-(space has meaning so this isn't gonna work: 
+(space has meaning so this isn't gonna work:
 
 type :   objectLiteral #doesn't gonna work
 
@@ -67,7 +68,7 @@ type:class
 
 type:todo
 
-params.length:2 
+params.length:2
 
 params[0].name:err
 
@@ -85,12 +86,12 @@ source:node_modules
 
 * ES5 (just plain old JavaScript)
 * ES6 (e.g. it detects imports/exports, ES6 classes and arrow functions)
-* JSX  
-* CommonJS (it detects `require(...)`s ) 
-* AngularJS (partially)
+* JSX (so it can be helpful during development with React)
+* CommonJS (it detects `require(...)`s )
+* AngularJS (eg. it detects AngularJS directives)
 * CoffeeScript (partially)
 
-##### Breadcrumbs: 
+##### Breadcrumbs:
 
 ![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-breadcrumbs.png)
 Sidepanel:
@@ -126,7 +127,7 @@ Project explorer:
 * now it's possible to filter symbols by name
 * better class preview in sidepanel
 * project explorer now uses components from sidepanel
-* changeColors button for users with light backgrounds 
+* changeColors button for users with light backgrounds
 
 # 2016-04-27
 * better support for functions
