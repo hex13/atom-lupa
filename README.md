@@ -4,7 +4,8 @@ Version 0.5.0: Many improvements
 
 - Resizable panel
 - More integration with Atom color theme 
-- Better preview
+- Better keyboard navigation
+- Better preview 
 - Global search (by two dots on the beginning e.g. `..something`
 - Other improvements
 ![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-0-5-0.png)
