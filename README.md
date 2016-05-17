@@ -24,6 +24,22 @@ It's something you surely would like to install.
 
 Navigation sidebar capable to perform full indexing of JavaScript project. 
 
+Note:
+=====
+
+To allow full project indexing you have to create `lupaProject.json` in root directory of your project. Example file:
+```
+{
+    "filePattern": "src/**/*.js",
+    "autolabels": [
+        ["angular", "angular"],
+        ["foo", "foo"],
+        ["numbers", "\\d+"],
+    ]
+}
+```
+
+
 It shows structure of each JavaScript file, with clickable list of functions, imports etc. It allows you to navigate also between different files in project, shows what modules in project import particular file.
 
 ##### It allows you to filter entries by name or type, e.g.:
@@ -81,18 +97,6 @@ Sidepanel:
 ![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-1.jpg)
 Project explorer:
 ![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-2.png)
-
-To allow full project indexing you have to create `lupaProject.json` in root directory of your project. Example file:
-```
-{
-    "filePattern": "src/**/*.js",
-    "autolabels": [
-        ["angular", "angular"],
-        ["foo", "foo"],
-        ["numbers", "\\d+"],
-    ]
-}
-```
 
 # CHANGELOG
 # 2016-05-06
