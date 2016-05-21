@@ -4,6 +4,17 @@ import {connect, Provider} from 'react-redux';
 import reducer from './lib/state.js';
 import domMiddleware  from './lib/middleware/domMiddleware';
 
+// monkey patching components with file information
+const Path = require('path');
+
+require('glob')(Path.join(__dirname, '/lib/components/[A-Z]*.js'), (err, files) => {
+    files.map(f => [f, require(f)]).forEach(patchModule);
+});
+
+function patchModule([path, m]) {
+    Object.keys(m).forEach(k => m[k].lupaMetadata = path);
+}
+
 let env;
 const redux = require('redux');
 import thunk from 'redux-thunk';
@@ -14,7 +25,7 @@ const lupa = require('lupa');
 const analysis = lupa.analysis;
 const File = require('vinyl');
 
-const Path = require('path');
+
 
 if (typeof atom != 'undefined') {
     env = 'atom';
