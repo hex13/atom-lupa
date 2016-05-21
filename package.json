@@ -79,6 +79,7 @@
     "cheerio": "^0.20.0",
     "eslint": "^2.8.0",
     "jest-cli": "^12.0.2",
+    "react-addons-test-utils": "^15.1.0",
     "tape": "^4.4.0"
   }
 }
