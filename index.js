@@ -53,7 +53,6 @@ function lupaMiddleware(store) {
             });
             analysis.invalidate(f);
             analysis.process(f).subscribe(f => {
-                console.log('procesowalo sie', f.metadata);
 
                 analysis.findImporters(f.path).toArray().subscribe(function (importers) {
                     const importersMd = importers.map(f => ({
