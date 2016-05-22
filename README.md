@@ -101,6 +101,10 @@ Project explorer:
 
 # CHANGELOG
 
+# 2016-05-22
+* restore selections after preview
+* alt+click now selects entity
+
 # 2016-05-17
 * rewriting big parts of package
 * panel is now resizable
