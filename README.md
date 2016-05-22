@@ -100,6 +100,17 @@ Project explorer:
 ![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-2.png)
 
 # CHANGELOG
+
+# 2016-05-17
+* rewriting big parts of package
+* panel is now resizable
+* More integration with Atom color theme
+* Better keyboard navigation
+* ProjectExplorer is out (for now. It probably returns improved)
+* Better preview (fixing scrolling issues)
+* Global search (by two dots on the beginning e.g. ..something
+* Other improvements
+
 # 2016-05-06
 * Keyboard support
 * Complex searches (like type:function jsx:true render)
