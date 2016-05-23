@@ -53,8 +53,10 @@ analysis.indexing.subscribe(files => {
 function lupaMiddleware(store) {
     return (next) => (action) => {
         if (action.type == 'indexProject') {
-            const currentFile = store.getState().activeFile.path;
-            analysis.indexProject(Path.dirname(currentFile));
+            const activeFile = store.getState().activeFile;
+            if (activeFile) {
+                analysis.indexProject(Path.dirname(activeFile.path));
+            }
         }
         if (action.type == 'setActiveFile') {
             const contents = action.file.contents;
