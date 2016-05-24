@@ -90,10 +90,10 @@ function lupaMiddleware(store) {
 }
 
 function mapStateToProps(state) {
-    console.log("MAP", state);
     return {
         metadata: state.metadata || [],
         allMetadata: state.allMetadata || [],
+        indexed: state.indexed
     };
 }
 
