@@ -89,7 +89,8 @@ source:node_modules
 * JSX (so it can be helpful during development with React)
 * CommonJS (it detects `require(...)`s )
 * AngularJS (eg. it detects AngularJS directives)
-* CoffeeScript (partially)
+* Python (basic support)
+* CoffeeScript (basic support)
 
 ##### Breadcrumbs:
 
