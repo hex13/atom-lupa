@@ -100,6 +100,8 @@ Project explorer:
 ![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-2.png)
 
 # CHANGELOG
+# 2016-05-26
+* line count for all files
 
 # 2016-05-22
 * restore selections after preview
