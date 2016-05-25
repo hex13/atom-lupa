@@ -37,7 +37,8 @@
     "symbol",
     "view",
     "class",
-    "classes"
+    "classes",
+    "python"
   ],
   "__providedServices": {
     "autocomplete.provider": {

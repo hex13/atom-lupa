@@ -102,6 +102,7 @@ Project explorer:
 # CHANGELOG
 # 2016-05-26
 * line count for all files
+* basic Python support
 
 # 2016-05-22
 * restore selections after preview
