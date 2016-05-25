@@ -61,7 +61,7 @@
     "glob": "^7.0.3",
     "html-flavors": "0.0.20",
     "lodash": "^4.11.2",
-    "lupa": "0.2.113",
+    "lupa": "0.2.114",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
     "react-redux": "^4.4.5",
