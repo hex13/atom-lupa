@@ -2,7 +2,7 @@
 import React from 'react';
 import {connect, Provider} from 'react-redux';
 import reducer from './lib/state.js';
-import domMiddleware  from './lib/middleware/domMiddleware';
+
 
 // monkey patching components with file information
 const Path = require('path');
@@ -17,14 +17,10 @@ function patchModule([path, m]) {
 
 
 let env;
-const redux = require('redux');
-import thunk from 'redux-thunk';
-
 
 const Lupa = require('./lib/components/Lupa').Lupa;
 const lupa = require('lupa');
 const analysis = lupa.analysis;
-const lupaMiddleware = require('./lib/lupaMiddleware')(analysis);
 
 const fs = require('fs');
 
@@ -52,6 +48,30 @@ analysis.indexing.subscribe(files => {
 });
 
 
+// REDUX
+//--------------------------------------------------------------------------
+const redux = require('redux');
+import thunk from 'redux-thunk';
+function createStore(middlewares) {
+    return redux.createStore(
+        reducer,
+        {},
+        redux.applyMiddleware.apply(redux, [thunk].concat(middlewares))
+    );
+}
+
+//--------------------------------------------------------------------------
+import domMiddleware  from './lib/middleware/domMiddleware';
+const lupaMiddleware = require('./lib/lupaMiddleware')(analysis);
+
+const store = createStore([domMiddleware, lupaMiddleware, editorMiddleware]);
+
+
+
+store.subscribe(function () {
+
+})
+window.lupaStore = store;
 
 function mapStateToProps(state) {
     return {
@@ -68,15 +88,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 
-const store = redux.createStore(
-    reducer,
-    {},
-    redux.applyMiddleware(thunk, domMiddleware, lupaMiddleware, editorMiddleware)
-);
-store.subscribe(function () {
-
-})
-window.lupaStore = store;
 
  //<Provider store={store}>
 const CLupa = connect(mapStateToProps, mapDispatchToProps)(Lupa);
