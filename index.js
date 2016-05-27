@@ -1,8 +1,8 @@
 "use babel";
 import React from 'react';
 import {connect, Provider} from 'react-redux';
-import reducer from './lib/state.js';
 
+import createStore from './lib/createStore';
 
 // monkey patching components with file information
 const Path = require('path');
@@ -38,33 +38,12 @@ const editorMiddleware = ({
     atom: require('./lib/atom-bindings/middleware.js')
 })[env];
 
-analysis.indexing.subscribe(files => {
-    files.forEach(f => {
-        store.dispatch({
-            type: 'setMetadata',
-            file: f
-        })
-    })
-});
 
 
-// REDUX
-//--------------------------------------------------------------------------
-const redux = require('redux');
-import thunk from 'redux-thunk';
-function createStore(middlewares) {
-    return redux.createStore(
-        reducer,
-        {},
-        redux.applyMiddleware.apply(redux, [thunk].concat(middlewares))
-    );
-}
 
-//--------------------------------------------------------------------------
-import domMiddleware  from './lib/middleware/domMiddleware';
 const lupaMiddleware = require('./lib/lupaMiddleware')(analysis);
 
-const store = createStore([domMiddleware, lupaMiddleware, editorMiddleware]);
+const store = createStore([lupaMiddleware, editorMiddleware]);
 
 
 
