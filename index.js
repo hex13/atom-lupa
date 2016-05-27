@@ -14,7 +14,7 @@ require('glob')(Path.join(__dirname, '/lib/components/[A-Z]*.js'), (err, files) 
 function patchModule([path, m]) {
     Object.keys(m).forEach(k => m[k].lupaMetadata = path);
 }
-
+//---
 
 let env;
 
@@ -39,17 +39,11 @@ const editorMiddleware = ({
 })[env];
 
 
-
-
 const lupaMiddleware = require('./lib/lupaMiddleware')(analysis);
 
 const store = createStore([lupaMiddleware, editorMiddleware]);
 
 
-
-store.subscribe(function () {
-
-})
 window.lupaStore = store;
 
 function mapStateToProps(state) {
@@ -67,8 +61,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 
-
- //<Provider store={store}>
 const CLupa = connect(mapStateToProps, mapDispatchToProps)(Lupa);
 module.exports = main({
     dispatch: store.dispatch,
