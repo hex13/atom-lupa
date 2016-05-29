@@ -1,6 +1,5 @@
 # Lupa 🔍
 
-![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-0-5-0.png)
 
 ====================================================
 What is Lupa atom package?
@@ -13,7 +12,7 @@ It's something you surely would like to install.
 - Semantic code search
 - JavaScript/ES6 support
 
-Navigation sidebar capable to perform full indexing of JavaScript project.
+![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-0-5-0.png)
 
 Note:
 --------
