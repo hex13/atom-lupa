@@ -91,6 +91,9 @@ Project explorer:
 ![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-2.png)
 
 # CHANGELOG
+# 2016-05-29
+* (for contributors) search box in styleguide
+
 # 2016-05-26
 * line count for all files
 * basic Python support
