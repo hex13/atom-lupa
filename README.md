@@ -1,15 +1,6 @@
 # Lupa 🔍
 
-Version 0.5.0: Many improvements
-
-- Resizable panel
-- More integration with Atom color theme
-- Better keyboard navigation
-- Better preview
-- Global search (by two dots on the beginning e.g. `..something`
-- Other improvements
 ![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-0-5-0.png)
-
 
 ====================================================
 What is Lupa atom package?
@@ -18,7 +9,7 @@ What is Lupa atom package?
 It's something you surely would like to install.
 
 - Better navigation
-- Better understanding the codebase
+- Better understanding the codebase (full indexing of JS project, global searching: just prefix your search with 2 dots: ..foo)
 - Semantic code search
 - JavaScript/ES6 support
 
