@@ -20,13 +20,7 @@ Note:
 To allow full project indexing you have to create `lupaProject.json` in root directory of your project. Example file:
 ```
 {
-    "filePattern": "src/**/*.js",
-    "autolabels": [
-        ["angular", "angular"],
-        ["foo", "foo"],
-        ["react", "React"],
-        ["numbers", "\\d+"],
-    ]
+    "filePattern": "src/**/*.js"
 }
 ```
 
