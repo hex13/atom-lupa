@@ -7,9 +7,14 @@
 
 # For more detailed documentation see
 # https://atom.io/docs/latest/behind-atom-keymaps-in-depth
-'atom-workspace':
+'.platform-darwin atom-workspace':
   'cmd-.': 'atom-lupa:focus'
-  'cmd-alt-l': 'atom-lupa:toggle'  
+  'cmd-alt-l': 'atom-lupa:toggle'
+
+'.platform-linux atom-workspace, .platform-win32 atom-workspace':
+  'ctrl-.': 'atom-lupa:focus'
+  'ctrl-alt-l': 'atom-lupa:toggle'
+
 
 # TODO don't duplicate selector
 '.lupa-structure .lupa-entity':
