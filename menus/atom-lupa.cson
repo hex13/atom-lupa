@@ -15,6 +15,10 @@
         {
           'label': 'Toggle'
           'command': 'atom-lupa:toggle'
+        },
+        {
+          'label': 'Focus'
+          'command': 'atom-lupa:focus'
         }
       ]
     ]

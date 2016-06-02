@@ -48,7 +48,7 @@
     }
   },
   "activationCommands": {
-    "atom-workspace": "atom-lupa:toggle"
+    "atom-workspace": ["atom-lupa:toggle", "atom-lupa:focus"]
   },
   "repository": "https://github.com/hex13/atom-lupa",
   "license": "MIT",
