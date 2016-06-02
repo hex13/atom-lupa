@@ -85,6 +85,9 @@ Project explorer:
 ![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-2.png)
 
 # CHANGELOG
+# 2016-06-02
+* `toggle` command now shows/hides sidepanel. Previous `toggle` command was renamed to `focus`
+
 # 2016-05-29
 * (for contributors) search box in styleguide
 
