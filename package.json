@@ -2,7 +2,7 @@
   "name": "atom-lupa",
   "main": "./index.js",
   "__main": "./dist/bundle.js",
-  "version": "0.5.50",
+  "version": "0.5.51",
   "description": "list of JavaScript functions on sidebar",
   "scripts": {
     "reinstall": "rm -rf node_modules; npm install;",
@@ -48,7 +48,10 @@
     }
   },
   "activationCommands": {
-    "atom-workspace": ["atom-lupa:toggle", "atom-lupa:focus"]
+    "atom-workspace": [
+      "atom-lupa:toggle",
+      "atom-lupa:focus"
+    ]
   },
   "repository": "https://github.com/hex13/atom-lupa",
   "license": "MIT",
