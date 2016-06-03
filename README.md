@@ -85,6 +85,10 @@ Project explorer:
 ![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-2.png)
 
 # CHANGELOG
+# 2016-06-04
+* highlighting import/require declaration
+* clicking variable name from import now jumps to declaration; going to imported file is still possible by clicking on file name
+
 # 2016-06-02
 * `toggle` command now shows/hides sidepanel. Previous `toggle` command was renamed to `focus`
 
