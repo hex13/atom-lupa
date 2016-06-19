@@ -3,7 +3,7 @@
   "main": "./index.js",
   "__main": "./dist/bundle.js",
   "version": "0.5.56",
-  "description": "list of JavaScript functions on sidebar",
+  "description": "A list of JavaScript functions on sidebar",
   "scripts": {
     "reinstall": "rm -rf node_modules; npm install;",
     "test": "node_modules/.bin/jest"
@@ -13,6 +13,7 @@
     "symbols",
     "overview",
     "code search",
+    "productivity",
     "angular",
     "angularjs",
     "commonjs",
