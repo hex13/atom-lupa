@@ -25,10 +25,7 @@ This package shows structure of each JavaScript file, with clickable list of fun
 
 ![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-3.png)
 
-##### You can also perform deep searching, e.g. you can find all functions that have their first parameter named `err`:
-
-
-![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-deepsearch.png)
+##### You can also perform deep searching, e.g. you can find all functions that have their first parameter named `err`.
 
 examples of semantic search (DSL can change in future versions).
 
