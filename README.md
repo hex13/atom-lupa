@@ -1,14 +1,12 @@
 # Lupa 🔍
 
-====================================================
-
 - List of functions, classes, objects etc. on a sidebar 
 - Full indexing of JS project
 - Global searching: just prefix your search with 2 dots: ..foo)
 - Semantic code search
 - JavaScript/ES6 support
 
-![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-0-5-0.png)
+![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-0-5-0.jpg)
 
 Note:
 --------
