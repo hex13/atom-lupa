@@ -1,14 +1,10 @@
 # Lupa 🔍
 
-
 ====================================================
-What is Lupa atom package?
-===
 
-It's something you surely would like to install.
-
-- Better navigation
-- Better understanding the codebase (full indexing of JS project, global searching: just prefix your search with 2 dots: ..foo)
+- List of functions, classes, objects etc. on a sidebar 
+- Full indexing of JS project
+- Global searching: just prefix your search with 2 dots: ..foo)
 - Semantic code search
 - JavaScript/ES6 support
 
