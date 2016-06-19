@@ -2,7 +2,7 @@
   "name": "atom-lupa",
   "main": "./index.js",
   "__main": "./dist/bundle.js",
-  "version": "0.5.56",
+  "version": "0.5.57",
   "description": "A list of JavaScript functions on sidebar",
   "scripts": {
     "reinstall": "rm -rf node_modules; npm install;",
