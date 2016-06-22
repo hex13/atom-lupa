@@ -76,6 +76,9 @@ Project explorer:
 ![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-2.png)
 
 # CHANGELOG
+# 2016-06-22
+* detect function names in namespaces (eg. foo.bar.functionName = function () {}) 
+
 # 2016-06-04
 * highlighting import/require declaration
 * clicking variable name from import now jumps to declaration; going to imported file is still possible by clicking on file name
