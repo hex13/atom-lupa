@@ -76,6 +76,9 @@ Project explorer:
 ![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-2.png)
 
 # CHANGELOG
+# 2016-06-23
+* show names of parent functions for callbacks
+
 # 2016-06-22
 * detect function names in namespaces (eg. foo.bar.functionName = function () {}) 
 
