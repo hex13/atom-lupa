@@ -78,6 +78,7 @@ Project explorer:
 # CHANGELOG
 # 2016-06-23
 * show names of parent functions for callbacks
+* toggle visibility for entity types
 
 # 2016-06-22
 * detect function names in namespaces (eg. foo.bar.functionName = function () {}) 
