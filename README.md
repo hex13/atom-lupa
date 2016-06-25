@@ -76,6 +76,9 @@ Project explorer:
 ![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-2.png)
 
 # CHANGELOG
+# 2016-06-25
+* go to class methods
+
 # 2016-06-23
 * show names of parent functions for callbacks
 * toggle visibility for entity types
