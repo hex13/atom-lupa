@@ -79,6 +79,7 @@ Project explorer:
 # 2016-06-25
 * go to class methods
 * detect variables
+* fix bug which ocurred during CSS editing
 
 # 2016-06-23
 * show names of parent functions for callbacks
