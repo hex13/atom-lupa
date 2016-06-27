@@ -6,7 +6,7 @@
 - Semantic code search
 - JavaScript/ES6 support
 
-![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-0-5-0.jpg)
+![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-main.jpg)
 
 Note:
 --------
