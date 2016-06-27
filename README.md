@@ -72,8 +72,6 @@ source:node_modules
 ![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-breadcrumbs.png)
 Sidepanel:
 ![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-1.jpg)
-Project explorer:
-![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-2.png)
 
 # CHANGELOG
 # 2016-06-25
