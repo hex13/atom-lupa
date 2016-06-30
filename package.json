@@ -41,7 +41,8 @@
     "view",
     "class",
     "classes",
-    "python"
+    "python",
+    "typescript"
   ],
   "__providedServices": {
     "autocomplete.provider": {
