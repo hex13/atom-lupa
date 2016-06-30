@@ -74,6 +74,9 @@ Sidepanel:
 ![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-1.jpg)
 
 # CHANGELOG
+# 2016-06-30
+* basic support of TypeScript 
+
 # 2016-06-25
 * go to class methods
 * detect variables
