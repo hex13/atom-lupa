@@ -21,17 +21,16 @@ describe("Atom Lupa when Atom Settings are open", function () {
     });
 
     it('should pass smoke te1st', function (done) {
+        window.alert = () => {};
+        let t = +new Date;
         let ip;
         runs(()=> {
             ip = this.el.querySelector('.lupa-index-project');
             TestUtils.Simulate.click(ip);
         });
 
-        waits(1500);
 
-        runs(() => {
 
-        });
 
     });
 });
