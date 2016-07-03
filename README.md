@@ -1,5 +1,7 @@
 # Lupa 🔍
 
+## [Live Demo](http://hex13.github.io/atom-lupa/)
+
 - List of functions, classes, objects etc. on a sidebar 
 - Full indexing of JS project
 - Global searching: just prefix your search with 2 dots: ..foo)
