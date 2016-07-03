@@ -1,6 +1,6 @@
 # Lupa 🔍
 
-## [Live Demo](http://hex13.github.io/atom-lupa/)
+##[click here for Live Demo](http://hex13.github.io/atom-lupa/)
 
 - List of functions, classes, objects etc. on a sidebar 
 - Full indexing of JS project
