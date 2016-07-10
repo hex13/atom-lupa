@@ -21,9 +21,17 @@
         "no-return-assign": [1],
         "no-inner-declarations": [1],
         "no-empty": [1],
-        "no-mixed-spaces-and-tabs": [1]
+        "no-mixed-spaces-and-tabs": [1],
+        "react/jsx-uses-react": [2],
+        "react/jsx-uses-vars": [2],
+        "react/jsx-key": [1],
+        "react/react-in-jsx-scope": [2],
+        "react/no-unknown-property": [1]
     },
     "globals": {
         "atom": false
-    }
+    },
+    "plugins": [
+        "react"
+    ]
 }
