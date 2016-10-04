@@ -2,7 +2,7 @@
   "name": "atom-lupa",
   "main": "./index.js",
   "__main": "./dist/bundle.js",
-  "version": "0.7.15",
+  "version": "0.7.16",
   "description": "Navigation bar and breadcrumbs",
   "scripts": {
     "reinstall": "rm -rf node_modules; npm install;",
