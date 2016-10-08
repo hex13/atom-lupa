@@ -11,8 +11,9 @@
   "keywords": [
     "hierarchy",
     "breadcrumbs",
-    "breadcrumb",
     "navigation",
+    "outline",
+    "breadcrumb",
     "symbols",
     "overview",
     "code search",
@@ -29,7 +30,6 @@
     "navigator",
     "require",
     "structure",
-    "outline",
     "summary",
     "todo",
     "todos",
