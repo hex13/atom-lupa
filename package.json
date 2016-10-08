@@ -3,7 +3,7 @@
   "main": "./index.js",
   "__main": "./dist/bundle.js",
   "version": "0.7.20",
-  "description": "Navigation bar and breadcrumbs",
+  "description": "Something like minimap but for functions and variables. ",
   "scripts": {
     "reinstall": "rm -rf node_modules; npm install;",
     "test": "node_modules/.bin/jest"
