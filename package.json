@@ -9,6 +9,7 @@
     "test": "node_modules/.bin/jest"
   },
   "keywords": [
+    "hierarchy",
     "breadcrumbs",
     "breadcrumb",
     "navigation",
