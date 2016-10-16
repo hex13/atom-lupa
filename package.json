@@ -2,7 +2,7 @@
   "name": "atom-lupa",
   "main": "./index.js",
   "__main": "./dist/bundle.js",
-  "version": "0.7.21",
+  "version": "0.7.22",
   "description": "Something like minimap but for functions and variables. ",
   "scripts": {
     "reinstall": "rm -rf node_modules; npm install;",
