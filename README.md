@@ -1,4 +1,4 @@
-# Lupa 🔍
+# Lupa - searchable outline for JavaScript files (functions, variables etc.) 🔍
 
 ##[click here for Live Demo](http://hex13.github.io/atom-lupa/)
 
