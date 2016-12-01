@@ -2,7 +2,7 @@
   "name": "atom-lupa",
   "main": "./index.js",
   "__main": "./dist/bundle.js",
-  "version": "0.7.27",
+  "version": "0.7.28",
   "description": "searchable outline of JS code (functions, classes, variables, objects, TODO comments etc.)",
   "scripts": {
     "reinstall": "rm -rf node_modules; npm install;",
