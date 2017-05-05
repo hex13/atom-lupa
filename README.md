@@ -78,6 +78,10 @@ source:node_modules
 ![atom screenshot](https://raw.githubusercontent.com/hex13/atom-lupa/master/screenshot-1.jpg)
 
 # CHANGELOG
+
+# 2017-05-05
+* add JSON support
+
 # 2016-06-30
 * basic support of TypeScript 
 
